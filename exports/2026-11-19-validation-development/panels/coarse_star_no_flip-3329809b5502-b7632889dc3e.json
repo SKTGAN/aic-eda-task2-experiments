@@ -1,0 +1,80 @@
+{
+  "scope": "local development on public validation inputs",
+  "candidate_sha256": "3329809b5502a3624395de0f47362a852ef2513f68651530d069ca04723b23c9",
+  "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+  "published_matrix_sha256": "177db3b4d5b52683ec06c28fed2725210165f9085197a36c4f5d3cb706d90f1f",
+  "requested": [
+    "swerv_wrapper-ng45/1002",
+    "bp_fe-asap7/1002",
+    "swerv_wrapper-ng45/1001",
+    "bp_fe-asap7/1001"
+  ],
+  "cells": [
+    {
+      "case": "swerv_wrapper-ng45",
+      "seed": "1002",
+      "native_result": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261119-211221-225766/evaluation/evaluation_result.json",
+      "matrix_sha256": "4fca4cdd7b97bbf5dfdec8f00d41356f7aa1aa8c707e062ca070e332a7791716",
+      "status": "succeeded",
+      "score": -16.265255770091546,
+      "raw_score": -16.265255770091546,
+      "wns_ns": -2.002812417045521,
+      "tns_ns": -2770.0233078007936,
+      "published_initial_wns_ns": -1.8654300854238925,
+      "published_initial_tns_ns": -4344.438944004679,
+      "published_initial_score": -61.787382409625245,
+      "delta_from_published_initial": 45.522126639533695
+    },
+    {
+      "case": "bp_fe-asap7",
+      "seed": "1002",
+      "native_result": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261119-212821-241379/evaluation/evaluation_result.json",
+      "matrix_sha256": "14391dd8fa8dfe824d2f3dde15a17ec24e68a3c529f23986635883b00023a956",
+      "status": "succeeded",
+      "score": -97.25279318482428,
+      "raw_score": -97.25279318482428,
+      "wns_ns": -0.6609645240434902,
+      "tns_ns": -26.86313469925556,
+      "published_initial_wns_ns": -0.7174002706057677,
+      "published_initial_tns_ns": -32.47584337816895,
+      "published_initial_score": -100.0,
+      "delta_from_published_initial": 2.7472068151757156
+    },
+    {
+      "case": "swerv_wrapper-ng45",
+      "seed": "1001",
+      "native_result": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261119-220334-814741/evaluation/evaluation_result.json",
+      "matrix_sha256": "34d42a64d70a3dc3b23679e1e50527d036b1bee7d8f0f6897b557bbbfe13a202",
+      "status": "succeeded",
+      "score": -12.248039073126723,
+      "raw_score": -12.248039073126723,
+      "wns_ns": -2.3300895206156764,
+      "tns_ns": -2463.5665582607867,
+      "published_initial_wns_ns": -1.984719778035325,
+      "published_initial_tns_ns": -1966.4844886851063,
+      "published_initial_score": 8.389609670749005,
+      "delta_from_published_initial": -20.63764874387573
+    },
+    {
+      "case": "bp_fe-asap7",
+      "seed": "1001",
+      "native_result": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261119-221919-367313/evaluation/evaluation_result.json",
+      "matrix_sha256": "6d83024bddf1625585c7a68317e3bc019a8057b5357ad616266dbaa79bc2879a",
+      "status": "succeeded",
+      "score": -0.7612657229373926,
+      "raw_score": -0.7612657229373926,
+      "wns_ns": -0.44175542252369465,
+      "tns_ns": -11.927586367304642,
+      "published_initial_wns_ns": -0.3774616281931819,
+      "published_initial_tns_ns": -7.721294044907856,
+      "published_initial_score": 26.640950918867425,
+      "delta_from_published_initial": -27.402216641804817
+    }
+  ],
+  "complete": true,
+  "panel_score": -31.63183843774499,
+  "case_means": {
+    "bp_fe-asap7": -49.00702945388084,
+    "swerv_wrapper-ng45": -14.256647421609134
+  }
+}

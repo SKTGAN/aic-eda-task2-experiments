@@ -1,0 +1,2223 @@
+--- a/AgenticBench/agent/loss_decoder/agent.py
++++ b/AgenticBench/agent/loss_decoder/agent.py
+@@ -11,12 +11,15 @@
+ 
+ from candidate_reply import generated_program, model_text
+ from decision_evidence import decision_evidence
++import ledger
++import rolling_plan
+ from search_control import select_next
++import self_test
+ from contest2.agent_api import AgentAPIError
+ from contest2.model_pricing import MODEL_ID
+ from contest2.scoring import reference_table, score_metrics
+ from local_tasks.tp_gnn_local_task_definitions import DECODER_TASK, validate_program
+-from paired_feedback import (comparison_for_prompt, failure_evidence, load_attempts,
++from paired_feedback import (assignment_fingerprints, comparison_for_prompt, failure_evidence, load_attempts,
+                              published_partition_changes, related_experiment)
+ 
+ 
+@@ -71,11 +74,11 @@
+     return {name for name, arguments in LOSS_SIGNAL_FAMILIES.items() if arguments & used}
+ 
+ 
+-def ask_model(context, instructions, request, *, call_id=None):
++def ask_model(context, instructions, request, *, call_id=None, effort="low", purpose="generation"):
+     payload = {
+         "model": MODEL_ID,
+         "stream": False,
+-        "reasoning": {"effort": "low"},
++        "reasoning": {"effort": effort},
+         "input": [
+             {"type": "message", "role": "system", "content": instructions},
+             {"type": "message", "role": "user", "content": json.dumps(request, ensure_ascii=False)},
+@@ -83,11 +86,11 @@
+     }
+     folder = Path(__file__).resolve().parent
+     call_id = call_id or uuid4().hex
+-    write_event(folder, "model_request", call_id=call_id, payload=payload)
++    write_event(folder, "model_request", call_id=call_id, purpose=purpose, payload=payload)
+     try:
+         response = context.model.responses_create(payload)
+     except AgentAPIError:
+-        write_event(folder, "model_response", call_id=call_id, status="gateway_error")
++        write_event(folder, "model_response", call_id=call_id, purpose=purpose, status="gateway_error")
+         raise
+     fields = {"status": "invalid_response"}
+     if isinstance(response, dict):
+@@ -99,7 +102,7 @@
+             fields["output_text"] = model_text(response)
+         except ValueError as error:
+             fields["issue"] = str(error)
+-    write_event(folder, "model_response", call_id=call_id, **fields)
++    write_event(folder, "model_response", call_id=call_id, purpose=purpose, **fields)
+     return response
+ 
+ 
+@@ -350,7 +353,21 @@
+ 
+ 
+ class Agent:
++    best_result = None
++
+     def run(self, context):
++        try:
++            return self._search(context)
++        except Exception as error:
++            # Every official receipt is already recorded; an Agent-side error must not discard them.
++            if self.best_result is None:
++                raise
++            folder = Path(__file__).resolve().parent
++            write_event(folder, "agent_error", error_type=type(error).__name__, reason=str(error)[:300])
++            write_event(folder, "selected", **summarize(self.best_result))
++            return self.best_result["candidate_id"]
++
++    def _search(self, context):
+         if context.task != "loss_decoder":
+             raise ValueError("This Agent implements the loss_decoder baseline")
+         folder = Path(__file__).resolve().parent
+@@ -370,10 +387,15 @@
+         best = None
+         history = []
+         attempts = load_attempts(folder / "search.jsonl")
++        try:  # which synthetic probes this runtime can run (NumPy, PyTorch, a supported helper)
++            write_event(folder, "runtime_capabilities", **self_test.runtime_capabilities())
++        except Exception as error:  # diagnostic only
++            write_event(folder, "runtime_capabilities", error_type=type(error).__name__)
+         receipts_by_candidate = {}
+         partition_cache = {}
+         assignment_cache = {}
+         summary_cache = {}
++        fingerprint_cache = {}
+         evaluation_root = context.files.get("evaluations", "/workspace/evaluations")
+         initial_reference = published_initial_reference(context)
+         if initial_reference is not None:
+@@ -435,6 +457,7 @@
+                 seen.add(function_keys(result["source"]))
+                 if best is None or score_key(result) > score_key(best):
+                     best = result
++                    self.best_result = best
+         if best is not None:
+             save_best(folder, best)
+ 
+@@ -442,6 +465,115 @@
+         initial_experience_pending = bool(marker and not history)
+         consecutive_api_failures = 0
+         proposals_rejected = 0
++        planning_calls = sum(bool((row.get("experiment") or {}).get("planned")) for row in attempts.values())
++        rejected_splices = set()
++        plan_memo = {}
++
++        def submit_candidate(source, key, parent_id, intent, decision, hypotheses, mechanisms, model_calls,
++                             parent_source, experiment, planned):
++            """Preflight, submit once, and record the official receipt before any optional analysis."""
++            nonlocal best, issue, proposals_rejected
++            findings, probes, failed = [], [], []
++            try:
++                findings = self_test.static_checks(source, parent_source, experiment or {}, context.evaluation_cells)
++                failed = ["%s: %s" % (row["check"], row["detail"]) for row in findings if row["status"] == "fail"]
++                if not failed:
++                    probes = self_test.run_probes(source, parent_source, set(hypotheses), (planned or {}).get("probe"))
++                    failed = ["%s: %s" % (row["probe"], row["reason"]) for row in probes if row["status"] == "fail"]
++            except Exception as error:  # the official validator already accepted the source
++                write_event(folder, "preflight_unavailable", error_type=type(error).__name__, reason=str(error)[:300])
++            if failed:
++                issue = ("Preflight failed before submission (%s). Return a corrected program for the same "
++                         "experiment." % failed[0])[:400]
++                write_event(folder, "invalid_proposal", parent_id=parent_id, reason=issue, preflight=findings,
++                            probes=probes)
++                proposals_rejected += 1
++                return False
++            # The bridge deduplicates this ID if the submit acknowledgement is lost.
++            request_id = "e-" + hashlib.sha256(repr(key).encode("utf-8")).hexdigest()[:60]
++            if any(row["request_id"] == request_id for row in history):
++                issue = "That program already has an official evaluation record"
++                return False
++            kind = (experiment or {}).get("kind")
++            attempt = {
++                "parent_id": parent_id, "search_intent": intent, "changed_components": hypotheses,
++                "policy_action": kind if kind in rolling_plan.SPLICES else decision["reason"],
++                "mechanism_keys": mechanisms, "model_calls": model_calls, "experiment": experiment,
++                "preflight": {"static": findings, "probes": probes},
++            }
++            attempts[request_id] = attempt
++            write_event(folder, "submitted", request_id=request_id, decision=decision, **attempt)
++            result = submit_and_wait(context, source, request_id)
++            history.append(result)
++            write_event(folder, "official_receipt", request_id=request_id, candidate_id=result.get("candidate_id"),
++                        status=result.get("status"), score=(result.get("feedback") or {}).get("score"))
++            issue = None
++            proposals_rejected = 0
++            if result["status"] == "succeeded":
++                receipts_by_candidate[result["candidate_id"]] = result
++                if best is None or score_key(result) > score_key(best):
++                    best = result
++                    self.best_result = best
++                    save_best(folder, best)
++                    write_event(folder, "incumbent", **summarize(best))
++            feedback = summarize_for_prompt(result)
++            write_event(folder, "evaluated", parent_id=parent_id, **feedback)
++            return True
++
++        def rolling_decision(archive, baseline, state):
++            """The rolling plan for this round, or (None, None, None, None) if it cannot be built.
++
++            It is built once per round: a retried generation reuses it, and the planning call with it.
++            """
++            nonlocal planning_calls
++            memo_key = (len(history), len(rejected_splices), repr(baseline))
++            if memo_key in plan_memo:
++                return plan_memo[memo_key]
++            try:
++                start = ledger.same_host_start(initial_reference, archive) if initial_reference else {
++                    "candidate_id": context.baseline_candidate, "feedback": {"score": None, "cells": []}}
++                for result in history:
++                    if result["status"] == "succeeded" and result["request_id"] not in fingerprint_cache:
++                        try:
++                            fingerprint_cache[result["request_id"]] = assignment_fingerprints(
++                                result, evaluation_root, context.evaluation_cells, assignment_cache)
++                        except (OSError, ValueError, MemoryError) as error:
++                            fingerprint_cache[result["request_id"]] = {}
++                            write_event(folder, "feedback_degraded", request_id=result["request_id"],
++                                        error_type=type(error).__name__, reason="label fingerprints unavailable")
++                sources = {result["request_id"]: result["source"] for result in history if result.get("source")}
++                evidence = ledger.build_ledger(archive, sources, context.evaluation_cells, start, initial,
++                                               fingerprint_cache)
++                considered = {ledger.factor_pair(key) for key in seen} | rejected_splices
++                plan = rolling_plan.plan_next(evidence, baseline, state["evaluations_remaining"],
++                                              len(history) + state["evaluations_remaining"], considered, planning_calls)
++            except Exception as error:  # the rolling plan is advisory; the branching decision stands
++                write_event(folder, "plan_degraded", stage="plan", error_type=type(error).__name__,
++                            reason=str(error)[:300])
++                plan_memo[memo_key] = None, None, None, None
++                return plan_memo[memo_key]
++            chosen, planned = plan["choice"], None
++            if plan["hard"] and context.status()["model_dispatch_allowed"]:
++                planning_calls += 1
++                try:
++                    packet = rolling_plan.generation_packet(plan, chosen, evidence)
++                    reply = model_text(ask_model(
++                        context, rolling_plan.PLAN_TASK + "\n\n" + interface,
++                        rolling_plan.rounded(rolling_plan.planner_request(plan, packet, sorted(self_test.ALLOWED_PROBES))),
++                        effort="high", purpose="plan"))
++                    planned = rolling_plan.parse_plan_reply(reply, plan)
++                    chosen = next(option for option in plan["options"] if option["id"] == planned["choice"])
++                except Exception as error:  # an unusable plan falls back to the deterministic first option
++                    planned = None
++                    write_event(folder, "plan_unavailable", error_type=type(error).__name__, reason=str(error)[:300])
++            write_event(folder, "plan", choice=chosen["id"], kind=chosen["kind"], parent=chosen["parent"],
++                        component=chosen["component"], hard=plan["hard"], budget=plan["budget"], planned=planned,
++                        options=[{key: option.get(key) for key in ("id", "kind", "parent", "component", "question")}
++                                 for option in plan["options"]],
++                        lessons=[rolling_plan.compact_lesson(row) for row in plan["lessons"]])
++            plan_memo[memo_key] = plan, chosen, planned, evidence
++            return plan_memo[memo_key]
++
+         while True:
+             state = context.status()
+             if not state["evaluation_dispatch_allowed"] or not state["model_dispatch_allowed"]:
+@@ -453,8 +585,50 @@
+             parent_id, intent, decision = select_next(
+                 archive, context.baseline_candidate, initial, context.evaluation_cells,
+                 opening=opening, incumbent_id=best["candidate_id"] if best else None)
++            plan, chosen, planned, evidence = rolling_decision(archive, (parent_id, intent, decision), state)
++            experiment = None
++            if chosen is not None:
++                if chosen["parent_candidate"] != parent_id or chosen["component"] != decision.get("component"):
++                    # A removal outcome, a declined repair or a splice moved the parent or the edited function.
++                    parent_id, intent = chosen["parent_candidate"], chosen["component"] + "_only"
++                    decision = dict(plan.get("decision_override") or {"reason": decision["reason"]},
++                                    component=chosen["component"], rolling_plan_override=True)
++                experiment = {key: chosen.get(key) for key in ("id", "kind", "parent", "parent_candidate", "component",
++                                                                "question", "contract", "factors", "donors")}
++                experiment["planned"] = planned is not None
++                if planned and planned.get("expect_footprint"):
++                    experiment["expect_footprint"] = planned["expect_footprint"]
++                decision["experiment"] = {key: chosen.get(key) for key in ("id", "kind", "question")}
+             parent = None if parent_id == context.baseline_candidate else receipts_by_candidate[parent_id]
+             parent_source = parent["source"] if parent else initial
++            if experiment is not None and experiment["kind"] in rolling_plan.SPLICES:
++                # A deterministic splice of measured functions: no model call, one official slot.
++                try:
++                    def donor(label):
++                        row = ledger.entry(evidence, label)
++                        if row["id"] == "S":
++                            return initial
++                        return next(result["source"] for result in history if result["request_id"] == row["request_id"])
++                    source = validate_program(rolling_plan.splice_source(
++                        donor(experiment["donors"]["loss"]), donor(experiment["donors"]["decoder"])), DECODER_TASK)
++                    key = function_keys(source)
++                    if key in seen:
++                        raise ValueError("The spliced program was already considered")
++                    hypotheses = {experiment["component"]: rolling_plan.splice_hypothesis(chosen)}
++                    mechanisms = mechanism_keys(source, parent_source, hypotheses)
++                except (ValueError, SyntaxError, KeyError, StopIteration, TypeError) as error:
++                    rejected_splices.add((experiment["factors"]["loss"], experiment["factors"]["decoder"]))
++                    write_event(folder, "splice_rejected", experiment=experiment["id"], kind=experiment["kind"],
++                                reason=str(error)[:300])
++                    continue
++                seen.add(key)
++                if not submit_candidate(source, key, parent_id, intent, decision, hypotheses, mechanisms, {},
++                                        parent_source, experiment, planned):
++                    issue = None  # a splice issue is not feedback for the next generated program
++                    if proposals_rejected >= 5:
++                        write_event(folder, "generation_stop", reason="five_consecutive_invalid_proposals")
++                        break
++                continue
+             summaries = {row["request_id"]: row for row in archive}
+             parent_feedback = summaries[parent["request_id"]] if parent else None
+             incumbent_feedback = summaries[best["request_id"]] if best and best is not parent else None
+@@ -479,6 +653,15 @@
+                 "earlier_edits_from_selected_parent": previous_children(archive, parent_id, decision["component"]),
+                 "previous_generation_issue": issue,
+             }
++            if chosen is not None:
++                try:
++                    labels = {row["candidate_id"]: row["id"] for row in evidence["entries"]}
++                    request = rolling_plan.assemble_request(
++                        request, rolling_plan.generation_packet(plan, chosen, evidence), planned, labels,
++                        parent_is_last=parent_feedback is not None and parent_feedback is focus)
++                except Exception as error:  # the uncompacted request still carries every official value
++                    write_event(folder, "plan_degraded", stage="packet", error_type=type(error).__name__,
++                                reason=str(error)[:300])
+             system_prompt = instructions.rstrip() + "\n\n" + interface
+             if initial_experience_pending:
+                 initial_experience_pending = False
+@@ -571,30 +754,12 @@
+                     hypotheses, mechanisms = alternative_hypotheses, alternative_mechanisms
+                     model_calls["accepted_code"] = alternative_call
+ 
+-            # The bridge deduplicates this ID if the submit acknowledgement is lost.
+-            request_id = "e-" + hashlib.sha256(repr(key).encode("utf-8")).hexdigest()[:60]
+-            if any(row["request_id"] == request_id for row in history):
+-                issue = "That program already has an official evaluation record"
++            if not submit_candidate(source, key, parent_id, intent, decision, hypotheses, mechanisms, model_calls,
++                                    parent_source, experiment, planned):
++                if proposals_rejected >= 5:
++                    write_event(folder, "generation_stop", reason="five_consecutive_invalid_proposals")
++                    break
+                 continue
+-            attempt = {
+-                "parent_id": parent_id, "search_intent": intent, "changed_components": hypotheses,
+-                "policy_action": decision["reason"],
+-                "mechanism_keys": mechanisms, "model_calls": model_calls,
+-            }
+-            attempts[request_id] = attempt
+-            write_event(folder, "submitted", request_id=request_id, decision=decision, **attempt)
+-            result = submit_and_wait(context, source, request_id)
+-            history.append(result)
+-            issue = None
+-            proposals_rejected = 0
+-            if result["status"] == "succeeded":
+-                receipts_by_candidate[result["candidate_id"]] = result
+-                if best is None or score_key(result) > score_key(best):
+-                    best = result
+-                    save_best(folder, best)
+-                    write_event(folder, "incumbent", **summarize(best))
+-            feedback = summarize_for_prompt(result)
+-            write_event(folder, "evaluated", parent_id=parent_id, **feedback)
+ 
+         if best is None:
+             raise RuntimeError("No candidate completed an official training evaluation" + (f": {issue}" if issue else ""))
+--- a/AgenticBench/agent/loss_decoder/paired_feedback.py
++++ b/AgenticBench/agent/loss_decoder/paired_feedback.py
+@@ -165,6 +165,25 @@
+     return snapshot
+ 
+ 
++def assignment_fingerprints(result, evaluation_root, schedule, cache):
++    """Per cell, hashes of the exact labels and of the grouping up to a die exchange.
++
++    Equal label hashes on every cell mean an identical partition; equal grouping hashes with
++    different label hashes mean the same grouping with the dies exchanged. Names never leave here.
++    """
++    prints = {}
++    for cell in schedule:
++        key = _cell_key(cell)
++        snapshot = _assignment_snapshot(result, evaluation_root, key, cache)
++        if snapshot is None:
++            continue
++        names, labels, count = snapshot
++        exchanged = labels ^ int.from_bytes(b"\x01" * count, "little")
++        prints[key] = {"labels": sha256(names + labels.to_bytes(count, "little")).hexdigest()[:16],
++                       "grouping": sha256(names + min(labels, exchanged).to_bytes(count, "little")).hexdigest()[:16]}
++    return prints
++
++
+ def _assignment_difference(key, old, new, root, initial_changes, cache):
+     if old.get("status") == "published_reference":
+         row = initial_changes.get(key)
+@@ -466,7 +485,8 @@
+             parents[request_id].add(parent_id)
+             if event["event"] == "submitted":
+                 details[request_id] = {
+-                    key: event[key] for key in ("search_intent", "changed_components", "mechanism_keys", "model_calls", "policy_action")
++                    key: event[key] for key in ("search_intent", "changed_components", "mechanism_keys", "model_calls",
++                                                "policy_action", "experiment")
+                     if key in event
+                 }
+     return {request_id: {"parent_id": next(iter(ids)), **details.get(request_id, {})}
+--- a/AgenticBench/agent/loss_decoder/prompt.md
++++ b/AgenticBench/agent/loss_decoder/prompt.md
+@@ -10,9 +10,9 @@
+ 
+ For an opening trial, consider two plausible mechanisms that change different quantities or decisions, then implement the one with a clearer path to changing the discrete partition. Return only the selected program. If the opening review returns a concrete issue, resolve it by proposing a different mechanism through the same editable function.
+ 
+-The latest receipt can belong to a different branch from the selected parent. Use `earlier_edits_from_selected_parent` to see previously tested edits to this component under this parent. Treat other branches as comparisons and label their evidence accordingly. Explain the general decision you change without encoding case names or seed identities as rules.
++The latest receipt can belong to a different branch from the selected parent. Use `earlier_edits_from_selected_parent`, or `experiment.comparisons` when present, to see previously tested edits to this component under this parent. Treat other branches as comparisons and label their evidence accordingly. Explain the general decision you change without encoding case names or seed identities as rules.
+ 
+-Follow the experiment chosen in `decision.reason`. For `targeted_repair`, change the selected parent to protect the measured gain and reduce the specific regression identified in the decision. For `switch_branch`, start from the new parent, explain how the edit differs from the stalled branch, and respect the one editable component. The incumbent remains eligible for final selection. Consult `decision_evidence` for outcomes observed earlier in this session. Identical final timing across the matrix does not by itself prove identical assignments. If optional diagnostics are missing, use the available official measurements.
++Follow the experiment chosen in `decision.reason`. For `targeted_repair`, change the selected parent to protect the measured gain and reduce the specific regression identified in the decision. For `switch_branch`, start from the new parent, explain how the edit differs from the stalled branch, and respect the one editable component. The incumbent remains eligible for final selection. Consult `decision_evidence`, or `experiment.lessons` when present, for outcomes observed earlier in this session. Identical final timing across the matrix does not by itself prove identical assignments. If optional diagnostics are missing, use the available official measurements.
+ 
+ Consult `prior_trials` for the parent, mechanism, falsifiable prediction and measured score of each attempted change in this run. `inert_evidence` describes a complete paired evaluation with no score gain and mostly unchanged timing, or mostly unchanged assignment and timing together. When changing direction, choose a different assignment mechanism from an inert edit under the same parent. If related evidence exists, state which part of the new edit makes its prediction different.
+ 
+@@ -24,6 +24,8 @@
+ 
+ Use the reported failure stage, reason and bounded log excerpts as evidence. Treat `runtime_environment` failures as infrastructure observations. A confirmed `candidate_contract` failure identifies the component to repair. Keep undiagnosed failures provisional. Use `related_experiment` to see whether an earlier mechanism fixed or reproduced the issue on a comparable cell. Prefer a single change whose predicted effect can be checked in the next official evaluation.
+ 
++`experiment` states the question this candidate answers, fixed before generation. Raise the `contract.target` design without moving any `contract.protect` design below its stated tolerance; `fragile` gains rest on exchanged dies or published start values and are not protected. `anchor_review.rows` compare the parent with the start, measured on this host where `start_measured_on` says so. Evidence ids such as `R5-R4` name a measured program and its exact one-function control in this run. When `experiment_plan` is present, implement its `edit_brief` and keep its falsifier measurable. Explain the change in general terms; case and seed names are evidence labels only.
++
+ ## Offline Expert Knowledge
+ 
+ Use 2D timing as a clue; inter-die connections and legalization can change critical paths. If a loss change does not alter ordering near the area cutoff, the final die assignment may be unchanged. Measure full die swaps separately from local boundary moves; a swap can still change timing. Track the worst path and violations across endpoints, comparing the same design and seed. If identical assignments produce materially different timing, rerun a same-host control before attributing the difference. Fewer cut nets do not guarantee better timing. Test one partition hypothesis at a time and verify gains across seeds, since a few high scores can mask widespread regressions.
+--- a/AgenticBench/agent/loss_decoder/ledger.py
++++ b/AgenticBench/agent/loss_decoder/ledger.py
+@@ -0,0 +1,689 @@
++"""Evidence ledger for the rolling search: exact factors, paired cells and reusable controls.
++
++Standard-library code for the Python 3.8 Agent runtime. It reads only this run's own receipt
++summaries and accepted sources; it never calls the bridge, the model or the evaluator. Case and seed
++labels are evidence keys. Nothing here turns them into rules for generated programs.
++
++A program is a pair of factors: the exact loss body and the exact decoder body, docstrings removed.
++Every evaluated program is one point in that grid, so a control is any other measured point that
++shares one factor. A contrast is exact when the two programs differ in exactly one function.
++"""
++
++import ast
++import hashlib
++from math import isfinite, sqrt
++
++
++COMPONENTS = ("loss", "decoder")
++EXCHANGE_FRACTION = 0.5     # more than half of the instances moved: the same grouping with the dies exchanged
++LOCAL_FRACTION = 0.10       # at most this share moved, after undoing an exchange: a local boundary change
++SCORE_EPS = 1e-6
++TIME_EPS = 1e-6
++# Sensitivity heuristics, not measurement noise. The physical flow is deterministic for a fixed
++# assignment (identical labels gave identical timing in every archived repeat), so these numbers
++# describe how far a cell's score moves when its labels move a little. They are policy settings.
++DEFAULT_TOLERANCE = 5.0     # case-mean score points before the run has calibration pairs
++MIN_TOLERANCE = 2.0
++CALIBRATION_PAIRS = 3       # local label perturbations of one case needed before the tolerance is calibrated
++SENSITIVITY_QUANTILE = 0.5  # quantile of the absolute score changes over local pairs (the median)
++TOLERANCE_SCALE = 1.0       # multiplies every calibrated tolerance
++ROOT_SEEDS = True           # a case-mean tolerance divides the cell sensitivity by sqrt(seeds)
++NARROW_SHARE = 0.75         # one cell carrying this share of an official gain makes the gain narrow
++ORIENTATION_SHARE = 0.5     # exchanged cells carrying this share of the positive change make it orientation
++
++
++def number(value):
++    if isinstance(value, (int, float)) and not isinstance(value, bool) and isfinite(value):
++        return float(value)
++    return None
++
++
++def cell_key(cell):
++    return cell["case"], str(cell["seed"])
++
++
++# ----------------------------------------------------------------------------------------------
++# Exact factors
++
++
++def _strip_docstring(function):
++    if ast.get_docstring(function, clean=False) is not None:
++        function.body.pop(0)
++    return function
++
++
++class _DropScaling(ast.NodeTransformer):
++    """`c * x`, `x * c` and `x / c` with a numeric literal c become `x`: a scale is a coefficient."""
++
++    @staticmethod
++    def _literal(node):
++        return isinstance(node, ast.Constant) and type(node.value) in (int, float)
++
++    def visit_BinOp(self, node):
++        self.generic_visit(node)
++        if isinstance(node.op, ast.Mult) and self._literal(node.left) and not self._literal(node.right):
++            return node.right
++        if isinstance(node.op, (ast.Mult, ast.Div)) and self._literal(node.right) and not self._literal(node.left):
++            return node.left
++        return node
++
++
++def _structure(function):
++    """The function with literal scales dropped, numeric literals zeroed and local names renamed
++    (subscript selectors kept)."""
++    function = _DropScaling().visit(function)
++    nodes = list(ast.walk(function))
++    assigned = {node.id for node in nodes if isinstance(node, ast.Name) and isinstance(node.ctx, ast.Store)}
++    selectors = {id(index) for node in nodes if isinstance(node, ast.Subscript)
++                 for index in ast.walk(node.slice) if isinstance(index, ast.Constant)}
++    names = {}
++    for node in nodes:
++        if isinstance(node, ast.Constant) and type(node.value) in (int, float) and id(node) not in selectors:
++            node.value = 0
++        elif isinstance(node, ast.Name) and node.id in assigned:
++            node.id = names.setdefault(node.id, "__local_%d" % len(names))
++    return function
++
++
++def function_dumps(source, structure=False):
++    """Canonical dump of each editable function without its docstring (the Agent's function_keys)."""
++    dumps = []
++    for function in ast.parse(source).body:
++        if not isinstance(function, ast.FunctionDef):
++            continue
++        function = _strip_docstring(function)
++        if structure:
++            function = _structure(function)
++        dumps.append(ast.dump(function, include_attributes=False))
++    if len(dumps) != len(COMPONENTS):
++        raise ValueError("Expected exactly the loss and decoder functions")
++    return tuple(dumps)
++
++
++def _digest(text):
++    return hashlib.sha256(text.encode("utf-8")).hexdigest()[:12]
++
++
++def factor_ids(source):
++    """Exact identity of each function body: equal ids mean the same code after removing docstrings."""
++    return dict(zip(COMPONENTS, (_digest(dump) for dump in function_dumps(source))))
++
++
++def factor_pair(keys):
++    """(loss id, decoder id) from the Agent's function_keys tuple of one program."""
++    return tuple(_digest(dump) for dump in keys)
++
++
++def edit_footprint(parent_source, source):
++    """Per function: unchanged, coefficients_only (same structure, other constants) or structural."""
++    exact = zip(function_dumps(parent_source), function_dumps(source))
++    shape = zip(function_dumps(parent_source, True), function_dumps(source, True))
++    result = {}
++    for component, (old, new), (old_shape, new_shape) in zip(COMPONENTS, exact, shape):
++        if old == new:
++            result[component] = "unchanged"
++        elif old_shape == new_shape:
++            result[component] = "coefficients_only"
++        else:
++            result[component] = "structural"
++    return result
++
++
++# ----------------------------------------------------------------------------------------------
++# Start reference
++
++
++def same_host_start(published, summaries):
++    """The published start, with each cell replaced by this host's measurement where a receipt kept the
++    start assignment (the organizer diagnostic reports zero changed instances on that cell).
++
++    A fixed assignment gives the same timing on one host, so such a cell is the start's own timing
++    here. Two such cells that disagree leave the published value. Borrowed from the two-stage Harness.
++    """
++    if published is None:
++        return None
++    keys = {cell_key(cell) for cell in published["feedback"]["cells"]}
++    measured, conflicts = {}, set()
++    for summary in summaries:
++        if summary.get("status") != "succeeded":
++            continue
++        for cell in summary.get("cells") or []:
++            key = cell_key(cell)
++            change = cell.get("partition_change_vs_initial") or {}
++            if (key not in keys or key in conflicts or change.get("partition_assignment_changed_count") != 0
++                    or cell.get("status") != "succeeded" or number(cell.get("score")) is None):
++                continue
++            previous = measured.get(key)
++            if previous is not None:
++                if not _timing_equal(_cell_record(previous), _cell_record(cell)):
++                    conflicts.add(key)
++                    del measured[key]
++                continue
++            measured[key] = cell
++    if not measured and not conflicts:
++        return published
++    cells = []
++    for cell in published["feedback"]["cells"]:
++        same = measured.get(cell_key(cell))
++        cells.append({**cell, "score": same["score"], "metrics": same.get("metrics") or {}, "measured_on": "this_host"}
++                     if same else {**cell, "measured_on": "published"})
++    cases = []
++    for cell in cells:
++        if cell["case"] not in cases:
++            cases.append(cell["case"])
++    score = sum(sum(c["score"] for c in cells if c["case"] == case) / sum(1 for c in cells if c["case"] == case)
++                for case in cases) / len(cases)
++    return {**published, "feedback": {"score": score, "cells": cells},
++            "summary": {"same_host_cells": len(measured), "published_cells": len(cells) - len(measured),
++                        "same_host_score": score, "published_score": published["feedback"]["score"],
++                        "score_kind": "measured" if len(measured) == len(cells) else "mixed_reference",
++                        "conflicting_cells_using_published": [list(key) for key in sorted(conflicts)]}}
++
++
++# ----------------------------------------------------------------------------------------------
++# Ledger entries
++
++
++def _cell_record(cell, fingerprint=None, measured_on=None):
++    metrics = cell.get("metrics") or {}
++    change = cell.get("partition_change_vs_initial") or {}
++    count = change.get("partition_assignment_changed_count")
++    fraction = number(change.get("partition_assignment_changed_fraction"))
++    if count == 0:
++        fraction = 0.0
++    record = {
++        "score": number(cell.get("score")),
++        "wns": number(metrics.get("final_global_wns_setup_ns")),
++        "tns": number(metrics.get("final_global_tns_setup_ns")),
++        "valid": cell.get("valid"),
++        "status": cell.get("status"),
++        "vs_start": fraction,
++        "failure": (cell.get("failure") or {}).get("kind"),
++        "labels": (fingerprint or {}).get("labels"),
++        "grouping": (fingerprint or {}).get("grouping"),
++    }
++    if measured_on:
++        record["measured_on"] = measured_on
++    return record
++
++
++def _parent_pairs(summary):
++    """Exact label distance to the entry's own parent, when the Agent could align the label files."""
++    pairs = {}
++    for row in (summary.get("parent_comparison") or {}).get("cells") or []:
++        assignment = row.get("assignment") or {}
++        if assignment.get("source") != "published_aligned_assignments":
++            continue
++        pairs[cell_key(row)] = {"changed_fraction": number(assignment.get("changed_fraction")),
++                                "flip_adjusted_fraction": number(assignment.get("flip_adjusted_changed_fraction")),
++                                "identical": assignment.get("identical") is True}
++    return pairs
++
++
++def start_entry(start, factors, schedule):
++    """The official start: published cells, replaced by this host's measurement where one exists."""
++    cells = {}
++    for cell in (start.get("feedback") or {}).get("cells") or []:
++        on_host = cell.get("measured_on") == "this_host"
++        record = _cell_record({**cell, "partition_change_vs_initial": {"partition_assignment_changed_count": 0}},
++                              measured_on="this_host" if on_host else "published")
++        record["valid"], record["status"] = True, "succeeded" if on_host else "published_reference"
++        cells[cell_key(cell)] = record
++    keys = [cell_key(cell) for cell in schedule]
++    return {"id": "S", "candidate_id": start.get("candidate_id"), "request_id": None, "parent_id": None,
++            "factors": dict(factors), "score": number((start.get("feedback") or {}).get("score")),
++            "complete": all(key in cells and cells[key]["score"] is not None for key in keys),
++            "measured": all(key in cells and cells[key].get("measured_on") == "this_host" for key in keys),
++            "cells": cells, "pairs": {}, "attempt": {}, "action": "official_start", "experiment": None}
++
++
++def build_ledger(summaries, sources, schedule, start, initial_source, fingerprints=None):
++    """One entry per receipt, in evaluation order, after the start entry `S`.
++
++    summaries: the Agent's chronological receipt summaries; sources: {request_id: accepted source};
++    start: the start reference (published or same-host); fingerprints: {request_id: {(case, seed):
++    {"labels", "grouping"}}} from the published label files, when the Agent could read them.
++    """
++    keys = [cell_key(cell) for cell in schedule]
++    if not keys or len(set(keys)) != len(keys):
++        raise ValueError("Expected a nonempty schedule with unique case/seed pairs")
++    initial = factor_ids(initial_source)
++    entries = [start_entry(start, initial, schedule)]
++    by_candidate = {entries[0]["candidate_id"]: entries[0]}
++    for index, summary in enumerate(summaries, 1):
++        source = sources.get(summary.get("request_id"))
++        try:
++            factors = factor_ids(source) if source else None
++        except (SyntaxError, ValueError):
++            factors = None
++        prints = (fingerprints or {}).get(summary.get("request_id")) or {}
++        cells = {}
++        for cell in summary.get("cells") or []:
++            cells[cell_key(cell)] = _cell_record(cell, prints.get(cell_key(cell)))
++        complete = (summary.get("status") == "succeeded" and number(summary.get("score")) is not None
++                    and set(cells) == set(keys) and all(cells[key]["score"] is not None for key in keys))
++        attempt = summary.get("attempt") or {}
++        entry = {
++            "id": "R%d" % index, "candidate_id": summary.get("candidate_id"),
++            "request_id": summary.get("request_id"), "parent_id": attempt.get("parent_id"),
++            "factors": factors, "score": number(summary.get("score")), "complete": complete,
++            "measured": complete and all(cells[key]["valid"] is True and cells[key]["status"] == "succeeded"
++                                         for key in keys),
++            "cells": cells, "pairs": _parent_pairs(summary), "attempt": attempt,
++            "action": attempt.get("policy_action") or attempt.get("search_intent"),
++            "experiment": attempt.get("experiment"),
++        }
++        entries.append(entry)
++        if entry["candidate_id"]:
++            by_candidate[entry["candidate_id"]] = entry
++    sources = dict(sources)
++    sources[None] = initial_source  # the start entry has no request id
++    for entry in entries[1:]:
++        parent = by_candidate.get(entry["parent_id"])
++        entry["parent"] = parent["id"] if parent else None
++        before, after = sources.get(parent["request_id"]) if parent else None, sources.get(entry["request_id"])
++        try:
++            entry["footprint"] = edit_footprint(before, after) if before and after else None
++        except (SyntaxError, ValueError):
++            entry["footprint"] = None
++    return {"entries": entries, "by_id": {entry["id"]: entry for entry in entries},
++            "by_candidate": by_candidate, "schedule": keys,
++            "cases": sorted({case for case, _ in keys}, key=[case for case, _ in keys].index)}
++
++
++def entry(ledger, label):
++    return ledger["by_id"][label]
++
++
++def find_program(ledger, factors):
++    """A complete entry with exactly these two factors (the start included), preferring one measured
++    on this host on every cell."""
++    matches = [row for row in ledger["entries"] if row["factors"] == factors and row["complete"]]
++    return next((row for row in matches if row["measured"]), matches[0] if matches else None)
++
++
++# ----------------------------------------------------------------------------------------------
++# Assignment relation between two entries on one cell
++
++
++def _side_and_distance(fraction):
++    return fraction > EXCHANGE_FRACTION, min(fraction, 1.0 - fraction)
++
++
++def relation(ledger, a, b, key):
++    """identical, exchange, local, regroup or unknown: how b's labels on one cell differ from a's."""
++    ca, cb = a["cells"].get(key), b["cells"].get(key)
++    if ca is None or cb is None:
++        return "unknown"
++    if ca["labels"] and cb["labels"]:
++        if ca["labels"] == cb["labels"]:
++            return "identical"
++        if ca["grouping"] == cb["grouping"]:
++            return "exchange"
++    for child, parent in ((a, b), (b, a)):
++        pair = child["pairs"].get(key) if child.get("parent") == parent["id"] else None
++        if pair and pair["changed_fraction"] is not None:
++            if pair["identical"]:
++                return "identical"
++            flipped = pair["flip_adjusted_fraction"]
++            if flipped is not None and flipped <= LOCAL_FRACTION:
++                return "exchange" if pair["changed_fraction"] > EXCHANGE_FRACTION else "local"
++            return "regroup"
++    fa, fb = ca["vs_start"], cb["vs_start"]
++    if fa is None or fb is None:
++        return "unknown"
++    if fa == 0.0 and fb == 0.0:
++        return "identical"
++    (side_a, da), (side_b, db) = _side_and_distance(fa), _side_and_distance(fb)
++    if da <= LOCAL_FRACTION and db <= LOCAL_FRACTION:
++        return "exchange" if side_a != side_b else "local"
++    if abs(da - db) > LOCAL_FRACTION:
++        return "regroup"
++    return "unknown"
++
++
++def _timing_equal(ca, cb):
++    values = [(ca[name], cb[name]) for name in ("score", "wns", "tns")]
++    return all(x is not None and y is not None and abs(x - y) <= TIME_EPS for x, y in values)
++
++
++# ----------------------------------------------------------------------------------------------
++# Calibration
++
++
++def _cell_pairs(ledger):
++    """Every pair of entries measured on this host, cell by cell, with their label relation."""
++    rows = [row for row in ledger["entries"] if row["id"] != "S" and row["measured"]]
++    start = ledger["entries"][0]
++    for key in ledger["schedule"]:
++        group = rows + ([start] if start["cells"].get(key, {}).get("measured_on") == "this_host" else [])
++        for i in range(len(group)):
++            for j in range(i + 1, len(group)):
++                ca, cb = group[i]["cells"][key], group[j]["cells"][key]
++                if ca["score"] is not None and cb["score"] is not None:
++                    yield key, group[i], group[j], relation(ledger, group[i], group[j], key)
++
++
++def sensitivity_pairs(ledger):
++    """Raw calibration observations: two programs whose labels on a cell differ only locally (same
++    orientation, each within LOCAL_FRACTION of one grouping) and whose timing differs."""
++    pairs = []
++    for key, a, b, rel in _cell_pairs(ledger):
++        ca, cb = a["cells"][key], b["cells"][key]
++        if rel == "local" and not _timing_equal(ca, cb):
++            pairs.append({"case": key[0], "seed": key[1], "a": a["id"], "b": b["id"],
++                          "moved_vs_start": [ca["vs_start"], cb["vs_start"]],
++                          "scores": [ca["score"], cb["score"]], "abs_delta": abs(ca["score"] - cb["score"])})
++    return pairs
++
++
++def repeat_pairs(ledger):
++    """Matched repeats: two receipts with identical labels on a cell, and whether their timing agrees."""
++    pairs = []
++    for key, a, b, rel in _cell_pairs(ledger):
++        if rel == "identical":
++            ca, cb = a["cells"][key], b["cells"][key]
++            pairs.append({"case": key[0], "seed": key[1], "a": a["id"], "b": b["id"],
++                          "basis": "labels" if ca["labels"] and cb["labels"] else "zero_changed_vs_start",
++                          "identical_timing": _timing_equal(ca, cb), "abs_delta": abs(ca["score"] - cb["score"])})
++    return pairs
++
++
++def quantile(values, q):
++    """Linear-interpolation quantile of a non-empty list."""
++    ordered = sorted(values)
++    position = (len(ordered) - 1) * q
++    low = int(position)
++    high = min(low + 1, len(ordered) - 1)
++    return ordered[low] + (ordered[high] - ordered[low]) * (position - low)
++
++
++def tolerances(ledger):
++    """Case-mean tolerance from this run's own local label perturbations (a sensitivity heuristic).
++
++    The SENSITIVITY_QUANTILE of the absolute score changes over a case's sensitivity_pairs is its
++    cell sensitivity; a mean over the case's seeds divides it by sqrt(seeds) when ROOT_SEEDS holds.
++    Fewer than CALIBRATION_PAIRS pairs leave the explicit DEFAULT_TOLERANCE.
++    """
++    pairs = sensitivity_pairs(ledger)
++    result = {}
++    for case in ledger["cases"]:
++        seeds = sum(1 for key in ledger["schedule"] if key[0] == case)
++        divisor = sqrt(seeds) if ROOT_SEEDS else 1.0
++        changes = [row["abs_delta"] for row in pairs if row["case"] == case]
++        if len(changes) >= CALIBRATION_PAIRS:
++            cell = quantile(changes, SENSITIVITY_QUANTILE) * TOLERANCE_SCALE
++            result[case] = {"cell": round(cell, 3), "case_mean": round(max(MIN_TOLERANCE, cell / divisor), 3),
++                            "pairs": len(changes), "source": "calibrated"}
++        else:
++            result[case] = {"cell": round(DEFAULT_TOLERANCE * divisor, 3), "case_mean": DEFAULT_TOLERANCE,
++                            "pairs": len(changes), "source": "default"}
++    return result
++
++
++def aggregate_tolerance(ledger, tol=None):
++    """Tolerance for the official score, the mean of the case means."""
++    tol = tol or tolerances(ledger)
++    values = [tol[case]["case_mean"] for case in ledger["cases"]]
++    return round(sqrt(sum(value * value for value in values)) / len(values), 3)
++
++
++# ----------------------------------------------------------------------------------------------
++# Contrasts
++
++
++def contrast(ledger, a_id, b_id, tol=None):
++    """Paired evidence that `a` (the changed program) differs from `b` (its control) on every cell."""
++    a, b = entry(ledger, a_id), entry(ledger, b_id)
++    tol = tol or tolerances(ledger)
++    varies = ([component for component in COMPONENTS if a["factors"][component] != b["factors"][component]]
++              if a["factors"] and b["factors"] else None)
++    rows = []
++    for key in ledger["schedule"]:
++        ca, cb = a["cells"].get(key), b["cells"].get(key)
++        row = {"case": key[0], "seed": key[1]}
++        if not ca or not cb or ca["score"] is None or cb["score"] is None:
++            row.update(delta=None, strength="missing")
++            rows.append(row)
++            continue
++        rel = relation(ledger, a, b, key)
++        row.update(delta=round(ca["score"] - cb["score"], 4), relation=rel,
++                   wns_delta_ns=round(ca["wns"] - cb["wns"], 6) if ca["wns"] is not None and cb["wns"] is not None else None,
++                   tns_delta_ns=round(ca["tns"] - cb["tns"], 4) if ca["tns"] is not None and cb["tns"] is not None else None)
++        if ca.get("valid") is False or ca.get("failure") or ca.get("status") not in ("succeeded", None):
++            strength = "failed"
++        elif rel == "identical":
++            strength = "inert" if _timing_equal(ca, cb) else "timing_changed_same_labels"
++        elif rel == "exchange":
++            strength = "orientation"
++        elif cb.get("measured_on") == "published" or ca.get("measured_on") == "published":
++            strength = "published_reference"
++        elif abs(row["delta"]) < tol[key[0]]["cell"]:
++            strength = "within_sensitivity"
++        else:
++            strength = "measured"
++        row["strength"] = strength
++        rows.append(row)
++    cases = []
++    for case in ledger["cases"]:
++        mine = [row for row in rows if row["case"] == case]
++        scored = [row for row in mine if row["delta"] is not None]
++        credible = [row for row in scored if row["strength"] in ("measured", "within_sensitivity")]
++        mean = sum(row["delta"] for row in scored) / len(mine) if len(scored) == len(mine) else None
++        cases.append({
++            "case": case, "mean_delta": round(mean, 4) if mean is not None else None, "seeds": len(mine),
++            "improved": sum(row["delta"] > SCORE_EPS for row in scored),
++            "regressed": sum(row["delta"] < -SCORE_EPS for row in scored),
++            "credible_improved": sum(row["delta"] > SCORE_EPS for row in credible),
++            "orientation_cells": sum(row["strength"] == "orientation" for row in mine),
++            "tolerance": tol[case]["case_mean"],
++        })
++    complete = a["complete"] and b["complete"]
++    official = round(a["score"] - b["score"], 4) if complete else None
++    per_case = {case: sum(1 for key in ledger["schedule"] if key[0] == case) for case in ledger["cases"]}
++    weight = {case: 1.0 / (len(per_case) * count) for case, count in per_case.items()}
++    positive = [row for row in rows if row["delta"] is not None and row["delta"] > SCORE_EPS]
++    mass = sum(row["delta"] * weight[row["case"]] for row in positive)
++    exchanged = sum(row["delta"] * weight[row["case"]] for row in positive if row["strength"] == "orientation")
++    top = max(positive, key=lambda row: row["delta"] * weight[row["case"]], default=None)
++    result = {
++        "id": "%s-%s" % (a_id, b_id), "a": a_id, "b": b_id, "varies": varies,
++        "exact": varies is not None and len(varies) == 1, "complete": complete, "official_delta": official,
++        "cases": cases, "cells": rows,
++        "orientation_share": round(exchanged / mass, 3) if mass > 0 else 0.0,
++        "inert_cells": sum(row.get("strength") == "inert" for row in rows),
++        "reference": ("published" if all(row.get("strength") == "published_reference" for row in rows if row["delta"] is not None)
++                      else "mixed" if any(row.get("strength") == "published_reference" for row in rows) else "measured"),
++    }
++    if top is not None and official is not None and official > SCORE_EPS:
++        result["top_cell"] = {"case": top["case"], "seed": top["seed"], "delta": top["delta"]}
++        result["top_cell_share"] = round(top["delta"] * weight[top["case"]] / official, 3)
++    return result
++
++
++def case_supported(case_row):
++    """A case gain that does not rest on one seed, an exchange, a published value or noise:
++    the case mean clears its tolerance and most seeds improved on credible (unconfounded) cells."""
++    return (case_row["mean_delta"] is not None and case_row["mean_delta"] >= case_row["tolerance"]
++            and case_row["credible_improved"] * 2 > case_row["seeds"])
++
++
++def credited_gain(result):
++    """An official gain the next decision may build on, not only select."""
++    return (result["official_delta"] is not None and result["official_delta"] > SCORE_EPS
++            and result["orientation_share"] < ORIENTATION_SHARE
++            and result.get("top_cell_share", 0.0) < NARROW_SHARE
++            and any(case_supported(row) for row in result["cases"]))
++
++
++def gain_reading(result):
++    """One label for a contrast, used in prompts and decisions."""
++    if result["official_delta"] is None:
++        return "incomplete"
++    if result["inert_cells"] * 2 > len(result["cells"]):
++        return "labels_mostly_unchanged"
++    if result["official_delta"] <= SCORE_EPS:
++        return "no_gain"
++    if result["orientation_share"] >= ORIENTATION_SHARE:
++        return "orientation_carried"
++    if result.get("top_cell_share", 0.0) >= NARROW_SHARE:
++        return "one_cell"
++    return "credited" if credited_gain(result) else "within_sensitivity"
++
++
++# ----------------------------------------------------------------------------------------------
++# Controls, squares, transplants and duplicates
++
++
++def exact_contrasts(ledger, label, tol=None):
++    """Every complete entry that differs from `label` in exactly one function, from anywhere in the run."""
++    anchor = entry(ledger, label)
++    found = []
++    if not anchor["factors"] or not anchor["complete"]:
++        return found
++    for row in ledger["entries"]:
++        if row["id"] == label or not row["complete"] or not row["factors"]:
++            continue
++        differs = [c for c in COMPONENTS if row["factors"][c] != anchor["factors"][c]]
++        if len(differs) == 1:
++            found.append(contrast(ledger, label, row["id"], tol))
++    return found
++
++
++def removal_controls(ledger, label):
++    """For each function the anchor changed from the start or its parent: the program without that change."""
++    anchor = entry(ledger, label)
++    start = ledger["entries"][0]
++    parent = ledger["by_id"].get(anchor.get("parent") or "")
++    controls = []
++    if not anchor["factors"]:
++        return controls
++    for component in COMPONENTS:
++        for origin, reference in (("start", start), ("parent", parent)):
++            if reference is None or not reference["factors"]:
++                continue
++            value = reference["factors"][component]
++            if value == anchor["factors"][component]:
++                continue
++            factors = dict(anchor["factors"])
++            factors[component] = value
++            if any(row["factors"] == factors for row in controls):
++                continue
++            match = find_program(ledger, factors)
++            controls.append({"component": component, "origin": origin, "factors": factors,
++                             "status": "measured" if match else "missing",
++                             "entry": match["id"] if match else None,
++                             "donor": reference["id"]})
++    return controls
++
++
++def _square_orientation(ledger, programs):
++    """Name the four programs of one square: P is the one nearest the start, AB shares no factor with P."""
++    start = ledger["entries"][0]["factors"]
++    order = {row["id"]: index for index, row in enumerate(ledger["entries"])}
++    p = min(programs, key=lambda row: (-sum(row["factors"][c] == start[c] for c in COMPONENTS), order[row["id"]]))
++    ab = next(row for row in programs if all(row["factors"][c] != p["factors"][c] for c in COMPONENTS))
++    a = next(row for row in programs if row["factors"] == {"loss": ab["factors"]["loss"], "decoder": p["factors"]["decoder"]})
++    b = next(row for row in programs if row["factors"] == {"loss": p["factors"]["loss"], "decoder": ab["factors"]["decoder"]})
++    return {"P": p, "A": a, "B": b, "AB": ab}
++
++
++def factorial_squares(ledger, tol=None):
++    """Complete 2x2 squares P, A=(loss of AB, decoder of P), B=(loss of P, decoder of AB), AB, each once."""
++    squares, found = [], set()
++    complete = [row for row in ledger["entries"] if row["complete"] and row["factors"]]
++    for ab in complete:
++        for p in complete:
++            if p is ab or any(p["factors"][c] == ab["factors"][c] for c in COMPONENTS):
++                continue
++            a = find_program(ledger, {"loss": ab["factors"]["loss"], "decoder": p["factors"]["decoder"]})
++            b = find_program(ledger, {"loss": p["factors"]["loss"], "decoder": ab["factors"]["decoder"]})
++            if not a or not b:
++                continue
++            programs = [find_program(ledger, row["factors"]) for row in (p, a, b, ab)]
++            key = frozenset(tuple(sorted(row["factors"].items())) for row in programs)
++            if key in found:
++                continue
++            found.add(key)
++            arms = _square_orientation(ledger, programs)
++            if any(arm["id"] == "S" and not arm["measured"] for arm in arms.values()):
++                continue  # a published start is not a same-host arm
++            cells = []
++            for key in ledger["schedule"]:
++                values = {name: arm["cells"][key]["score"] for name, arm in arms.items()}
++                if any(value is None for value in values.values()):
++                    cells.append({"case": key[0], "seed": key[1], "interaction": None})
++                    continue
++                cells.append({"case": key[0], "seed": key[1], **{name: round(v, 4) for name, v in values.items()},
++                              "interaction": round(values["AB"] - values["A"] - values["B"] + values["P"], 4)})
++            score = {name: arm["score"] for name, arm in arms.items()}
++            interaction = score["AB"] - score["A"] - score["B"] + score["P"]
++            best_single = max(("A", "B"), key=lambda name: score[name])
++            if score["AB"] < score[best_single] - SCORE_EPS and interaction < -SCORE_EPS:
++                verdict = "antagonistic"
++            elif interaction > SCORE_EPS and score["AB"] > score[best_single]:
++                verdict = "synergistic"
++            else:
++                verdict = "additive_within_tolerance" if abs(interaction) <= aggregate_tolerance(ledger, tol) else (
++                    "subadditive" if interaction < 0 else "superadditive")
++            squares.append({
++                "arms": {name: arm["id"] for name, arm in arms.items()},
++                "scores": {name: round(value, 4) for name, value in score.items()},
++                "loss_effect": {"with_P_decoder": round(score["A"] - score["P"], 4),
++                                "with_AB_decoder": round(score["AB"] - score["B"], 4)},
++                "decoder_effect": {"with_P_loss": round(score["B"] - score["P"], 4),
++                                   "with_AB_loss": round(score["AB"] - score["A"], 4)},
++                "interaction": round(interaction, 4), "verdict": verdict, "cells": cells,
++                "keep": max(("A", "B", "AB"), key=lambda name: score[name]),
++            })
++    return squares
++
++
++def case_effects(ledger, tol=None):
++    """Supported case-level gains of single-function changes, wherever they were measured in the run."""
++    effects = []
++    seen = set()
++    complete = [row for row in ledger["entries"] if row["complete"] and row["factors"]]
++    for a in complete:
++        for b in complete:
++            if a is b:
++                continue
++            differs = [c for c in COMPONENTS if a["factors"][c] != b["factors"][c]]
++            if len(differs) != 1 or (b["id"], a["id"]) in seen:
++                continue
++            seen.add((a["id"], b["id"]))
++            result = contrast(ledger, a["id"], b["id"], tol)
++            component = differs[0]
++            held = [c for c in COMPONENTS if c != component][0]
++            for row in result["cases"]:
++                credible = [cell for cell in result["cells"] if cell["case"] == row["case"]
++                            and cell.get("strength") in ("measured", "within_sensitivity")]
++                for better, worse, sign in ((a, b, 1), (b, a, -1)):
++                    # The same contrast read in both directions: either side can be the improving program.
++                    signed = {**row, "mean_delta": None if row["mean_delta"] is None else sign * row["mean_delta"],
++                              "credible_improved": sum(sign * cell["delta"] > SCORE_EPS for cell in credible)}
++                    if case_supported(signed):
++                        effects.append({"component": component, "factor": better["factors"][component],
++                                        "from": better["id"], "versus": worse["id"],
++                                        "context": {held: better["factors"][held]}, "case": row["case"],
++                                        "mean_delta": round(signed["mean_delta"], 4),
++                                        "credible_seeds": signed["credible_improved"], "seeds": row["seeds"],
++                                        "evidence": "%s-%s" % (better["id"], worse["id"])})
++    return effects
++
++
++def duplicate_of(ledger, label):
++    """An earlier complete entry with the same labels (verified) or the same timing on every cell."""
++    row = entry(ledger, label)
++    if not row["complete"]:
++        return None
++    position = ledger["entries"].index(row)
++    for earlier in ledger["entries"][1:position]:
++        if not earlier["complete"]:
++            continue
++        cells = [(row["cells"][key], earlier["cells"][key]) for key in ledger["schedule"]]
++        if all(a["labels"] and a["labels"] == b["labels"] for a, b in cells):
++            return {"same_as": earlier["id"], "basis": "labels"}
++        if all(_timing_equal(a, b) for a, b in cells):
++            return {"same_as": earlier["id"], "basis": "timing_only"}
++    return None
+--- a/AgenticBench/agent/loss_decoder/rolling_plan.py
++++ b/AgenticBench/agent/loss_decoder/rolling_plan.py
+@@ -0,0 +1,774 @@
++"""Decide the next experiment after every completed evaluation, from this run's evidence ledger.
++
++The branching search control still proposes a parent and the one function to edit. This module
++states what that experiment is for before any code is generated: the weak target, the gains to
++protect with their tolerances, and the outcome that would contradict the plan. It may replace the
++model edit with a deterministic splice of measured functions (a removal, transplant or merge) when
++that answers a question the next decision depends on. It never assigns a score; the final choice
++stays with the official complete training matrix.
++
++Standard library only (Python 3.8). Case and seed labels are evidence labels, never program rules.
++"""
++
++import ast
++import json
++import re
++
++import ledger as L
++
++
++SPLICES = ("removal", "transplant", "merge")
++# Baseline decisions this module never overrides: openings, failures and contract repairs.
++KEEP_BASELINE = ("opening_control", "complementary_opening_with_first_receipt", "no_complete_candidate",
++                 "execution_evidence_unusable", "replace_invalid_component")
++CONTRADICTED = ("target_met_protection_failed", "target_missed_protection_failed", "target_missed_protection_held")
++MAX_PLANNING_CALLS = 4
++# When true, a decision that departs from the branching choice (a removal, transplant, merge,
++# declined repair or removal follow-up) also asks the high-effort planner, offering the branching
++# choice as an alternative. Off by default: on the archived prefixes these departures rest on
++# measured ledger facts, and the value of a second opinion there is unmeasured (see the live plan).
++PLAN_ON_OVERRIDE = False
++CONFOUNDING = ("orientation", "published_reference", "timing_changed_same_labels")
++
++
++def _cell(row):
++    return "%s/%s" % (row["case"], row["seed"])
++
++
++def other(component):
++    return "decoder" if component == "loss" else "loss"
++
++
++# ----------------------------------------------------------------------------------------------
++# What the anchor has, what it lacks
++
++
++def review_anchor(ledger, label, tol):
++    """The anchor against the start: weak case, protected gains, fragile gains and confounders."""
++    result = L.contrast(ledger, label, "S", tol)
++    anchor = L.entry(ledger, label)
++    start = ledger["entries"][0]
++    protected, fragile = [], []
++    for case_row in result["cases"]:
++        cells = [row for row in result["cells"] if row["case"] == case_row["case"]]
++        supported = L.case_supported(case_row)
++        # A design whose measured scores are well above the start on most seeds is kept even when the
++        # start value of some seed is only published; the evidence label records the weaker footing.
++        mixed = (not supported and case_row["mean_delta"] is not None
++                 and case_row["mean_delta"] >= case_row["tolerance"] and case_row["improved"] * 2 > case_row["seeds"])
++        if supported or mixed:
++            protected.append({
++                "case": case_row["case"], "mean_delta": case_row["mean_delta"], "tolerance": case_row["tolerance"],
++                "cell_tolerance": tol[case_row["case"]]["cell"],
++                "seeds": [row["seed"] for row in cells if row["delta"] is not None and row["delta"] > L.SCORE_EPS],
++                "strength": "supported" if supported else "mixed_reference", "evidence": result["id"]})
++        for row in cells if not (supported or mixed) else ():
++            # A gain outside the protected designs that rests on an exchange, a published start value
++            # or a timing change with identical labels: reported, not protected.
++            if row["delta"] is not None and row["delta"] > L.SCORE_EPS and row["strength"] in CONFOUNDING:
++                fragile.append({"cell": _cell(row), "delta": row["delta"], "reason": row["strength"]})
++    protected_cases = {row["case"] for row in protected}
++    def case_mean(case):
++        scores = [anchor["cells"][key]["score"] for key in ledger["schedule"] if key[0] == case]
++        return sum(scores) / len(scores) if all(value is not None for value in scores) else None
++    open_cases = [row for row in result["cases"] if row["case"] not in protected_cases] or result["cases"]
++    weak_row = min(open_cases, key=lambda row: (row["mean_delta"] if row["mean_delta"] is not None else 1e9,
++                                                case_mean(row["case"]) or 0.0))
++    weak = {"case": weak_row["case"], "mean_delta": weak_row["mean_delta"], "anchor_case_mean": case_mean(weak_row["case"]),
++            "seeds": [row["seed"] for row in result["cells"] if row["case"] == weak_row["case"]],
++            "cells": [{"seed": row["seed"], "delta": row["delta"], "evidence": row["strength"]}
++                      for row in result["cells"] if row["case"] == weak_row["case"]]}
++    confounders = [{"cell": _cell(row), "issue": row["strength"]} for row in result["cells"]
++                   if row.get("strength") in CONFOUNDING]
++    rows = [{"cell": _cell(row), "anchor": anchor["cells"][(row["case"], row["seed"])]["score"],
++             "start": start["cells"][(row["case"], row["seed"])]["score"],
++             "start_measured_on": start["cells"][(row["case"], row["seed"])].get("measured_on"),
++             "delta": row["delta"], "wns_delta_ns": row.get("wns_delta_ns"), "tns_delta_ns": row.get("tns_delta_ns"),
++             "labels_vs_start": row.get("relation"), "evidence": row["strength"]} for row in result["cells"]]
++    return {"anchor": label, "versus": "S", "official_delta": result["official_delta"], "reading": L.gain_reading(result),
++            "weak": weak, "protected": protected, "fragile": fragile, "confounders": confounders, "rows": rows}
++
++
++def retarget(review, case, keep, tol):
++    """The same review with an externally named target design (and, optionally, one more to keep)."""
++    rows = [row for row in review["rows"] if row["cell"].split("/")[0] == case]
++    deltas = [row["delta"] for row in rows]
++    weak = {"case": case, "seeds": [row["cell"].split("/")[1] for row in rows],
++            "mean_delta": sum(deltas) / len(deltas) if rows and None not in deltas else None,
++            "anchor_case_mean": None, "cells": [{"seed": row["cell"].split("/")[1], "delta": row["delta"],
++                                                 "evidence": row["evidence"]} for row in rows]}
++    protected = [row for row in review["protected"] if row["case"] != case]
++    if keep and keep != case and keep not in [row["case"] for row in protected]:
++        protected.append({"case": keep, "mean_delta": None, "seeds": [], "tolerance": tol[keep]["case_mean"],
++                          "cell_tolerance": tol[keep]["cell"], "strength": "named_by_repair",
++                          "evidence": "decision.protect_gain"})
++    return dict(review, weak=weak, protected=protected)
++
++
++MEASUREMENTS = ("removal", "merge")  # experiments that answer a question rather than repair a design
++
++
++def make_contract(review, component, tol, anchor_candidate=None, kind="edit"):
++    """Success and protection criteria for the next experiment, fixed before it is generated.
++
++    A removal or a merge is a measurement: it has no target design, and its decision table, not a
++    protection rule, says what happens next. Edits and transplants carry a target and protections.
++    """
++    weak = review["weak"]
++    measured = kind in MEASUREMENTS
++    return {
++        "anchor": review["anchor"], "anchor_candidate": anchor_candidate, "component": component, "kind": kind,
++        "target": None if measured else {
++            "case": weak["case"], "seeds": weak["seeds"],
++            "rule": "mean paired score delta over the case > 0 and most of its seeds improve"},
++        "protect": [] if measured else [
++            {"case": row["case"], "tolerance": row["tolerance"], "cell_tolerance": row["cell_tolerance"],
++             "strength": row["strength"], "evidence": row["evidence"],
++             "rule": "mean paired score delta over the case >= -tolerance"}
++            for row in review["protected"] if row["case"] != weak["case"]],
++        "fragile": [row["cell"] for row in review["fragile"]],
++        # Fixed with the plan: the verdict never uses a tolerance recalibrated on its own result.
++        "tolerances": {case: {key: tol[case][key] for key in ("cell", "case_mean", "pairs", "source")} for case in tol},
++    }
++
++
++def _label(ledger, label, candidate=None):
++    """A ledger label, resolved by candidate id when one was stored (labels follow evaluation order)."""
++    row = ledger["by_candidate"].get(candidate) if candidate else None
++    return row["id"] if row else label
++
++
++def judge(ledger, contract, child, tol=None):
++    """Compare a measured child with its declared contract (tolerances as stored at plan time)."""
++    anchor = _label(ledger, contract["anchor"], contract.get("anchor_candidate"))
++    result = L.contrast(ledger, child, anchor, contract.get("tolerances") or tol)
++    verdict = {"child": child, "anchor": anchor, "official_delta": result["official_delta"],
++               "reading": L.gain_reading(result), "evidence": result["id"]}
++    if not result["complete"]:
++        verdict["verdict"] = "incomplete"
++        return verdict
++    if result["inert_cells"] * 2 > len(result["cells"]):
++        verdict["verdict"] = "inert"
++        return verdict
++    if contract.get("target") is None:
++        verdict["verdict"] = "measured"  # a removal or merge: its decision table decides what follows
++        return verdict
++    cases = {row["case"]: row for row in result["cases"]}
++    target = cases[contract["target"]["case"]]
++    met = target["mean_delta"] is not None and target["mean_delta"] > L.SCORE_EPS and target["improved"] * 2 > target["seeds"]
++    verdict["target"] = {"case": target["case"], "mean_delta": target["mean_delta"], "improved_seeds": target["improved"],
++                         "seeds": target["seeds"], "met": met,
++                         "cells": [{"cell": _cell(row), "delta": row["delta"], "evidence": row["strength"]}
++                                   for row in result["cells"] if row["case"] == target["case"]]}
++    protection, regressions = [], []
++    for rule in contract["protect"]:
++        row = cases[rule["case"]]
++        held = row["mean_delta"] is not None and row["mean_delta"] >= -rule["tolerance"]
++        protection.append({"case": rule["case"], "mean_delta": row["mean_delta"], "tolerance": rule["tolerance"],
++                           "held": held})
++        for cell in result["cells"]:
++            if cell["case"] == rule["case"] and cell["delta"] is not None and cell["delta"] < -L.SCORE_EPS:
++                regressions.append({"cell": _cell(cell), "delta": cell["delta"], "evidence": cell["strength"],
++                                    "beyond_cell_tolerance": cell["delta"] < -rule["cell_tolerance"]})
++    verdict["protect"] = protection
++    verdict["protected_regressions"] = sorted(regressions, key=lambda row: row["delta"])
++    verdict["verdict"] = ("target_met" if met else "target_missed") + (
++        "_protection_held" if all(row["held"] for row in protection) else "_protection_failed")
++    return verdict
++
++
++# ----------------------------------------------------------------------------------------------
++# Candidate experiments
++
++
++def _spliced(ledger, factors, considered):
++    key = (factors["loss"], factors["decoder"])
++    return L.find_program(ledger, factors) is None and key not in considered
++
++
++def _source_for(ledger, factors):
++    """For each component, the entry whose measured program supplies that exact function."""
++    donors = {}
++    for component in L.COMPONENTS:
++        donor = next((row for row in ledger["entries"] if row["factors"]
++                      and row["factors"][component] == factors[component]), None)
++        if donor is None:
++            return None
++        donors[component] = donor["id"]
++    return donors
++
++
++def merge_options(ledger, tol, considered):
++    """Two credited single-function gains over one common measured base, not yet combined."""
++    options = []
++    complete = [row for row in ledger["entries"] if row["complete"] and row["factors"]]
++    for base in complete:
++        singles = {}
++        for row in complete:
++            differs = [c for c in L.COMPONENTS if row["factors"][c] != base["factors"][c]]
++            if len(differs) == 1:
++                result = L.contrast(ledger, row["id"], base["id"], tol)
++                if L.credited_gain(result):
++                    singles.setdefault(differs[0], []).append((row, result))
++        for x, x_result in singles.get("loss", []):
++            for y, y_result in singles.get("decoder", []):
++                factors = {"loss": x["factors"]["loss"], "decoder": y["factors"]["decoder"]}
++                if not _spliced(ledger, factors, considered):
++                    continue
++                parent, donor = (x, y) if x["score"] >= y["score"] else (y, x)
++                component = "decoder" if parent is x else "loss"
++                options.append({
++                    "kind": "merge", "parent": parent["id"], "component": component, "factors": factors,
++                    "donors": _source_for(ledger, factors), "evidence": [x_result["id"], y_result["id"]],
++                    "value": x_result["official_delta"] + y_result["official_delta"],
++                    "question": "Do the loss gain of %s and the decoder gain of %s over %s add up?" % (
++                        x["id"], y["id"], base["id"]),
++                    "decides": {"if_above_both": "the merge becomes the anchor",
++                                "if_below_either": "keep the stronger single change and record the interaction"},
++                    "hypotheses": ["the loss gain of %s (%+.2f) and the decoder gain of %s (%+.2f) are separate "
++                                   "mechanisms and add" % (x["id"], x_result["official_delta"], y["id"],
++                                                           y_result["official_delta"]),
++                                   "the two gains act on the same boundary groups, so combining them interferes"],
++                    "falsifier": "the merge scores below the stronger of %s and %s" % (x["id"], y["id"])})
++    return sorted(options, key=lambda row: -row["value"])
++
++
++def transplant_options(ledger, anchor, weak_case, tol, considered):
++    """A function that gave the anchor's weak design a supported gain in another context."""
++    options = []
++    for effect in L.case_effects(ledger, tol):
++        component, held = effect["component"], other(effect["component"])
++        if effect["case"] != weak_case or effect["factor"] == anchor["factors"][component]:
++            continue
++        if L.entry(ledger, effect["versus"])["factors"][component] != anchor["factors"][component]:
++            continue  # the gain was measured against some other function, not against the anchor's own
++        if effect["context"][held] == anchor["factors"][held]:
++            continue  # same context: that program is already measured
++        factors = dict(anchor["factors"])
++        factors[component] = effect["factor"]
++        if not _spliced(ledger, factors, considered):
++            continue
++        options.append({
++            "kind": "transplant", "parent": anchor["id"], "component": component, "factors": factors,
++            "donors": _source_for(ledger, factors), "evidence": [effect["evidence"]], "value": effect["mean_delta"],
++            "question": "Does the %s of %s keep its %s gain (%+.2f, %d of %d seeds) under the anchor's %s?" % (
++                component, effect["from"], weak_case, effect["mean_delta"], effect["credible_seeds"],
++                effect["seeds"], held),
++            "decides": {"if_target_met": "carry the transplanted %s forward" % component,
++                        "if_not": "the gain depends on its original %s; edit the anchor instead" % held},
++            "hypotheses": ["the %s of %s improves %s through a mechanism that does not depend on the %s" % (
++                               component, effect["from"], weak_case, held),
++                           "its %s gain came from the interaction with %s's own %s" % (weak_case, effect["from"], held)],
++            "falsifier": "%s does not improve on most seeds against %s, or a protected design falls beyond its "
++                         "tolerance" % (weak_case, anchor["id"])})
++    unique = {}
++    for row in sorted(options, key=lambda row: -row["value"]):
++        unique.setdefault((row["factors"]["loss"], row["factors"]["decoder"]), row)
++    return list(unique.values())
++
++
++def removal_option(ledger, anchor, component, considered):
++    """Undo the anchor's change to the function the next edit would modify, when that is unmeasured."""
++    start = ledger["entries"][0]
++    if anchor["id"] == "S" or not all(anchor["factors"][c] != start["factors"][c] for c in L.COMPONENTS):
++        return None  # the anchor changes one function only: its parent already isolates it
++    for control in L.removal_controls(ledger, anchor["id"]):
++        if control["component"] != component or control["origin"] != "start" or control["status"] != "missing":
++            continue
++        if not _spliced(ledger, control["factors"], considered):
++            return None
++        parent = ledger["by_id"].get(anchor.get("parent") or "")
++        context = ""
++        if parent is not None and parent["complete"]:
++            result = L.contrast(ledger, anchor["id"], parent["id"])
++            context = " (its gain over %s is %+.2f, %d%% of it from exchanged dies)" % (
++                parent["id"], result["official_delta"] or 0.0, round(100 * result["orientation_share"]))
++        tolerance = L.aggregate_tolerance(ledger)
++        return {
++            "kind": "removal", "parent": anchor["id"], "component": component, "factors": control["factors"],
++            "donors": _source_for(ledger, control["factors"]), "evidence": [], "value": 0.0,
++            "question": "Does %s still need its %s change once its %s is fixed?" % (anchor["id"], component,
++                                                                                    other(component)),
++            "decides": {"if_within_tolerance": "build the next %s edit on the removal program" % component,
++                        "if_worse": "keep the anchor's %s and edit its %s next" % (component, other(component))},
++            "hypotheses": ["%s's %s change still contributes once its %s is in place" % (anchor["id"], component,
++                                                                                        other(component)),
++                           "%s's score is carried by its %s%s; the %s change adds nothing measurable" % (
++                               anchor["id"], other(component), context, component)],
++            "falsifier": "the first explanation fails if the removal scores within %.2f of %s; the second fails "
++                         "if it scores more than %.2f below" % (tolerance, anchor["id"], tolerance)}
++    return None
++
++
++def _removal_follow_up(ledger, latest, tol):
++    """After a measured removal: the parent and function its outcome selects."""
++    experiment = latest.get("experiment") or {}
++    anchor = ledger["by_id"].get(_label(ledger, experiment.get("parent") or "", experiment.get("parent_candidate")))
++    if experiment.get("kind") != "removal" or not latest["complete"] or not anchor or not anchor["complete"]:
++        return None
++    delta = latest["score"] - anchor["score"]
++    stored = (experiment.get("contract") or {}).get("tolerances")
++    tolerance = L.aggregate_tolerance(ledger, stored or tol)  # the tolerance fixed when the removal was planned
++    component = experiment["component"]
++    if delta >= -tolerance:
++        return {"anchor": anchor["id"], "parent": latest["id"], "component": component, "delta": round(delta, 4),
++                "tolerance": tolerance,
++                "conclusion": "the %s change of %s is not needed (%+.2f within %.2f)" % (component, anchor["id"],
++                                                                                        delta, tolerance)}
++    return {"anchor": anchor["id"], "parent": anchor["id"], "component": other(component), "delta": round(delta, 4),
++            "tolerance": tolerance,
++            "conclusion": "%s needs its %s change (%+.2f beyond %.2f); edit its %s" % (
++                anchor["id"], component, delta, tolerance, other(component))}
++
++
++def edit_reasoning(ledger, anchor, component, review, tol):
++    """Two competing explanations for a model edit, and the outcome that separates them."""
++    weak = review["weak"]["case"]
++    tries = []
++    for result in L.exact_contrasts(ledger, anchor["id"], tol):
++        other_entry = L.entry(ledger, result["b"])
++        if result["varies"] == [component] and other_entry.get("parent") == anchor["id"]:
++            row = next(row for row in result["cases"] if row["case"] == weak)
++            tries.append((result["b"], -row["mean_delta"] if row["mean_delta"] is not None else None))
++    moved = ", ".join("%s %+.2f" % (label, delta) for label, delta in tries if delta is not None)
++    return {
++        "hypotheses": [
++            "a %s change of %s can raise %s, whose mean is %+.2f against the start" % (
++                component, anchor["id"], weak, review["weak"]["mean_delta"] or 0.0),
++            ("%s does not respond to %s changes of %s: %d earlier tries moved it by %s" % (
++                weak, component, anchor["id"], len(tries), moved)) if tries else
++            ("the %s deficit comes from %s's %s, which this edit keeps" % (weak, anchor["id"], other(component)))],
++        "distinguishes": "%s improves on most seeds against %s with every protected design inside its tolerance, "
++                         "or it does not" % (weak, anchor["id"]),
++        "falsifier": "%s does not improve on most seeds against %s, or a protected design (%s) falls more than its "
++                     "tolerance below %s" % (weak, anchor["id"], ", ".join(
++                         "%s %.2f" % (row["case"], row["tolerance"]) for row in review["protected"]
++                         if row["case"] != weak) or "none", anchor["id"])}
++
++
++def least_failed_component(ledger, label):
++    """The function whose single-function children of `label` failed to beat it least often."""
++    parent = L.entry(ledger, label)
++    penalties = dict.fromkeys(L.COMPONENTS, 0)
++    tries = dict.fromkeys(L.COMPONENTS, 0)
++    for row in ledger["entries"]:
++        if row.get("parent") != label or not row["complete"] or not row["factors"] or not parent["factors"]:
++            continue
++        changed = [c for c in L.COMPONENTS if row["factors"][c] != parent["factors"][c]]
++        if len(changed) == 1:
++            tries[changed[0]] += 1
++            penalties[changed[0]] += row["score"] <= parent["score"] + L.SCORE_EPS
++    own = [c for c, kind in (parent.get("footprint") or {}).items() if kind != "unchanged"]
++    return min(L.COMPONENTS, key=lambda c: (penalties[c], tries[c], c in own))
++
++
++def _declined_repair(ledger, decision, tol):
++    """A branching repair whose protected gain lies inside this run's measured cell sensitivity."""
++    gain = decision.get("protect_gain") or {}
++    incumbent = ledger["by_candidate"].get(decision.get("incumbent_id"))
++    if (decision.get("reason") != "targeted_repair" or gain.get("case") not in tol or incumbent is None
++            or not incumbent["complete"] or not isinstance(gain.get("score_delta"), (int, float))):
++        return None
++    if gain["score_delta"] >= tol[gain["case"]]["cell"]:
++        return None
++    regression = decision.get("repair_regression") or {}
++    child = ledger["by_candidate"].get(decision.get("incumbent_id"))
++    lost = "its loss on %s/%s (%+.2f) is real" % (regression.get("case"), regression.get("seed"),
++                                                  regression.get("score_delta") or 0.0)
++    key = (regression.get("case"), str(regression.get("seed")))
++    if key in incumbent["cells"]:
++        if L.relation(ledger, L.entry(ledger, "S"), incumbent, key) == "exchange":
++            lost += ", but %s's own value on that cell came from exchanged dies" % incumbent["id"]
++        if abs(regression.get("score_delta") or 0.0) < tol[key[0]]["cell"]:
++            lost += " and lies inside the same sensitivity"
++    return {"evidence": "protect_gain:%s/%s" % (gain["case"], gain.get("seed")), "finding": "repair_declined",
++            "parent": incumbent["id"], "component": least_failed_component(ledger, incumbent["id"]),
++            "conclusion": "the gain to protect (%+.2f on %s/%s) is inside the %.2f-point cell sensitivity this run "
++                          "measured for %s; extend the best program instead" % (
++                              gain["score_delta"], gain["case"], gain.get("seed"), tol[gain["case"]]["cell"],
++                              gain["case"]),
++            "hypotheses": [
++                "the child's gain on %s/%s (%+.2f) is a real effect of its edit and its loss on %s/%s (%+.2f) can be "
++                "repaired without losing it" % (gain["case"], gain.get("seed"), gain["score_delta"],
++                                                regression.get("case"), regression.get("seed"),
++                                                regression.get("score_delta") or 0.0),
++                "the gain to protect is within what small label changes do to %s here (median %.2f points per "
++                "cell over %d pairs), so there is no measured gain for the repair to keep; %s" % (
++                    gain["case"], tol[gain["case"]]["cell"], tol[gain["case"]]["pairs"], lost)],
++            "distinguishes": "nothing: it spends the slot on %s instead. The test of the first explanation is the "
++                             "repair itself, which the measured sensitivity makes a poor bet" % (
++                                 child["id"] if child else "the best program")}
++
++
++# ----------------------------------------------------------------------------------------------
++# The decision after every evaluation
++
++
++def lessons(ledger, tol):
++    """Deterministic findings about the latest measured candidate, with evidence ids."""
++    if len(ledger["entries"]) < 2:
++        return []
++    latest = ledger["entries"][-1]
++    found = []
++    parent = ledger["by_id"].get(latest.get("parent") or "")
++    if parent and latest["complete"] and parent["complete"]:
++        result = L.contrast(ledger, latest["id"], parent["id"], tol)
++        found.append({"evidence": result["id"], "finding": "paired_reading", "reading": L.gain_reading(result),
++                      "official_delta": result["official_delta"], "orientation_share": result["orientation_share"],
++                      "edit": latest.get("footprint")})
++    contract = (latest.get("experiment") or {}).get("contract")
++    if contract and _label(ledger, contract.get("anchor"), contract.get("anchor_candidate")) in ledger["by_id"]:
++        verdict = judge(ledger, contract, latest["id"], tol)
++        found.append({"evidence": "%s-%s" % (latest["id"], verdict["anchor"]), "finding": "plan_verdict", **verdict})
++    duplicate = L.duplicate_of(ledger, latest["id"])
++    if duplicate:
++        found.append({"evidence": "%s=%s" % (latest["id"], duplicate["same_as"]), "finding": "duplicate_outcome",
++                      **duplicate})
++    for square in L.factorial_squares(ledger, tol):
++        if latest["id"] in square["arms"].values():
++            found.append({"evidence": "square:" + ",".join(square["arms"][name] for name in ("P", "A", "B", "AB")),
++                          "finding": "factorial", "verdict": square["verdict"], "interaction": square["interaction"],
++                          "loss_effect": square["loss_effect"], "decoder_effect": square["decoder_effect"],
++                          "keep": square["arms"][square["keep"]]})
++    follow = _removal_follow_up(ledger, latest, tol)
++    if follow:
++        found.append({"evidence": "%s-%s" % (latest["id"], follow["anchor"]), "finding": "removal", **follow})
++    return found
++
++
++def plan_next(ledger, baseline, remaining, total, considered=(), planning_calls=0):
++    """The experiment to run next, the alternatives offered to a planner, and whether to call one.
++
++    baseline: (parent candidate id, intent, decision) from search_control.select_next.
++    considered: (loss id, decoder id) pairs of every program already proposed in this run.
++    """
++    parent_id, intent, decision = baseline
++    tol = L.tolerances(ledger)
++    considered = set(considered)
++    found = lessons(ledger, tol)
++    anchor = ledger["by_candidate"].get(parent_id)
++    component = decision.get("component") or intent.split("_")[0]
++    plan = {"baseline": {"parent": anchor["id"] if anchor else None, "intent": intent, "reason": decision.get("reason")},
++            "lessons": found, "tolerances": tol, "budget": {"remaining": remaining, "total": total},
++            "decision_override": None}
++    if anchor is None or not anchor["complete"] or not anchor["factors"]:
++        # Nothing measured to review: keep the branching choice, with no contract.
++        edit = {"id": "X1", "kind": "edit", "parent": anchor["id"] if anchor else None, "parent_candidate": parent_id,
++                "component": component, "question": None, "contract": None}
++        plan.update(choice=edit, options=[edit], hard=[], review=None)
++        return plan
++    reason = decision.get("reason")
++    follow = next((row for row in found if row["finding"] == "removal"), None)
++    declined = _declined_repair(ledger, decision, tol)
++    if declined:
++        found.append(declined)
++    override = follow if follow and reason not in KEEP_BASELINE else declined
++    if override:
++        anchor, component = L.entry(ledger, override["parent"]), override["component"]
++        reason = "extend_best" if override is declined else "removal_follow_up"
++        plan["decision_override"] = {"reason": reason, "note": override["conclusion"],
++                                     "incumbent_id": decision.get("incumbent_id")}
++    review = review_anchor(ledger, anchor["id"], tol)
++    if reason == "targeted_repair" and (decision.get("repair_regression") or {}).get("case"):
++        # The branching repair already names the regression and the gain to keep; use the same target.
++        review = retarget(review, decision["repair_regression"]["case"],
++                          (decision.get("protect_gain") or {}).get("case"), tol)
++    edit = {"kind": "edit", "parent": anchor["id"], "component": component,
++            "contract": make_contract(review, component, tol, anchor["candidate_id"]),
++            "question": "Can a %s change of %s raise %s without losing %s?" % (
++                component, anchor["id"], review["weak"]["case"],
++                ", ".join(row["case"] for row in review["protected"] if row["case"] != review["weak"]["case"]) or
++                "its other designs"),
++            **edit_reasoning(ledger, anchor, component, review, tol)}
++    if override is declined and declined:
++        edit.update(hypotheses=declined["hypotheses"], distinguishes=declined["distinguishes"])
++    options = []
++    splices_used = sum((row.get("experiment") or {}).get("kind") in SPLICES for row in ledger["entries"])
++    latest_kind = (ledger["entries"][-1].get("experiment") or {}).get("kind") if len(ledger["entries"]) > 1 else None
++    plan["budget"].update(splices_used=splices_used, splice_cap=max(1, total // 3))
++    if (reason not in KEEP_BASELINE and remaining >= 1
++            and splices_used < max(1, total // 3) and latest_kind not in SPLICES):
++        # Ranked: a merge of two credited gains, then a transplant for the weak design, then a removal
++        # that selects the next parent. A removal needs a later slot to act on its answer.
++        options.extend(merge_options(ledger, tol, considered)[:1])
++        options.extend(transplant_options(ledger, anchor, review["weak"]["case"], tol, considered)[:1])
++        removal = (removal_option(ledger, anchor, component, considered)
++                   if remaining >= 2 and reason == "extend_best" and not follow else None)
++        if removal:
++            options.append(removal)
++    unique = []
++    for option in options:  # a merge and a transplant can name the same program
++        if all(option["factors"] != kept["factors"] for kept in unique):
++            unique.append(option)
++    options = unique[:2]
++    for option in options:
++        option["contract"] = make_contract(review_anchor(ledger, option["parent"], tol), option["component"], tol,
++                                           L.entry(ledger, option["parent"])["candidate_id"], option["kind"])
++        option.setdefault("distinguishes", "its outcome selects between the two branches of `decides`")
++    options.append(edit)
++    departs = bool(override) or (options[0]["kind"] in SPLICES)
++    baseline_anchor = ledger["by_candidate"].get(parent_id)
++    if PLAN_ON_OVERRIDE and departs and baseline_anchor is not None and not any(
++            option["kind"] == "edit" and option["parent"] == baseline_anchor["id"] and option["component"] ==
++            (decision.get("component") or intent.split("_")[0]) for option in options):
++        base_component = decision.get("component") or intent.split("_")[0]
++        base_review = review_anchor(ledger, baseline_anchor["id"], tol)
++        options.append({"kind": "edit", "parent": baseline_anchor["id"], "component": base_component, "baseline": True,
++                        "contract": make_contract(base_review, base_component, tol, baseline_anchor["candidate_id"]),
++                        "question": "The branching choice: a %s change of %s (%s)." % (
++                            base_component, baseline_anchor["id"], decision.get("reason")),
++                        **edit_reasoning(ledger, baseline_anchor, base_component, base_review, tol)})
++    hard = []
++    for row in found:
++        if row["finding"] == "plan_verdict" and row.get("verdict") in CONTRADICTED:
++            hard.append("plan_contradicted")
++        if row["finding"] == "plan_verdict" and any(cell["beyond_cell_tolerance"]
++                                                    for cell in row.get("protected_regressions", [])):
++            hard.append("protected_regression")
++        if row["finding"] == "factorial" and row["verdict"] == "antagonistic":
++            hard.append("antagonistic_combination")
++        if row["finding"] == "duplicate_outcome":
++            hard.append("duplicate_outcome")
++    if reason in ("switch_branch", "reopen_official_start"):
++        hard.append("stalled_branch")
++    if PLAN_ON_OVERRIDE and departs:
++        hard.append("rolling_override")
++    if planning_calls >= MAX_PLANNING_CALLS or reason in KEEP_BASELINE:
++        hard = []
++    if hard and len(options) == 1:
++        # A planning call needs a real choice: offer the competing edit as well.
++        incumbent = ledger["by_candidate"].get(decision.get("incumbent_id"))
++        if incumbent and incumbent["complete"] and incumbent["factors"] and incumbent["id"] != anchor["id"]:
++            alternative, alternative_component = incumbent, least_failed_component(ledger, incumbent["id"])
++        else:
++            alternative, alternative_component = anchor, other(component)
++        options.append({"kind": "edit", "parent": alternative["id"], "component": alternative_component,
++                        "contract": make_contract(review_anchor(ledger, alternative["id"], tol), alternative_component,
++                                                  tol, alternative["candidate_id"]),
++                        "question": "Is a %s change of %s more promising than the edit above?" % (
++                            alternative_component, alternative["id"])})
++    for index, option in enumerate(options, 1):
++        option["id"] = "X%d" % index
++    for option in options:
++        option["parent_candidate"] = L.entry(ledger, option["parent"])["candidate_id"]
++    plan.update(choice=options[0], options=options, hard=sorted(set(hard)), review=review)
++    return plan
++
++
++def splice_source(loss_source, decoder_source):
++    """One program with the loss function of one measured program and the decoder of another.
++
++    The function texts are copied verbatim, docstrings included; the official validator still
++    checks the result before anything is submitted.
++    """
++    def segment(source, index):
++        functions = [node for node in ast.parse(source).body if isinstance(node, ast.FunctionDef)]
++        if len(functions) != len(L.COMPONENTS):
++            raise ValueError("A splice donor must contain exactly the two editable functions")
++        node = functions[index]
++        return "\n".join(source.splitlines()[node.lineno - 1:node.end_lineno])
++    return ("# EVOLVE-BLOCK-START\n" + segment(loss_source, 0) + "\n\n\n" + segment(decoder_source, 1)
++            + "\n# EVOLVE-BLOCK-END\n")
++
++
++def splice_hypothesis(option):
++    """The changed-component record for a splice, in the docstring fields the search log keeps."""
++    target = (option.get("contract") or {}).get("target")
++    falsifier = option.get("falsifier") or (
++        "target case %s does not improve" % target["case"] if target else "see the decision table")
++    return {"mechanism": "%s splice: %s from %s" % (option["kind"], option["component"],
++                                                   option["donors"][option["component"]]),
++            "decision": option["question"][:180],
++            "prediction": "; ".join("%s: %s" % item for item in sorted(option["decides"].items()))[:180],
++            "falsifier": falsifier[:180]}
++
++
++# ----------------------------------------------------------------------------------------------
++# Model-facing views
++
++
++PLAN_TASK = """You plan one official experiment for a TP-GNN loss/decoder search. Do not write code.
++Reply with one JSON object: {"choice": "<option id>", "explanations": ["<H1>", "<H2>"],
++"discriminating_prediction": "...", "falsifier": "...", "edit_brief": "...",
++"expected_footprint": "structural" | "coefficients_only" | "either", "probe": null}.
++Choose exactly one offered option. Give two competing explanations of the latest evidence and the
++outcome of the chosen experiment that would separate them. For an edit, `edit_brief` states the
++single change in at most 60 words; for a splice it may be empty. `probe` may name one allowed
++synthetic check from `allowed_probes`, or be null. Evidence ids such as R3-S name paired
++comparisons. Case and seed names are evidence labels only; never propose rules keyed to them.
++Labels that only exchange the two dies, published start values and timing changes with identical
++labels are confounded evidence. Keep the whole reply under 200 words."""
++
++
++def planner_request(plan, packet, allowed_probes):
++    return {"options": [{key: option.get(key) for key in ("id", "kind", "parent", "component", "question", "decides",
++                                                          "hypotheses", "distinguishes", "falsifier")}
++                        for option in plan["options"]],
++            "triggers": plan["hard"], "lessons": packet["lessons"], "anchor_review": packet["anchor_review"],
++            "budget": plan["budget"], "allowed_probes": allowed_probes}
++
++
++def parse_plan_reply(text, plan):
++    """The planner's JSON, checked against the offered options; ValueError when unusable."""
++    match = re.search(r"\{.*\}", text, re.S)
++    if not match:
++        raise ValueError("The planning reply contains no JSON object")
++    try:
++        reply = json.loads(match.group(0))
++    except ValueError as error:
++        raise ValueError("The planning reply is not valid JSON") from error
++    options = {option["id"]: option for option in plan["options"]}
++    if not isinstance(reply, dict) or reply.get("choice") not in options:
++        raise ValueError("The planning reply did not choose an offered option")
++    explanations = reply.get("explanations")
++    if not isinstance(explanations, list) or len(explanations) < 2 or not all(isinstance(x, str) and x.strip()
++                                                                              for x in explanations[:2]):
++        raise ValueError("The planning reply needs two competing explanations")
++    cleaned = {"choice": reply["choice"], "explanations": [" ".join(x.split())[:240] for x in explanations[:2]]}
++    for key in ("discriminating_prediction", "falsifier", "edit_brief"):
++        value = reply.get(key)
++        cleaned[key] = " ".join(value.split())[:400] if isinstance(value, str) else ""
++    cleaned["probe"] = reply.get("probe") if isinstance(reply.get("probe"), dict) else None
++    shape = reply.get("expected_footprint")
++    cleaned["expect_footprint"] = ([shape] if shape in ("structural", "coefficients_only") else None)
++    return cleaned
++
++
++TRIAL_METRICS = ("final_global_wns_setup_ns", "final_global_tns_setup_ns", "cut_net_count", "timing_weighted_cut",
++                 "tp_gnn_repair_moved_area_fraction")
++# Candidate scores and statuses already appear once in the trial's own cells.
++PAIR_FIELDS = ("case", "seed", "parent_score", "score_delta", "wns_slack_delta_ns", "tns_slack_delta_ns",
++               "cut_nets_delta", "observation", "failure")
++COMPARISON_FIELDS = ("parent_id", "candidate_id", "parent_source", "complete", "expected_cells", "scored_pairs",
++                     "official_score_delta", "improved_pairs", "regressed_pairs", "largest_gain", "largest_regression",
++                     "candidate_invalid_cells", "failure_counts", "assignment_pairs_verified",
++                     "timing_changes_with_identical_assignment", "cases")
++
++
++def _compact_comparison(comparison, with_cells):
++    if not isinstance(comparison, dict) or "cells" not in comparison:
++        return comparison  # None, a status record or a same_as pointer
++    result = {key: comparison[key] for key in COMPARISON_FIELDS if key in comparison}
++    if with_cells:
++        cells = []
++        for row in comparison["cells"]:
++            cell = {key: row[key] for key in PAIR_FIELDS if row.get(key) is not None}
++            assignment = row.get("assignment") or {}
++            if assignment.get("changed_fraction") is not None:
++                cell["labels_changed_fraction"] = assignment["changed_fraction"]
++            cells.append(cell)
++        result["cells"] = cells
++    return result
++
++
++def rounded(value, digits=6):
++    """Floats to `digits` significant digits, recursively, for model-facing JSON only."""
++    if isinstance(value, float):
++        return float("%.*g" % (digits, value)) if value == value and abs(value) != float("inf") else value
++    if isinstance(value, dict):
++        return {key: rounded(item, digits) for key, item in value.items()}
++    if isinstance(value, (list, tuple)):
++        return [rounded(item, digits) for item in value]
++    return value
++
++
++def compact_trial(summary):
++    """The latest receipt summary without repeated or diagnostic-only fields.
++
++    Keeps every official cell score, status and failure, the WNS/TNS values, the paired comparison with
++    the actual parent cell by cell, and only the totals of the comparison with the published start
++    (the anchor review carries the same-host start cell by cell).
++    """
++    if not isinstance(summary, dict):
++        return summary
++    result = {key: summary[key] for key in ("request_id", "candidate_id", "status", "reason", "score", "case_scores",
++                                            "diagnostics_unavailable") if key in summary}
++    attempt = summary.get("attempt") or {}
++    result["attempt"] = {key: attempt[key] for key in ("parent_id", "search_intent", "policy_action",
++                                                       "changed_components") if key in attempt}
++    cells = []
++    for cell in summary.get("cells") or []:
++        row = {key: cell[key] for key in ("case", "seed", "score", "valid", "status", "reason", "failure") if key in cell}
++        metrics = cell.get("metrics") or {}
++        row.update((key, metrics[key]) for key in TRIAL_METRICS if key in metrics)
++        change = cell.get("partition_change_vs_initial") or {}
++        if "partition_assignment_changed_fraction" in change:
++            row["moved_fraction_vs_start"] = change["partition_assignment_changed_fraction"]
++        cells.append(row)
++    result["cells"] = cells
++    result["parent_comparison"] = _compact_comparison(summary.get("parent_comparison"), True)
++    result["initial_comparison"] = _compact_comparison(summary.get("initial_comparison"), False)
++    return rounded(result)
++
++
++def compact_prior(rows, labels):
++    """prior_trials with ledger ids, the edited mechanism only and no structural hashes."""
++    result = []
++    for row in rows or []:
++        notes = row.get("changed_components") or {}
++        result.append({
++            "evidence_id": labels.get(row.get("candidate_id")), "parent": labels.get(row.get("parent_id")),
++            "changed": {component: (value.get("mechanism") if isinstance(value, dict) else str(value))[:160]
++                        for component, value in notes.items()},
++            "status": row.get("status"), "score": row.get("score"), "paired_score_delta": row.get("paired_score_delta"),
++            "inert_evidence": row.get("inert_evidence")})
++    return result
++
++
++# The experiment block replaces these per-round views; the same facts appear there once.
++REPLACED_BY_EXPERIMENT = ("decision_evidence", "earlier_edits_from_selected_parent")
++
++
++def assemble_request(request, packet=None, planned=None, labels=None, parent_is_last=False):
++    """The generation request: the Agent's fields compacted, plus the checked experiment and plan."""
++    result = dict(request)
++    result["last_trial"] = compact_trial(request.get("last_trial"))
++    if parent_is_last and request.get("parent_feedback") is not None:
++        result["parent_feedback"] = {"same_as": "last_trial"}
++    if labels is not None:
++        result["prior_trials"] = compact_prior(request.get("prior_trials"), labels)
++    if packet is not None:
++        result["experiment"] = packet
++        for key in REPLACED_BY_EXPERIMENT:
++            result.pop(key, None)
++    if planned is not None:
++        result["experiment_plan"] = {key: planned.get(key) for key in (
++            "explanations", "discriminating_prediction", "falsifier", "edit_brief")}
++    return {key: (value if key == "parent_program" else rounded(value)) for key, value in result.items()}
++
++
++def compact_lesson(row):
++    keep = ("evidence", "finding", "reading", "official_delta", "edit", "verdict", "same_as", "basis", "interaction",
++            "keep", "conclusion", "loss_effect", "decoder_effect", "parent", "component")
++    result = {key: row[key] for key in keep if key in row}
++    if row.get("finding") == "plan_verdict":
++        result["target"] = {key: row.get("target", {}).get(key) for key in ("case", "mean_delta", "met")}
++        result["protected_regressions"] = [{"cell": cell["cell"], "delta": cell["delta"]}
++                                           for cell in row.get("protected_regressions", [])[:4]]
++    return result
++
++
++def generation_packet(plan, option, ledger, tol=None):
++    """Exactly the evidence handed to code generation for one chosen experiment."""
++    tol = tol or plan["tolerances"]
++    review = review_anchor(ledger, option["parent"], tol)
++    comparisons = []
++    for result in sorted(L.exact_contrasts(ledger, option["parent"], tol),
++                         key=lambda result: (result["varies"] != [option["component"]],
++                                             -(ledger["entries"].index(L.entry(ledger, result["b"]))))):
++        if len(comparisons) == 3:
++            break
++        if result["b"] == "S":
++            continue
++        comparisons.append({"evidence": result["id"], "varies": result["varies"][0],
++                            "official_delta": result["official_delta"], "reading": L.gain_reading(result),
++                            "case_mean_deltas": {row["case"]: row["mean_delta"] for row in result["cases"]}})
++    return {
++        "experiment": {key: option.get(key) for key in ("id", "kind", "parent", "component", "question",
++                                                        "hypotheses", "falsifier")},
++        "contract": option.get("contract"),
++        "anchor_review": {key: review[key] for key in ("anchor", "official_delta", "reading", "weak", "protected",
++                                                        "fragile", "rows")},
++        "comparisons": comparisons,
++        "lessons": [compact_lesson(row) for row in plan["lessons"]],
++    }
+--- a/AgenticBench/agent/loss_decoder/self_test.py
++++ b/AgenticBench/agent/loss_decoder/self_test.py
+@@ -0,0 +1,369 @@
++"""Bounded self-tests before a candidate spends an official evaluation slot.
++
++Three layers run inside the Agent. None of them is a physical evaluation or a score:
++
++1. Static checks always run: Python 3.8 syntax, the official byte limit, the declared experiment
++   matches the functions that changed (the manifest), the edit has the intended shape, and no rule
++   is keyed to a case or seed identity.
++2. Synthetic contract probes run when the Agent runtime can import what they need. The decoder probe
++   needs NumPy; the archived formal run shows NumPy importing in the contest Agent container under
++   /usr/lib/python3.8. A decoder that calls the frozen reference helper is probed only when a
++   supported provider of that helper is configured in HELPER_PROVIDERS (none is, by default);
++   otherwise it is reported as skipped. The loss probe needs PyTorch, which no archived run shows
++   in the Agent container; without it the probe is skipped. runtime_capabilities() records what
++   is available, and the Agent logs it once per run.
++3. A planner may ask for a check "on paper" as a declarative spec. Only kinds in ALLOWED_PROBES run,
++   with clamped parameters, and their outcome is advisory. Model-written test code never runs.
++
++Probes execute only programs the official validator has already accepted, with the interpreter's
++normal builtins, as the evaluator does. A restricted builtins table breaks NumPy: its lazy imports
++read __import__ from the calling frame, which is how the archived run rejected a decoder with
++"KeyError: '__import__'". A failure of the probe's own environment never blocks a submission.
++"""
++
++import ast
++import builtins
++import importlib
++import sys
++
++import ledger as L
++
++
++MAX_BYTES = 18000            # official program limit in UTF-8 bytes
++MAX_NODES = 3000             # official AST node limit (advisory here: the official count is authoritative)
++PROBE_GROUPS = 120
++PROBE_SEED = 7               # a fixture seed, deliberately not a training seed
++PROBE_ITERATIONS = 8
++HELPER = "reference_global_two_way"
++# (module, attribute) pairs that provide the organizer's own reference helper inside the Agent
++# container. Empty until the organizer confirms one; decoders that call the helper are then skipped.
++HELPER_PROVIDERS = ()
++ALLOWED_PROBES = {
++    "decoder_change_vs_parent": {"max_fraction": (0.0, 1.0), "min_fraction": (0.0, 1.0)},
++    "decoder_top_area_share": {"tolerance": (0.0, 0.5)},
++    "loss_ratio_vs_parent": {"min": (0.01, 100.0), "max": (0.01, 100.0)},
++}
++FOOTPRINTS = ("structural", "coefficients_only")
++# Exceptions that come from the probe's environment rather than from the candidate's own logic.
++ENVIRONMENT_ERRORS = (ImportError, NameError, MemoryError, RecursionError)
++
++
++def finding(check, status, detail=""):
++    return {"check": check, "status": status, "detail": detail}
++
++
++# ----------------------------------------------------------------------------------------------
++# Static checks
++
++
++def _docstring_nodes(tree):
++    nodes = set()
++    for node in [tree] + [n for n in ast.walk(tree) if isinstance(n, ast.FunctionDef)]:
++        body = getattr(node, "body", [])
++        if body and isinstance(body[0], ast.Expr) and isinstance(body[0].value, ast.Constant) \
++                and isinstance(body[0].value.value, str):
++            nodes.add(id(body[0].value))
++    return nodes
++
++
++def _mentions(node, name):
++    return any(isinstance(child, ast.Name) and child.id == name for child in ast.walk(node))
++
++
++def identity_rules(source, schedule):
++    """Places where the program could branch on a training design or seed identity."""
++    tree = ast.parse(source)
++    seeds = {int(str(cell["seed"])) for cell in schedule if str(cell["seed"]).isdigit()}
++    cases = {cell["case"] for cell in schedule}
++    docstrings = _docstring_nodes(tree)
++    problems = []
++    for node in ast.walk(tree):
++        if isinstance(node, (ast.If, ast.IfExp, ast.While)) and _mentions(node.test, "seed"):
++            problems.append("line %d branches on seed" % node.lineno)
++        elif isinstance(node, ast.Compare) and any(_mentions(part, "seed") for part in [node.left] + node.comparators):
++            problems.append("line %d compares seed" % node.lineno)
++        elif isinstance(node, ast.Constant) and type(node.value) is int and node.value in seeds:
++            problems.append("line %d uses the training seed value %d" % (node.lineno, node.value))
++        elif (isinstance(node, ast.Constant) and isinstance(node.value, str) and id(node) not in docstrings
++              and any(case in node.value for case in cases)):
++            problems.append("line %d names a training design" % node.lineno)
++    return problems
++
++
++def static_checks(source, parent_source, experiment, schedule):
++    """Blocking (fail) and advisory (note) findings; an empty fail list means eligible to submit.
++
++    experiment may declare `component` (the one function that must change), `factors` (the exact
++    functions of a splice) and `expect_footprint` (the allowed edit shapes of that function).
++    """
++    results = []
++    try:
++        tree = ast.parse(source, feature_version=(3, 8))
++    except SyntaxError as error:
++        return [finding("python38_syntax", "fail", "line %s: %s" % (error.lineno, error.msg))]
++    results.append(finding("python38_syntax", "pass"))
++    size = len(source.encode("utf-8"))
++    results.append(finding("program_bytes", "fail" if size > MAX_BYTES else "pass", "%d of %d bytes" % (size, MAX_BYTES)))
++    nodes = sum(1 for _ in ast.walk(tree))
++    results.append(finding("ast_nodes", "note" if nodes > MAX_NODES else "pass", "%d of %d nodes" % (nodes, MAX_NODES)))
++    try:
++        before, after = L.function_dumps(parent_source), L.function_dumps(source)
++    except ValueError as error:
++        return results + [finding("manifest", "fail", str(error))]
++    changed = sorted(component for component, old, new in zip(L.COMPONENTS, before, after) if old != new)
++    declared = [experiment["component"]] if experiment.get("component") else changed
++    if changed != declared:
++        results.append(finding("manifest", "fail", "the plan declares %s but the program changes %s" % (
++            declared or "nothing", changed or "nothing")))
++    elif experiment.get("factors") and L.factor_ids(source) != experiment["factors"]:
++        results.append(finding("manifest", "fail", "the spliced functions are not the declared measured ones"))
++    else:
++        results.append(finding("manifest", "pass", "changes %s" % changed))
++    expected = experiment.get("expect_footprint")
++    if expected and changed == declared and declared:
++        shape = L.edit_footprint(parent_source, source)[declared[0]]
++        results.append(finding("intervention_shape", "pass" if shape in expected else "fail",
++                               "the %s edit is %s; the plan allows %s" % (declared[0], shape, list(expected))))
++    problems = identity_rules(source, schedule)
++    results.append(finding("identity_rules", "fail" if problems else "pass", "; ".join(problems[:3])))
++    return results
++
++
++# ----------------------------------------------------------------------------------------------
++# Runtime and helper resolution
++
++
++def _module(name):
++    try:
++        return importlib.import_module(name)
++    except Exception:  # absent, or present but unusable in this runtime: the probe is skipped
++        return None
++
++
++def resolve_helper():
++    """The organizer's reference helper from a configured provider, or None."""
++    for module_name, attribute in HELPER_PROVIDERS:
++        module = _module(module_name)
++        helper = getattr(module, attribute, None) if module is not None else None
++        if callable(helper):
++            return helper, "%s.%s" % (module_name, attribute)
++    return None, None
++
++
++def runtime_capabilities():
++    """What the probes can use in this process (logged once per run)."""
++    numpy, torch = _module("numpy"), _module("torch")
++    helper, provider = resolve_helper()
++    return {"python": "%d.%d.%d" % sys.version_info[:3],
++            "numpy": getattr(numpy, "__version__", None), "torch": getattr(torch, "__version__", None),
++            "reference_helper": provider,
++            "decoder_probe": "custom decoders" + (" and helper decoders" if helper else "") if numpy else "skipped",
++            "loss_probe": "runs" if torch else "skipped"}
++
++
++def calls_helper(source, index=1):
++    """Whether the decoder (index 1) of a program calls the frozen reference helper."""
++    functions = [node for node in ast.parse(source).body if isinstance(node, ast.FunctionDef)]
++    return any(isinstance(node, ast.Call) and isinstance(node.func, ast.Name) and node.func.id == HELPER
++               for node in ast.walk(functions[index]))
++
++
++# ----------------------------------------------------------------------------------------------
++# Synthetic probes
++
++
++def _load(source, namespace):
++    scope = dict(namespace, __builtins__=builtins)
++    exec(compile(source, "<candidate>", "exec"), scope)
++    return scope["compute_tp_gnn_loss"], scope["decode_tp_gnn_embeddings"]
++
++
++def _decoder_fixture(np):
++    state = np.random.RandomState(0)
++    centers = state.normal(size=(3, 6))
++    raw = centers[state.randint(0, 3, PROBE_GROUPS)] + 0.4 * state.normal(size=(PROBE_GROUPS, 6))
++    embeddings = raw / np.linalg.norm(raw, axis=1, keepdims=True)
++    areas = state.uniform(1.0, 5.0, PROBE_GROUPS)
++    areas[:4] = 40.0  # a few large, macro-like groups
++    embeddings.setflags(write=False)
++    areas.setflags(write=False)
++    return embeddings, areas
++
++
++def _skipped(probe, reason):
++    return {"probe": probe, "status": "skipped", "reason": reason}
++
++
++def decoder_probe(source, parent_source, helper=None):
++    """Contract check of the candidate decoder on a fixed fixture; `helper` overrides resolution (tests)."""
++    np = _module("numpy")
++    if np is None:
++        return _skipped("decoder_contract", "NumPy is not importable in the Agent runtime")
++    if helper is None:
++        helper = resolve_helper()[0]
++    if helper is None and calls_helper(source):
++        return _skipped("decoder_contract", "the decoder calls %s, which no supported provider offers in the "
++                                            "Agent runtime" % HELPER)
++    namespace = {"np": np}
++    if helper is not None:
++        namespace[HELPER] = helper
++    embeddings, areas = _decoder_fixture(np)
++    try:
++        decode = _load(source, namespace)[1]
++        first = np.asarray(decode(embeddings, areas, PROBE_SEED, PROBE_ITERATIONS, 0.5))
++        second = np.asarray(decode(embeddings, areas, PROBE_SEED, PROBE_ITERATIONS, 0.5))
++    except ENVIRONMENT_ERRORS as error:
++        return _skipped("decoder_contract", "probe environment: %s: %s" % (type(error).__name__, str(error)[:120]))
++    except Exception as error:  # the candidate's own failure on the fixture is the finding
++        return {"probe": "decoder_contract", "status": "fail", "reason": "%s: %s" % (type(error).__name__, str(error)[:160])}
++    problems = []
++    if first.shape != (PROBE_GROUPS,):
++        problems.append("returned shape %s instead of (%d,)" % (first.shape, PROBE_GROUPS))
++    elif first.dtype.kind not in "iub":
++        problems.append("returned %s labels instead of integers" % first.dtype)
++    elif not set(np.unique(first).tolist()) <= {0, 1}:
++        problems.append("returned labels other than 0 and 1")
++    elif first.min() == first.max():
++        problems.append("put every group on one die")
++    elif not np.array_equal(first, second):
++        problems.append("returned different labels for identical inputs")
++    if problems:
++        return {"probe": "decoder_contract", "status": "fail", "reason": "; ".join(problems)}
++    result = {"probe": "decoder_contract", "status": "pass",
++              "top_area_share": round(float(areas[first == 1].sum() / areas.sum()), 4)}
++    if helper is None and calls_helper(parent_source):
++        result["change_vs_parent"] = None
++        result["note"] = "the parent decoder calls %s; no comparison" % HELPER
++        return result
++    try:
++        parent = np.asarray(_load(parent_source, namespace)[1](embeddings, areas, PROBE_SEED, PROBE_ITERATIONS, 0.5))
++        changed = float((parent != first).mean())
++        result["change_vs_parent"] = round(changed, 4)
++        result["change_vs_parent_up_to_exchange"] = round(min(changed, 1.0 - changed), 4)
++    except Exception as error:  # an advisory comparison only
++        result["change_vs_parent"] = None
++        result["note"] = "parent decoder did not run on the fixture: %s" % type(error).__name__
++    return result
++
++
++def _loss_inputs(torch, F):
++    generator = torch.Generator().manual_seed(0)
++    groups, width, positives, negatives, edges, nets = 40, 8, 60, 120, 90, 30
++    raw = torch.randn(groups, width, generator=generator, requires_grad=True)
++    embeddings = F.normalize(raw, dim=1)
++    def pairs(count):
++        return (torch.randint(0, groups, (count,), generator=generator),
++                torch.randint(0, groups, (count,), generator=generator))
++    ps, pt = pairs(positives)
++    ns, nt = pairs(negatives)
++    gs, gt = pairs(edges)
++    features = torch.rand(groups, 10, generator=generator)
++    features[:, 0] = features[:, 0] - 0.5  # signed slack
++    inputs = {
++        "positive_scores": (embeddings[ps] * embeddings[pt]).sum(dim=1),
++        "negative_scores": (embeddings[ns] * embeddings[nt]).sum(dim=1),
++        "embeddings": embeddings, "positive_sources": ps, "positive_targets": pt,
++        "negative_sources": ns, "negative_targets": nt, "source_batch_size": 16, "epoch": 3, "max_epochs": 20,
++        "graph_scores": (embeddings[gs] * embeddings[gt]).sum(dim=1), "graph_sources": gs, "graph_targets": gt,
++        "graph_net_ids": torch.randint(0, nets, (edges,), generator=generator),
++        "graph_weights": torch.rand(edges, generator=generator) + 0.1,
++        "net_weights": torch.rand(nets, generator=generator) + 1.0,
++        "node_features": features, "node_areas": torch.rand(groups, generator=generator) * 4 + 1,
++    }
++    return raw, inputs
++
++
++def loss_probe(source, parent_source):
++    torch = _module("torch")
++    if torch is None:
++        return _skipped("loss_contract", "PyTorch is not importable in the Agent runtime")
++    F = importlib.import_module("torch.nn.functional")
++    try:
++        raw, inputs = _loss_inputs(torch, F)
++        snapshot = {name: value.detach().clone() for name, value in inputs.items() if isinstance(value, torch.Tensor)}
++        value = _load(source, {"torch": torch, "F": F})[0](**inputs)
++    except ENVIRONMENT_ERRORS as error:
++        return _skipped("loss_contract", "probe environment: %s: %s" % (type(error).__name__, str(error)[:120]))
++    except Exception as error:  # the candidate's own failure on the fixture is the finding
++        return {"probe": "loss_contract", "status": "fail", "reason": "%s: %s" % (type(error).__name__, str(error)[:160])}
++    problems, notes = [], []
++    if not isinstance(value, torch.Tensor) or value.numel() != 1:
++        problems.append("did not return one scalar tensor")
++    elif not bool(torch.isfinite(value).all()):
++        problems.append("returned a non-finite loss")
++    elif not value.requires_grad:
++        problems.append("returned a loss detached from the embeddings")
++    else:
++        try:
++            value.reshape(()).backward()
++        except Exception as error:  # e.g. an in-place operation on a tensor autograd needs
++            problems.append("backward failed: %s" % str(error)[:120])
++        else:
++            if raw.grad is None or not bool(torch.isfinite(raw.grad).all()):
++                problems.append("produced non-finite gradients")
++            elif float(raw.grad.abs().sum()) == 0.0:
++                notes.append("zero gradient on the fixture")
++    if not problems and any(not torch.equal(snapshot[name], inputs[name].detach()) for name in snapshot):
++        problems.append("changed its inputs")
++    if problems:
++        return {"probe": "loss_contract", "status": "fail", "reason": "; ".join(problems)}
++    result = {"probe": "loss_contract", "status": "pass", "loss": round(float(value.detach()), 6)}
++    try:
++        _, parent_inputs = _loss_inputs(torch, F)
++        parent_value = float(_load(parent_source, {"torch": torch, "F": F})[0](**parent_inputs).detach())
++        result["ratio_vs_parent"] = round(result["loss"] / parent_value, 4) if parent_value else None
++    except Exception as error:  # an advisory comparison only
++        notes.append("parent loss did not run on the fixture: %s" % type(error).__name__)
++    if notes:
++        result["note"] = "; ".join(notes)
++    return result
++
++
++def accept_spec(spec):
++    """A planner's proposed check, reduced to an allowed kind with clamped numeric parameters."""
++    if not isinstance(spec, dict) or spec.get("kind") not in ALLOWED_PROBES:
++        raise ValueError("unsupported probe kind")
++    accepted = {"kind": spec["kind"]}
++    for name, (low, high) in ALLOWED_PROBES[spec["kind"]].items():
++        value = spec.get(name)
++        if isinstance(value, (int, float)) and not isinstance(value, bool):
++            accepted[name] = min(high, max(low, float(value)))
++    return accepted
++
++
++def _expectation(spec, results):
++    probe = {row["probe"]: row for row in results}
++    decoder, loss = probe.get("decoder_contract", {}), probe.get("loss_contract", {})
++    kind = spec["kind"]
++    if kind == "decoder_change_vs_parent" and decoder.get("change_vs_parent") is not None:
++        value = decoder["change_vs_parent_up_to_exchange"]
++        held = spec.get("min_fraction", 0.0) <= value <= spec.get("max_fraction", 1.0)
++    elif kind == "decoder_top_area_share" and decoder.get("top_area_share") is not None:
++        value = decoder["top_area_share"]
++        held = abs(value - 0.5) <= spec.get("tolerance", 0.03)
++    elif kind == "loss_ratio_vs_parent" and loss.get("ratio_vs_parent") is not None:
++        value = loss["ratio_vs_parent"]
++        held = spec.get("min", 0.01) <= value <= spec.get("max", 100.0)
++    else:
++        return {"probe": "planner_spec", "status": "skipped", "spec": spec, "reason": "the probe it needs did not run"}
++    return {"probe": "planner_spec", "status": "note", "spec": spec, "value": value, "expectation_held": held}
++
++
++def run_probes(source, parent_source, components, spec=None, helper=None):
++    """Contract probes for the changed functions, then the planner's accepted spec (advisory)."""
++    results = []
++    for component, probe in (("decoder", decoder_probe), ("loss", loss_probe)):
++        if component not in components:
++            continue
++        try:
++            results.append(probe(source, parent_source, helper) if component == "decoder"
++                           else probe(source, parent_source))
++        except Exception as error:  # the probe's own environment, not the candidate: never blocks
++            results.append(_skipped(component + "_contract", "probe error %s: %s" % (type(error).__name__,
++                                                                                    str(error)[:120])))
++    if spec is not None:
++        try:
++            results.append(_expectation(accept_spec(spec), results))
++        except ValueError as error:
++            results.append(_skipped("planner_spec", str(error)))
++    return results

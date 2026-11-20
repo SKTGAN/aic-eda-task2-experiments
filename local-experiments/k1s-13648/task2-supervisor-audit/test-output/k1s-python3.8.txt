@@ -1,0 +1,23 @@
+Python 3.8.20
+test_k1_probe_rejects_a_decoder_the_organizer_evaluated (test_supervisor.KnownDefect) ... skipped 'the decoder probe runs only when NumPy is importable'
+test_shared_fix_accepts_it_and_still_detects_equivalence (test_supervisor.KnownDefect) ... skipped 'the decoder probe runs only when NumPy is importable'
+test_only_three_agent_files_differ_from_k1 (test_supervisor.Package) ... ok
+test_python38_syntax (test_supervisor.Package) ... ok
+test_check_records_adoption_and_an_attributable_comparison (test_supervisor.XAfterRound3) ... ok
+test_final_selection_still_includes_the_excluded_candidate (test_supervisor.XAfterRound3) ... ok
+test_the_adjustment_expires_after_one_step (test_supervisor.XAfterRound3) ... ok
+test_a_restarted_process_does_not_review_twice (test_supervisor.XRestart) ... ok
+test_expert_section_still_goes_only_into_the_first_request (test_supervisor.XWindow) ... ok
+test_findings (test_supervisor.XWindow) ... ok
+test_k1_round3_refines_the_die_swap_decoder (test_supervisor.XWindow) ... ok
+test_k1s_round3_builds_from_the_official_start_with_a_loss_edit (test_supervisor.XWindow) ... ok
+test_review_is_logged_once_with_its_dossier (test_supervisor.XWindow) ... ok
+test_rounds_1_and_2_send_identical_requests_in_both_arms (test_supervisor.XWindow) ... ok
+test_both_arms_measure_the_shelved_alternative_without_a_model_call (test_supervisor.YWindow) ... ok
+test_findings (test_supervisor.YWindow) ... ok
+test_supervisor_keeps_the_policy_step_and_adds_nothing (test_supervisor.YWindow) ... ok
+
+----------------------------------------------------------------------
+Ran 17 tests in 0.366s
+
+OK (skipped=2)

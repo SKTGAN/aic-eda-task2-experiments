@@ -1,0 +1,735 @@
+{
+  "overview": {
+    "run": "27528-ablation",
+    "round": 7,
+    "capture_port": "16012",
+    "scope": "official-runner",
+    "accepted_at": "2026-11-18T20:18:05.472709+00:00",
+    "completed_at": "2026-11-18T20:38:09.611323+00:00",
+    "status": "succeeded",
+    "score": -100.0,
+    "seen_cells": 9,
+    "expected_cells": 9,
+    "parent_id": "1419acdef89f42cf77febf4669e8a8f48665755853884d7ee31b30de8888d09a",
+    "candidate_id": "f4a8bad252ad2e09289347c6583bfb0ecee9eb39c56b340e35d3b5ee00d1fb11",
+    "request_id": "e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4",
+    "search_intent": "diversify",
+    "model_request_events": 2,
+    "model_response_events": 2,
+    "candidate_available": true
+  },
+  "ledger": {
+    "request_id": "e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4",
+    "candidate_id": "f4a8bad252ad2e09289347c6583bfb0ecee9eb39c56b340e35d3b5ee00d1fb11",
+    "status": "succeeded",
+    "accepted_at": "2026-11-18T20:18:05.472709+00:00",
+    "completed_at": "2026-11-18T20:38:09.611323+00:00",
+    "reason": null
+  },
+  "official_receipt": {
+    "metric_fields": [
+      "combined_score",
+      "evaluation_complete",
+      "matrix",
+      "runs_successfully",
+      "valid"
+    ],
+    "metrics": {
+      "combined_score": -100.0,
+      "evaluation_complete": 1.0,
+      "runs_successfully": 0.0,
+      "valid": false
+    },
+    "matrix": {
+      "all_valid": false,
+      "cases": [
+        {
+          "case": "bp_fe-ng45",
+          "complete": true,
+          "max": -100.0,
+          "mean": -100.0,
+          "min": -100.0,
+          "scores": {
+            "1001": -100.0,
+            "1002": -100.0,
+            "1003": -100.0
+          },
+          "stddev": 0.0
+        },
+        {
+          "case": "bp-ng45",
+          "complete": true,
+          "max": -100.0,
+          "mean": -100.0,
+          "min": -100.0,
+          "scores": {
+            "1001": -100.0,
+            "1002": -100.0,
+            "1003": -100.0
+          },
+          "stddev": 0.0
+        },
+        {
+          "case": "ariane133-ng45",
+          "complete": true,
+          "max": -100.0,
+          "mean": -100.0,
+          "min": -100.0,
+          "scores": {
+            "1001": -100.0,
+            "1002": -100.0,
+            "1003": -100.0
+          },
+          "stddev": 0.0
+        }
+      ],
+      "cells": [
+        {
+          "case": "bp_fe-ng45",
+          "error_message": "partition: command failed with code 1; see /root/aic-eda-ours-20261117/arms/ablation-20261118-949157d9/work/evaluations/e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4/cells/bp_fe-ng45/1001/result/run/20_partition/run.log",
+          "error_type": "PhysicalCellFailure",
+          "metrics": {
+            "combined_score": -100.0,
+            "native_paired_combined_score": 0.0,
+            "raw_score": null,
+            "runs_successfully": 0.0,
+            "valid": false
+          },
+          "native_failure_diagnostics": [
+            {
+              "excerpt": "  File \"$CELL/workspace/Open3DBench-V2.0/Place-3D/src/partition/lol/methods/tp_gnn_evolution.py\", line 437, in decode_evolution_embeddings\n    labels = np.asarray(namespace[\"decode_tp_gnn_embeddings\"](\n  File \"<tp-gnn-evolution>\", line 58, in decode_tp_gnn_embeddings\nValueError: operands could not be broadcast together with shapes (9173,128) (1,9173) \n[open3dbench-log] === OUTPUT / Current command exit and downstream handoff locations ===",
+              "source": "retained_artifacts/algorithm/20_partition/run.log"
+            },
+            {
+              "excerpt": "    run_logged(command, cwd, log, command_env)\n  File \"$CELL/workspace/Open3DBench-V2.0/open3dbench/command_log.py\", line 188, in run_logged\n    raise RuntimeError('command failed with code {}; see {}'.format(returncode, log))\nRuntimeError: command failed with code 1; see $CELL/run/20_partition/run.log",
+              "source": "stage.log"
+            }
+          ],
+          "physical_failure_evidence": {
+            "container/execution/frontend/stop.json": "d3dbddf0a83d4ec15fe1ed5ba0702e5d408f31d47fe6959e714cc2b121d4315d",
+            "container/execution/frontend/terminal.json": "99013b82c5b15268c28a996cca26fa638ada67c73715c1a215fa7121e90d786e",
+            "container/lease.json": "2eca6808a671869e392fed3248ac5d2c5a4e0b7144638c005d78db3b5a5778bf",
+            "container/request.json": "8b7a578365c5370952becdadef9fa769e7f4648e0ea6fe2907fda05a22cae6f9",
+            "result/candidate_snapshot.json": "4b4c445df669fcf6b3cee09d24e374372110df882721955e3feb1fe0bf851856",
+            "result/evaluation_result.json": "30844a03cdd6c26ab974d2ea6fa09b18d0d5ef96ea2438d9de5cfbe6dc9ed644",
+            "result/resolved_config.yaml": "6e96099c5ea5832abe6dcc534551efffc6dac8e6b7cc78baa22968ad43da14b2",
+            "result/run/run.json": "354d50f883d5d23939b5daccc67266d1217b78c417c5c4cf415d21cf6aed91ca"
+          },
+          "raw_score": null,
+          "score": -100.0,
+          "seed": "1001",
+          "status": "penalized",
+          "valid": false
+        },
+        {
+          "case": "bp_fe-ng45",
+          "error_message": "partition: command failed with code 1; see /root/aic-eda-ours-20261117/arms/ablation-20261118-949157d9/work/evaluations/e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4/cells/bp_fe-ng45/1002/result/run/20_partition/run.log",
+          "error_type": "PhysicalCellFailure",
+          "metrics": {
+            "combined_score": -100.0,
+            "native_paired_combined_score": 0.0,
+            "raw_score": null,
+            "runs_successfully": 0.0,
+            "valid": false
+          },
+          "native_failure_diagnostics": [
+            {
+              "excerpt": "  File \"$CELL/workspace/Open3DBench-V2.0/Place-3D/src/partition/lol/methods/tp_gnn_evolution.py\", line 437, in decode_evolution_embeddings\n    labels = np.asarray(namespace[\"decode_tp_gnn_embeddings\"](\n  File \"<tp-gnn-evolution>\", line 58, in decode_tp_gnn_embeddings\nValueError: operands could not be broadcast together with shapes (9173,128) (1,9173) \n[open3dbench-log] === OUTPUT / Current command exit and downstream handoff locations ===",
+              "source": "retained_artifacts/algorithm/20_partition/run.log"
+            },
+            {
+              "excerpt": "    run_logged(command, cwd, log, command_env)\n  File \"$CELL/workspace/Open3DBench-V2.0/open3dbench/command_log.py\", line 188, in run_logged\n    raise RuntimeError('command failed with code {}; see {}'.format(returncode, log))\nRuntimeError: command failed with code 1; see $CELL/run/20_partition/run.log",
+              "source": "stage.log"
+            }
+          ],
+          "physical_failure_evidence": {
+            "container/execution/frontend/stop.json": "0c3db0462e1d2f048c4384ceb0527572a795223a65888dd7e8affac2f677b34b",
+            "container/execution/frontend/terminal.json": "3db4f705573ecba03cee0c2e1b781506f569941422cc7609c862ec80acd03193",
+            "container/lease.json": "4e018f80e11d9a589c3a3af9ee257a1d4d14e79d017da48d0e53df5c939bda54",
+            "container/request.json": "66828151b73283f7648f3a84ff0c9a9022e513305b1a52eaf5adbe9edfaadf82",
+            "result/candidate_snapshot.json": "4b4c445df669fcf6b3cee09d24e374372110df882721955e3feb1fe0bf851856",
+            "result/evaluation_result.json": "7144af0f14cbdd4b10e5f94ace08f4c3e5540214f1b93253569e14e3e03ce4d3",
+            "result/resolved_config.yaml": "e28fda6a271ef3e7df6f0e53b58629ec52ea82c116796a706cfda2cc8faefa79",
+            "result/run/run.json": "833827bbf6c6af182fca78d83a7d25410832b04bdcfe3902f0c6e97bd4da9dd2"
+          },
+          "raw_score": null,
+          "score": -100.0,
+          "seed": "1002",
+          "status": "penalized",
+          "valid": false
+        },
+        {
+          "case": "bp_fe-ng45",
+          "error_message": "partition: command failed with code 1; see /root/aic-eda-ours-20261117/arms/ablation-20261118-949157d9/work/evaluations/e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4/cells/bp_fe-ng45/1003/result/run/20_partition/run.log",
+          "error_type": "PhysicalCellFailure",
+          "metrics": {
+            "combined_score": -100.0,
+            "native_paired_combined_score": 0.0,
+            "raw_score": null,
+            "runs_successfully": 0.0,
+            "valid": false
+          },
+          "native_failure_diagnostics": [
+            {
+              "excerpt": "  File \"$CELL/workspace/Open3DBench-V2.0/Place-3D/src/partition/lol/methods/tp_gnn_evolution.py\", line 437, in decode_evolution_embeddings\n    labels = np.asarray(namespace[\"decode_tp_gnn_embeddings\"](\n  File \"<tp-gnn-evolution>\", line 58, in decode_tp_gnn_embeddings\nValueError: operands could not be broadcast together with shapes (9173,128) (1,9173) \n[open3dbench-log] === OUTPUT / Current command exit and downstream handoff locations ===",
+              "source": "retained_artifacts/algorithm/20_partition/run.log"
+            },
+            {
+              "excerpt": "    run_logged(command, cwd, log, command_env)\n  File \"$CELL/workspace/Open3DBench-V2.0/open3dbench/command_log.py\", line 188, in run_logged\n    raise RuntimeError('command failed with code {}; see {}'.format(returncode, log))\nRuntimeError: command failed with code 1; see $CELL/run/20_partition/run.log",
+              "source": "stage.log"
+            }
+          ],
+          "physical_failure_evidence": {
+            "container/execution/frontend/stop.json": "e87c19e74b22b741d51613947f6b09f7b99e1f7705513f5e908612c93a8d44d0",
+            "container/execution/frontend/terminal.json": "7ab2c00a35bc22282878e0a1b4362eb3bea9781169d9e376dce3e8ee048516d5",
+            "container/lease.json": "d13683623572425e79548847017b6c8b8098151773e1c683fa7a34a685fcfbe7",
+            "container/request.json": "ad7194677ce031e4ac652c5f39e5b3d8b69ed2d9c1e53ad313d54ffeefa93f54",
+            "result/candidate_snapshot.json": "4b4c445df669fcf6b3cee09d24e374372110df882721955e3feb1fe0bf851856",
+            "result/evaluation_result.json": "6651e706036bc06486381c1ee887fd44249c75d430008d66527532e772422e62",
+            "result/resolved_config.yaml": "f6f9bf94dcc6808633fb97bc7b75bdbdc954918f7de96395e6cc7f16a804f071",
+            "result/run/run.json": "fbfd6e41182e2d618fbfdc7f2fced529851ffc1f26010a77d46dbee65f28ebe1"
+          },
+          "raw_score": null,
+          "score": -100.0,
+          "seed": "1003",
+          "status": "penalized",
+          "valid": false
+        },
+        {
+          "case": "bp-ng45",
+          "error_message": "partition: command failed with code 1; see /root/aic-eda-ours-20261117/arms/ablation-20261118-949157d9/work/evaluations/e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4/cells/bp-ng45/1001/result/run/20_partition/run.log",
+          "error_type": "PhysicalCellFailure",
+          "metrics": {
+            "combined_score": -100.0,
+            "native_paired_combined_score": 0.0,
+            "raw_score": null,
+            "runs_successfully": 0.0,
+            "valid": false
+          },
+          "native_failure_diagnostics": [
+            {
+              "excerpt": "  File \"$CELL/workspace/Open3DBench-V2.0/Place-3D/src/partition/lol/methods/tp_gnn_evolution.py\", line 437, in decode_evolution_embeddings\n    labels = np.asarray(namespace[\"decode_tp_gnn_embeddings\"](\n  File \"<tp-gnn-evolution>\", line 58, in decode_tp_gnn_embeddings\nValueError: operands could not be broadcast together with shapes (46942,128) (1,46942) \n[open3dbench-log] === OUTPUT / Current command exit and downstream handoff locations ===",
+              "source": "retained_artifacts/algorithm/20_partition/run.log"
+            },
+            {
+              "excerpt": "    run_logged(command, cwd, log, command_env)\n  File \"$CELL/workspace/Open3DBench-V2.0/open3dbench/command_log.py\", line 188, in run_logged\n    raise RuntimeError('command failed with code {}; see {}'.format(returncode, log))\nRuntimeError: command failed with code 1; see $CELL/run/20_partition/run.log",
+              "source": "stage.log"
+            }
+          ],
+          "physical_failure_evidence": {
+            "container/execution/frontend/stop.json": "fed8230d367c7dc6fa53d1fe81bba8df5a721c30780fd3614f8b6fbc032944dd",
+            "container/execution/frontend/terminal.json": "c0136c31df3c190a30e1336241a9bcefd82dccd5362914876dd43984d035dac7",
+            "container/lease.json": "ad337ea6783a9a7be3dd2eb13984ec150ea357da801b8496755d93d5af9dc198",
+            "container/request.json": "a5609e5af0ad85243f1c3967cbb4b907c7ca9f9e9030681b7030f8c766b54db2",
+            "result/candidate_snapshot.json": "4b4c445df669fcf6b3cee09d24e374372110df882721955e3feb1fe0bf851856",
+            "result/evaluation_result.json": "0be9dff6709572274fa8a55c1605109cdc09748094c89262200cd3fb160544d9",
+            "result/resolved_config.yaml": "811ff0357b5f06da6e9161b5b0901423f2bbeffc3fb8580ba23b10753f107194",
+            "result/run/run.json": "62db0b1b7dcff26efc59dbf1315021076daa981762ce14e20d112bd19b488a59"
+          },
+          "raw_score": null,
+          "score": -100.0,
+          "seed": "1001",
+          "status": "penalized",
+          "valid": false
+        },
+        {
+          "case": "bp-ng45",
+          "error_message": "partition: command failed with code 1; see /root/aic-eda-ours-20261117/arms/ablation-20261118-949157d9/work/evaluations/e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4/cells/bp-ng45/1002/result/run/20_partition/run.log",
+          "error_type": "PhysicalCellFailure",
+          "metrics": {
+            "combined_score": -100.0,
+            "native_paired_combined_score": 0.0,
+            "raw_score": null,
+            "runs_successfully": 0.0,
+            "valid": false
+          },
+          "native_failure_diagnostics": [
+            {
+              "excerpt": "  File \"$CELL/workspace/Open3DBench-V2.0/Place-3D/src/partition/lol/methods/tp_gnn_evolution.py\", line 437, in decode_evolution_embeddings\n    labels = np.asarray(namespace[\"decode_tp_gnn_embeddings\"](\n  File \"<tp-gnn-evolution>\", line 58, in decode_tp_gnn_embeddings\nValueError: operands could not be broadcast together with shapes (46942,128) (1,46942) \n[open3dbench-log] === OUTPUT / Current command exit and downstream handoff locations ===",
+              "source": "retained_artifacts/algorithm/20_partition/run.log"
+            },
+            {
+              "excerpt": "    run_logged(command, cwd, log, command_env)\n  File \"$CELL/workspace/Open3DBench-V2.0/open3dbench/command_log.py\", line 188, in run_logged\n    raise RuntimeError('command failed with code {}; see {}'.format(returncode, log))\nRuntimeError: command failed with code 1; see $CELL/run/20_partition/run.log",
+              "source": "stage.log"
+            }
+          ],
+          "physical_failure_evidence": {
+            "container/execution/frontend/stop.json": "cc4ac9af902bf5d780ff224de996ad477ea86f6f64bc79210de223447c3adb38",
+            "container/execution/frontend/terminal.json": "c9e3b357756b5cbc518a4f78e84882bef034688b06ddcf8df05e4bbb1dadd135",
+            "container/lease.json": "8368d34911e2ae9deab13224146f7d27f8d7d04bac0a6412db36ad2c888a53f4",
+            "container/request.json": "96a1e07f328959d4985ea8bea14905db535161ffc63f052a0ce846cea5dd07b9",
+            "result/candidate_snapshot.json": "4b4c445df669fcf6b3cee09d24e374372110df882721955e3feb1fe0bf851856",
+            "result/evaluation_result.json": "eef9bf885b21d70f8194edafb6050eda9516bd84a58fbd1b9e314d8acbde1e5c",
+            "result/resolved_config.yaml": "10af34097113c848c6140128bea9fe3ddf16d4583d3baa52e50d4ab477cfd532",
+            "result/run/run.json": "f862b525dc4e2b685d170881da93a44627362ea1b333a2769a2538c10c0c456a"
+          },
+          "raw_score": null,
+          "score": -100.0,
+          "seed": "1002",
+          "status": "penalized",
+          "valid": false
+        },
+        {
+          "case": "bp-ng45",
+          "error_message": "partition: command failed with code 1; see /root/aic-eda-ours-20261117/arms/ablation-20261118-949157d9/work/evaluations/e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4/cells/bp-ng45/1003/result/run/20_partition/run.log",
+          "error_type": "PhysicalCellFailure",
+          "metrics": {
+            "combined_score": -100.0,
+            "native_paired_combined_score": 0.0,
+            "raw_score": null,
+            "runs_successfully": 0.0,
+            "valid": false
+          },
+          "native_failure_diagnostics": [
+            {
+              "excerpt": "  File \"$CELL/workspace/Open3DBench-V2.0/Place-3D/src/partition/lol/methods/tp_gnn_evolution.py\", line 437, in decode_evolution_embeddings\n    labels = np.asarray(namespace[\"decode_tp_gnn_embeddings\"](\n  File \"<tp-gnn-evolution>\", line 58, in decode_tp_gnn_embeddings\nValueError: operands could not be broadcast together with shapes (46942,128) (1,46942) \n[open3dbench-log] === OUTPUT / Current command exit and downstream handoff locations ===",
+              "source": "retained_artifacts/algorithm/20_partition/run.log"
+            },
+            {
+              "excerpt": "    run_logged(command, cwd, log, command_env)\n  File \"$CELL/workspace/Open3DBench-V2.0/open3dbench/command_log.py\", line 188, in run_logged\n    raise RuntimeError('command failed with code {}; see {}'.format(returncode, log))\nRuntimeError: command failed with code 1; see $CELL/run/20_partition/run.log",
+              "source": "stage.log"
+            }
+          ],
+          "physical_failure_evidence": {
+            "container/execution/frontend/stop.json": "57b54665812a3b3f382c8a84c160e7a51a845d0f5f4eef803c36d80a39575f0d",
+            "container/execution/frontend/terminal.json": "bb6746010b72bc9b9b62b5b05f9b4b1f7594f580e6fe8e011fc97c4651859299",
+            "container/lease.json": "8c454a47a5655328cdcf41a74698abaab6ce143855caa26888e9e870cd05698e",
+            "container/request.json": "935bc9d106e1b3514e375b5ed3b5de721b571af1ea9f3d527d7ff341973dbeda",
+            "result/candidate_snapshot.json": "4b4c445df669fcf6b3cee09d24e374372110df882721955e3feb1fe0bf851856",
+            "result/evaluation_result.json": "9893bfc65e4553c0de183965ac40d874c63aa992e85d079d0725d603b7df09eb",
+            "result/resolved_config.yaml": "95f337b984a9d7b15e3f770ecfaa5d543cae3c696952bc3a93ecfe9386a62d99",
+            "result/run/run.json": "0fdec358a1bb21108d88cb97175770bc6898d0feb8c9710438cf6a4162798630"
+          },
+          "raw_score": null,
+          "score": -100.0,
+          "seed": "1003",
+          "status": "penalized",
+          "valid": false
+        },
+        {
+          "case": "ariane133-ng45",
+          "error_message": "partition: command failed with code 1; see /root/aic-eda-ours-20261117/arms/ablation-20261118-949157d9/work/evaluations/e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4/cells/ariane133-ng45/1001/result/run/20_partition/run.log",
+          "error_type": "PhysicalCellFailure",
+          "metrics": {
+            "combined_score": -100.0,
+            "native_paired_combined_score": 0.0,
+            "raw_score": null,
+            "runs_successfully": 0.0,
+            "valid": false
+          },
+          "native_failure_diagnostics": [
+            {
+              "excerpt": "  File \"$CELL/workspace/Open3DBench-V2.0/Place-3D/src/partition/lol/methods/tp_gnn_evolution.py\", line 437, in decode_evolution_embeddings\n    labels = np.asarray(namespace[\"decode_tp_gnn_embeddings\"](\n  File \"<tp-gnn-evolution>\", line 58, in decode_tp_gnn_embeddings\nValueError: operands could not be broadcast together with shapes (47385,128) (1,47385) \n[open3dbench-log] === OUTPUT / Current command exit and downstream handoff locations ===",
+              "source": "retained_artifacts/algorithm/20_partition/run.log"
+            },
+            {
+              "excerpt": "    run_logged(command, cwd, log, command_env)\n  File \"$CELL/workspace/Open3DBench-V2.0/open3dbench/command_log.py\", line 188, in run_logged\n    raise RuntimeError('command failed with code {}; see {}'.format(returncode, log))\nRuntimeError: command failed with code 1; see $CELL/run/20_partition/run.log",
+              "source": "stage.log"
+            }
+          ],
+          "physical_failure_evidence": {
+            "container/execution/frontend/stop.json": "9ff55b53f129ef3a918b3789230a63bca7eaff620a4f735f18b673b8265e2c2b",
+            "container/execution/frontend/terminal.json": "5a5eba2eab9609e2727c6c68fa75c03af1466e5a9a22283937457d0b8bff35ae",
+            "container/lease.json": "613174a8b9ef82957c6b924425f792f5942225a74341d19050cb6eaad48a8484",
+            "container/request.json": "01b3afd1effa379fd42a2e33b7802ed5af14ad1ae95a6046a9b13c05890a4d36",
+            "result/candidate_snapshot.json": "4b4c445df669fcf6b3cee09d24e374372110df882721955e3feb1fe0bf851856",
+            "result/evaluation_result.json": "f6c20bfdebed487f982bf004a0282dc3e96673448a53c59a09d5fc5e507930ca",
+            "result/resolved_config.yaml": "0e6ceed6c6ab9c56d5f33c009f58271896eed31a5a559a09c28e445e6e32f434",
+            "result/run/run.json": "8e08f041e1a660b97cd31205f2b2052f4a461c52d17a5fc99de237ad6cb15022"
+          },
+          "raw_score": null,
+          "score": -100.0,
+          "seed": "1001",
+          "status": "penalized",
+          "valid": false
+        },
+        {
+          "case": "ariane133-ng45",
+          "error_message": "partition: command failed with code 1; see /root/aic-eda-ours-20261117/arms/ablation-20261118-949157d9/work/evaluations/e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4/cells/ariane133-ng45/1002/result/run/20_partition/run.log",
+          "error_type": "PhysicalCellFailure",
+          "metrics": {
+            "combined_score": -100.0,
+            "native_paired_combined_score": 0.0,
+            "raw_score": null,
+            "runs_successfully": 0.0,
+            "valid": false
+          },
+          "native_failure_diagnostics": [
+            {
+              "excerpt": "  File \"$CELL/workspace/Open3DBench-V2.0/Place-3D/src/partition/lol/methods/tp_gnn_evolution.py\", line 437, in decode_evolution_embeddings\n    labels = np.asarray(namespace[\"decode_tp_gnn_embeddings\"](\n  File \"<tp-gnn-evolution>\", line 58, in decode_tp_gnn_embeddings\nValueError: operands could not be broadcast together with shapes (47385,128) (1,47385) \n[open3dbench-log] === OUTPUT / Current command exit and downstream handoff locations ===",
+              "source": "retained_artifacts/algorithm/20_partition/run.log"
+            },
+            {
+              "excerpt": "    run_logged(command, cwd, log, command_env)\n  File \"$CELL/workspace/Open3DBench-V2.0/open3dbench/command_log.py\", line 188, in run_logged\n    raise RuntimeError('command failed with code {}; see {}'.format(returncode, log))\nRuntimeError: command failed with code 1; see $CELL/run/20_partition/run.log",
+              "source": "stage.log"
+            }
+          ],
+          "physical_failure_evidence": {
+            "container/execution/frontend/stop.json": "5ddd6bd7c030c47c9f7a7854348111cdcb2c66e223a4b1c747404739142379af",
+            "container/execution/frontend/terminal.json": "a196bd02e23024c53b775f783e3f9d8934613243a1792d4d2de61e173ecc1ad2",
+            "container/lease.json": "58310734e1a7bbb5e78e6a8e1c83faf78802deaa08830f14280ed47bb0ee6318",
+            "container/request.json": "45d968ab35188bd92409d5ccc31a2b0debbbbb36feeb757f4bfb372e6f559a69",
+            "result/candidate_snapshot.json": "4b4c445df669fcf6b3cee09d24e374372110df882721955e3feb1fe0bf851856",
+            "result/evaluation_result.json": "92317976c55a4357c17ecccd2a7c16ff438a0320604f718e857679f7c62c3ba3",
+            "result/resolved_config.yaml": "7b09f6a861452239279374a9c6a2ee80cf4c4cd61955b7b9478e46a7cb729372",
+            "result/run/run.json": "8e5db0601133cd2c158cd561b5c80eb38afbb2d4567bb225d9b6b3533906193d"
+          },
+          "raw_score": null,
+          "score": -100.0,
+          "seed": "1002",
+          "status": "penalized",
+          "valid": false
+        },
+        {
+          "case": "ariane133-ng45",
+          "error_message": "partition: command failed with code 1; see /root/aic-eda-ours-20261117/arms/ablation-20261118-949157d9/work/evaluations/e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4/cells/ariane133-ng45/1003/result/run/20_partition/run.log",
+          "error_type": "PhysicalCellFailure",
+          "metrics": {
+            "combined_score": -100.0,
+            "native_paired_combined_score": 0.0,
+            "raw_score": null,
+            "runs_successfully": 0.0,
+            "valid": false
+          },
+          "native_failure_diagnostics": [
+            {
+              "excerpt": "  File \"$CELL/workspace/Open3DBench-V2.0/Place-3D/src/partition/lol/methods/tp_gnn_evolution.py\", line 437, in decode_evolution_embeddings\n    labels = np.asarray(namespace[\"decode_tp_gnn_embeddings\"](\n  File \"<tp-gnn-evolution>\", line 58, in decode_tp_gnn_embeddings\nValueError: operands could not be broadcast together with shapes (47385,128) (1,47385) \n[open3dbench-log] === OUTPUT / Current command exit and downstream handoff locations ===",
+              "source": "retained_artifacts/algorithm/20_partition/run.log"
+            },
+            {
+              "excerpt": "    run_logged(command, cwd, log, command_env)\n  File \"$CELL/workspace/Open3DBench-V2.0/open3dbench/command_log.py\", line 188, in run_logged\n    raise RuntimeError('command failed with code {}; see {}'.format(returncode, log))\nRuntimeError: command failed with code 1; see $CELL/run/20_partition/run.log",
+              "source": "stage.log"
+            }
+          ],
+          "physical_failure_evidence": {
+            "container/execution/frontend/stop.json": "c4d495de8e5a0afa1576737dd58eacb40bbcb8fa0949f3ecec62a6f406d67316",
+            "container/execution/frontend/terminal.json": "f91ccca06cb6bdab128edcfe8d977ae695e118eb8ed476ab3b9d9ee1aaaaf927",
+            "container/lease.json": "10d072fe12b0b4309643eba856ca82957cbbd22dd30bcba0e2ee51114958d03b",
+            "container/request.json": "74b1471a93fdae47a45e3889621a622e57bc4edaffe12a02fd47d19c788f0807",
+            "result/candidate_snapshot.json": "4b4c445df669fcf6b3cee09d24e374372110df882721955e3feb1fe0bf851856",
+            "result/evaluation_result.json": "28cc90c26ebdc38037c5ea15df564fd61109462e5363010091556dcfec5443eb",
+            "result/resolved_config.yaml": "38d994b6e4b4aaba5371dfeb9ef912dc6ca065ecc9f726e4d65d37add8516c1a",
+            "result/run/run.json": "472f55b805cee14721f7601e4eb80cefa8f54aec3bbe08541ec5fafff0b758ca"
+          },
+          "raw_score": null,
+          "score": -100.0,
+          "seed": "1003",
+          "status": "penalized",
+          "valid": false
+        }
+      ],
+      "complete": true,
+      "expected_cells": 9,
+      "matrix_sha256": "657bc4d3f2265a85bca417b59039eb955e2041f94c523961023d5925a19357fe",
+      "penalized_cells": 9,
+      "qualification": false,
+      "scored_cells": 9,
+      "succeeded_cells": 0
+    },
+    "planned": 9
+  },
+  "logged_feedback": {
+    "event": "evaluated",
+    "parent_id": "1419acdef89f42cf77febf4669e8a8f48665755853884d7ee31b30de8888d09a",
+    "request_id": "e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4",
+    "candidate_id": "f4a8bad252ad2e09289347c6583bfb0ecee9eb39c56b340e35d3b5ee00d1fb11",
+    "status": "succeeded",
+    "reason": "",
+    "score": -100.0,
+    "case_scores": {
+      "bp_fe-ng45": {
+        "mean": -100.0,
+        "worst_seed_score": -100.0,
+        "scored_seeds": 3
+      },
+      "bp-ng45": {
+        "mean": -100.0,
+        "worst_seed_score": -100.0,
+        "scored_seeds": 3
+      },
+      "ariane133-ng45": {
+        "mean": -100.0,
+        "worst_seed_score": -100.0,
+        "scored_seeds": 3
+      }
+    },
+    "cells": [
+      {
+        "case": "bp_fe-ng45",
+        "seed": "1001",
+        "score": -100.0,
+        "raw_score": null,
+        "valid": false,
+        "status": "penalized",
+        "metrics": {},
+        "reason": "partition: command failed with code 1; see /root/aic-eda-ours-20261117/arms/ablation-20261118-949157d9/work/evaluations/e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4/cells/bp_fe-ng45/1001/result/run/20_partition/run.log",
+        "failure": {
+          "kind": "unclassified",
+          "stage": "20_partition",
+          "component": null,
+          "error_type": null,
+          "reason": "partition: command failed with code 1; see /root/aic-eda-ours-20261117/arms/ablation-20261118-949157d9/work/evaluations/e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4/cells/bp_fe-ng45/1001/result/run/20_partition/run.log",
+          "diagnostics": []
+        }
+      },
+      {
+        "case": "bp_fe-ng45",
+        "seed": "1002",
+        "score": -100.0,
+        "raw_score": null,
+        "valid": false,
+        "status": "penalized",
+        "metrics": {},
+        "reason": "partition: command failed with code 1; see /root/aic-eda-ours-20261117/arms/ablation-20261118-949157d9/work/evaluations/e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4/cells/bp_fe-ng45/1002/result/run/20_partition/run.log",
+        "failure": {
+          "kind": "unclassified",
+          "stage": "20_partition",
+          "component": null,
+          "error_type": null,
+          "reason": "partition: command failed with code 1; see /root/aic-eda-ours-20261117/arms/ablation-20261118-949157d9/work/evaluations/e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4/cells/bp_fe-ng45/1002/result/run/20_partition/run.log",
+          "diagnostics": []
+        }
+      },
+      {
+        "case": "bp_fe-ng45",
+        "seed": "1003",
+        "score": -100.0,
+        "raw_score": null,
+        "valid": false,
+        "status": "penalized",
+        "metrics": {},
+        "reason": "partition: command failed with code 1; see /root/aic-eda-ours-20261117/arms/ablation-20261118-949157d9/work/evaluations/e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4/cells/bp_fe-ng45/1003/result/run/20_partition/run.log",
+        "failure": {
+          "kind": "unclassified",
+          "stage": "20_partition",
+          "component": null,
+          "error_type": null,
+          "reason": "partition: command failed with code 1; see /root/aic-eda-ours-20261117/arms/ablation-20261118-949157d9/work/evaluations/e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4/cells/bp_fe-ng45/1003/result/run/20_partition/run.log",
+          "diagnostics": []
+        }
+      },
+      {
+        "case": "bp-ng45",
+        "seed": "1001",
+        "score": -100.0,
+        "raw_score": null,
+        "valid": false,
+        "status": "penalized",
+        "metrics": {},
+        "reason": "partition: command failed with code 1; see /root/aic-eda-ours-20261117/arms/ablation-20261118-949157d9/work/evaluations/e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4/cells/bp-ng45/1001/result/run/20_partition/run.log",
+        "failure": {
+          "kind": "unclassified",
+          "stage": "20_partition",
+          "component": null,
+          "error_type": null,
+          "reason": "partition: command failed with code 1; see /root/aic-eda-ours-20261117/arms/ablation-20261118-949157d9/work/evaluations/e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4/cells/bp-ng45/1001/result/run/20_partition/run.log",
+          "diagnostics": []
+        }
+      },
+      {
+        "case": "bp-ng45",
+        "seed": "1002",
+        "score": -100.0,
+        "raw_score": null,
+        "valid": false,
+        "status": "penalized",
+        "metrics": {},
+        "reason": "partition: command failed with code 1; see /root/aic-eda-ours-20261117/arms/ablation-20261118-949157d9/work/evaluations/e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4/cells/bp-ng45/1002/result/run/20_partition/run.log",
+        "failure": {
+          "kind": "unclassified",
+          "stage": "20_partition",
+          "component": null,
+          "error_type": null,
+          "reason": "partition: command failed with code 1; see /root/aic-eda-ours-20261117/arms/ablation-20261118-949157d9/work/evaluations/e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4/cells/bp-ng45/1002/result/run/20_partition/run.log",
+          "diagnostics": []
+        }
+      },
+      {
+        "case": "bp-ng45",
+        "seed": "1003",
+        "score": -100.0,
+        "raw_score": null,
+        "valid": false,
+        "status": "penalized",
+        "metrics": {},
+        "reason": "partition: command failed with code 1; see /root/aic-eda-ours-20261117/arms/ablation-20261118-949157d9/work/evaluations/e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4/cells/bp-ng45/1003/result/run/20_partition/run.log",
+        "failure": {
+          "kind": "unclassified",
+          "stage": "20_partition",
+          "component": null,
+          "error_type": null,
+          "reason": "partition: command failed with code 1; see /root/aic-eda-ours-20261117/arms/ablation-20261118-949157d9/work/evaluations/e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4/cells/bp-ng45/1003/result/run/20_partition/run.log",
+          "diagnostics": []
+        }
+      },
+      {
+        "case": "ariane133-ng45",
+        "seed": "1001",
+        "score": -100.0,
+        "raw_score": null,
+        "valid": false,
+        "status": "penalized",
+        "metrics": {},
+        "reason": "partition: command failed with code 1; see /root/aic-eda-ours-20261117/arms/ablation-20261118-949157d9/work/evaluations/e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4/cells/ariane133-ng45/1001/result/run/20_partition/run.log",
+        "failure": {
+          "kind": "unclassified",
+          "stage": "20_partition",
+          "component": null,
+          "error_type": null,
+          "reason": "partition: command failed with code 1; see /root/aic-eda-ours-20261117/arms/ablation-20261118-949157d9/work/evaluations/e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4/cells/ariane133-ng45/1001/result/run/20_partition/run.log",
+          "diagnostics": []
+        }
+      },
+      {
+        "case": "ariane133-ng45",
+        "seed": "1002",
+        "score": -100.0,
+        "raw_score": null,
+        "valid": false,
+        "status": "penalized",
+        "metrics": {},
+        "reason": "partition: command failed with code 1; see /root/aic-eda-ours-20261117/arms/ablation-20261118-949157d9/work/evaluations/e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4/cells/ariane133-ng45/1002/result/run/20_partition/run.log",
+        "failure": {
+          "kind": "unclassified",
+          "stage": "20_partition",
+          "component": null,
+          "error_type": null,
+          "reason": "partition: command failed with code 1; see /root/aic-eda-ours-20261117/arms/ablation-20261118-949157d9/work/evaluations/e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4/cells/ariane133-ng45/1002/result/run/20_partition/run.log",
+          "diagnostics": []
+        }
+      },
+      {
+        "case": "ariane133-ng45",
+        "seed": "1003",
+        "score": -100.0,
+        "raw_score": null,
+        "valid": false,
+        "status": "penalized",
+        "metrics": {},
+        "reason": "partition: command failed with code 1; see /root/aic-eda-ours-20261117/arms/ablation-20261118-949157d9/work/evaluations/e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4/cells/ariane133-ng45/1003/result/run/20_partition/run.log",
+        "failure": {
+          "kind": "unclassified",
+          "stage": "20_partition",
+          "component": null,
+          "error_type": null,
+          "reason": "partition: command failed with code 1; see /root/aic-eda-ours-20261117/arms/ablation-20261118-949157d9/work/evaluations/e-e27c7f24a7a7798169982aa588bb77485def775751390d0093a580eb8de4/cells/ariane133-ng45/1003/result/run/20_partition/run.log",
+          "diagnostics": []
+        }
+      }
+    ],
+    "attempt": {
+      "parent_id": "1419acdef89f42cf77febf4669e8a8f48665755853884d7ee31b30de8888d09a",
+      "search_intent": "diversify",
+      "changed_components": {
+        "decoder": "Area-balanced principal-axis split instead of seeded area-weighted two-means. Relative to the parent reference decoder, this uses deterministic power iteration on the area-weighted centered embedding "
+      }
+    },
+    "parent_comparison": {
+      "parent_id": "1419acdef89f42cf77febf4669e8a8f48665755853884d7ee31b30de8888d09a",
+      "candidate_id": "f4a8bad252ad2e09289347c6583bfb0ecee9eb39c56b340e35d3b5ee00d1fb11",
+      "parent_source": "published_initial_reference",
+      "complete": true,
+      "expected_cells": 9,
+      "scored_pairs": 9,
+      "parent_unscored": [],
+      "candidate_unscored": [],
+      "official_score_delta": -105.1551294205895,
+      "improved_pairs": 0,
+      "regressed_pairs": 9,
+      "median_paired_score_delta": -80.51360601775308,
+      "largest_gain": null,
+      "largest_regression": {
+        "case": "bp_fe-ng45",
+        "seed": "1001",
+        "score_delta": -156.00243029865658
+      },
+      "candidate_invalid_cells": 9,
+      "cases": [
+        {
+          "case": "bp_fe-ng45",
+          "scored_pairs": 3,
+          "expected_cells": 3,
+          "mean_paired_score_delta": -153.9184282995739
+        },
+        {
+          "case": "bp-ng45",
+          "scored_pairs": 3,
+          "expected_cells": 3,
+          "mean_paired_score_delta": -83.70921712365119
+        },
+        {
+          "case": "ariane133-ng45",
+          "scored_pairs": 3,
+          "expected_cells": 3,
+          "mean_paired_score_delta": -77.83774283854343
+        }
+      ],
+      "cells": [
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1001",
+          "score_delta": -156.00243029865658,
+          "wns_improved_tns_regressed": false,
+          "fewer_cuts_lower_score": false
+        },
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1002",
+          "score_delta": -149.9293361898698,
+          "wns_improved_tns_regressed": false,
+          "fewer_cuts_lower_score": false
+        },
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1003",
+          "score_delta": -155.82351841019528,
+          "wns_improved_tns_regressed": false,
+          "fewer_cuts_lower_score": false
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1001",
+          "score_delta": -79.17640012249684,
+          "wns_improved_tns_regressed": false,
+          "fewer_cuts_lower_score": false
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1002",
+          "score_delta": -75.50907865456958,
+          "wns_improved_tns_regressed": false,
+          "fewer_cuts_lower_score": false
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1003",
+          "score_delta": -96.44217259388715,
+          "wns_improved_tns_regressed": false,
+          "fewer_cuts_lower_score": false
+        },
+        {
+          "case": "ariane133-ng45",
+          "seed": "1001",
+          "score_delta": -77.34352202125109,
+          "wns_improved_tns_regressed": false,
+          "fewer_cuts_lower_score": false
+        },
+        {
+          "case": "ariane133-ng45",
+          "seed": "1002",
+          "score_delta": -75.65610047662612,
+          "wns_improved_tns_regressed": false,
+          "fewer_cuts_lower_score": false
+        },
+        {
+          "case": "ariane133-ng45",
+          "seed": "1003",
+          "score_delta": -80.51360601775308,
+          "wns_improved_tns_regressed": false,
+          "fewer_cuts_lower_score": false
+        }
+      ],
+      "start_cells_measured_on_this_host": 8
+    }
+  }
+}

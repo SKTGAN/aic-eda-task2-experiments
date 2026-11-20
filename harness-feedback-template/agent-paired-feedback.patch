@@ -1,0 +1,99 @@
+--- a/agent.py
++++ b/agent.py
+@@ -11,6 +11,7 @@
+ from contest2.agent_api import AgentAPIError
+ from contest2.model_pricing import MODEL_ID
+ from local_tasks.tp_gnn_local_task_definitions import DECODER_TASK, validate_program
++from paired_feedback import comparison_for_prompt, load_parent_ids
+ 
+ 
+ EXPERIENCE_HEADING = "## 离线专家知识"
+@@ -98,8 +99,15 @@
+ 
+ 
+ def write_event(folder, event, **fields):
+-    with (folder / "search.jsonl").open("a", encoding="utf-8") as log:
+-        log.write(json.dumps({"event": event, **fields}, ensure_ascii=False) + "\n")
++    with (folder / "search.jsonl").open("a+b") as log:
++        log.seek(0, 2)
++        separator = b""
++        if log.tell():
++            log.seek(-1, 2)
++            if log.read(1) != b"\n":
++                separator = b"\n"
++        line = json.dumps({"event": event, **fields}, ensure_ascii=False)
++        log.write(separator + line.encode("utf-8") + b"\n")
+ 
+ 
+ def submit_and_wait(context, source, request_id):
+@@ -127,11 +135,23 @@
+         state = context.status()
+         best = None
+         history = []
++        parent_ids = load_parent_ids(folder / "search.jsonl")
++        receipts_by_candidate = {}
++
++        def summarize_for_prompt(result):
++            summary = summarize(result)
++            comparison = comparison_for_prompt(result, parent_ids, receipts_by_candidate,
++                                               context.evaluation_cells)
++            if comparison is not None:
++                summary["parent_comparison"] = comparison
++            return summary
++
+         seen = {function_keys(initial)}
+         for row in state["history"]:
+             result = context.wait_evaluation(row["request_id"])
+             history.append(result)
+             if result["status"] == "succeeded":
++                receipts_by_candidate[result["candidate_id"]] = result
+                 seen.add(function_keys(result["source"]))
+                 if best is None or score_key(result) > score_key(best):
+                     best = result
+@@ -149,7 +169,7 @@
+             parent, intent = select_parent(history, best)
+             parent_id = parent["candidate_id"] if parent else context.baseline_candidate
+             parent_source = parent["source"] if parent else initial
+-            previous_results = [summarize(result) for result in history[-2:]
++            previous_results = [summarize_for_prompt(result) for result in history[-2:]
+                                 if result is not parent and result is not best]
+             request = {
+                 "search_intent": intent,
+@@ -157,8 +177,8 @@
+                 "parent_program": parent_source,
+                 "training_cells": context.evaluation_cells,
+                 "evaluations_remaining": state["evaluations_remaining"],
+-                "parent_feedback": summarize(parent) if parent else None,
+-                "incumbent_feedback": summarize(best) if best and best is not parent else None,
++                "parent_feedback": summarize_for_prompt(parent) if parent else None,
++                "incumbent_feedback": summarize_for_prompt(best) if best and best is not parent else None,
+                 "recent_feedback": previous_results,
+                 "previous_generation_issue": issue,
+             }
+@@ -209,10 +229,13 @@
+             result = submit_and_wait(context, source, request_id)
+             feedback = summarize(result)
+             history.append(result)
++            parent_ids[request_id] = parent_id
+             write_event(folder, "evaluated", parent_id=parent_id, **feedback)
+             issue = None
+-            if result["status"] == "succeeded" and (best is None or score_key(result) > score_key(best)):
+-                best = result
++            if result["status"] == "succeeded":
++                receipts_by_candidate[result["candidate_id"]] = result
++                if best is None or score_key(result) > score_key(best):
++                    best = result
+ 
+         if best is None:
+             raise RuntimeError("No candidate completed an official training evaluation" + (f": {issue}" if issue else ""))
+--- a/prompt.md
++++ b/prompt.md
+@@ -8,6 +8,8 @@
+ 
+ Use only the published numerical interface. Preserve the graph, optimizer, physical flow and constraints. The loss must produce a finite differentiable scalar and the decoder must produce legal binary labels. Use a general algorithm without branches keyed to the design name, seed identity, or expected timing result. Read only the text supplied in this request. The Agent will validate the returned source and submit it through the official evaluator.
+ 
++When a receipt includes parent_comparison, use the delta against that receipt's own parent. A missing aggregate means the official change is unavailable. Unscored cells can identify failures to investigate. Use the largest regression and median alongside the aggregate, and check whether cut-net changes agree with WNS, TNS and score across matched seeds.
++
+ ## 离线专家知识
+ 
+ 二维时序特征可作线索，三维跨层连接和合法化会改变关键路径。兼顾多个端点的违例与最差路径，通过最终时序核验切分。留意面积或宏块修复是否抵消改动。若跨层线网减少却未改善时序，应重新审视代理指标。一次检验一个主要假设，并用不同种子的结果判断收益是否稳定。

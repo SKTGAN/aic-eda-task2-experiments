@@ -1,0 +1,32 @@
+{
+  "association": "chronological context before submit",
+  "associated_call_ids": {},
+  "sequence_at_submission": 21,
+  "recorded_reason": {
+    "reason": "explore_from_incumbent",
+    "candidate_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd"
+  },
+  "candidate_explanation": {
+    "decoder": "Relative to the parent, keep the timing-weighted star-edge loss unchanged and change the custom seeded area-balanced two-means decoder's initialization and area-fill selection. The bottom initial cent"
+  },
+  "generation_events": [
+    {
+      "sequence": 21,
+      "event": {
+        "event": "submitted",
+        "request_id": "e-a113cc644507c5acc4fc984d95eebae0fc332a3e6ccab6ee3c91f5334369",
+        "decision": {
+          "reason": "explore_from_incumbent",
+          "candidate_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd"
+        },
+        "parent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+        "search_intent": "diversify",
+        "changed_components": {
+          "decoder": "Relative to the parent, keep the timing-weighted star-edge loss unchanged and change the custom seeded area-balanced two-means decoder's initialization and area-fill selection. The bottom initial cent"
+        }
+      }
+    }
+  ],
+  "evaluation_event_sequence": 22,
+  "verified_source_sha256": "a2597dc9196facd93107459d962e2989ad688e5eed228158d17c8b3688a02a0e"
+}

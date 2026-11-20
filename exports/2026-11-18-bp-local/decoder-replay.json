@@ -1,0 +1,131 @@
+{
+  "diagnostic_only": true,
+  "stage": "partition_only_no_STA",
+  "candidate": "boundary_decoder.py",
+  "sha256": "907735437d338c2cee66b9345a140ae4563ff6e98e4e7986ad094d0a2bfd6be5",
+  "seeds": [
+    {
+      "seed": 1001,
+      "trial": "20261115-161128-780305",
+      "baseline_reproduced_exactly": true,
+      "native_closure": [
+        {
+          "baseline": "accepted",
+          "cut_nets": 5877,
+          "macro_area_error": 0.04762114990647909
+        },
+        {
+          "candidate": "accepted",
+          "cut_nets": 5877,
+          "macro_area_error": 0.04762114990647909
+        }
+      ],
+      "preclosure": {
+        "instances": {
+          "count": 144224,
+          "direct": 0,
+          "flip_adjusted": 0
+        },
+        "supernodes": {
+          "count": 46942,
+          "direct": 0,
+          "flip_adjusted": 0
+        }
+      },
+      "postclosure": {
+        "instances": {
+          "count": 144224,
+          "direct": 0,
+          "flip_adjusted": 0
+        },
+        "supernodes": {
+          "count": 46942,
+          "direct": 0,
+          "flip_adjusted": 0
+        }
+      }
+    },
+    {
+      "seed": 1002,
+      "trial": "20261115-205809-358941",
+      "baseline_reproduced_exactly": true,
+      "native_closure": [
+        {
+          "baseline": "accepted",
+          "cut_nets": 5859,
+          "macro_area_error": 0.04762114990647903
+        },
+        {
+          "candidate": "accepted",
+          "cut_nets": 5859,
+          "macro_area_error": 0.04762114990647903
+        }
+      ],
+      "preclosure": {
+        "instances": {
+          "count": 144224,
+          "direct": 9,
+          "flip_adjusted": 9
+        },
+        "supernodes": {
+          "count": 46942,
+          "direct": 3,
+          "flip_adjusted": 3
+        }
+      },
+      "postclosure": {
+        "instances": {
+          "count": 144224,
+          "direct": 0,
+          "flip_adjusted": 0
+        },
+        "supernodes": {
+          "count": 46942,
+          "direct": 0,
+          "flip_adjusted": 0
+        }
+      }
+    },
+    {
+      "seed": 1003,
+      "trial": "20261115-213108-753693",
+      "baseline_reproduced_exactly": true,
+      "native_closure": [
+        {
+          "baseline": "accepted",
+          "cut_nets": 5873,
+          "macro_area_error": 0.04762114990647909
+        },
+        {
+          "candidate": "accepted",
+          "cut_nets": 5873,
+          "macro_area_error": 0.04762114990647909
+        }
+      ],
+      "preclosure": {
+        "instances": {
+          "count": 144224,
+          "direct": 5,
+          "flip_adjusted": 5
+        },
+        "supernodes": {
+          "count": 46942,
+          "direct": 3,
+          "flip_adjusted": 3
+        }
+      },
+      "postclosure": {
+        "instances": {
+          "count": 144224,
+          "direct": 0,
+          "flip_adjusted": 0
+        },
+        "supernodes": {
+          "count": 46942,
+          "direct": 0,
+          "flip_adjusted": 0
+        }
+      }
+    }
+  ]
+}

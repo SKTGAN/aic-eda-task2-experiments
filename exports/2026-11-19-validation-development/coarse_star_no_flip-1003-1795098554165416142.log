@@ -1,0 +1,5 @@
+Running swerv_wrapper-ng45/1003 -> coarse_star_no_flip-3329809b5502-b6355dbc0999-swerv_wrapper-ng45-1003-1795098554838262414.log
+1/2 swerv_wrapper-ng45/1003 succeeded 14.586847
+Running bp_fe-asap7/1003 -> coarse_star_no_flip-3329809b5502-b6355dbc0999-bp_fe-asap7-1003-1795099664033950195.log
+2/2 bp_fe-asap7/1003 succeeded -2.669114
+Panel mean 5.958866: /mnt/e/ide/aic-eda-task2/exports/2026-11-19-validation-development/panels/coarse_star_no_flip-3329809b5502-b6355dbc0999.json

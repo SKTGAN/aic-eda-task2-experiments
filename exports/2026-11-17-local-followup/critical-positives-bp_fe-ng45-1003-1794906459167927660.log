@@ -1,0 +1,7 @@
+Running loss_decoder / bp_fe-ng45 / seed 1003 with 6 GiB
+Artifacts: /home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261117-170739-284426
+Result: /home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261117-170739-284426/evaluation/evaluation_result.json
+{
+  "status": "failed",
+  "error_message": "[Errno 2] No such file or directory: 'nvidia-smi'"
+}

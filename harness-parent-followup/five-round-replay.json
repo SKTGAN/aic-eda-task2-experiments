@@ -1,0 +1,37 @@
+{
+  "history": [
+    [
+      "e-e1c20a7a9a95f56e1571441379699bd6513e53e1093d52555f05c2c44d4c",
+      24.044649712740153
+    ],
+    [
+      "e-32c33600d1e5e9f134cdae92bcd1fe39e83cddbe19fdfdc3478919bffa78",
+      0.826404498222218
+    ],
+    [
+      "e-52c8335e554526fa7c85806a52bcfb9a3fe8359651ca66f6b35f47e4b23b",
+      24.477236393473284
+    ],
+    [
+      "e-39efea53d9c78527b0a4e6d503783b305933934b424faec9b838db4510e4",
+      29.665496497232258
+    ],
+    [
+      "e-a1e075ab0b58192151907357606ecd3251fdea897cb79e136a74bae414c4",
+      5.582500002269674
+    ]
+  ],
+  "selected_parent": "d5fd4448ad8d57fe652cc16b641a1d5002fa11145f699750b888cf1728df62ca",
+  "parent_source_sha256": "d14f9ca79b710310562f4979a9e5766b16ea9feb517ccf8a5bef4968cb361a40",
+  "intent": "decoder_only",
+  "decision": {
+    "reason": "follow_up_case_champion",
+    "protect_case_seeds": {
+      "ariane133-ng45": [
+        "1001",
+        "1002",
+        "1003"
+      ]
+    }
+  }
+}

@@ -1,0 +1,15 @@
+Running loss_decoder / ariane133-ng45 / seed 1001 with 6 GiB
+Artifacts: /home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261120-103219-694762
+Result: /home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261120-103219-694762/evaluation/evaluation_result.json
+{
+  "complete": true,
+  "score": 68.63661340622598,
+  "cells": [
+    [
+      "ariane133-ng45",
+      "1001",
+      "succeeded",
+      68.63661340622598
+    ]
+  ]
+}

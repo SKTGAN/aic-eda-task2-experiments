@@ -1,0 +1,31 @@
+{
+  "type": "local public validation development",
+  "official_root": "/home/sktgan/aic-eda-task2-local/official",
+  "baseline": "loss_decoder",
+  "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+  "public_matrix_sha256": "177db3b4d5b52683ec06c28fed2725210165f9085197a36c4f5d3cb706d90f1f",
+  "source_sha256": {
+    "coarse_majority": "15e57d5748faff2ac87be85121661b31f9f03d8bb7b42d7e0eef26c2b56478b8",
+    "coarse_no_flip": "c3ebe8088dd0ed371c9182c9db349a3d249a5052c3b125c00f8e010950db527e",
+    "coarse_with_star": "8ee9c09a7c79e018eac55a1f0f28e954ec8b364475d1401abd9be05132f60819",
+    "coarse_star_no_flip": "3329809b5502a3624395de0f47362a852ef2513f68651530d069ca04723b23c9"
+  },
+  "parent_native_result_sha256": "7e6ec614eaad2ede865f542da868a562514dd18f21d9cee602cc2b8d69564610",
+  "development": [
+    "swerv_wrapper-ng45/1002",
+    "bp_fe-asap7/1002",
+    "swerv_wrapper-ng45/1001",
+    "bp_fe-asap7/1001"
+  ],
+  "reserved": [
+    "swerv_wrapper-ng45/1003",
+    "bp_fe-asap7/1003"
+  ],
+  "selection": "highest four-cell mean of official clipped scores, including physical penalties",
+  "tie_preference": [
+    "coarse_majority",
+    "coarse_no_flip",
+    "coarse_with_star",
+    "coarse_star_no_flip"
+  ]
+}

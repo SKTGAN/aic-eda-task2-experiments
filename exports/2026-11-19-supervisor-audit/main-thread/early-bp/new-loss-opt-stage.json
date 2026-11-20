@@ -1,0 +1,50 @@
+{
+  "1002": {
+    "official_initial": {
+      "initial_global": {
+        "tns_setup": -988976.7086438304,
+        "wns_setup": -287.84035880632814
+      },
+      "final_global": {
+        "tns_setup": -10297.035551229634,
+        "wns_setup": -7.885057274742126
+      },
+      "file": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261115-205809-358941/baseline/qualification/cells/bp-ng45/1002/result/run/60_opt/metrics.json"
+    },
+    "new_loss": {
+      "initial_global": {
+        "tns_setup": -991095.3511456781,
+        "wns_setup": -293.16115875756714
+      },
+      "final_global": {
+        "tns_setup": -10344.54846528871,
+        "wns_setup": -7.819817015256352
+      },
+      "file": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-140932-230351/evaluation/cells/bp-ng45/1002/result/run/60_opt/metrics.json"
+    }
+  },
+  "1003": {
+    "official_initial": {
+      "initial_global": {
+        "tns_setup": -936659.4287045285,
+        "wns_setup": -260.91948540273177
+      },
+      "final_global": {
+        "tns_setup": -8294.213564949547,
+        "wns_setup": -7.9953201877742455
+      },
+      "file": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261115-213108-753693/baseline/qualification/cells/bp-ng45/1003/result/run/60_opt/metrics.json"
+    },
+    "new_loss": {
+      "initial_global": {
+        "tns_setup": -910205.6758856999,
+        "wns_setup": -251.81311260026564
+      },
+      "final_global": {
+        "tns_setup": -9036.068405283373,
+        "wns_setup": -7.909525702718459
+      },
+      "file": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-142725-520857/evaluation/cells/bp-ng45/1003/result/run/60_opt/metrics.json"
+    }
+  }
+}

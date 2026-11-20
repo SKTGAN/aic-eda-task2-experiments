@@ -1,0 +1,185 @@
+{
+  "scope": "Conditional same-host score from historical native receipts for branch-equivalent code. Not a physical measurement of coarse_majority.",
+  "candidate_sha256": "15e57d5748faff2ac87be85121661b31f9f03d8bb7b42d7e0eef26c2b56478b8",
+  "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+  "flip_sha256": "3fd5901bbc0baf68d05de6d85521557d54c10cb43dfeb0191333a117ba6e7e59",
+  "reference_anchored_sha256": "35a0dbc61535188a2800bfd6b5367269073c99bf14b12a33981c0dbd0e3e2d1d",
+  "three_radius_sha256": "9d0da5bc9726e99d1db300b0dd2d1faa3293c10e4595dd8ff46112ab8e8d83d4",
+  "static_and_materialize": [
+    "validate_candidate/materialize_loss_decoder",
+    "validate_evolution_source"
+  ],
+  "areas": {
+    "ariane133-ng45": {
+      "group_map_sha256": "85d324b1d4ab5b5d42f1680bd8264f476f76c39644fed6eeecf7c5f21b1c3bc4",
+      "groups": 47385,
+      "oversized_count": 0,
+      "total_area": 6795608400,
+      "oversized_area": 0,
+      "oversized_fraction": 0,
+      "max_group_fraction": 0.004642742510001018,
+      "seed_checks": [
+        1001,
+        1003,
+        1002
+      ]
+    },
+    "bp-ng45": {
+      "group_map_sha256": "e9b6455bee1616b9a0dd48cac157715df79ae8b169bdad4ff8173dcf78120bf6",
+      "groups": 46942,
+      "oversized_count": 0,
+      "total_area": 5707838640,
+      "oversized_area": 0,
+      "oversized_fraction": 0,
+      "max_group_fraction": 0.03031171532907945,
+      "seed_checks": [
+        1002,
+        1001,
+        1003
+      ]
+    },
+    "bp_fe-ng45": {
+      "group_map_sha256": "82dde8e52d8a741ad1953008aa30297ac5180258f53827ffd7906aa8fd18b013",
+      "groups": 9173,
+      "oversized_count": 9,
+      "total_area": 2065106960,
+      "oversized_area": 1557129420,
+      "oversized_fraction": 0.754018774891931,
+      "max_group_fraction": 0.08377986387688123,
+      "seed_checks": [
+        1001,
+        1002,
+        1003
+      ]
+    }
+  },
+  "prior_native": [
+    {
+      "case": "ariane133-ng45",
+      "seed": 1001,
+      "origin": "three_radius native; reference_anchored equivalent in replay",
+      "score": 68.63661340622598,
+      "receipt": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261119-082546-707495/evaluation/evaluation_result.json",
+      "embedding_sha256": "312020089e5f031231e5437628978184b8e49a086f6a10a8001dfed380a8f2b4",
+      "reference_anchored_final_diff": 0,
+      "reference_anchored_final_sha": "1413baf90da3ecea8c06c654eab03080286e7808b72a6e006868f429157fbf9c"
+    },
+    {
+      "case": "ariane133-ng45",
+      "seed": 1002,
+      "origin": "three_radius native; reference_anchored equivalent in replay",
+      "score": 70.37019765121283,
+      "receipt": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261119-104933-135885/evaluation/evaluation_result.json",
+      "embedding_sha256": "11cd5ac5f94dddc5c466da40a32b1b776fbfe0472b212dd63e541336f16decbb",
+      "reference_anchored_final_diff": 0,
+      "reference_anchored_final_sha": "49a9a3487f4550e27d36ed8f7cecee1284cb78cd52717917b1a58ae8ccfbc610"
+    },
+    {
+      "case": "ariane133-ng45",
+      "seed": 1003,
+      "origin": "three_radius native; reference_anchored equivalent in replay",
+      "score": 78.46855457691659,
+      "receipt": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261119-095657-332305/evaluation/evaluation_result.json",
+      "embedding_sha256": "6df53a33d92a22ae28b600e8415c728c59bac098974899171f569ed7bd262b36",
+      "reference_anchored_final_diff": 0,
+      "reference_anchored_final_sha": "b76ec058346b49dcdfd690987c61ab2b450abe113860517857d1d1eb40f73913"
+    },
+    {
+      "case": "bp-ng45",
+      "seed": 1001,
+      "origin": "three_radius native; reference_anchored equivalent in replay",
+      "score": 4.430800523914463,
+      "receipt": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261119-110805-157741/evaluation/evaluation_result.json",
+      "embedding_sha256": "0f6bbde6adb8d96f2faa3fc9018bcb6c2cd4989494af199003be2935686a4c3b",
+      "reference_anchored_final_diff": 0,
+      "reference_anchored_final_sha": "15cad4074b67da767f3393c8138ffe66b1033a27fd726dfe0f497439aa94a7a1"
+    },
+    {
+      "case": "bp-ng45",
+      "seed": 1002,
+      "origin": "three_radius native; reference_anchored equivalent in replay",
+      "score": -9.353708742784512,
+      "receipt": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261119-101829-184823/evaluation/evaluation_result.json",
+      "embedding_sha256": "56a21421f5e0dfd6e5dde48054224619a2d02b98dedc15402a4c25ff1ed13704",
+      "reference_anchored_final_diff": 0,
+      "reference_anchored_final_sha": "71a66f8a751395f651f67e48e5ffe4d5f1059d754c11d92ff9ebcaef6a3858a3"
+    },
+    {
+      "case": "bp-ng45",
+      "seed": 1003,
+      "origin": "three_radius native; reference_anchored equivalent in replay",
+      "score": -2.379864166359974,
+      "receipt": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261119-112627-046898/evaluation/evaluation_result.json",
+      "embedding_sha256": "7f34486c6b95a5b2feda684111fb7e59018cd29ff9d1ba6e0ff8514301cab24b",
+      "reference_anchored_final_diff": 0,
+      "reference_anchored_final_sha": "7d48b4b5521181ce1aada9e77854cd0653737298c90318e8771c2ad6a8247354"
+    },
+    {
+      "case": "bp_fe-ng45",
+      "seed": 1001,
+      "origin": "mirrored stock",
+      "score": 52.64616896584706,
+      "wns_ns": -0.6328673320085412,
+      "tns_ns": -229.82272380126165,
+      "receipt": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261116-190740-079062/evaluation/evaluation_result.json",
+      "embedding_sha256": "2c95de623d0ed76137f505068070761a865256df6f94c530a9067c95fa3995b0"
+    },
+    {
+      "case": "bp_fe-ng45",
+      "seed": 1002,
+      "origin": "mirrored stock",
+      "score": 55.38413336408671,
+      "wns_ns": -0.6075831121306413,
+      "tns_ns": -210.5312321843894,
+      "receipt": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261116-191449-062786/evaluation/evaluation_result.json",
+      "embedding_sha256": "affbb86ee12f4f1873864a24133860e26ed9a1b502338fa348fbd1a4d4b18796"
+    },
+    {
+      "case": "bp_fe-ng45",
+      "seed": 1003,
+      "origin": "mirrored stock",
+      "score": 57.39223903434433,
+      "wns_ns": -0.61387352494377,
+      "tns_ns": -183.1974765962204,
+      "receipt": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261116-190023-441271/evaluation/evaluation_result.json",
+      "embedding_sha256": "bb9c76a51b047274bd814ac7ea3f09f01ed27a932b0445f3c688485fd1b23bd3"
+    }
+  ],
+  "conditional_score": 41.73279273482261,
+  "actual_score_of_candidate": null,
+  "cpu_branch_oracle": {
+    "torch_version": "1.7.1+cu110",
+    "device": "cpu",
+    "cases": {
+      "small": {
+        "expected_branch": "reference_anchored",
+        "loss": 2.7173094749450684,
+        "gradient_bitwise_match": true,
+        "decoder_exact_match": true,
+        "different_from_alternate_gradient": true
+      },
+      "coarse": {
+        "expected_branch": "flip",
+        "loss": 2.175640344619751,
+        "gradient_bitwise_match": true,
+        "decoder_exact_match": true,
+        "different_from_alternate_gradient": true
+      },
+      "exact_half": {
+        "expected_branch": "reference_anchored",
+        "loss": 2.7173094749450684,
+        "gradient_bitwise_match": true,
+        "decoder_exact_match": true,
+        "different_from_alternate_gradient": true
+      },
+      "exact_window": {
+        "expected_branch": "reference_anchored",
+        "loss": 2.7173094749450684,
+        "gradient_bitwise_match": true,
+        "decoder_exact_match": true,
+        "different_from_alternate_gradient": true
+      }
+    }
+  },
+  "loss_runtime_image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821"
+}

@@ -1,0 +1,65 @@
+--- R4
++++ R6
+@@ -42,15 +42,16 @@
+ 
+ def decode_tp_gnn_embeddings(embeddings, node_areas, seed, max_iterations, balance_target):
+     """Relative to the parent, keep the timing-weighted star-edge loss
+-    unchanged and replace the frozen two-means helper with a custom seeded
+-    area-balanced two-means decoder. Initial centers are an embedding anchor
+-    and its farthest group; each bounded iteration re-ranks groups by the
+-    squared-distance margin and re-estimates physical-area-weighted centers.
+-    Because this directly decides the discrete top-die fill order, it is strong
+-    enough to change the partition. Expected measurable effect: a different
+-    legal split that improves measured WNS/TNS and timing-weighted cut.
+-    Invalidated if final layer assignments match the parent's or official
+-    timing does not improve.
++    unchanged and change the custom seeded area-balanced two-means decoder's
++    initialization and area-fill selection. The bottom initial center becomes
++    the global area-weighted mean; the top initial center is the group farthest
++    from a seed-selected anchor. The top-die fill order is selected by squared
++    cumulative-area error with a cumsum-index tie-break. These decisions
++    directly change which groups cross the area-balanced boundary, so the edit
++    is strong enough to alter the discrete partition. Expected measurable
++    effect: a different legal split that improves WNS/TNS on the weak bp-ng45
++    seeds without losing the strong ariane133/bp_fe behavior. Invalidated if
++    final assignments match the parent's or official timing does not improve.
+     """
+     n_nodes = int(embeddings.shape[0])
+     total_area = node_areas.sum()
+@@ -59,26 +60,29 @@
+     anchor_index = int(seed) % max(1, n_nodes)
+     anchor = embeddings[anchor_index]
+     anchor_dist = ((embeddings - anchor) ** 2).sum(axis=1)
+-    far_index = int(np.argmax(anchor_dist))
++    order_anchor = np.argsort(-anchor_dist)
++    far_index = int(order_anchor[0])
+ 
+     center_top = embeddings[far_index]
+-    center_bottom = embeddings[anchor_index]
+-    labels = np.where(np.arange(n_nodes) < max(1, n_nodes // 2), 1, 0)
++    center_bottom = mean_all
++    labels = (np.cumsum(embeddings[:, 0] * 0.0 + 1.0) <= max(1, n_nodes // 2)) * 1
+ 
+     for iteration in range(max_iterations):
+         dist_top = ((embeddings - center_top) ** 2).sum(axis=1)
+         dist_bottom = ((embeddings - center_bottom) ** 2).sum(axis=1)
+         score = dist_bottom - dist_top
+-        score_tie = score - (np.arange(n_nodes) * 1e-12)
++        indices = np.cumsum(score * 0.0 + 1.0)
++        score_tie = score - indices * 1e-12
+         order = np.argsort(-score_tie)
+         sorted_areas = node_areas[order]
+         cumulative = np.cumsum(sorted_areas)
+         target_area = balance_target * total_area
+-        errors = np.abs(cumulative - target_area)
+-        count = int(np.argmin(errors)) + 1
++        errors = (cumulative - target_area) ** 2
++        order_errors = np.argsort(errors)
++        count = int(order_errors[0]) + 1
+         count = max(1, min(n_nodes - 1, count))
+         threshold = score_tie[order[count - 1]]
+-        labels = np.where(score_tie >= threshold, 1, 0)
++        labels = (score_tie >= threshold) * 1
+ 
+         top_mask = labels == 1
+         bottom_mask = labels == 0

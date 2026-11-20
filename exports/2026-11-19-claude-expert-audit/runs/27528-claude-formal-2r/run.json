@@ -1,0 +1,127 @@
+{
+  "source_mount_at_capture": "/root/aic-eda-ours-20261117/claude-full-2r-20261118/work",
+  "capture_port": "16012",
+  "capture_utc": "2026-11-19T04:14:37.767042+00:00",
+  "scope": "official runner / see ledger status",
+  "session": {
+    "baseline": "loss_decoder",
+    "budget": {
+      "allowed_model": "deepseek-flash",
+      "audit_event_count": 14,
+      "budget_exhausted": false,
+      "dispatch_allowed": true,
+      "evaluation_dispatch_allowed": true,
+      "evaluation_limit": 10,
+      "evaluation_mode": "formal",
+      "evaluations": [
+        {
+          "accepted_at": "2026-11-18T01:32:25.041723+00:00",
+          "candidate_id": "cdf71ef54897fda5243997c5632b9d4d137e91781eeb710ab8aad5638d4b6fef",
+          "completed_at": "2026-11-18T03:34:04.821268+00:00",
+          "payload_digest": "7de92f093b90c9af765684eed8b564fe2864925c02bd0b44cff8c0e6be03d480",
+          "reason": null,
+          "request_id": "e-57069b1d9accbb09134c54d3e573a18042a6ee26049832c4da7557020b9a",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        },
+        {
+          "accepted_at": "2026-11-18T03:36:27.657819+00:00",
+          "candidate_id": "c3faddaeecdf785bfb10a4228028b38a6e3674b9cab4e8125f6a9b090762b9fd",
+          "completed_at": "2026-11-18T05:40:19.888586+00:00",
+          "payload_digest": "d0bbcc6dfe86d420371aadb76fb87c72bf0c5b3893624b3b4a7a045792701aa7",
+          "reason": null,
+          "request_id": "e-c914a0fc4d8fdc618e59967e459c46188fc059c0041e9c4c34229bb531e5",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        }
+      ],
+      "evaluations_accepted": 2,
+      "evaluations_remaining": 8,
+      "exhaustion_reasons": [],
+      "frozen_candidate": null,
+      "model_calls": [
+        {
+          "cost_rmb": "0.009034",
+          "input_tokens": 3881,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 943,
+          "recorded_at": "2026-11-18T01:32:09.069738+00:00",
+          "request_id": "369e774f89d640e8b52fba296bf2a7b8",
+          "reserved_at": "2026-11-18T01:32:01.567775+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.01995472",
+          "input_tokens": 4810,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 2264,
+          "recorded_at": "2026-11-18T01:32:25.001111+00:00",
+          "request_id": "cdfe80ba3a0843f8a8b8c9e66f65b270",
+          "reserved_at": "2026-11-18T01:32:09.106884+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.02508488",
+          "input_tokens": 8705,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 1712,
+          "recorded_at": "2026-11-18T03:34:46.678649+00:00",
+          "request_id": "490df54e903643a1a3d7ffdeb7b6aada",
+          "reserved_at": "2026-11-18T03:34:33.732080+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.09937072",
+          "input_tokens": 5222,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 12088,
+          "recorded_at": "2026-11-18T03:35:57.526779+00:00",
+          "request_id": "5bf83a51a4c84cd2adc3e2d48f3cb154",
+          "reserved_at": "2026-11-18T03:34:46.712118+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.03970632",
+          "input_tokens": 5229,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 4785,
+          "recorded_at": "2026-11-18T03:36:27.608871+00:00",
+          "request_id": "a9cf5fe1b09b4ab2a0e0a81c4460d7fb",
+          "reserved_at": "2026-11-18T03:35:57.570285+00:00",
+          "status": "settled"
+        }
+      ],
+      "model_cost_available_rmb": "14.80684936",
+      "model_cost_limit_rmb": "15",
+      "model_cost_overrun_rmb": "0",
+      "model_cost_reserved_rmb": "0",
+      "model_cost_spent_rmb": "0.19315064",
+      "model_dispatch_allowed": true,
+      "model_reservation_rmb": "2.228224",
+      "model_stop_reasons": [],
+      "stop_reasons": [],
+      "task_id": "loss_decoder",
+      "unresolved_model_calls": 0
+    },
+    "candidate_id": "cdf71ef54897fda5243997c5632b9d4d137e91781eeb710ab8aad5638d4b6fef",
+    "endpoint": "post-opt-pre-cts",
+    "evaluation_mode": "formal",
+    "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+    "matrix_cells": 9,
+    "retain_physical_files": false,
+    "services_stopped": true,
+    "status": "succeeded",
+    "work_root": "/root/aic-eda-ours-20261117/claude-full-2r-20261118/work"
+  },
+  "diagnostic": null,
+  "read_errors": {},
+  "other_record_names": [
+    "codex/loss_decoder"
+  ],
+  "transaction_note": "ledger is a read transaction; receipts and event log are sequential read-only snapshots"
+}

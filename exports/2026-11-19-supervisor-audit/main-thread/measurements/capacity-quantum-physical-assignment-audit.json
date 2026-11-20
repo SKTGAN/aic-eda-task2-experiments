@@ -1,0 +1,107 @@
+{
+  "candidate": "capacity_quantum",
+  "candidate_sha256": "a9aa8da67ed97235197702a6e291dd1d604d21921aabfea0425e172e69f4ad13",
+  "scope": "same-host independently replayed R4 vs physical candidate, keyed by setup and exact public assignment",
+  "cells": [
+    {
+      "case": "bp-ng45",
+      "seed": 1002,
+      "native_candidate_stage": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-192313-764895/evaluation/cells/bp-ng45/1002/result/run/20_partition",
+      "r4_input_trial": "20261118-185108-011766",
+      "r4_exact_baseline_reproduction": true,
+      "replay_config_matches_r4": true,
+      "candidate_embeddings_sha256": "56a21421f5e0dfd6e5dde48054224619a2d02b98dedc15402a4c25ff1ed13704",
+      "candidate_supernodes_sha256": "e9b6455bee1616b9a0dd48cac157715df79ae8b169bdad4ff8173dcf78120bf6",
+      "candidate_weights_sha256": "fae83fda725b0079c06d6b8661f072b44e67c02bb07054c24ef11bac11307dcd",
+      "identical_embedding_bytes": true,
+      "identical_group_bytes": true,
+      "identical_net_weights_bytes": true,
+      "raw_assignment": {
+        "predicted_sha256": "a5603b1eecdcf61ee9ba4d985c36da08a52f351f4d1086830d7f7252bb57b1e2",
+        "physical_sha256": "a5603b1eecdcf61ee9ba4d985c36da08a52f351f4d1086830d7f7252bb57b1e2",
+        "matches": true
+      },
+      "feasible_assignment": {
+        "predicted_sha256": "a5603b1eecdcf61ee9ba4d985c36da08a52f351f4d1086830d7f7252bb57b1e2",
+        "physical_sha256": "a5603b1eecdcf61ee9ba4d985c36da08a52f351f4d1086830d7f7252bb57b1e2",
+        "matches": true
+      },
+      "public_assignment": {
+        "predicted_sha256": "45bb28873bf44d913cb05bc6bfb3ed94cb86a9e61de186e7cb7326fcf934dfd8",
+        "physical_sha256": "45bb28873bf44d913cb05bc6bfb3ed94cb86a9e61de186e7cb7326fcf934dfd8",
+        "matches": true
+      },
+      "physical_weighted_cut": 9462.615461275804,
+      "predicted_weighted_cut": 9462.615461275804,
+      "physical_matches_r4_input_prediction": true,
+      "r4_to_candidate_changed_instances": 10162
+    },
+    {
+      "case": "bp_fe-ng45",
+      "seed": 1001,
+      "native_candidate_stage": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-194110-430550/evaluation/cells/bp_fe-ng45/1001/result/run/20_partition",
+      "r4_input_trial": "20261118-182349-190494",
+      "r4_exact_baseline_reproduction": true,
+      "replay_config_matches_r4": true,
+      "candidate_embeddings_sha256": "79b1dc1565e5ab5d94fee60fd6a0ffd6f86c9d03834fa2f1b5275c55d429864c",
+      "candidate_supernodes_sha256": "82dde8e52d8a741ad1953008aa30297ac5180258f53827ffd7906aa8fd18b013",
+      "candidate_weights_sha256": "98d8469d4ba1156530f0a37831d16aae41c64dcdcac3ca7701b267417c12871c",
+      "identical_embedding_bytes": true,
+      "identical_group_bytes": true,
+      "identical_net_weights_bytes": true,
+      "raw_assignment": {
+        "predicted_sha256": "47e14ecc3fc6ed7f9af77b4b6aac6215d1f2826f3892b579605661fa0c962cd5",
+        "physical_sha256": "47e14ecc3fc6ed7f9af77b4b6aac6215d1f2826f3892b579605661fa0c962cd5",
+        "matches": true
+      },
+      "feasible_assignment": {
+        "predicted_sha256": "47e14ecc3fc6ed7f9af77b4b6aac6215d1f2826f3892b579605661fa0c962cd5",
+        "physical_sha256": "47e14ecc3fc6ed7f9af77b4b6aac6215d1f2826f3892b579605661fa0c962cd5",
+        "matches": true
+      },
+      "public_assignment": {
+        "predicted_sha256": "275427a8cbaf7789a9011ace4e37bffe59d63cc7226385221f63a8b2c1bea16e",
+        "physical_sha256": "275427a8cbaf7789a9011ace4e37bffe59d63cc7226385221f63a8b2c1bea16e",
+        "matches": true
+      },
+      "physical_weighted_cut": 2747.7229223892614,
+      "predicted_weighted_cut": 2747.7229223892614,
+      "physical_matches_r4_input_prediction": true,
+      "r4_to_candidate_changed_instances": 6114
+    },
+    {
+      "case": "ariane133-ng45",
+      "seed": 1001,
+      "native_candidate_stage": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-194748-786087/evaluation/cells/ariane133-ng45/1001/result/run/20_partition",
+      "r4_input_trial": "20261118-183031-273756",
+      "r4_exact_baseline_reproduction": true,
+      "replay_config_matches_r4": true,
+      "candidate_embeddings_sha256": "312020089e5f031231e5437628978184b8e49a086f6a10a8001dfed380a8f2b4",
+      "candidate_supernodes_sha256": "85d324b1d4ab5b5d42f1680bd8264f476f76c39644fed6eeecf7c5f21b1c3bc4",
+      "candidate_weights_sha256": "4475456c8b28cb9d51d9d137db4e9cc9c9a09d304a48ba34b6474ad264ac8dcc",
+      "identical_embedding_bytes": true,
+      "identical_group_bytes": true,
+      "identical_net_weights_bytes": true,
+      "raw_assignment": {
+        "predicted_sha256": "b770cc6049a9b2288c26c4228ba8d192aeb23f15522d0fb24ea729425824df9a",
+        "physical_sha256": "b770cc6049a9b2288c26c4228ba8d192aeb23f15522d0fb24ea729425824df9a",
+        "matches": true
+      },
+      "feasible_assignment": {
+        "predicted_sha256": "b770cc6049a9b2288c26c4228ba8d192aeb23f15522d0fb24ea729425824df9a",
+        "physical_sha256": "b770cc6049a9b2288c26c4228ba8d192aeb23f15522d0fb24ea729425824df9a",
+        "matches": true
+      },
+      "public_assignment": {
+        "predicted_sha256": "abac951d242948b61d0a988a27d9ef9f2535141c0516bd0f4f338e50fa562c6f",
+        "physical_sha256": "abac951d242948b61d0a988a27d9ef9f2535141c0516bd0f4f338e50fa562c6f",
+        "matches": true
+      },
+      "physical_weighted_cut": 13136.83889552235,
+      "predicted_weighted_cut": 13136.83889552235,
+      "physical_matches_r4_input_prediction": true,
+      "r4_to_candidate_changed_instances": 11680
+    }
+  ],
+  "all_three_probe_cells_verified": true
+}

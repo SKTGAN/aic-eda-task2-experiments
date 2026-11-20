@@ -1,0 +1,48 @@
+{
+  "formal_evaluation": false,
+  "baseline": "loss_decoder",
+  "case": "bp_fe-ng45",
+  "seed": 1002,
+  "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+  "memory_limit_gib": 6,
+  "candidate_sha256": "3fd5901bbc0baf68d05de6d85521557d54c10cb43dfeb0191333a117ba6e7e59",
+  "initial": {
+    "final_global_wns_setup_ns": -0.6961060813689139,
+    "final_global_tns_setup_ns": -219.1915688772947,
+    "cut_net_count": 3738,
+    "timing_weighted_cut": 6152.378811821003,
+    "tp_gnn_positive_pair_cosine_median": 0.9995021820068359,
+    "tp_gnn_negative_pair_cosine_median": 0.9854292273521423,
+    "tp_gnn_embedding_total_variance": 0.04283706471323967,
+    "tp_gnn_repair_moved_area_fraction": 0.0,
+    "common_reference_score": 50.726074783288645
+  },
+  "candidate": {
+    "final_global_wns_setup_ns": -0.6075831121306413,
+    "final_global_tns_setup_ns": -210.5312321843894,
+    "cut_net_count": 3738,
+    "timing_weighted_cut": 6152.378811821003,
+    "tp_gnn_positive_pair_cosine_median": 0.9995021820068359,
+    "tp_gnn_negative_pair_cosine_median": 0.9854292273521423,
+    "tp_gnn_embedding_total_variance": 0.04283706471323967,
+    "tp_gnn_repair_moved_area_fraction": 0.0,
+    "common_reference_score": 55.38413336408671
+  },
+  "change": {
+    "final_global_wns_setup_ns": 0.08852296923827263,
+    "final_global_tns_setup_ns": 8.660336692905304,
+    "cut_net_count": 0,
+    "timing_weighted_cut": 0.0,
+    "tp_gnn_positive_pair_cosine_median": 0.0,
+    "tp_gnn_negative_pair_cosine_median": 0.0,
+    "tp_gnn_embedding_total_variance": 0.0,
+    "tp_gnn_repair_moved_area_fraction": 0.0,
+    "common_reference_score": 4.658058580798063
+  },
+  "container_wall_seconds": {
+    "initial": 418.15,
+    "candidate": 379.29
+  },
+  "initial_result": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261115-194754-945956/baseline/qualification/evaluation_result.json",
+  "candidate_result": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261116-191449-062786/evaluation/evaluation_result.json"
+}

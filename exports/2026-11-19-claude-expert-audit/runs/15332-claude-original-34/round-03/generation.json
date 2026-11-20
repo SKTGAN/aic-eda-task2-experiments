@@ -1,0 +1,32 @@
+{
+  "association": "chronological context before submit",
+  "associated_call_ids": {},
+  "sequence_at_submission": 13,
+  "recorded_reason": {
+    "reason": "refine_incumbent",
+    "candidate_id": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9"
+  },
+  "candidate_explanation": {
+    "loss": "Relative to the parent loss, keep the timing-weighted star-edge attraction sum_e w_e * softplus(-graph_scores_e) but focus each edge by the endpoint timing criticality read from published node_feature"
+  },
+  "generation_events": [
+    {
+      "sequence": 13,
+      "event": {
+        "event": "submitted",
+        "request_id": "e-a83b78148bfc57361789831465ca5ce5d76f43e9e4859959f69b6c7ad6ef",
+        "decision": {
+          "reason": "refine_incumbent",
+          "candidate_id": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9"
+        },
+        "parent_id": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9",
+        "search_intent": "refine",
+        "changed_components": {
+          "loss": "Relative to the parent loss, keep the timing-weighted star-edge attraction sum_e w_e * softplus(-graph_scores_e) but focus each edge by the endpoint timing criticality read from published node_feature"
+        }
+      }
+    }
+  ],
+  "evaluation_event_sequence": 14,
+  "verified_source_sha256": "32b3fa455093ea4b2c55d749c30882eb095cf2694212b169aeee552f8a7e2ac1"
+}

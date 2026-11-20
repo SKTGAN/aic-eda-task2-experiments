@@ -1,0 +1,142 @@
+2026-08-27T06:45:25.406Z info 	[STARTUP] Launched with: {
+  params: { 'analytics-enabled': true, reason: 'open-tray', name: 'dashboard' },
+  pid: 27376,
+  ppid: 30288,
+  NODE_ENV: 'production',
+  E2E: false,
+  E2E_CONTEXT: undefined,
+  PINATA_LOGS_ADDITIONAL_PATH: undefined,
+  DEVHOME: undefined,
+  isPackaged: true,
+  appVersion: '4.69.0'
+}
+2026-08-27T06:45:25.697Z info 	[STARTUP] Checking backend is running
+2026-08-27T06:45:25.816Z info 	[NETWORK] Creating V1 engine client
+2026-08-27T06:45:25.966Z info 	[SSE] Connecting to backend:/registry/state
+2026-08-27T06:45:25.968Z info 	[SSE] Connecting to backend:/notify/messagebox/events
+2026-08-27T06:45:25.968Z info 	[SSE] Connecting to backend:/notify/notifications
+2026-08-27T06:45:25.968Z info 	[THEME] Electron nativeTheme: light
+2026-08-27T06:45:25.969Z info 	[THEME] Fetching Windows theme from registry
+2026-08-27T06:45:26.024Z info 	[SSE] Connecting to backend:/wasm/events
+2026-08-27T06:45:26.024Z info 	[SSE] Connecting to backend:/features/events
+2026-08-27T06:45:26.025Z info 	[SSE] Connecting to backend:/update/events
+2026-08-27T06:45:26.025Z info 	[SSE] Connecting to backend:/mutagen/file-shares/stream
+2026-08-27T06:45:26.026Z info 	[SSE] Connecting to backend:/license/events
+2026-08-27T06:45:26.026Z info 	[SSE] Connecting to backend:/registry/state
+2026-08-27T06:45:26.026Z info 	[SSE] Connecting to backend:/versions/events
+2026-08-27T06:45:26.027Z info 	[SSE] Connecting to backend:/engine/events
+2026-08-27T06:45:26.027Z info 	[SSE] Connecting to backend:/install/events
+2026-08-27T06:45:26.027Z info 	[SSE] Connecting to backend:/kubernetes/events
+2026-08-27T06:45:26.028Z info 	[SSE] Connecting to backend:/pause/events
+2026-08-27T06:45:26.028Z info 	[SSE] Connecting to backend:/clicontext/events
+2026-08-27T06:45:26.029Z info 	[SSE] Connecting to backend:/app/settings/events
+2026-08-27T06:45:26.156Z info 	application has just finished initializing
+2026-08-27T06:45:26.157Z info 	[WEB-CONTENT] Registering app://
+2026-08-27T06:45:26.170Z info 	[TRAY] Creating tray menu
+2026-08-27T06:45:27.122Z info 	[WINDOW] Open app://dd/dashboard { windowOptions: { minHeight: 600, minWidth: 940 } }
+2026-08-27T06:45:27.124Z info 	[WINDOW] Restoring stored state for window 'dashboard' undefined
+2026-08-27T06:45:27.311Z error 	[THEME] Theme fetch is slow; emitting failed action
+2026-08-27T06:45:27.618Z info 	[SSE] Connecting to extensionsManager:/events
+2026-08-27T06:45:27.618Z info 	Host config environment is prod
+2026-08-27T06:45:27.620Z info 	[BUGSNAG] Setting analytics enabled: true
+2026-08-27T06:45:27.623Z info 	[SSE] Connecting to extensionsManager:/events
+2026-08-27T06:45:27.663Z info 	[TRAY] Determined initial tray icon
+2026-08-27T06:45:28.788Z info 	[WEB-CONTENT] Serving page HTML (70 feature flags)
+2026-08-27T06:45:30.579Z info 	[THEME] Got Windows theme from registry: light
+2026-08-27T06:45:31.793Z info 	[IPC] redux.subscribeToUpstreamActions$: Started streaming ([{}])
+2026-08-27T06:45:31.793Z info 	[REDUX] Added store replica 1
+2026-08-27T06:45:31.797Z info 	[SSE] Connecting to backend:/stats
+2026-08-27T06:45:31.798Z info 	[IPC] navigation.getNavigationRequests$: Started streaming ([{}])
+2026-08-27T06:45:31.799Z info 	[IPC] extensions.extensionsBackendEvents: Started streaming ([{}])
+2026-08-27T06:45:31.800Z info 	[SSE] Connecting to extensionsManager:/events
+2026-08-27T06:45:31.800Z info 	[IPC] terminal.getTerminals: Started streaming ([{}])
+2026-08-27T06:45:31.997Z info 	[IPC] window.windowIsMaximized: Started streaming ([{}])
+2026-08-27T06:45:31.999Z info 	[HTTPS-INTERCEPT] Redirecting https://extensions.docker-desktop/marketplace to dd://extensions/marketplace
+2026-08-27T06:45:32.003Z info 	[IPC] window.windowIsFullscreen: Started streaming ([{}])
+2026-08-27T06:45:32.006Z info 	[IPC] volumes.listScheduledVolumeBackups: Started streaming ([{}])
+2026-08-27T06:45:32.007Z info 	[SSE] Connecting to backend:/volume/backup
+2026-08-27T06:45:43.295Z info 	[INDEX] listening for new images
+2026-08-27T06:45:43.296Z info 	[ENGINE] Connecting[0] to /events ({"event":["load","pull","tag","import"]})
+2026-08-27T06:45:43.709Z info 	[ENGINE] Connecting[1] to /events ({"type":["image"]})
+2026-08-27T06:45:43.711Z info 	[ENGINE] Connecting[2] to /events ({"type":["network"]})
+2026-08-27T06:45:43.712Z info 	[ENGINE] Connecting[3] to /events ({"type":["container"]})
+2026-08-27T06:45:43.713Z info 	[ENGINE] Connecting[4] to /events ({"type":["container"]})
+2026-08-27T06:45:43.714Z info 	[ENGINE] Connecting[5] to /events ({"type":["volume"]})
+2026-08-27T06:45:43.722Z info 	[IPC] dockerDf
+2026-08-27T06:45:43.787Z info 	[INDEX] ignoring image; background indexing disabled
+2026-08-27T06:45:43.872Z info 	[VOLUMES] 8 new volumes seen, will fetch sizes
+2026-08-27T06:45:47.926Z info 	[IPC] systemResources.openStatsStream: Started streaming ([{}])
+2026-08-27T06:45:50.442Z info 	[HTTPS-INTERCEPT] Redirecting https://extensions.docker-desktop/marketplace to dd://extensions/marketplace
+2026-08-27T06:45:54.510Z info 	[HTTPS-INTERCEPT] Redirecting https://extensions.docker-desktop/marketplace to dd://extensions/marketplace
+2026-08-27T12:39:12.640Z info 	[SSE] Disconnecting from extensionsManager:/events
+2026-08-27T12:39:12.644Z info 	[IPC] extensions.extensionsBackendEvents: Unsubscribed after 21220844ms, emitted 2 times
+2026-08-27T12:39:12.647Z info 	[SSE] Disconnecting from backend:/volume/backup
+2026-08-27T12:39:12.647Z info 	[IPC] volumes.listScheduledVolumeBackups: Unsubscribed after 21220641ms, emitted 1 times
+2026-08-27T12:39:12.649Z info 	[IPC] navigation.getNavigationRequests$: Unsubscribed after 21220851ms, emitted 0 times
+2026-08-27T12:39:12.650Z info 	[IPC] terminal.getTerminals: Unsubscribed after 21220850ms, emitted 1 times
+2026-08-27T12:39:12.651Z info 	[IPC] systemResources.openStatsStream: Unsubscribed after 21204726ms, emitted 2118 times
+2026-08-27T12:39:12.652Z info 	[IPC] window.windowIsMaximized: Unsubscribed after 21220656ms, emitted 1 times
+2026-08-27T12:39:12.654Z info 	[REDUX] Removed store replica 1
+2026-08-27T12:39:12.657Z info 	[SSE] Disconnecting from backend:/stats
+2026-08-27T12:39:12.658Z info 	[IPC] redux.subscribeToUpstreamActions$: Unsubscribed after 21220865ms, emitted 6076 times
+2026-08-27T12:39:12.658Z info 	[IPC] window.windowIsFullscreen: Unsubscribed after 21220655ms, emitted 1 times
+2026-08-27T12:39:12.950Z info 	[BUGSNAG] .notify:  {
+  name: 'Error',
+  message: 'renderer process has gone unexpectedly: {"reason":"crashed","exitCode":-36861}'
+}
+2026-08-27T12:39:12.951Z error 	[ELECTRON] render-process-gone gone: {"reason":"crashed","exitCode":-36861}
+2026-08-27T12:39:13.186Z info 	[BUGSNAG] Sending event Error: renderer process has gone unexpectedly: {"reason":"crashed","exitCode":-36861}
+2026-08-27T12:43:45.551Z info 	[ENGINE] Disconnected[1] from /events
+2026-08-27T12:43:45.551Z info 	[ENGINE] Disconnected[2] from /events
+2026-08-27T12:43:45.552Z info 	[ENGINE] Disconnected[3] from /events
+2026-08-27T12:43:45.552Z info 	[ENGINE] Disconnected[4] from /events
+2026-08-27T12:43:45.552Z info 	[ENGINE] Disconnected[5] from /events
+2026-08-27T12:43:45.553Z error 	[INDEX] failed listen to events, will retry. Error: aborted
+2026-08-27T12:43:45.554Z info 	[ENGINE] Disconnected[0] from /events
+2026-08-27T12:43:46.496Z error 	[ELECTRON] child-process-gone: {"type":"Utility","reason":"killed","exitCode":1073807364,"serviceName":"network.mojom.NetworkService","name":"Network Service"}
+2026-08-27T12:43:46.568Z info 	[BUGSNAG] .notify:  {
+  name: 'Error',
+  message: 'child-process-gone: {"type":"Utility","reason":"crashed","exitCode":-1073741205,"serviceName":"network.mojom.NetworkService","name":"Network Service"}'
+}
+2026-08-27T12:43:46.569Z error 	[ELECTRON] child-process-gone: {"type":"Utility","reason":"crashed","exitCode":-1073741205,"serviceName":"network.mojom.NetworkService","name":"Network Service"}
+2026-08-27T12:43:46.708Z info 	[BUGSNAG] Blocking duplicate error: child-process-gone: {"type":"Utility","reason":"crashed","exitCode":-1073741205,"serviceName":"network.mojom.NetworkService","name":"Network Service"}
+2026-08-27T12:43:46.708Z error 	[ELECTRON] child-process-gone: {"type":"Utility","reason":"crashed","exitCode":-1073741205,"serviceName":"network.mojom.NetworkService","name":"Network Service"}
+2026-08-27T12:43:46.828Z info 	[BUGSNAG] Blocking duplicate error: child-process-gone: {"type":"Utility","reason":"crashed","exitCode":-1073741205,"serviceName":"network.mojom.NetworkService","name":"Network Service"}
+2026-08-27T12:43:46.828Z error 	[ELECTRON] child-process-gone: {"type":"Utility","reason":"crashed","exitCode":-1073741205,"serviceName":"network.mojom.NetworkService","name":"Network Service"}
+2026-08-27T12:43:46.892Z info 	[BUGSNAG] Blocking duplicate error: child-process-gone: {"type":"Utility","reason":"crashed","exitCode":-1073741205,"serviceName":"network.mojom.NetworkService","name":"Network Service"}
+2026-08-27T12:43:46.892Z error 	[ELECTRON] child-process-gone: {"type":"Utility","reason":"crashed","exitCode":-1073741205,"serviceName":"network.mojom.NetworkService","name":"Network Service"}
+2026-08-27T12:43:47.009Z info 	[BUGSNAG] Blocking duplicate error: child-process-gone: {"type":"Utility","reason":"crashed","exitCode":-1073741205,"serviceName":"network.mojom.NetworkService","name":"Network Service"}
+2026-08-27T12:43:47.009Z error 	[ELECTRON] child-process-gone: {"type":"Utility","reason":"crashed","exitCode":-1073741205,"serviceName":"network.mojom.NetworkService","name":"Network Service"}
+2026-08-27T12:43:47.115Z info 	[BUGSNAG] Blocking duplicate error: child-process-gone: {"type":"Utility","reason":"crashed","exitCode":-1073741205,"serviceName":"network.mojom.NetworkService","name":"Network Service"}
+2026-08-27T12:43:47.116Z error 	[ELECTRON] child-process-gone: {"type":"Utility","reason":"crashed","exitCode":-1073741205,"serviceName":"network.mojom.NetworkService","name":"Network Service"}
+2026-08-27T12:43:47.176Z info 	[BUGSNAG] Blocking duplicate error: child-process-gone: {"type":"Utility","reason":"crashed","exitCode":-1073741205,"serviceName":"network.mojom.NetworkService","name":"Network Service"}
+2026-08-27T12:43:47.176Z error 	[ELECTRON] child-process-gone: {"type":"Utility","reason":"crashed","exitCode":-1073741205,"serviceName":"network.mojom.NetworkService","name":"Network Service"}
+2026-08-27T12:43:47.190Z info 	[BUGSNAG] Sending event Error: child-process-gone: {"type":"Utility","reason":"crashed","exitCode":-1073741205,"serviceName":"network.mojom.NetworkService","name":"Network Service"}
+2026-08-27T12:43:47.198Z error 	[BUGSNAG] event failed to send…
+ Error: net::ERR_FAILED
+    at SimpleURLLoaderWrapper.<anonymous> (node:electron/js2c/browser_init:2:134471)
+    at SimpleURLLoaderWrapper.emit (node:events:508:28)
+2026-08-27T12:43:47.198Z info 	[BUGSNAG] Writing event payload to cache
+2026-08-27T12:43:47.253Z info 	[BUGSNAG] Blocking duplicate error: child-process-gone: {"type":"Utility","reason":"crashed","exitCode":-1073741205,"serviceName":"network.mojom.NetworkService","name":"Network Service"}
+2026-08-27T12:43:47.254Z error 	[ELECTRON] child-process-gone: {"type":"Utility","reason":"crashed","exitCode":-1073741205,"serviceName":"network.mojom.NetworkService","name":"Network Service"}
+2026-08-27T12:43:47.310Z info 	[BUGSNAG] Blocking duplicate error: child-process-gone: {"type":"Utility","reason":"crashed","exitCode":-1073741205,"serviceName":"network.mojom.NetworkService","name":"Network Service"}
+2026-08-27T12:43:47.311Z error 	[ELECTRON] child-process-gone: {"type":"Utility","reason":"crashed","exitCode":-1073741205,"serviceName":"network.mojom.NetworkService","name":"Network Service"}
+2026-08-27T12:43:47.323Z error 	[ELECTRON] child-process-gone: {"type":"GPU","reason":"killed","exitCode":1073807364,"serviceName":"GPU"}
+2026-08-27T12:43:47.367Z info 	[BUGSNAG] Blocking duplicate error: child-process-gone: {"type":"Utility","reason":"crashed","exitCode":-1073741205,"serviceName":"network.mojom.NetworkService","name":"Network Service"}
+2026-08-27T12:43:47.367Z error 	[ELECTRON] child-process-gone: {"type":"Utility","reason":"crashed","exitCode":-1073741205,"serviceName":"network.mojom.NetworkService","name":"Network Service"}
+2026-08-27T12:43:47.393Z info 	[BUGSNAG] Blocking duplicate error: child-process-gone: {"type":"GPU","reason":"crashed","exitCode":-1073741205,"serviceName":"GPU"}
+2026-08-27T12:43:47.393Z error 	[ELECTRON] child-process-gone: {"type":"GPU","reason":"crashed","exitCode":-1073741205,"serviceName":"GPU"}
+2026-08-27T12:43:47.424Z info 	[BUGSNAG] Blocking duplicate error: child-process-gone: {"type":"Utility","reason":"crashed","exitCode":-1073741205,"serviceName":"network.mojom.NetworkService","name":"Network Service"}
+2026-08-27T12:43:47.424Z error 	[ELECTRON] child-process-gone: {"type":"Utility","reason":"crashed","exitCode":-1073741205,"serviceName":"network.mojom.NetworkService","name":"Network Service"}
+2026-08-27T12:43:47.449Z info 	[BUGSNAG] Blocking duplicate error: child-process-gone: {"type":"GPU","reason":"crashed","exitCode":-1073741205,"serviceName":"GPU"}
+2026-08-27T12:43:47.449Z error 	[ELECTRON] child-process-gone: {"type":"GPU","reason":"crashed","exitCode":-1073741205,"serviceName":"GPU"}
+2026-08-27T12:43:47.543Z info 	[BUGSNAG] Blocking duplicate error: child-process-gone: {"type":"Utility","reason":"crashed","exitCode":-1073741205,"serviceName":"network.mojom.NetworkService","name":"Network Service"}
+2026-08-27T12:43:47.543Z error 	[ELECTRON] child-process-gone: {"type":"Utility","reason":"crashed","exitCode":-1073741205,"serviceName":"network.mojom.NetworkService","name":"Network Service"}
+2026-08-27T12:43:47.550Z info 	[BUGSNAG] Blocking duplicate error: child-process-gone: {"type":"GPU","reason":"crashed","exitCode":-1073741205,"serviceName":"GPU"}
+2026-08-27T12:43:47.551Z error 	[ELECTRON] child-process-gone: {"type":"GPU","reason":"crashed","exitCode":-1073741205,"serviceName":"GPU"}
+2026-08-27T12:43:47.604Z info 	[BUGSNAG] Blocking duplicate error: child-process-gone: {"type":"Utility","reason":"crashed","exitCode":-1073741205,"serviceName":"network.mojom.NetworkService","name":"Network Service"}
+2026-08-27T12:43:47.604Z error 	[ELECTRON] child-process-gone: {"type":"Utility","reason":"crashed","exitCode":-1073741205,"serviceName":"network.mojom.NetworkService","name":"Network Service"}
+2026-08-27T12:43:47.624Z info 	[BUGSNAG] Blocking duplicate error: child-process-gone: {"type":"GPU","reason":"crashed","exitCode":-1073741205,"serviceName":"GPU"}
+2026-08-27T12:43:47.624Z error 	[ELECTRON] child-process-gone: {"type":"GPU","reason":"crashed","exitCode":-1073741205,"serviceName":"GPU"}
+2026-08-27T12:43:47.661Z info 	[BUGSNAG] Blocking duplicate error: child-process-gone: {"type":"Utility","reason":"crashed","exitCode":-1073741205,"serviceName":"network.mojom.NetworkService","name":"Network Service"}
+2026-08-27T12:43:47.661Z error 	[ELECTRON] child-process-gone: {"type":"Utility","reason":"crashed","exitCode":-1073741205,"serviceName":"network.mojom.NetworkService","name":"Network Service"}

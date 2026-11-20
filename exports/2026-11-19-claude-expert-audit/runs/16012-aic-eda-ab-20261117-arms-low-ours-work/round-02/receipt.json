@@ -1,0 +1,414 @@
+{
+  "overview": {
+    "run": "16012-aic-eda-ab-20261117-arms-low-ours-work",
+    "round": 2,
+    "capture_port": "16012",
+    "scope": "official-runner",
+    "accepted_at": "2026-11-17T03:27:53.931402+00:00",
+    "completed_at": "2026-11-17T03:30:11.804400+00:00",
+    "status": "failed",
+    "score": null,
+    "seen_cells": 9,
+    "expected_cells": 9,
+    "parent_id": "2f5e1997129df8af708f6db7a3df3d1b60c043cae483118bff18deee84bd6bbe",
+    "candidate_id": "1b9ff6333e127beafb870e7594794acbf6c4f63252d5d605ea4fc56ea397b73e",
+    "request_id": "e-58ef977e996e18423828e6d19cd5edf595668f76fe57d383988330210491",
+    "search_intent": "loss_only",
+    "model_request_events": 0,
+    "model_response_events": 0,
+    "candidate_available": true
+  },
+  "ledger": {
+    "request_id": "e-58ef977e996e18423828e6d19cd5edf595668f76fe57d383988330210491",
+    "candidate_id": "1b9ff6333e127beafb870e7594794acbf6c4f63252d5d605ea4fc56ea397b73e",
+    "status": "failed",
+    "accepted_at": "2026-11-17T03:27:53.931402+00:00",
+    "completed_at": "2026-11-17T03:30:11.804400+00:00",
+    "reason": "Incomplete native matrix"
+  },
+  "official_receipt": {
+    "metric_fields": [
+      "evaluation_complete",
+      "matrix",
+      "runs_successfully",
+      "valid"
+    ],
+    "metrics": {
+      "evaluation_complete": 0.0,
+      "runs_successfully": 0.0,
+      "valid": false
+    },
+    "matrix": {
+      "all_valid": false,
+      "cases": [
+        {
+          "case": "bp_fe-ng45",
+          "complete": false,
+          "scores": {
+            "1001": null,
+            "1002": null,
+            "1003": null
+          }
+        },
+        {
+          "case": "bp-ng45",
+          "complete": false,
+          "scores": {
+            "1001": null,
+            "1002": null,
+            "1003": null
+          }
+        },
+        {
+          "case": "ariane133-ng45",
+          "complete": false,
+          "scores": {
+            "1001": null,
+            "1002": null,
+            "1003": null
+          }
+        }
+      ],
+      "cells": [
+        {
+          "case": "bp_fe-ng45",
+          "error_message": "Insufficient available memory",
+          "error_type": "RuntimeError",
+          "native_failure_diagnostics": [
+            {
+              "excerpt": "[ERROR  ] row 269 (1982.11, 1989.47), overlap node 23408 (5291, 1983.74, 5308, 1991.11) with node 23708 (5300, 1976.37, 5317, 1983.74) site (5300, 5317), gap 8\n[ERROR  ] row 269 (1982.11, 1989.47), overlap node 23708 (5300, 1976.37, 5317, 1983.74) with node 6807 (5308, 1983.74, 5315, 1991.11) site (5308, 5315), gap 9\n[ERROR  ] row 269 (1982.11, 1989.47), overlap node 18556 (5315, 1983.74, 5322, 1991.11) with node 18856 (5317, 1976.37, 5324, 1983.74) site (5317, 5324), gap 5\n[ERROR  ] row 269 (1982.11, 1989.47), overlap node 22406 (5397, 1976.37, 5414, 1983.74) with node 17517 (5402, 1983.74, 5409, 1991.11) site (5402, 5409), gap 12\n[INFO   ] Legality check takes 91.6209 ms",
+              "source": "run/30_placement/stages/02_global_place/run.log"
+            }
+          ],
+          "score": null,
+          "seed": "1001",
+          "status": "failed"
+        },
+        {
+          "case": "bp_fe-ng45",
+          "error_message": "Insufficient available memory",
+          "error_type": "RuntimeError",
+          "score": null,
+          "seed": "1002",
+          "status": "failed"
+        },
+        {
+          "case": "bp_fe-ng45",
+          "error_message": "Insufficient available memory",
+          "error_type": "RuntimeError",
+          "score": null,
+          "seed": "1003",
+          "status": "failed"
+        },
+        {
+          "case": "bp-ng45",
+          "error_message": "Insufficient available memory",
+          "error_type": "RuntimeError",
+          "score": null,
+          "seed": "1001",
+          "status": "failed"
+        },
+        {
+          "case": "bp-ng45",
+          "error_message": "Insufficient available memory",
+          "error_type": "RuntimeError",
+          "score": null,
+          "seed": "1002",
+          "status": "failed"
+        },
+        {
+          "case": "bp-ng45",
+          "error_message": "Insufficient available memory",
+          "error_type": "RuntimeError",
+          "score": null,
+          "seed": "1003",
+          "status": "failed"
+        },
+        {
+          "case": "ariane133-ng45",
+          "error_message": "Insufficient available memory",
+          "error_type": "RuntimeError",
+          "score": null,
+          "seed": "1001",
+          "status": "failed"
+        },
+        {
+          "case": "ariane133-ng45",
+          "error_message": "Insufficient available memory",
+          "error_type": "RuntimeError",
+          "score": null,
+          "seed": "1002",
+          "status": "failed"
+        },
+        {
+          "case": "ariane133-ng45",
+          "error_message": "Insufficient available memory",
+          "error_type": "RuntimeError",
+          "score": null,
+          "seed": "1003",
+          "status": "failed"
+        }
+      ],
+      "complete": false,
+      "expected_cells": 9,
+      "matrix_sha256": "a09c552b8c5841504c124ea928cede4655f686f81e3de252332fef8b4d583d80",
+      "penalized_cells": 0,
+      "qualification": false,
+      "scored_cells": 0,
+      "succeeded_cells": 0
+    },
+    "planned": 9
+  },
+  "logged_feedback": {
+    "event": "evaluated",
+    "parent_id": "2f5e1997129df8af708f6db7a3df3d1b60c043cae483118bff18deee84bd6bbe",
+    "request_id": "e-58ef977e996e18423828e6d19cd5edf595668f76fe57d383988330210491",
+    "candidate_id": "1b9ff6333e127beafb870e7594794acbf6c4f63252d5d605ea4fc56ea397b73e",
+    "status": "failed",
+    "reason": "Incomplete native matrix",
+    "score": null,
+    "case_scores": {},
+    "cells": [
+      {
+        "case": "bp_fe-ng45",
+        "seed": "1001",
+        "score": null,
+        "status": "failed",
+        "reason": "Insufficient available memory",
+        "failure": {
+          "kind": "runtime_environment",
+          "stage": "30_placement",
+          "component": null,
+          "error_type": "RuntimeError",
+          "reason": "Insufficient available memory",
+          "diagnostics": [
+            {
+              "source": "run/30_placement/stages/02_global_place/run.log",
+              "excerpt": "[ERROR  ] row 269 (1982.11, 1989.47), overlap node 23408 (5291, 1983.74, 5308, 1991.11) with node 23708 (5300, 1976.37, 5317, 1983.74) site (5300, 5317), gap 8\n[ERROR  ] row 269 (1982.11, 1989.47), overlap node 23708 (5300, 1976.37, 5317, 1983.74) with node 6807 (5308, 1983.74, 5315, 1991.11) site (5308, 5315), gap 9\n[ERROR  ] row 269 (1982.11, 1989.47), overlap node 18556 (5315, 1983.74, 5322, 1991.11) with node 18856 (5317, 1976.37, 5324, 1983.74) site (5317, 5324), gap 5\n[ERROR  ] row 269 (1982.11, 1989.47), overlap node 22406 (5397, 1976.37, 5414, 1983.74) with node 17517 (5402, 1983.74, 5409, 1991.11) site (5402, 5409), gap 12\n[INFO   ] Legality check takes 91.6209 ms"
+            }
+          ]
+        }
+      },
+      {
+        "case": "bp_fe-ng45",
+        "seed": "1002",
+        "score": null,
+        "status": "failed",
+        "reason": "Insufficient available memory",
+        "failure": {
+          "kind": "runtime_environment",
+          "stage": null,
+          "component": null,
+          "error_type": "RuntimeError",
+          "reason": "Insufficient available memory",
+          "diagnostics": []
+        }
+      },
+      {
+        "case": "bp_fe-ng45",
+        "seed": "1003",
+        "score": null,
+        "status": "failed",
+        "reason": "Insufficient available memory",
+        "failure": {
+          "kind": "runtime_environment",
+          "stage": null,
+          "component": null,
+          "error_type": "RuntimeError",
+          "reason": "Insufficient available memory",
+          "diagnostics": []
+        }
+      },
+      {
+        "case": "bp-ng45",
+        "seed": "1001",
+        "score": null,
+        "status": "failed",
+        "reason": "Insufficient available memory",
+        "failure": {
+          "kind": "runtime_environment",
+          "stage": null,
+          "component": null,
+          "error_type": "RuntimeError",
+          "reason": "Insufficient available memory",
+          "diagnostics": []
+        }
+      },
+      {
+        "case": "bp-ng45",
+        "seed": "1002",
+        "score": null,
+        "status": "failed",
+        "reason": "Insufficient available memory",
+        "failure": {
+          "kind": "runtime_environment",
+          "stage": null,
+          "component": null,
+          "error_type": "RuntimeError",
+          "reason": "Insufficient available memory",
+          "diagnostics": []
+        }
+      },
+      {
+        "case": "bp-ng45",
+        "seed": "1003",
+        "score": null,
+        "status": "failed",
+        "reason": "Insufficient available memory",
+        "failure": {
+          "kind": "runtime_environment",
+          "stage": null,
+          "component": null,
+          "error_type": "RuntimeError",
+          "reason": "Insufficient available memory",
+          "diagnostics": []
+        }
+      },
+      {
+        "case": "ariane133-ng45",
+        "seed": "1001",
+        "score": null,
+        "status": "failed",
+        "reason": "Insufficient available memory",
+        "failure": {
+          "kind": "runtime_environment",
+          "stage": null,
+          "component": null,
+          "error_type": "RuntimeError",
+          "reason": "Insufficient available memory",
+          "diagnostics": []
+        }
+      },
+      {
+        "case": "ariane133-ng45",
+        "seed": "1002",
+        "score": null,
+        "status": "failed",
+        "reason": "Insufficient available memory",
+        "failure": {
+          "kind": "runtime_environment",
+          "stage": null,
+          "component": null,
+          "error_type": "RuntimeError",
+          "reason": "Insufficient available memory",
+          "diagnostics": []
+        }
+      },
+      {
+        "case": "ariane133-ng45",
+        "seed": "1003",
+        "score": null,
+        "status": "failed",
+        "reason": "Insufficient available memory",
+        "failure": {
+          "kind": "runtime_environment",
+          "stage": null,
+          "component": null,
+          "error_type": "RuntimeError",
+          "reason": "Insufficient available memory",
+          "diagnostics": []
+        }
+      }
+    ],
+    "attempt": {
+      "parent_id": "2f5e1997129df8af708f6db7a3df3d1b60c043cae483118bff18deee84bd6bbe",
+      "search_intent": "loss_only",
+      "changed_components": {
+        "loss": "Change vs parent (loss_only): keep the maintained random-walk contrastive term and add one timing-weighted star-edge cohesion term computed from the supplied `graph_scores` and `graph_weights`. The fr"
+      }
+    },
+    "parent_comparison": {
+      "parent_id": "2f5e1997129df8af708f6db7a3df3d1b60c043cae483118bff18deee84bd6bbe",
+      "candidate_id": "1b9ff6333e127beafb870e7594794acbf6c4f63252d5d605ea4fc56ea397b73e",
+      "parent_source": "published_initial_reference",
+      "complete": false,
+      "expected_cells": 9,
+      "scored_pairs": 0,
+      "parent_unscored": [],
+      "candidate_unscored": [
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1001",
+          "status": "failed",
+          "reason": "Insufficient available memory"
+        },
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1002",
+          "status": "failed",
+          "reason": "Insufficient available memory"
+        },
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1003",
+          "status": "failed",
+          "reason": "Insufficient available memory"
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1001",
+          "status": "failed",
+          "reason": "Insufficient available memory"
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1002",
+          "status": "failed",
+          "reason": "Insufficient available memory"
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1003",
+          "status": "failed",
+          "reason": "Insufficient available memory"
+        },
+        {
+          "case": "ariane133-ng45",
+          "seed": "1001",
+          "status": "failed",
+          "reason": "Insufficient available memory"
+        },
+        {
+          "case": "ariane133-ng45",
+          "seed": "1002",
+          "status": "failed",
+          "reason": "Insufficient available memory"
+        },
+        {
+          "case": "ariane133-ng45",
+          "seed": "1003",
+          "status": "failed",
+          "reason": "Insufficient available memory"
+        }
+      ],
+      "official_score_delta": null,
+      "improved_pairs": 0,
+      "regressed_pairs": 0,
+      "median_paired_score_delta": null,
+      "largest_gain": null,
+      "largest_regression": null,
+      "candidate_invalid_cells": 0,
+      "cases": [
+        {
+          "case": "bp_fe-ng45",
+          "scored_pairs": 0,
+          "expected_cells": 3,
+          "mean_paired_score_delta": null
+        },
+        {
+          "case": "bp-ng45",
+          "scored_pairs": 0,
+          "expected_cells": 3,
+          "mean_paired_score_delta": null
+        },
+        {
+          "case": "ariane133-ng45",
+          "scored_pairs": 0,
+          "expected_cells": 3,
+          "mean_paired_score_delta": null
+        }
+      ],
+      "cells": []
+    }
+  }
+}

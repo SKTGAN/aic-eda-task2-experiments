@@ -1,0 +1,59 @@
+{
+  "association": "chronological context before submit",
+  "associated_call_ids": {},
+  "sequence_at_submission": 4,
+  "recorded_reason": {
+    "reason": "opening_control"
+  },
+  "candidate_explanation": {
+    "decoder": "Replace the parent's area-weighted reference k-means with a custom bounded two-means whose centers are unweighted embedding means and whose area balance is enforced by cumulative-area capacity roundin"
+  },
+  "generation_events": [
+    {
+      "sequence": 1,
+      "event": {
+        "event": "opening_alternative_rejected",
+        "parent_id": "2f5e1997129df8af708f6db7a3df3d1b60c043cae483118bff18deee84bd6bbe",
+        "reason": "Keep the other function unchanged for this paired search direction"
+      }
+    },
+    {
+      "sequence": 2,
+      "event": {
+        "event": "opening_alternative_rejected",
+        "parent_id": "2f5e1997129df8af708f6db7a3df3d1b60c043cae483118bff18deee84bd6bbe",
+        "reason": "Keep the other function unchanged for this paired search direction"
+      }
+    },
+    {
+      "sequence": 3,
+      "event": {
+        "event": "opening_review",
+        "parent_id": "2f5e1997129df8af708f6db7a3df3d1b60c043cae483118bff18deee84bd6bbe",
+        "search_intent": "decoder_only",
+        "proposals": [
+          "A"
+        ],
+        "verdict": "A",
+        "reason": "The loss is exactly the parent baseline, and the decoder’s custom bounded loop gives a concrete falsifiable mechanism: unweighted embedding means change the two centers, the resulting score ordering changes `order`, and cumulative-area capacity rounding changes `cut_k`, so `rank < cut_k` can return a different discrete assignment using only supplied `embeddings`, `node_areas`, `balance_target`, an"
+      }
+    },
+    {
+      "sequence": 4,
+      "event": {
+        "event": "submitted",
+        "request_id": "e-4ea841fa66d4b9330876db03f7c3e26756576a5593ee217200c3d890e1a6",
+        "decision": {
+          "reason": "opening_control"
+        },
+        "parent_id": "2f5e1997129df8af708f6db7a3df3d1b60c043cae483118bff18deee84bd6bbe",
+        "search_intent": "decoder_only",
+        "changed_components": {
+          "decoder": "Replace the parent's area-weighted reference k-means with a custom bounded two-means whose centers are unweighted embedding means and whose area balance is enforced by cumulative-area capacity roundin"
+        }
+      }
+    }
+  ],
+  "evaluation_event_sequence": 5,
+  "verified_source_sha256": "e68fdd02cdd26b4f0135cbbb482f2d4888a470a6cb9b61f9c9ae9a0f68b1ae8a"
+}

@@ -1,0 +1,48 @@
+{
+  "scope": "local development on public validation inputs",
+  "candidate_sha256": "3329809b5502a3624395de0f47362a852ef2513f68651530d069ca04723b23c9",
+  "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+  "published_matrix_sha256": "177db3b4d5b52683ec06c28fed2725210165f9085197a36c4f5d3cb706d90f1f",
+  "requested": [
+    "swerv_wrapper-ng45/1003",
+    "bp_fe-asap7/1003"
+  ],
+  "cells": [
+    {
+      "case": "swerv_wrapper-ng45",
+      "seed": "1003",
+      "native_result": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261119-222915-118199/evaluation/evaluation_result.json",
+      "matrix_sha256": "6fda5a371641e8ce148d8ff89ce16fc6618a0846416a2d2a6f09fa1667981302",
+      "status": "succeeded",
+      "score": 14.586846674759313,
+      "raw_score": 14.586846674759313,
+      "wns_ns": -1.7028092751142725,
+      "tns_ns": -1911.9382245246275,
+      "published_initial_wns_ns": -1.7788500065336628,
+      "published_initial_tns_ns": -2604.8945355820383,
+      "published_initial_score": -7.649077317374426,
+      "delta_from_published_initial": 22.23592399213374
+    },
+    {
+      "case": "bp_fe-asap7",
+      "seed": "1003",
+      "native_result": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261119-224744-390118/evaluation/evaluation_result.json",
+      "matrix_sha256": "007da3715f56669e39997d53b322223cde0f90372f12c4536c839fdb492ea4da",
+      "status": "succeeded",
+      "score": -2.669113952153851,
+      "raw_score": -2.669113952153851,
+      "wns_ns": -0.48695371335750437,
+      "tns_ns": -11.518516244617222,
+      "published_initial_wns_ns": -0.5076440522741864,
+      "published_initial_tns_ns": -14.176231256798035,
+      "published_initial_score": -18.211415125370458,
+      "delta_from_published_initial": 15.542301173216607
+    }
+  ],
+  "complete": true,
+  "panel_score": 5.95886636130273,
+  "case_means": {
+    "bp_fe-asap7": -2.669113952153851,
+    "swerv_wrapper-ng45": 14.586846674759313
+  }
+}

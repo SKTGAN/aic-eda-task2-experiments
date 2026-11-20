@@ -1,0 +1,67 @@
+{
+  "association": "chronological context before submit",
+  "associated_call_ids": {},
+  "sequence_at_submission": 5,
+  "recorded_reason": {
+    "reason": "opening_control"
+  },
+  "candidate_explanation": {
+    "decoder": "Replace the frozen two-means decoder with an area-balanced principal-axis split. Relative to the parent, this keeps the same legal area-balanced top-die fill but ranks groups by a power-iteration proj"
+  },
+  "generation_events": [
+    {
+      "sequence": 1,
+      "event": {
+        "event": "invalid_proposal",
+        "parent_id": "c936085bfae4a448ff978d007b0f1a66c623b4d761a4a6a32683bb214d6e96b7",
+        "reason": "Unsupported NumPy API: inf"
+      }
+    },
+    {
+      "sequence": 2,
+      "event": {
+        "event": "invalid_proposal",
+        "parent_id": "c936085bfae4a448ff978d007b0f1a66c623b4d761a4a6a32683bb214d6e96b7",
+        "reason": "The decoder raised KeyError on a synthetic probe with read-only inputs: '__import__'"
+      }
+    },
+    {
+      "sequence": 3,
+      "event": {
+        "event": "opening_alternative_rejected",
+        "parent_id": "c936085bfae4a448ff978d007b0f1a66c623b4d761a4a6a32683bb214d6e96b7",
+        "reason": "Keep the other function unchanged for this paired search direction"
+      }
+    },
+    {
+      "sequence": 4,
+      "event": {
+        "event": "opening_review",
+        "parent_id": "c936085bfae4a448ff978d007b0f1a66c623b4d761a4a6a32683bb214d6e96b7",
+        "search_intent": "decoder_only",
+        "proposals": [
+          "A"
+        ],
+        "verdict": "A",
+        "reason": ""
+      }
+    },
+    {
+      "sequence": 5,
+      "event": {
+        "event": "submitted",
+        "request_id": "e-e88082bdac994604231e76658d158481bde9037354580e62135a29fa880f",
+        "decision": {
+          "reason": "opening_control"
+        },
+        "parent_id": "c936085bfae4a448ff978d007b0f1a66c623b4d761a4a6a32683bb214d6e96b7",
+        "search_intent": "decoder_only",
+        "changed_components": {
+          "decoder": "Replace the frozen two-means decoder with an area-balanced principal-axis split. Relative to the parent, this keeps the same legal area-balanced top-die fill but ranks groups by a power-iteration proj"
+        }
+      }
+    }
+  ],
+  "evaluation_event_sequence": 6,
+  "verified_source_sha256": "62d54504edba39f0be46afc1adaba21ec5329c38c07c0254c91b7426ef1979ba"
+}

@@ -1,0 +1,13 @@
+{
+  "/root/aic-eda-ours-20261117/claude-full-2r-20261118/phase.json": {
+    "phase": "finished",
+    "candidate_id": "cdf71ef54897fda5243997c5632b9d4d137e91781eeb710ab8aad5638d4b6fef",
+    "validation_score": -16.558599147397135
+  },
+  "/root/aic-eda-ours-20261117/claude-overnight-work-20261117/diagnostic-result.json": {
+    "formal": false,
+    "model_cost_rmb": "0.11600160",
+    "rounds": 3,
+    "selected_candidate_id": "d7b933becb4e6777b4b00b962971667e16fac2538045c366ae39793a926cadd2"
+  }
+}

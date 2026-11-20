@@ -1,0 +1,558 @@
+diff -ruN baseline-K1/AgenticBench/agent/loss_decoder/agent.py K1S/AgenticBench/agent/loss_decoder/agent.py
+--- a/AgenticBench/agent/loss_decoder/agent.py	2026-11-19 11:49:20.420782014 +0000
++++ b/AgenticBench/agent/loss_decoder/agent.py	2026-11-19 11:53:30.488486853 +0000
+@@ -24,6 +24,7 @@
+ from search_policy import (COMPONENTS, INERT_ESCALATION, OPENING, OTHER_COMPONENT, UNCHANGED_FUNCTION,
+                            cell_key, describe_trial, final_choice, function_keys, mechanism_family,
+                            next_step, rescale_ratio)
++import supervisor
+ 
+ 
+ EXPERIENCE_HEADING = "## Offline Expert Knowledge"
+@@ -82,8 +83,10 @@
+     return (blocks[0] if len(blocks) == 1 else text)[:PROGRAM_LIMIT] or None
+ 
+ 
+-def ask_model(context, instructions, request):
+-    return context.model.responses_create({
++def ask_model(context, instructions, request, log=None, role="generation"):
++    if log is not None:
++        log("model_request", role=role, system=instructions, request=request)
++    response = context.model.responses_create({
+         "model": MODEL_ID,
+         "stream": False,
+         "reasoning": {"effort": "low"},
+@@ -92,6 +95,14 @@
+             {"type": "message", "role": "user", "content": json.dumps(request, ensure_ascii=False)},
+         ],
+     })
++    if log is not None:
++        try:
++            text = model_text(response)
++        except ValueError:
++            text = None
++        log("model_response", role=role, status=response.get("status") if isinstance(response, dict) else None,
++            text=text[:supervisor.REPLY_LIMIT] if text else text)
++    return response
+ 
+ 
+ def inert_edits(trials, sources, initial, baseline_id):
+@@ -163,8 +174,9 @@
+     return "\n".join(head + ["", ""] + tail) + "\n"
+ 
+ 
+-def review_opening(context, choices, review_inputs):
+-    result = model_text(ask_model(context, OPENING_REVIEW, {**review_inputs, "proposals": choices}))
++def review_opening(context, choices, review_inputs, log=None):
++    result = model_text(ask_model(context, OPENING_REVIEW, {**review_inputs, "proposals": choices}, log,
++                                  "opening_review"))
+     verdict, _, reason = result.partition(":")
+     if verdict.strip().upper() == "REVISE" and reason.strip():
+         return "revise", " ".join(reason.split())[:400]
+@@ -284,6 +296,20 @@
+     return entries
+ 
+ 
++def read_events(log_path):
++    try:
++        lines = log_path.read_bytes().splitlines()
++    except FileNotFoundError:
++        return []
++    events = []
++    for line in lines:
++        try:
++            events.append(json.loads(line))
++        except ValueError:
++            continue  # A stopped process can leave a truncated line.
++    return events
++
++
+ def write_event(folder, event, **fields):
+     with (folder / "search.jsonl").open("a+b") as log:
+         log.seek(0, 2)
+@@ -387,6 +413,49 @@
+                       for summary in archive]
+             return archive, trials
+ 
++        earlier = read_events(folder / "search.jsonl")
++        calls = [sum(event.get("event") == "model_request" for event in earlier)]
++        logged_systems = {event.get("system_sha256") for event in earlier if event.get("system")}
++        reviews = {event["checkpoint"]: event for event in earlier if event.get("event") == "supervisor_review"}
++
++        def log(event, **fields):
++            if event == "model_request":
++                calls[0] += 1
++                system = fields.pop("system")
++                fields.update(call=calls[0], system_sha256=supervisor.digest(system), system_characters=len(system),
++                              expert_section=EXPERIENCE_HEADING in system)
++                if fields["system_sha256"] not in logged_systems:
++                    logged_systems.add(fields["system_sha256"])
++                    fields["system"] = system
++            else:
++                fields["call"] = calls[0]
++            write_event(folder, event, **fields)
++
++        def supervise(step, archive, trials, state):
++            """One review per checkpoint; its decision changes only the step taken at that checkpoint."""
++            complete = sum(trial["complete"] for trial in trials)
++            if complete not in supervisor.CHECKPOINTS:
++                return step, None
++            decision = reviews.get(complete)
++            if decision is None:
++                record = supervisor.dossier(complete, step, archive, history, sources, attempts, initial,
++                                            context.baseline_candidate, read_events(folder / "search.jsonl"))
++                (folder / "supervisor-dossier-{}.json".format(complete)).write_text(
++                    json.dumps(record, indent=1, ensure_ascii=False), encoding="utf-8")
++                decision = {**supervisor.review(complete, step, record), "dossier_sha256": supervisor.digest(record)}
++                write_event(folder, "supervisor_review", **decision)
++                reviews[complete] = decision
++            if decision.get("action") != "exclude_parent":
++                return step, None
++            changed = next_step(trials, start_score, start_cells, opening, state["evaluations_remaining"],
++                                submitted | blocked,
++                                [{"key": entry["key"], "changed": sorted(entry["changed"])} for entry in shelf],
++                                excluded=frozenset([decision["candidate_id"]]))
++            if changed["action"] == "propose":
++                changed["decision"] = {"reason": supervisor.DECISION_REASON,
++                                       "excluded_candidate_id": decision["candidate_id"]}
++            return changed, decision
++
+         saved = [None]
+         rejections = 0
+         rejected_components = set()
+@@ -416,6 +485,9 @@
+             result = submit_and_wait(context, source, request_id)
+             record(result)
+             write_event(folder, "evaluated", parent_id=parent_id, **summarize_for_prompt(result))
++            if lineage.get("supervised_by") in reviews and result["status"] == "succeeded":
++                write_event(folder, "supervisor_check", **supervisor.check(
++                    reviews[lineage["supervised_by"]], summarize_for_prompt(result), True))
+             keep_incumbent(review()[1])
+ 
+         def hypotheses(source, key, parent_key):
+@@ -445,6 +517,7 @@
+             step = next_step(trials, start_score, start_cells, opening, state["evaluations_remaining"],
+                              submitted | blocked,
+                              [{"key": entry["key"], "changed": sorted(entry["changed"])} for entry in shelf])
++            step, supervision = supervise(step, archive, trials, state)
+ 
+             # Actions that need no model call: retry an infrastructure failure, or combine verified gains.
+             if step["action"] == "resubmit":
+@@ -542,6 +615,8 @@
+             }
+             if carried is not None:
+                 request["previous_proposal"] = carried
++            if supervision is not None:
++                request[supervisor.NOTE_FIELD] = supervision["note"]
+             system_prompt = instructions.rstrip() + "\n\n" + interface
+             if initial_experience_pending:
+                 initial_experience_pending = False
+@@ -555,7 +630,7 @@
+                 else:
+                     write_event(folder, "expert_section_not_resent", reason="already sent in this run")
+             try:
+-                response = ask_model(context, system_prompt, request)
++                response = ask_model(context, system_prompt, request, log)
+             except AgentAPIError as error:
+                 issue = str(error)
+                 if expert_step and carried is None:
+@@ -597,7 +672,7 @@
+                 try:
+                     alternative = generated_program(ask_model(context, OPENING_ALTERNATIVE, {
+                         **review_inputs, "proposal_a": source,
+-                    }))
++                    }, log, "opening_alternative"))
+                     keys["B"], _ = check_proposal(alternative, parent_source, initial, step, True,
+                                                   submitted | {key}, inert)
+                     if function_keys(alternative, ignore_numbers=True) == function_keys(source, ignore_numbers=True):
+@@ -608,7 +683,7 @@
+                 verdict, reason = "A", ""
+                 if context.status()["model_dispatch_allowed"]:
+                     try:
+-                        verdict, reason = review_opening(context, choices, review_inputs)
++                        verdict, reason = review_opening(context, choices, review_inputs, log)
+                     except (AgentAPIError, ValueError) as error:
+                         reason = str(error)[:400]
+                 write_event(folder, "opening_review", parent_id=parent_id, search_intent=intent,
+@@ -627,7 +702,10 @@
+                     continue
+                 source, key = choices[verdict], keys[verdict]
+ 
+-            evaluate(source, key, parent_id, intent, decision, hypotheses(source, key, parent_key))
++            lineage = {}
++            if supervision is not None:
++                lineage = {"supervised_by": supervision["checkpoint"], "parent_source_sha256": supervisor.digest(parent_source)}
++            evaluate(source, key, parent_id, intent, decision, hypotheses(source, key, parent_key), **lineage)
+             issue = None
+ 
+         archive, trials = review()
+diff -ruN baseline-K1/AgenticBench/agent/loss_decoder/search_policy.py K1S/AgenticBench/agent/loss_decoder/search_policy.py
+--- a/AgenticBench/agent/loss_decoder/search_policy.py	2026-11-19 11:49:20.420782014 +0000
++++ b/AgenticBench/agent/loss_decoder/search_policy.py	2026-11-19 11:52:37.356274228 +0000
+@@ -250,12 +250,14 @@
+ 
+ 
+ def next_step(trials, start_score, start_cell_scores, opening=OPENING, evaluations_remaining=1,
+-              considered=frozenset(), shelved=()):
++              considered=frozenset(), shelved=(), excluded=frozenset()):
+     """Choose the next action from every official reply of this run.
+ 
+     `considered` holds the function keys that already have an official record.
+     `shelved` lists validated single-function edits of the start that an opening
+     review set aside: {"key": ..., "changed": [...]} in the order they were written.
++    `excluded` holds candidate IDs a supervisor review set aside as parents for
++    this step only; they stay eligible for final_choice.
+ 
+     Returns one of
+       {"action": "resubmit", "target": request_id, ...}      same source, no model call
+@@ -270,7 +272,7 @@
+                 "decision": decision, "component": fields.get("component"),
+                 "required_component": fields.get("required_component"), "avoid": fields.get("avoid", [])}
+ 
+-    verified = [trial for trial in trials if trial["complete"]]
++    verified = [trial for trial in trials if trial["complete"] and trial["candidate_id"] not in excluded]
+     incumbent = max(verified, key=rank) if verified else None
+     ahead = incumbent is not None and (start_score is None or incumbent["score"] > start_score)
+ 
+@@ -306,7 +308,7 @@
+                     "decision": {"reason": "opening_alternative_control"}}
+ 
+     # 4. Two verified single-function gains over the start: measure their exact combination.
+-    pair = _recombination(trials, start_score, considered)
++    pair = _recombination([trial for trial in trials if trial["candidate_id"] not in excluded], start_score, considered)
+     if pair:
+         loss, decoder, key = pair
+         return {"action": "recombine", "loss": loss["request_id"], "decoder": decoder["request_id"], "key": key,
+@@ -327,7 +329,8 @@
+                        required_component=OTHER_COMPONENT[edited[0]] if len(edited) == 1 else None)
+ 
+     # 6. Most pairs improved and a few regressed: one targeted repair of that candidate.
+-    if last["outcome"] == "effective" and last["key"] and _concentrated_regression(last):
++    if (last["outcome"] == "effective" and last["key"] and _concentrated_regression(last)
++            and last["candidate_id"] not in excluded):
+         return propose(last, "repair", "concentrated_regression", candidate_id=last["candidate_id"],
+                        largest_regression=last["largest_regression"],
+                        component=last["edited"][0] if len(last["edited"]) == 1 else None)
+diff -ruN baseline-K1/AgenticBench/agent/loss_decoder/supervisor.py K1S/AgenticBench/agent/loss_decoder/supervisor.py
+--- a/AgenticBench/agent/loss_decoder/supervisor.py	1970-01-01 00:00:00.000000000 +0000
++++ b/AgenticBench/agent/loss_decoder/supervisor.py	2026-11-19 11:53:44.081539636 +0000
+@@ -0,0 +1,319 @@
++"""Cross-round supervisor for the K1 search: one reversible adjustment after the second evaluation.
++
++The review runs when the second complete official evaluation of a run has been recorded and before the
++search policy's next step is used. It reads four records of this run together:
++
++  1. the model requests the Agent actually sent  (search.jsonl `model_request` events),
++  2. the model's recorded replies                (search.jsonl `model_response` events),
++  3. every evaluated program against its parent   (unified diffs of the submitted sources),
++  4. the official nine-cell receipts               (bridge replies plus organizer partition diagnostics).
++
++It asks one question of the step the policy is about to take: does that step build on a candidate
++whose gain the receipts do not attribute to the candidate's mechanism? This version has one rule for
++that:
++
++  A candidate qualifies when, on most cells, its final labels equal the official initial assignment
++  or its exact inversion. The organizer diagnostic `partition_assignment_changed_fraction` measures
++  this; "within MARGINAL_FRACTION of instances" counts as equal. A candidate also qualifies when its
++  paired gain over its parent comes only from the inverted cells.
++
++A qualifying candidate is not used as a parent for the next step. It stays eligible for final
++selection. The search policy then chooses the next step without it, and the model is told why in one
++request field, `supervisor_note`. The adjustment covers that one step only. After the next complete
++evaluation, the unmodified policy resumes, and a `supervisor_check` event records whether the
++adjustment produced an attributable comparison.
++
++Everything the supervisor decides is written to search.jsonl before it takes effect and is reloaded on
++restart, so a checkpoint is reviewed once. The supervisor makes no model call.
++"""
++
++import ast
++import difflib
++import hashlib
++import json
++
++from search_policy import COMPONENTS, MARGINAL_FRACTION, SAME_TIMING_NS, cell_key, function_keys
++
++CHECKPOINTS = (2,)          # complete official evaluations after which the next step is reviewed
++NOTE_FIELD = "supervisor_note"
++DECISION_REASON = "supervisor_parent_excluded"
++REPLY_LIMIT = 40000         # characters of each recorded model reply kept in the log
++FALSIFIER_WORDS = ("invalidat", "falsif", "disprove")
++
++
++def digest(value):
++    text = value if isinstance(value, str) else json.dumps(value, sort_keys=True, ensure_ascii=False)
++    return hashlib.sha256(text.encode("utf-8")).hexdigest()
++
++
++def _number(value):
++    return value if isinstance(value, (int, float)) and not isinstance(value, bool) else None
++
++
++# ---------------------------------------------------------------- receipts: partitions and paired deltas
++
++def assignment_rows(summary):
++    """Per cell: changed fraction against the official initial assignment, inversion and residual change."""
++    rows = []
++    for cell in summary.get("cells") or []:
++        change = cell.get("partition_change_vs_initial") or {}
++        fraction = _number(change.get("partition_assignment_changed_fraction"))
++        if fraction is None:
++            fraction = _number((cell.get("metrics") or {}).get("partition_assignment_changed_fraction"))
++        if fraction is None:
++            rows.append({"cell": "/".join(cell_key(cell)), "changed_fraction": None})
++            continue
++        inverted = fraction > 0.5
++        residual = 1.0 - fraction if inverted else fraction
++        rows.append({"cell": "/".join(cell_key(cell)), "changed_fraction": fraction, "inverted": inverted,
++                     "moved_after_undoing_inversion": residual,
++                     "same_grouping": residual < MARGINAL_FRACTION})
++    return rows
++
++
++def paired_deltas(summary):
++    comparison = summary.get("parent_comparison") or {}
++    return {"/".join(cell_key(cell)): cell["score_delta"] for cell in comparison.get("cells") or []
++            if _number(cell.get("score_delta")) is not None}
++
++
++def orientation_finding(summary):
++    """Whether a candidate's paired gain comes only from inverting the official initial assignment."""
++    rows = [row for row in assignment_rows(summary) if row.get("changed_fraction") is not None]
++    deltas = paired_deltas(summary)
++    comparison = summary.get("parent_comparison") or {}
++    total = _number(comparison.get("official_score_delta"))
++    same = [row for row in rows if row["same_grouping"]]
++    inverted = [row["cell"] for row in same if row["inverted"]]
++    from_inverted = sum(deltas.get(cell, 0.0) for cell in inverted)
++    rest = sum(value for cell, value in deltas.items() if cell not in inverted)
++    largest = max(deltas.items(), key=lambda item: item[1]) if deltas else None
++    measured = bool(rows) and len(deltas) == len(rows) and comparison.get("complete") and total is not None
++    return {
++        "candidate_id": summary.get("candidate_id"), "request_id": summary.get("request_id"),
++        "cells": len(rows), "same_grouping_cells": len(same), "inverted_same_grouping_cells": inverted,
++        "points_from_inverted_cells": from_inverted, "points_from_other_cells": rest,
++        "official_score_delta": total, "parent_source": comparison.get("parent_source"),
++        "largest_cell": {"cell": largest[0], "score_delta": largest[1]} if largest else None,
++        "qualifies": bool(measured and len(same) > len(rows) // 2 and inverted and total > 0 and rest <= 0),
++    }
++
++
++def host_finding(summary):
++    """Cells whose labels equal the official initial assignment yet whose timing differs from the reference."""
++    comparison = summary.get("parent_comparison") or {}
++    if comparison.get("parent_source") != "published_initial_reference":
++        return []
++    identical = {row["cell"] for row in assignment_rows(summary) if row.get("changed_fraction") == 0}
++    found = []
++    for cell in comparison.get("cells") or []:
++        name = "/".join(cell_key(cell))
++        drift = [abs(cell.get(metric) or 0.0) for metric in ("wns_slack_delta_ns", "tns_slack_delta_ns")]
++        if name in identical and max(drift) >= SAME_TIMING_NS:
++            found.append({"cell": name, "score_delta": cell.get("score_delta"),
++                          "wns_slack_delta_ns": cell.get("wns_slack_delta_ns"),
++                          "tns_slack_delta_ns": cell.get("tns_slack_delta_ns")})
++    return found
++
++
++def loss_size_finding(results, sources, initial):
++    """Size of an added loss term, read from tp_gnn_final_loss against a run that kept the loss unchanged.
++
++    The control is an evaluated program of this run whose loss function equals the loss edit's parent
++    loss. Here that is the official loss; training is deterministic per cell, so the difference
++    on matched cells is the added term at the end of training.
++    """
++    initial_loss = function_keys(initial)[0]
++    by_loss = {}
++    for result in results:
++        source = sources.get(result["request_id"])
++        if source and result.get("status") == "succeeded":
++            by_loss.setdefault(function_keys(source)[0], []).append(result)
++    controls = by_loss.get(initial_loss) or []
++    findings = []
++    for key, edited in by_loss.items():
++        if key == initial_loss or not controls:
++            continue
++        for result in edited:
++            losses = {}
++            for name, run in (("edit", result), ("control", controls[0])):
++                for cell in run["feedback"]["cells"]:
++                    value = _number((cell.get("metrics") or {}).get("tp_gnn_final_loss"))
++                    if value is not None:
++                        losses.setdefault("/".join(cell_key(cell)), {})[name] = value
++            pairs = [(row["edit"] - row["control"], row["control"]) for row in losses.values()
++                     if "edit" in row and "control" in row]
++            if not pairs or len(pairs) != len(result["feedback"]["cells"]):
++                continue
++            changes = [delta for delta, _ in pairs]
++            shares = [delta / base for delta, base in pairs if base]
++            findings.append({"candidate_id": result["candidate_id"], "control_candidate_id": controls[0]["candidate_id"],
++                             "cells": len(pairs), "loss_change_min": min(changes), "loss_change_max": max(changes),
++                             "loss_share_min": min(shares), "loss_share_max": max(shares)})
++    return findings
++
++
++# ---------------------------------------------------------------- requests, replies and diffs
++
++def stated_falsifiers(source):
++    """Sentences of each docstring that state how the hypothesis would fail, quoted as written."""
++    quoted = {}
++    try:
++        functions = ast.parse(source).body
++    except SyntaxError:
++        return quoted
++    for name, function in zip(COMPONENTS, functions):
++        text = " ".join((ast.get_docstring(function) or "").split())
++        sentences = [part.strip() for part in text.replace("; ", ". ").split(". ")]
++        hits = [sentence for sentence in sentences if any(word in sentence.lower() for word in FALSIFIER_WORDS)]
++        if hits:
++            quoted[name] = " ".join(hits)[:400]
++    return quoted
++
++
++def request_digest(events):
++    """Which inputs each recorded model request carried, without repeating the payloads."""
++    rows = []
++    for event in events:
++        if event.get("event") != "model_request":
++            continue
++        request = event.get("request") or {}
++        rows.append({"call": event.get("call"), "role": event.get("role"),
++                     "search_intent": request.get("search_intent"),
++                     "decision_reason": (request.get("decision") or {}).get("reason"),
++                     "fields": sorted(request), "null_fields": sorted(key for key, value in request.items() if value is None),
++                     "expert_section": event.get("expert_section"), "system_sha256": event.get("system_sha256"),
++                     "request_sha256": digest(request)})
++    return rows
++
++
++def reply_digest(events):
++    return [{"call": event.get("call"), "role": event.get("role"), "characters": len(event.get("text") or ""),
++             "text_sha256": digest(event.get("text") or "")}
++            for event in events if event.get("event") == "model_response"]
++
++
++def program_diffs(results, sources, attempts, initial, baseline_id):
++    """Unified diff of every evaluated program against the program it was built from."""
++    by_candidate = {baseline_id: initial}
++    for result in results:
++        if sources.get(result["request_id"]):
++            by_candidate[result["candidate_id"]] = sources[result["request_id"]]
++    rows = []
++    for result in results:
++        source = sources.get(result["request_id"])
++        parent_id = (attempts.get(result["request_id"]) or {}).get("parent_id")
++        parent = by_candidate.get(parent_id)
++        if not source or parent is None:
++            rows.append({"candidate_id": result["candidate_id"], "parent_id": parent_id, "diff": None})
++            continue
++        diff = "".join(difflib.unified_diff(parent.splitlines(True), source.splitlines(True),
++                                            "parent/" + str(parent_id)[:12], "candidate/" + result["candidate_id"][:12]))
++        rows.append({"candidate_id": result["candidate_id"], "parent_id": parent_id,
++                     "parent_sha256": digest(parent), "candidate_sha256": digest(source),
++                     "changed_lines": sum(line[:1] in "+-" and line[:3] not in ("+++", "---")
++                                          for line in diff.splitlines()),
++                     "falsifiers": stated_falsifiers(source), "diff": diff})
++    return rows
++
++
++# ---------------------------------------------------------------- the review and its record
++
++def dossier(checkpoint, step, archive, results, sources, attempts, initial, baseline_id, events):
++    """Everything the review reads, in one structure that is saved next to search.jsonl."""
++    return {
++        "checkpoint": checkpoint,
++        "policy_step": step,
++        "requests": request_digest(events),
++        "replies": reply_digest(events),
++        "programs": program_diffs(results, sources, attempts, initial, baseline_id),
++        "receipts": archive,
++        "orientation": [orientation_finding(summary) for summary in archive],
++        "identical_labels_with_timing_change": {summary["candidate_id"]: host_finding(summary) for summary in archive},
++        "loss_size": loss_size_finding(results, sources, initial),
++    }
++
++
++def builds_on(step, archive):
++    """The archive row of the candidate the policy step builds on, or None."""
++    if step.get("action") not in ("propose", "recombine") or not step.get("parent"):
++        return None
++    return next((summary for summary in archive if summary["request_id"] == step["parent"]), None)
++
++
++def review(checkpoint, step, folder_dossier):
++    """Decide keep or exclude_parent for the next step. Pure function of the dossier."""
++    target = builds_on(step, folder_dossier["receipts"])
++    finding = orientation_finding(target) if target else None
++    decision = {"checkpoint": checkpoint, "policy_step": step, "rule": "orientation_only_gain",
++                "applies_to": "the next step only; final selection unchanged"}
++    if not finding or not finding["qualifies"]:
++        decision.update(action="keep", basis=finding)
++        return decision
++    decision.update(action="exclude_parent", candidate_id=finding["candidate_id"],
++                    request_id=finding["request_id"], basis=finding)
++    decision["note"] = note_text(checkpoint, finding, folder_dossier)
++    decision["predictions"] = {
++        "adoption": "the next request's parent is not the excluded candidate and it carries the note",
++        "attributable": "the next complete evaluation changes the grouping (beyond an inversion) on most cells",
++        "score": "no direction predicted; the excluded candidate stays eligible for final selection",
++    }
++    decision["withdraw_if"] = ("the next complete evaluation again keeps the grouping on most cells; the "
++                               "adjustment then bought no attributable comparison and is not repeated")
++    return decision
++
++
++def note_text(checkpoint, finding, folder_dossier):
++    other = finding["cells"] - len(finding["inverted_same_grouping_cells"])
++    largest = finding["largest_cell"]
++    receipt = next(summary for summary in folder_dossier["receipts"] if summary["candidate_id"] == finding["candidate_id"])
++    lines = [
++        "Cross-round review after {} official evaluations of this run (this run's receipts only). Candidate {} "
++        "(official score {:.2f}, {:+.2f} against its parent) is not the parent for this step; it stays eligible "
++        "for final selection.".format(checkpoint, finding["candidate_id"], receipt.get("score") or 0.0,
++                                      finding["official_score_delta"]),
++        "On {} of {} cells its final labels equal the official initial assignment or its exact inversion within "
++        "{:g}% of instances (partition_assignment_changed_fraction). The {} inverted cells ({}) account for {:+.2f} "
++        "summed cell points against its parent and the other {} cells for {:+.2f}. Its largest cell is {} at "
++        "{:+.2f}. Its gain therefore comes from inverting the initial assignment on those cells, not from a "
++        "different grouping.".format(
++            finding["same_grouping_cells"], finding["cells"], 100 * MARGINAL_FRACTION,
++            len(finding["inverted_same_grouping_cells"]), ", ".join(finding["inverted_same_grouping_cells"]),
++            finding["points_from_inverted_cells"], other, finding["points_from_other_cells"],
++            largest["cell"], largest["score_delta"]),
++    ]
++    for size in folder_dossier.get("loss_size") or []:
++        edited = next((summary for summary in folder_dossier["receipts"] if summary["candidate_id"] == size["candidate_id"]), None)
++        identical = sum(row.get("changed_fraction") == 0 for row in assignment_rows(edited)) if edited else None
++        lines.append(
++            "Loss edit {} raised tp_gnn_final_loss by {:.3f} to {:.3f} on every cell against {}, which kept that "
++            "loss unchanged ({:.2f}% to {:.2f}% of the loss); {} of {} of its assignments were identical to the "
++            "official initial assignment.".format(
++                size["candidate_id"], size["loss_change_min"], size["loss_change_max"], size["control_candidate_id"],
++                100 * size["loss_share_min"], 100 * size["loss_share_max"], identical, size["cells"]))
++    lines.append("In the docstring of each function you change, predict the share of instances whose die changes "
++                 "relative to the official initial assignment once a whole-assignment inversion is undone.")
++    return " ".join(lines)
++
++
++def check(decision, summary, request_logged):
++    """After the next complete evaluation: did the adjustment happen, and is the new comparison attributable?"""
++    rows = [row for row in assignment_rows(summary) if row.get("changed_fraction") is not None]
++    regrouped = sum(not row["same_grouping"] for row in rows)
++    comparison = summary.get("parent_comparison") or {}
++    deltas = paired_deltas(summary)
++    attributable = bool(rows) and regrouped > len(rows) // 2
++    return {
++        "checkpoint": decision["checkpoint"], "excluded_candidate_id": decision["candidate_id"],
++        "evaluated_candidate_id": summary.get("candidate_id"),
++        "adopted": bool(request_logged) and (summary.get("attempt") or {}).get("parent_id") != decision["candidate_id"],
++        "cells_with_new_grouping": regrouped, "cells": len(rows),
++        "inverted_cells": sum(row["inverted"] for row in rows),
++        "official_score": summary.get("score"),
++        "official_score_delta_vs_parent": comparison.get("official_score_delta"),
++        "parent_source": comparison.get("parent_source"),
++        "largest_cell_gain": max(deltas.items(), key=lambda item: item[1]) if deltas else None,
++        "largest_cell_loss": min(deltas.items(), key=lambda item: item[1]) if deltas else None,
++        "attributable_comparison": attributable,
++        "withdraw": not attributable,
++    }

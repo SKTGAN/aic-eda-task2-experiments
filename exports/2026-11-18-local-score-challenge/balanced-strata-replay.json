@@ -1,0 +1,171 @@
+{
+  "numpy_version": "2.3.5",
+  "candidate": "balanced_strata.py",
+  "diagnostic_only": true,
+  "physical_score_measured": false,
+  "case": "bp-ng45",
+  "seeds": [
+    {
+      "seed": 1001,
+      "stage": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261115-161128-780305/baseline/qualification/cells/bp-ng45/1001/result/run/20_partition",
+      "embeddings_from": "official-start embeddings",
+      "preclosure": {
+        "count": 144224,
+        "direct": 16943,
+        "flip_adjusted": 16943
+      },
+      "postclosure": {
+        "count": 144224,
+        "direct": 14731,
+        "flip_adjusted": 14731
+      },
+      "parent_and_candidate_legalizer": [
+        {
+          "cut_nets_before_closure": 6451,
+          "cut_nets_after_closure": 5877,
+          "protected_repair_moved_cells": 10792,
+          "initially_feasible": false,
+          "final_constraints": {
+            "area_error": 4.66025787959623e-07,
+            "area_tolerance": 0.03,
+            "area_satisfied": true,
+            "macro_count_error": 0.041666666666666685,
+            "macro_count_tolerance": 0.05,
+            "macro_count_satisfied": true,
+            "macro_area_error": 0.04762114990647909,
+            "macro_area_tolerance": 0.05,
+            "macro_area_satisfied": true,
+            "accepted": true
+          }
+        },
+        {
+          "cut_nets_before_closure": 14491,
+          "cut_nets_after_closure": 14491,
+          "protected_repair_moved_cells": 0,
+          "initially_feasible": true,
+          "final_constraints": {
+            "area_error": 9.320515760302683e-07,
+            "area_tolerance": 0.03,
+            "area_satisfied": true,
+            "macro_count_error": 0.0,
+            "macro_count_tolerance": 0.05,
+            "macro_count_satisfied": true,
+            "macro_area_error": 0.005067303478460183,
+            "macro_area_tolerance": 0.05,
+            "macro_area_satisfied": true,
+            "accepted": true
+          }
+        }
+      ]
+    },
+    {
+      "seed": 1002,
+      "stage": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261115-205809-358941/baseline/qualification/cells/bp-ng45/1002/result/run/20_partition",
+      "embeddings_from": "official-start embeddings",
+      "preclosure": {
+        "count": 144224,
+        "direct": 18664,
+        "flip_adjusted": 18664
+      },
+      "postclosure": {
+        "count": 144224,
+        "direct": 14866,
+        "flip_adjusted": 14866
+      },
+      "parent_and_candidate_legalizer": [
+        {
+          "cut_nets_before_closure": 5892,
+          "cut_nets_after_closure": 5861,
+          "protected_repair_moved_cells": 12456,
+          "initially_feasible": false,
+          "final_constraints": {
+            "area_error": 4.66025787959623e-07,
+            "area_tolerance": 0.03,
+            "area_satisfied": true,
+            "macro_count_error": 0.041666666666666685,
+            "macro_count_tolerance": 0.05,
+            "macro_count_satisfied": true,
+            "macro_area_error": 0.04762114990647909,
+            "macro_area_tolerance": 0.05,
+            "macro_area_satisfied": true,
+            "accepted": true
+          }
+        },
+        {
+          "cut_nets_before_closure": 14392,
+          "cut_nets_after_closure": 14392,
+          "protected_repair_moved_cells": 0,
+          "initially_feasible": true,
+          "final_constraints": {
+            "area_error": 1.3980773639898914e-06,
+            "area_tolerance": 0.03,
+            "area_satisfied": true,
+            "macro_count_error": 0.0,
+            "macro_count_tolerance": 0.05,
+            "macro_count_satisfied": true,
+            "macro_area_error": 0.0058951804115568995,
+            "macro_area_tolerance": 0.05,
+            "macro_area_satisfied": true,
+            "accepted": true
+          }
+        }
+      ]
+    },
+    {
+      "seed": 1003,
+      "stage": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261115-213108-753693/baseline/qualification/cells/bp-ng45/1003/result/run/20_partition",
+      "embeddings_from": "official-start embeddings",
+      "preclosure": {
+        "count": 144224,
+        "direct": 17152,
+        "flip_adjusted": 17152
+      },
+      "postclosure": {
+        "count": 144224,
+        "direct": 14696,
+        "flip_adjusted": 14696
+      },
+      "parent_and_candidate_legalizer": [
+        {
+          "cut_nets_before_closure": 6112,
+          "cut_nets_after_closure": 5873,
+          "protected_repair_moved_cells": 11078,
+          "initially_feasible": false,
+          "final_constraints": {
+            "area_error": 4.66025787959623e-07,
+            "area_tolerance": 0.03,
+            "area_satisfied": true,
+            "macro_count_error": 0.041666666666666685,
+            "macro_count_tolerance": 0.05,
+            "macro_count_satisfied": true,
+            "macro_area_error": 0.04762114990647909,
+            "macro_area_tolerance": 0.05,
+            "macro_area_satisfied": true,
+            "accepted": true
+          }
+        },
+        {
+          "cut_nets_before_closure": 14498,
+          "cut_nets_after_closure": 14498,
+          "protected_repair_moved_cells": 0,
+          "initially_feasible": true,
+          "final_constraints": {
+            "area_error": 5.5923094560150766e-06,
+            "area_tolerance": 0.03,
+            "area_satisfied": true,
+            "macro_count_error": 0.0,
+            "macro_count_tolerance": 0.05,
+            "macro_count_satisfied": true,
+            "macro_area_error": 0.005067303478460183,
+            "macro_area_tolerance": 0.05,
+            "macro_area_satisfied": true,
+            "accepted": true
+          }
+        }
+      ]
+    }
+  ],
+  "decoder_parent": "Claude original round 4",
+  "parent_archive_member": "claude-original/programs/round-04.py",
+  "candidate_sha256": "16fe1b4255ca29cbe9bccfa47f7227ecfbc10628361032b1cffca20ce7dedd70"
+}

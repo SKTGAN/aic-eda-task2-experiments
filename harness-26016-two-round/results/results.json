@@ -1,0 +1,1004 @@
+{
+  "machine": "26016",
+  "gpu": "2 x RTX 3080 10 GiB",
+  "phase": "training",
+  "selected": "35f0adc0cba637fe1c74f640d79be37048934097920bbb0bb2b9fa95e65d3934",
+  "rounds": [
+    {
+      "round": 1,
+      "request_id": "e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c",
+      "candidate_id": "35f0adc0cba637fe1c74f640d79be37048934097920bbb0bb2b9fa95e65d3934",
+      "parent_id": "61f3b185325fbca423a8fda18251b00c51c597eb38009c8d91681bbaed8427ba",
+      "intent": "loss_only",
+      "decision": "opening_control",
+      "supported_seeds": {},
+      "changes": {
+        "loss": {
+          "mechanism": "add a normalized timing-weighted star-edge attraction (1 - graph_scores) to the unchanged random-walk logsigmoid pair loss",
+          "decision": "each connected net star contributes graph_weights-normalized attraction, changing embeddings but not the decoder",
+          "prediction": "critical connected supernodes should co-locate, lowering timing-weighted cut and improving TNS after feasible partitioning",
+          "falsifier": "if matched cells show no lower timing-weighted cut or TNS worsens, the graph-attraction hypothesis is disproved."
+        }
+      },
+      "accepted_at": "2026-11-19T02:27:44.882103+00:00",
+      "completed_at": "2026-11-19T03:46:59.734443+00:00",
+      "score": 17.59630873163384,
+      "case_means": {
+        "ariane133-ng45": 20.508187922776518,
+        "bp-ng45": -20.48567095356052,
+        "bp_fe-ng45": 52.76640922568552
+      },
+      "cells": [
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1001",
+          "score": 50.556444119417066,
+          "status": "succeeded",
+          "valid": true,
+          "wns_ns": -0.6562306439549076,
+          "tns_ns": -242.38844506488644,
+          "changed_from_start": 1,
+          "gpu": [
+            "0"
+          ]
+        },
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1002",
+          "score": 54.615957643502625,
+          "status": "succeeded",
+          "valid": true,
+          "wns_ns": -0.7387797249733241,
+          "tns_ns": -150.05712297463396,
+          "changed_from_start": 0,
+          "gpu": [
+            "1"
+          ]
+        },
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1003",
+          "score": 53.126825914136866,
+          "status": "succeeded",
+          "valid": true,
+          "wns_ns": -0.663550788652499,
+          "tns_ns": -207.78956032835512,
+          "changed_from_start": 0,
+          "gpu": [
+            "0"
+          ]
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1001",
+          "score": -25.362346624448374,
+          "status": "succeeded",
+          "valid": true,
+          "wns_ns": -7.866748364280616,
+          "tns_ns": -9828.25650282624,
+          "changed_from_start": 8,
+          "gpu": [
+            "1"
+          ]
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1002",
+          "score": -29.849037711906657,
+          "status": "succeeded",
+          "valid": true,
+          "wns_ns": -7.8203064015794475,
+          "tns_ns": -10347.165081619713,
+          "changed_from_start": 0,
+          "gpu": [
+            "0"
+          ]
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1003",
+          "score": -6.245628524326527,
+          "status": "succeeded",
+          "valid": true,
+          "wns_ns": -7.855228689851307,
+          "tns_ns": -7724.028582914622,
+          "changed_from_start": 0,
+          "gpu": [
+            "0"
+          ]
+        },
+        {
+          "case": "ariane133-ng45",
+          "seed": "1001",
+          "score": 65.62576913539621,
+          "status": "succeeded",
+          "valid": true,
+          "wns_ns": -0.40223869817908986,
+          "tns_ns": -6.366037210902079,
+          "changed_from_start": 12,
+          "gpu": [
+            "0"
+          ]
+        },
+        {
+          "case": "ariane133-ng45",
+          "seed": "1002",
+          "score": -37.92828526792314,
+          "status": "succeeded",
+          "valid": true,
+          "wns_ns": -0.48585536968817944,
+          "tns_ns": -162.62570062013728,
+          "changed_from_start": 199,
+          "gpu": [
+            "0"
+          ]
+        },
+        {
+          "case": "ariane133-ng45",
+          "seed": "1003",
+          "score": 33.82707990085648,
+          "status": "succeeded",
+          "valid": true,
+          "wns_ns": -0.7051466277141206,
+          "tns_ns": -20.66269169805175,
+          "changed_from_start": 5,
+          "gpu": [
+            "0"
+          ]
+        }
+      ],
+      "parent_comparison": {
+        "parent_id": "61f3b185325fbca423a8fda18251b00c51c597eb38009c8d91681bbaed8427ba",
+        "parent_source": "published_initial_reference",
+        "official_score_delta": -2.8287515846281153,
+        "improved_pairs": 4,
+        "regressed_pairs": 5,
+        "median_paired_score_delta": -2.6966924960583967,
+        "cases": [
+          {
+            "case": "bp_fe-ng45",
+            "scored_pairs": 3,
+            "expected_cells": 3,
+            "mean_paired_score_delta": -1.152019073888359
+          },
+          {
+            "case": "bp-ng45",
+            "scored_pairs": 3,
+            "expected_cells": 3,
+            "mean_paired_score_delta": 1.2644781513207117
+          },
+          {
+            "case": "ariane133-ng45",
+            "scored_pairs": 3,
+            "expected_cells": 3,
+            "mean_paired_score_delta": -8.5987138313167
+          }
+        ],
+        "largest_gain": {
+          "case": "ariane133-ng45",
+          "seed": "1001",
+          "score_delta": 14.888067406155741
+        },
+        "largest_regression": {
+          "case": "ariane133-ng45",
+          "seed": "1002",
+          "score_delta": -36.42052487853377,
+          "raw_score_contribution_deltas": {
+            "wns": 1.9256,
+            "tns": -38.3461
+          },
+          "score_floor_delta_points": 0.0
+        },
+        "cells": [
+          {
+            "case": "bp_fe-ng45",
+            "seed": "1001",
+            "candidate_status": "succeeded",
+            "parent_status": "published_reference",
+            "candidate_valid": true,
+            "parent_valid": null,
+            "candidate_score": 50.556444,
+            "parent_score": 56.00243,
+            "score_delta": -5.445986,
+            "wns_slack_delta_ns": 0.004889,
+            "tns_slack_delta_ns": -67.667701,
+            "score_delta_terms": {
+              "wns_points": 0.2172226880017849,
+              "tns_points": -5.663208867241323,
+              "score_floor_delta_points": 0.0
+            },
+            "wns_deficit_improvement_delta": 0.005431,
+            "tns_deficit_improvement_delta": -0.094387,
+            "cut_nets_delta": null,
+            "timing_weighted_cut_delta": null,
+            "wns_improved_tns_regressed": true,
+            "fewer_cuts_lower_score": false,
+            "assignment": {
+              "source": "published_native_vs_initial",
+              "changed_count": 1,
+              "changed_fraction": 3.8689209579448294e-05,
+              "identical": false,
+              "flip_adjusted_changed_fraction": 3.8689209579448294e-05,
+              "repair_moved_area_fraction": 0.0
+            },
+            "observation": null,
+            "failure": null
+          },
+          {
+            "case": "bp_fe-ng45",
+            "seed": "1002",
+            "candidate_status": "succeeded",
+            "parent_status": "published_reference",
+            "candidate_valid": true,
+            "parent_valid": null,
+            "candidate_score": 54.615958,
+            "parent_score": 49.929336,
+            "score_delta": 4.686621,
+            "wns_slack_delta_ns": -0.010723,
+            "tns_slack_delta_ns": 61.69161,
+            "score_delta_terms": {
+              "wns_points": -0.47643962473660917,
+              "tns_points": 5.163061078369459,
+              "score_floor_delta_points": 0.0
+            },
+            "wns_deficit_improvement_delta": -0.011911,
+            "tns_deficit_improvement_delta": 0.086051,
+            "cut_nets_delta": null,
+            "timing_weighted_cut_delta": null,
+            "wns_improved_tns_regressed": false,
+            "fewer_cuts_lower_score": false,
+            "assignment": {
+              "source": "published_native_vs_initial",
+              "changed_count": 0,
+              "changed_fraction": 0.0,
+              "identical": true,
+              "flip_adjusted_changed_fraction": 0.0,
+              "repair_moved_area_fraction": 0.0
+            },
+            "observation": "timing_changed_with_same_assignments",
+            "failure": null
+          },
+          {
+            "case": "bp_fe-ng45",
+            "seed": "1003",
+            "candidate_status": "succeeded",
+            "parent_status": "published_reference",
+            "candidate_valid": true,
+            "parent_valid": null,
+            "candidate_score": 53.126826,
+            "parent_score": 55.823518,
+            "score_delta": -2.696692,
+            "wns_slack_delta_ns": -0.024085,
+            "tns_slack_delta_ns": -19.435277,
+            "score_delta_terms": {
+              "wns_points": -1.070125731781074,
+              "tns_points": -1.626566764277328,
+              "score_floor_delta_points": 0.0
+            },
+            "wns_deficit_improvement_delta": -0.026753,
+            "tns_deficit_improvement_delta": -0.027109,
+            "cut_nets_delta": null,
+            "timing_weighted_cut_delta": null,
+            "wns_improved_tns_regressed": false,
+            "fewer_cuts_lower_score": false,
+            "assignment": {
+              "source": "published_native_vs_initial",
+              "changed_count": 0,
+              "changed_fraction": 0.0,
+              "identical": true,
+              "flip_adjusted_changed_fraction": 0.0,
+              "repair_moved_area_fraction": 0.0
+            },
+            "observation": "timing_changed_with_same_assignments",
+            "failure": null
+          },
+          {
+            "case": "bp-ng45",
+            "seed": "1001",
+            "candidate_status": "succeeded",
+            "parent_status": "published_reference",
+            "candidate_valid": true,
+            "parent_valid": null,
+            "candidate_score": -25.362347,
+            "parent_score": -20.8236,
+            "score_delta": -4.538747,
+            "wns_slack_delta_ns": 0.525726,
+            "tns_slack_delta_ns": -768.916856,
+            "score_delta_terms": {
+              "wns_points": 2.4273567981082325,
+              "tns_points": -6.966103545053446,
+              "score_floor_delta_points": 0.0
+            },
+            "wns_deficit_improvement_delta": 0.060684,
+            "tns_deficit_improvement_delta": -0.116102,
+            "cut_nets_delta": null,
+            "timing_weighted_cut_delta": null,
+            "wns_improved_tns_regressed": true,
+            "fewer_cuts_lower_score": false,
+            "assignment": {
+              "source": "published_native_vs_initial",
+              "changed_count": 8,
+              "changed_fraction": 5.546927002440648e-05,
+              "identical": false,
+              "flip_adjusted_changed_fraction": 5.546927002440648e-05,
+              "repair_moved_area_fraction": 0.0606229646323709
+            },
+            "observation": null,
+            "failure": null
+          },
+          {
+            "case": "bp-ng45",
+            "seed": "1002",
+            "candidate_status": "succeeded",
+            "parent_status": "published_reference",
+            "candidate_valid": true,
+            "parent_valid": null,
+            "candidate_score": -29.849038,
+            "parent_score": -29.972606,
+            "score_delta": 0.123568,
+            "wns_slack_delta_ns": 0.021306,
+            "tns_slack_delta_ns": 2.781235,
+            "score_delta_terms": {
+              "wns_points": 0.09837127775613119,
+              "tns_points": 0.025196963734309463,
+              "score_floor_delta_points": 0.0
+            },
+            "wns_deficit_improvement_delta": 0.002459,
+            "tns_deficit_improvement_delta": 0.00042,
+            "cut_nets_delta": null,
+            "timing_weighted_cut_delta": null,
+            "wns_improved_tns_regressed": false,
+            "fewer_cuts_lower_score": false,
+            "assignment": {
+              "source": "published_native_vs_initial",
+              "changed_count": 0,
+              "changed_fraction": 0.0,
+              "identical": true,
+              "flip_adjusted_changed_fraction": 0.0,
+              "repair_moved_area_fraction": 0.06706250897099642
+            },
+            "observation": "timing_changed_with_same_assignments",
+            "failure": null
+          },
+          {
+            "case": "bp-ng45",
+            "seed": "1003",
+            "candidate_status": "succeeded",
+            "parent_status": "published_reference",
+            "candidate_valid": true,
+            "parent_valid": null,
+            "candidate_score": -6.245629,
+            "parent_score": -14.454241,
+            "score_delta": 8.208613,
+            "wns_slack_delta_ns": 0.015338,
+            "tns_slack_delta_ns": 898.247916,
+            "score_delta_terms": {
+              "wns_points": 0.07081764196975815,
+              "tns_points": 8.137795317447157,
+              "score_floor_delta_points": 0.0
+            },
+            "wns_deficit_improvement_delta": 0.00177,
+            "tns_deficit_improvement_delta": 0.13563,
+            "cut_nets_delta": null,
+            "timing_weighted_cut_delta": null,
+            "wns_improved_tns_regressed": false,
+            "fewer_cuts_lower_score": false,
+            "assignment": {
+              "source": "published_native_vs_initial",
+              "changed_count": 0,
+              "changed_fraction": 0.0,
+              "identical": true,
+              "flip_adjusted_changed_fraction": 0.0,
+              "repair_moved_area_fraction": 0.04232912232431294
+            },
+            "observation": "timing_changed_with_same_assignments",
+            "failure": null
+          },
+          {
+            "case": "ariane133-ng45",
+            "seed": "1001",
+            "candidate_status": "succeeded",
+            "parent_status": "published_reference",
+            "candidate_valid": true,
+            "parent_valid": null,
+            "candidate_score": 65.625769,
+            "parent_score": 50.737702,
+            "score_delta": 14.888067,
+            "wns_slack_delta_ns": 0.062499,
+            "tns_slack_delta_ns": 16.332091,
+            "score_delta_terms": {
+              "wns_points": 4.725498945050294,
+              "tns_points": 10.162568461105451,
+              "score_floor_delta_points": 0.0
+            },
+            "wns_deficit_improvement_delta": 0.118137,
+            "tns_deficit_improvement_delta": 0.169376,
+            "cut_nets_delta": null,
+            "timing_weighted_cut_delta": null,
+            "wns_improved_tns_regressed": false,
+            "fewer_cuts_lower_score": false,
+            "assignment": {
+              "source": "published_native_vs_initial",
+              "changed_count": 12,
+              "changed_fraction": 9.122006841505132e-05,
+              "identical": false,
+              "flip_adjusted_changed_fraction": 9.122006841505132e-05,
+              "repair_moved_area_fraction": 0.009290965029709481
+            },
+            "observation": null,
+            "failure": null
+          },
+          {
+            "case": "ariane133-ng45",
+            "seed": "1002",
+            "candidate_status": "succeeded",
+            "parent_status": "published_reference",
+            "candidate_valid": true,
+            "parent_valid": null,
+            "candidate_score": -37.928285,
+            "parent_score": -1.50776,
+            "score_delta": -36.420525,
+            "wns_slack_delta_ns": 0.025468,
+            "tns_slack_delta_ns": -61.625444,
+            "score_delta_terms": {
+              "wns_points": 1.925623611750376,
+              "tns_points": -38.346148490284136,
+              "score_floor_delta_points": 0.0
+            },
+            "wns_deficit_improvement_delta": 0.048141,
+            "tns_deficit_improvement_delta": -0.639102,
+            "cut_nets_delta": null,
+            "timing_weighted_cut_delta": null,
+            "wns_improved_tns_regressed": true,
+            "fewer_cuts_lower_score": false,
+            "assignment": {
+              "source": "published_native_vs_initial",
+              "changed_count": 199,
+              "changed_fraction": 0.0015127328012162675,
+              "identical": false,
+              "flip_adjusted_changed_fraction": 0.0015127328012162675,
+              "repair_moved_area_fraction": 0.14122767874617378
+            },
+            "observation": null,
+            "failure": null
+          },
+          {
+            "case": "ariane133-ng45",
+            "seed": "1003",
+            "candidate_status": "succeeded",
+            "parent_status": "published_reference",
+            "candidate_valid": true,
+            "parent_valid": null,
+            "candidate_score": 33.82708,
+            "parent_score": 38.090764,
+            "score_delta": -4.263684,
+            "wns_slack_delta_ns": -0.131323,
+            "tns_slack_delta_ns": 9.105017,
+            "score_delta_terms": {
+              "wns_points": -9.929239134100666,
+              "tns_points": 5.665555112528594,
+              "score_floor_delta_points": 0.0
+            },
+            "wns_deficit_improvement_delta": -0.248231,
+            "tns_deficit_improvement_delta": 0.094426,
+            "cut_nets_delta": null,
+            "timing_weighted_cut_delta": null,
+            "wns_improved_tns_regressed": false,
+            "fewer_cuts_lower_score": false,
+            "assignment": {
+              "source": "published_native_vs_initial",
+              "changed_count": 5,
+              "changed_fraction": 3.800836183960471e-05,
+              "identical": false,
+              "flip_adjusted_changed_fraction": 3.800836183960471e-05,
+              "repair_moved_area_fraction": 0.011393723040309386
+            },
+            "observation": null,
+            "failure": null
+          }
+        ]
+      },
+      "source_sha256": "d6e80fe80b3d145ca439b7f03a0c28fd727958929d05571f742e98dcc59b01c6"
+    },
+    {
+      "round": 2,
+      "request_id": "e-e487bd9b1b93aac28d9b8e4551a4340fd4eeb096d346b11a6b170afae552",
+      "candidate_id": "40f1a5d04343740059d03808bfd5caf1d09dc4cd880ed9b9f8588c8dd56736e4",
+      "parent_id": "61f3b185325fbca423a8fda18251b00c51c597eb38009c8d91681bbaed8427ba",
+      "intent": "loss_only",
+      "decision": "replace_opening_without_repeated_timing_gain",
+      "supported_seeds": {},
+      "changes": {
+        "loss": {
+          "mechanism": "the parent loss averages summed positive and negative log-sigmoid terms by source_batch_size; the edit keeps that normalization but adds a mean-centered timing-criticality reweight",
+          "decision": "each positive pair is reweighted by the mean standardized slack criticality of its endpoints, so critical observed pairs receive stronger attraction while noncritical observed pair",
+          "prediction": "critical connected groups should obtain higher cosine similarity, lowering timing-weighted cut on affected seeds and improving TNS without the broad repair movement caused by full ",
+          "falsifier": "if matched cells show no lower timing-weighted cut or TNS does not improve or regresses, the critical-pair reweighting hypothesis is disproved."
+        }
+      },
+      "accepted_at": "2026-11-19T03:48:14.220169+00:00",
+      "completed_at": "2026-11-19T05:07:04.202462+00:00",
+      "score": 8.497588038476753,
+      "case_means": {
+        "ariane133-ng45": 1.955960965290861,
+        "bp-ng45": -17.862997556779327,
+        "bp_fe-ng45": 41.399800706918725
+      },
+      "cells": [
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1001",
+          "score": 20.250756691490846,
+          "status": "succeeded",
+          "valid": true,
+          "wns_ns": -0.9554759476281139,
+          "tns_ns": -445.6300485866916,
+          "changed_from_start": 0,
+          "gpu": [
+            "0"
+          ]
+        },
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1002",
+          "score": 50.821819515128475,
+          "status": "succeeded",
+          "valid": true,
+          "wns_ns": -0.6401126476721565,
+          "tns_ns": -247.77467179308462,
+          "changed_from_start": 5,
+          "gpu": [
+            "1"
+          ]
+        },
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1003",
+          "score": 53.126825914136866,
+          "status": "succeeded",
+          "valid": true,
+          "wns_ns": -0.663550788652499,
+          "tns_ns": -207.78956032835512,
+          "changed_from_start": 0,
+          "gpu": [
+            "0"
+          ]
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1001",
+          "score": -21.247125929294818,
+          "status": "succeeded",
+          "valid": true,
+          "wns_ns": -7.8534301285005474,
+          "tns_ns": -9380.806924772063,
+          "changed_from_start": 16,
+          "gpu": [
+            "1"
+          ]
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1002",
+          "score": -29.849037711906657,
+          "status": "succeeded",
+          "valid": true,
+          "wns_ns": -7.8203064015794475,
+          "tns_ns": -10347.165081619713,
+          "changed_from_start": 0,
+          "gpu": [
+            "0"
+          ]
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1003",
+          "score": -2.4928290291365056,
+          "status": "succeeded",
+          "valid": true,
+          "wns_ns": -7.849878302899714,
+          "tns_ns": -7312.522236491056,
+          "changed_from_start": 10,
+          "gpu": [
+            "0"
+          ]
+        },
+        {
+          "case": "ariane133-ng45",
+          "seed": "1001",
+          "score": 23.54133695866345,
+          "status": "succeeded",
+          "valid": true,
+          "wns_ns": -0.8756631223535751,
+          "tns_ns": -16.47319838276028,
+          "changed_from_start": 61,
+          "gpu": [
+            "0"
+          ]
+        },
+        {
+          "case": "ariane133-ng45",
+          "seed": "1002",
+          "score": -78.73065215629511,
+          "status": "succeeded",
+          "valid": true,
+          "wns_ns": -0.4250382388576071,
+          "tns_ns": -235.58840878279696,
+          "changed_from_start": 2848,
+          "gpu": [
+            "0"
+          ]
+        },
+        {
+          "case": "ariane133-ng45",
+          "seed": "1003",
+          "score": 61.05719809350424,
+          "status": "succeeded",
+          "valid": true,
+          "wns_ns": -0.4280766973173347,
+          "tns_ns": -10.56852324457359,
+          "changed_from_start": 366,
+          "gpu": [
+            "0"
+          ]
+        }
+      ],
+      "parent_comparison": {
+        "parent_id": "61f3b185325fbca423a8fda18251b00c51c597eb38009c8d91681bbaed8427ba",
+        "parent_source": "published_initial_reference",
+        "official_score_delta": -11.927472277785203,
+        "improved_pairs": 4,
+        "regressed_pairs": 5,
+        "median_paired_score_delta": -0.4235260517916615,
+        "cases": [
+          {
+            "case": "bp_fe-ng45",
+            "scored_pairs": 3,
+            "expected_cells": 3,
+            "mean_paired_score_delta": -12.518627592655148
+          },
+          {
+            "case": "bp-ng45",
+            "scored_pairs": 3,
+            "expected_cells": 3,
+            "mean_paired_score_delta": 3.8871515481019046
+          },
+          {
+            "case": "ariane133-ng45",
+            "scored_pairs": 3,
+            "expected_cells": 3,
+            "mean_paired_score_delta": -27.15094078880236
+          }
+        ],
+        "largest_gain": {
+          "case": "ariane133-ng45",
+          "seed": "1003",
+          "score_delta": 22.966434171075683
+        },
+        "largest_regression": {
+          "case": "ariane133-ng45",
+          "seed": "1002",
+          "score_delta": -77.22289176690573,
+          "raw_score_contribution_deltas": {
+            "wns": 6.524,
+            "tns": -83.7469
+          },
+          "score_floor_delta_points": 0.0
+        },
+        "cells": [
+          {
+            "case": "bp_fe-ng45",
+            "seed": "1001",
+            "candidate_status": "succeeded",
+            "parent_status": "published_reference",
+            "candidate_valid": true,
+            "parent_valid": null,
+            "candidate_score": 20.250757,
+            "parent_score": 56.00243,
+            "score_delta": -35.751674,
+            "wns_slack_delta_ns": -0.294356,
+            "tns_slack_delta_ns": -270.909304,
+            "score_delta_terms": {
+              "wns_points": -13.078877658946592,
+              "tns_points": -22.67279594821916,
+              "score_floor_delta_points": 0.0
+            },
+            "wns_deficit_improvement_delta": -0.326972,
+            "tns_deficit_improvement_delta": -0.37788,
+            "cut_nets_delta": null,
+            "timing_weighted_cut_delta": null,
+            "wns_improved_tns_regressed": false,
+            "fewer_cuts_lower_score": false,
+            "assignment": {
+              "source": "published_native_vs_initial",
+              "changed_count": 0,
+              "changed_fraction": 0.0,
+              "identical": true,
+              "flip_adjusted_changed_fraction": 0.0,
+              "repair_moved_area_fraction": 0.0
+            },
+            "observation": "timing_changed_with_same_assignments",
+            "failure": null
+          },
+          {
+            "case": "bp_fe-ng45",
+            "seed": "1002",
+            "candidate_status": "succeeded",
+            "parent_status": "published_reference",
+            "candidate_valid": true,
+            "parent_valid": null,
+            "candidate_score": 50.82182,
+            "parent_score": 49.929336,
+            "score_delta": 0.892483,
+            "wns_slack_delta_ns": 0.087944,
+            "tns_slack_delta_ns": -36.025939,
+            "score_delta_terms": {
+              "wns_points": 3.9075468393219763,
+              "tns_points": -3.0150635140632787,
+              "score_floor_delta_points": 0.0
+            },
+            "wns_deficit_improvement_delta": 0.097689,
+            "tns_deficit_improvement_delta": -0.050251,
+            "cut_nets_delta": null,
+            "timing_weighted_cut_delta": null,
+            "wns_improved_tns_regressed": true,
+            "fewer_cuts_lower_score": false,
+            "assignment": {
+              "source": "published_native_vs_initial",
+              "changed_count": 5,
+              "changed_fraction": 0.00019344604789724146,
+              "identical": false,
+              "flip_adjusted_changed_fraction": 0.00019344604789724146,
+              "repair_moved_area_fraction": 0.0
+            },
+            "observation": null,
+            "failure": null
+          },
+          {
+            "case": "bp_fe-ng45",
+            "seed": "1003",
+            "candidate_status": "succeeded",
+            "parent_status": "published_reference",
+            "candidate_valid": true,
+            "parent_valid": null,
+            "candidate_score": 53.126826,
+            "parent_score": 55.823518,
+            "score_delta": -2.696692,
+            "wns_slack_delta_ns": -0.024085,
+            "tns_slack_delta_ns": -19.435277,
+            "score_delta_terms": {
+              "wns_points": -1.070125731781074,
+              "tns_points": -1.626566764277328,
+              "score_floor_delta_points": 0.0
+            },
+            "wns_deficit_improvement_delta": -0.026753,
+            "tns_deficit_improvement_delta": -0.027109,
+            "cut_nets_delta": null,
+            "timing_weighted_cut_delta": null,
+            "wns_improved_tns_regressed": false,
+            "fewer_cuts_lower_score": false,
+            "assignment": {
+              "source": "published_native_vs_initial",
+              "changed_count": 0,
+              "changed_fraction": 0.0,
+              "identical": true,
+              "flip_adjusted_changed_fraction": 0.0,
+              "repair_moved_area_fraction": 0.0
+            },
+            "observation": "timing_changed_with_same_assignments",
+            "failure": null
+          },
+          {
+            "case": "bp-ng45",
+            "seed": "1001",
+            "candidate_status": "succeeded",
+            "parent_status": "published_reference",
+            "candidate_valid": true,
+            "parent_valid": null,
+            "candidate_score": -21.247126,
+            "parent_score": -20.8236,
+            "score_delta": -0.423526,
+            "wns_slack_delta_ns": 0.539044,
+            "tns_slack_delta_ns": -321.467278,
+            "score_delta_terms": {
+              "wns_points": 2.4888490988399785,
+              "tns_points": -2.912375150631643,
+              "score_floor_delta_points": 0.0
+            },
+            "wns_deficit_improvement_delta": 0.062221,
+            "tns_deficit_improvement_delta": -0.04854,
+            "cut_nets_delta": null,
+            "timing_weighted_cut_delta": null,
+            "wns_improved_tns_regressed": true,
+            "fewer_cuts_lower_score": false,
+            "assignment": {
+              "source": "published_native_vs_initial",
+              "changed_count": 16,
+              "changed_fraction": 0.00011093854004881296,
+              "identical": false,
+              "flip_adjusted_changed_fraction": 0.00011093854004881296,
+              "repair_moved_area_fraction": 0.0606229646323709
+            },
+            "observation": null,
+            "failure": null
+          },
+          {
+            "case": "bp-ng45",
+            "seed": "1002",
+            "candidate_status": "succeeded",
+            "parent_status": "published_reference",
+            "candidate_valid": true,
+            "parent_valid": null,
+            "candidate_score": -29.849038,
+            "parent_score": -29.972606,
+            "score_delta": 0.123568,
+            "wns_slack_delta_ns": 0.021306,
+            "tns_slack_delta_ns": 2.781235,
+            "score_delta_terms": {
+              "wns_points": 0.09837127775613119,
+              "tns_points": 0.025196963734309463,
+              "score_floor_delta_points": 0.0
+            },
+            "wns_deficit_improvement_delta": 0.002459,
+            "tns_deficit_improvement_delta": 0.00042,
+            "cut_nets_delta": null,
+            "timing_weighted_cut_delta": null,
+            "wns_improved_tns_regressed": false,
+            "fewer_cuts_lower_score": false,
+            "assignment": {
+              "source": "published_native_vs_initial",
+              "changed_count": 0,
+              "changed_fraction": 0.0,
+              "identical": true,
+              "flip_adjusted_changed_fraction": 0.0,
+              "repair_moved_area_fraction": 0.06706577115151244
+            },
+            "observation": "timing_changed_with_same_assignments",
+            "failure": null
+          },
+          {
+            "case": "bp-ng45",
+            "seed": "1003",
+            "candidate_status": "succeeded",
+            "parent_status": "published_reference",
+            "candidate_valid": true,
+            "parent_valid": null,
+            "candidate_score": -2.492829,
+            "parent_score": -14.454241,
+            "score_delta": 11.961412,
+            "wns_slack_delta_ns": 0.020688,
+            "tns_slack_delta_ns": 1309.754262,
+            "score_delta_terms": {
+              "wns_points": 0.09552118445779367,
+              "tns_points": 11.865891270149143,
+              "score_floor_delta_points": 0.0
+            },
+            "wns_deficit_improvement_delta": 0.002388,
+            "tns_deficit_improvement_delta": 0.197765,
+            "cut_nets_delta": null,
+            "timing_weighted_cut_delta": null,
+            "wns_improved_tns_regressed": false,
+            "fewer_cuts_lower_score": false,
+            "assignment": {
+              "source": "published_native_vs_initial",
+              "changed_count": 10,
+              "changed_fraction": 6.933658753050809e-05,
+              "identical": false,
+              "flip_adjusted_changed_fraction": 6.933658753050809e-05,
+              "repair_moved_area_fraction": 0.04234403514952904
+            },
+            "observation": null,
+            "failure": null
+          },
+          {
+            "case": "ariane133-ng45",
+            "seed": "1001",
+            "candidate_status": "succeeded",
+            "parent_status": "published_reference",
+            "candidate_valid": true,
+            "parent_valid": null,
+            "candidate_score": 23.541337,
+            "parent_score": 50.737702,
+            "score_delta": -27.196365,
+            "wns_slack_delta_ns": -0.410926,
+            "tns_slack_delta_ns": 6.22493,
+            "score_delta_terms": {
+              "wns_points": -31.06979880507214,
+              "tns_points": 3.8734340344951264,
+              "score_floor_delta_points": 0.0
+            },
+            "wns_deficit_improvement_delta": -0.776745,
+            "tns_deficit_improvement_delta": 0.064557,
+            "cut_nets_delta": null,
+            "timing_weighted_cut_delta": null,
+            "wns_improved_tns_regressed": false,
+            "fewer_cuts_lower_score": false,
+            "assignment": {
+              "source": "published_native_vs_initial",
+              "changed_count": 61,
+              "changed_fraction": 0.0004637020144431775,
+              "identical": false,
+              "flip_adjusted_changed_fraction": 0.0004637020144431775,
+              "repair_moved_area_fraction": 0.009289790741915029
+            },
+            "observation": null,
+            "failure": null
+          },
+          {
+            "case": "ariane133-ng45",
+            "seed": "1002",
+            "candidate_status": "succeeded",
+            "parent_status": "published_reference",
+            "candidate_valid": true,
+            "parent_valid": null,
+            "candidate_score": -78.730652,
+            "parent_score": -1.50776,
+            "score_delta": -77.222892,
+            "wns_slack_delta_ns": 0.086285,
+            "tns_slack_delta_ns": -134.588152,
+            "score_delta_terms": {
+              "wns_points": 6.523965385486461,
+              "tns_points": -83.74685715239221,
+              "score_floor_delta_points": 0.0
+            },
+            "wns_deficit_improvement_delta": 0.163099,
+            "tns_deficit_improvement_delta": -1.395781,
+            "cut_nets_delta": null,
+            "timing_weighted_cut_delta": null,
+            "wns_improved_tns_regressed": true,
+            "fewer_cuts_lower_score": false,
+            "assignment": {
+              "source": "published_native_vs_initial",
+              "changed_count": 2848,
+              "changed_fraction": 0.021649562903838845,
+              "identical": false,
+              "flip_adjusted_changed_fraction": 0.021649562903838845,
+              "repair_moved_area_fraction": 0.15042117788894369
+            },
+            "observation": null,
+            "failure": null
+          },
+          {
+            "case": "ariane133-ng45",
+            "seed": "1003",
+            "candidate_status": "succeeded",
+            "parent_status": "published_reference",
+            "candidate_valid": true,
+            "parent_valid": null,
+            "candidate_score": 61.057198,
+            "parent_score": 38.090764,
+            "score_delta": 22.966434,
+            "wns_slack_delta_ns": 0.145747,
+            "tns_slack_delta_ns": 19.199186,
+            "score_delta_terms": {
+              "wns_points": 11.019829291028463,
+              "tns_points": 11.946604880047218,
+              "score_floor_delta_points": 0.0
+            },
+            "wns_deficit_improvement_delta": 0.275496,
+            "tns_deficit_improvement_delta": 0.19911,
+            "cut_nets_delta": null,
+            "timing_weighted_cut_delta": null,
+            "wns_improved_tns_regressed": false,
+            "fewer_cuts_lower_score": false,
+            "assignment": {
+              "source": "published_native_vs_initial",
+              "changed_count": 366,
+              "changed_fraction": 0.002782212086659065,
+              "identical": false,
+              "flip_adjusted_changed_fraction": 0.002782212086659065,
+              "repair_moved_area_fraction": 0.018572927186328157
+            },
+            "observation": null,
+            "failure": null
+          }
+        ]
+      },
+      "source_sha256": "0b4686aa6755fd5e37d1adb185199deb13aced29b03cde8b51b88490dfff4ebc"
+    }
+  ],
+  "gpu_cell_counts": {
+    "0": 14,
+    "1": 4
+  }
+}

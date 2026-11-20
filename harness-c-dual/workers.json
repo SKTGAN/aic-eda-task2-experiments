@@ -1,0 +1,76 @@
+{
+  "26016-0": {
+    "command": [
+      "/usr/bin/python3",
+      "-B",
+      "/root/aic-group-c-v1/three_gpu.py",
+      "worker",
+      "--official",
+      "/root/aic-26016/official",
+      "--gpu",
+      "0",
+      "--workers",
+      "2",
+      "--host-slots",
+      "4",
+      "--memory-gib",
+      "21",
+      "--case",
+      "ariane133-ng45"
+    ],
+    "cells": {
+      "ariane133-ng45": [
+        "1001",
+        "1003"
+      ]
+    }
+  },
+  "26016-1": {
+    "command": [
+      "/usr/bin/python3",
+      "-B",
+      "/root/aic-group-c-v1/three_gpu.py",
+      "worker",
+      "--official",
+      "/root/aic-26016/official",
+      "--gpu",
+      "1",
+      "--workers",
+      "2",
+      "--host-slots",
+      "4",
+      "--memory-gib",
+      "21",
+      "--case",
+      "bp-ng45",
+      "--case",
+      "bp_fe-ng45"
+    ],
+    "cells": {
+      "bp-ng45": [
+        "1001",
+        "1002",
+        "1003"
+      ],
+      "bp_fe-ng45": [
+        "1003"
+      ]
+    }
+  },
+  "22120-0": {
+    "command": [
+      "/usr/bin/python3",
+      "-B",
+      "/root/aic-group-c-v1/relay_worker.py"
+    ],
+    "cells": {
+      "ariane133-ng45": [
+        "1002"
+      ],
+      "bp_fe-ng45": [
+        "1001",
+        "1002"
+      ]
+    }
+  }
+}

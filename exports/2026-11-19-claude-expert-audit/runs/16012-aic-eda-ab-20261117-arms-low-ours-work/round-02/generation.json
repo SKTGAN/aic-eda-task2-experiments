@@ -1,0 +1,44 @@
+{
+  "association": "chronological context before submit",
+  "associated_call_ids": {},
+  "sequence_at_submission": 7,
+  "recorded_reason": {
+    "reason": "opening_control"
+  },
+  "candidate_explanation": {
+    "loss": "Change vs parent (loss_only): keep the maintained random-walk contrastive term and add one timing-weighted star-edge cohesion term computed from the supplied `graph_scores` and `graph_weights`. The fr"
+  },
+  "generation_events": [
+    {
+      "sequence": 6,
+      "event": {
+        "event": "opening_review",
+        "parent_id": "2f5e1997129df8af708f6db7a3df3d1b60c043cae483118bff18deee84bd6bbe",
+        "search_intent": "loss_only",
+        "proposals": [
+          "A",
+          "B"
+        ],
+        "verdict": "A",
+        "reason": "It preserves the parent contrastive objective and adds one empty-safe, differentiable term directly from the supplied `graph_scores`/`graph_weights`; `edge_mass` is normalized by a clamped total, and `softplus(-graph_scores)` gives a concrete gradient path into embeddings, so the unchanged reference decoder can see changed geometry and produce different discrete labels. B instead invents a multi-f"
+      }
+    },
+    {
+      "sequence": 7,
+      "event": {
+        "event": "submitted",
+        "request_id": "e-58ef977e996e18423828e6d19cd5edf595668f76fe57d383988330210491",
+        "decision": {
+          "reason": "opening_control"
+        },
+        "parent_id": "2f5e1997129df8af708f6db7a3df3d1b60c043cae483118bff18deee84bd6bbe",
+        "search_intent": "loss_only",
+        "changed_components": {
+          "loss": "Change vs parent (loss_only): keep the maintained random-walk contrastive term and add one timing-weighted star-edge cohesion term computed from the supplied `graph_scores` and `graph_weights`. The fr"
+        }
+      }
+    }
+  ],
+  "evaluation_event_sequence": 8,
+  "verified_source_sha256": "b2a713d674b87fcac98b5c3e6317246a7e9e91fa7fe08b41d5a448b64d4dd139"
+}

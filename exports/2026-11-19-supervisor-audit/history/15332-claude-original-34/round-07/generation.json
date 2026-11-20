@@ -1,0 +1,32 @@
+{
+  "association": "chronological context before submit",
+  "associated_call_ids": {},
+  "sequence_at_submission": 23,
+  "recorded_reason": {
+    "reason": "assignment_unchanged",
+    "candidate_id": "487da828935e797d8a78b1f6e23d33010a854e2df195c4567cbcdbbf9ef02aab"
+  },
+  "candidate_explanation": {
+    "loss": "Relative to the parent timing-weighted star-edge attraction, this diversify edit substitutes a timing-feature-gated edge attraction for the uniform softplus edge mean. It reads graph_sources, graph_ta"
+  },
+  "generation_events": [
+    {
+      "sequence": 23,
+      "event": {
+        "event": "submitted",
+        "request_id": "e-db768d0e9a69109181b3cdb82400c656471f15a10f5c43d823bab3e3dc22",
+        "decision": {
+          "reason": "assignment_unchanged",
+          "candidate_id": "487da828935e797d8a78b1f6e23d33010a854e2df195c4567cbcdbbf9ef02aab"
+        },
+        "parent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+        "search_intent": "diversify",
+        "changed_components": {
+          "loss": "Relative to the parent timing-weighted star-edge attraction, this diversify edit substitutes a timing-feature-gated edge attraction for the uniform softplus edge mean. It reads graph_sources, graph_ta"
+        }
+      }
+    }
+  ],
+  "evaluation_event_sequence": 24,
+  "verified_source_sha256": "55306c2ab100a06b1b583ed307f03ee3456d4150f4c35b6d9af42525660c58e6"
+}

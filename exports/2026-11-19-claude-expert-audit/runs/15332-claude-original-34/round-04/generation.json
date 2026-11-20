@@ -1,0 +1,40 @@
+{
+  "association": "chronological context before submit",
+  "associated_call_ids": {},
+  "sequence_at_submission": 16,
+  "recorded_reason": {
+    "reason": "explore_from_incumbent",
+    "candidate_id": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9"
+  },
+  "candidate_explanation": {
+    "decoder": "Relative to the parent, keep the timing-weighted star-edge loss unchanged and replace the frozen two-means helper with a custom seeded area-balanced two-means decoder. Initial centers are an embedding"
+  },
+  "generation_events": [
+    {
+      "sequence": 15,
+      "event": {
+        "event": "invalid_proposal",
+        "parent_id": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9",
+        "reason": "Candidate numeric literals must be finite and bounded"
+      }
+    },
+    {
+      "sequence": 16,
+      "event": {
+        "event": "submitted",
+        "request_id": "e-785401a4543c65fd9c9deeea8b8fb40283e10e2b78b1e255f73d6be7d0af",
+        "decision": {
+          "reason": "explore_from_incumbent",
+          "candidate_id": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9"
+        },
+        "parent_id": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9",
+        "search_intent": "diversify",
+        "changed_components": {
+          "decoder": "Relative to the parent, keep the timing-weighted star-edge loss unchanged and replace the frozen two-means helper with a custom seeded area-balanced two-means decoder. Initial centers are an embedding"
+        }
+      }
+    }
+  ],
+  "evaluation_event_sequence": 17,
+  "verified_source_sha256": "3cb4c5fe9560f91421cde65ccae5e61e3c50477e0c2ba31310f6498e20135e00"
+}

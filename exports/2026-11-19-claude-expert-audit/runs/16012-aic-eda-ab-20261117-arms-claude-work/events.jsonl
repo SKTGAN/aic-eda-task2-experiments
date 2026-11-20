@@ -1,0 +1,5 @@
+{"sequence": 1, "record": {"event": "invalid_proposal", "parent_id": "26061f01ed76079d86079a9bf72835847c500fc170abc7ab77b402d8a2395e86", "reason": "Candidate cannot rebind inputs or trusted helpers"}}
+{"sequence": 2, "record": {"event": "invalid_proposal", "parent_id": "26061f01ed76079d86079a9bf72835847c500fc170abc7ab77b402d8a2395e86", "reason": "The model returned an incomplete response"}}
+{"sequence": 3, "record": {"event": "invalid_proposal", "parent_id": "26061f01ed76079d86079a9bf72835847c500fc170abc7ab77b402d8a2395e86", "reason": "Candidate cannot rebind inputs or trusted helpers"}}
+{"sequence": 4, "record": {"event": "invalid_proposal", "parent_id": "26061f01ed76079d86079a9bf72835847c500fc170abc7ab77b402d8a2395e86", "reason": "The model returned an incomplete response"}}
+{"sequence": 5, "record": {"event": "invalid_proposal", "parent_id": "26061f01ed76079d86079a9bf72835847c500fc170abc7ab77b402d8a2395e86", "reason": "Candidate cannot rebind inputs or trusted helpers"}}

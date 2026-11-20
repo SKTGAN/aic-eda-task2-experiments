@@ -1,0 +1,15 @@
+Running loss_decoder / bp_fe-asap7 / seed 1003 with 6 GiB
+Artifacts: /home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261119-224744-390118
+Result: /home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261119-224744-390118/evaluation/evaluation_result.json
+{
+  "complete": true,
+  "score": -2.669113952153851,
+  "cells": [
+    [
+      "bp_fe-asap7",
+      "1003",
+      "succeeded",
+      -2.669113952153851
+    ]
+  ]
+}

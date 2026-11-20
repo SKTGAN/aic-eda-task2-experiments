@@ -1,0 +1,395 @@
+{
+  "mode": "offline_observed_prefixes",
+  "notes": [
+    "Each decision uses only preceding real training results. Subsequent scores belong to the actual historical choices.",
+    "Timing agreement never establishes partition agreement. Compact exports do not provide aligned assignments.",
+    "The final prefix decision is a diagnostic only, including after the formal budget has been exhausted."
+  ],
+  "runs": {
+    "original": {
+      "source": "exports\\2026-11-17-claude\\ours-before-stop.capture",
+      "observed_complete_rounds": 4,
+      "prefixes": [
+        {
+          "after_round": 0,
+          "incumbent": null,
+          "best_observed_score": null,
+          "planner_parent": "initial",
+          "planner_intent": "decoder_only",
+          "decision": {
+            "reason": "opening_control",
+            "component": "decoder"
+          },
+          "actual_next_parent": "initial",
+          "actual_next_edit": [
+            "decoder"
+          ]
+        },
+        {
+          "after_round": 1,
+          "incumbent": 1,
+          "best_observed_score": 5.4823532063599085,
+          "planner_parent": "initial",
+          "planner_intent": "loss_only",
+          "decision": {
+            "reason": "complementary_opening_with_first_receipt",
+            "component": "loss"
+          },
+          "actual_next_parent": "initial",
+          "actual_next_edit": [
+            "loss"
+          ]
+        },
+        {
+          "after_round": 2,
+          "incumbent": 2,
+          "best_observed_score": 18.21658448381325,
+          "planner_parent": 2,
+          "planner_intent": "decoder_only",
+          "decision": {
+            "reason": "extend_best",
+            "component": "decoder",
+            "incumbent_id": "57e8cc549349c019fd93e27bf502aa1eb5cae0c814cdf2a34e1e6c19833399f2"
+          },
+          "actual_next_parent": "initial",
+          "actual_next_edit": [
+            "loss"
+          ]
+        },
+        {
+          "after_round": 3,
+          "incumbent": 2,
+          "best_observed_score": 18.21658448381325,
+          "planner_parent": 2,
+          "planner_intent": "decoder_only",
+          "decision": {
+            "reason": "extend_best",
+            "component": "decoder",
+            "incumbent_id": "57e8cc549349c019fd93e27bf502aa1eb5cae0c814cdf2a34e1e6c19833399f2"
+          },
+          "actual_next_parent": "initial",
+          "actual_next_edit": [
+            "loss"
+          ]
+        },
+        {
+          "after_round": 4,
+          "incumbent": 2,
+          "best_observed_score": 18.21658448381325,
+          "planner_parent": 2,
+          "planner_intent": "decoder_only",
+          "decision": {
+            "reason": "extend_best",
+            "component": "decoder",
+            "incumbent_id": "57e8cc549349c019fd93e27bf502aa1eb5cae0c814cdf2a34e1e6c19833399f2"
+          }
+        }
+      ]
+    },
+    "claude": {
+      "source": "exports\\2026-11-18-overnight\\claude-formal-vs-official-reference.json",
+      "observed_complete_rounds": 10,
+      "prefixes": [
+        {
+          "after_round": 0,
+          "incumbent": null,
+          "best_observed_score": null,
+          "planner_parent": "initial",
+          "planner_intent": "decoder_only",
+          "decision": {
+            "reason": "opening_control",
+            "component": "decoder"
+          },
+          "actual_next_parent": "initial",
+          "actual_next_edit": [
+            "decoder"
+          ]
+        },
+        {
+          "after_round": 1,
+          "incumbent": 1,
+          "best_observed_score": 11.944750479243616,
+          "planner_parent": "initial",
+          "planner_intent": "loss_only",
+          "decision": {
+            "reason": "complementary_opening_with_first_receipt",
+            "component": "loss"
+          },
+          "actual_next_parent": "initial",
+          "actual_next_edit": [
+            "loss"
+          ]
+        },
+        {
+          "after_round": 2,
+          "incumbent": 2,
+          "best_observed_score": 29.427746177483954,
+          "planner_parent": 2,
+          "planner_intent": "decoder_only",
+          "decision": {
+            "reason": "extend_best",
+            "component": "decoder",
+            "incumbent_id": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9"
+          },
+          "actual_next_parent": 2,
+          "actual_next_edit": [
+            "loss"
+          ]
+        },
+        {
+          "after_round": 3,
+          "incumbent": 2,
+          "best_observed_score": 29.427746177483954,
+          "planner_parent": 2,
+          "planner_intent": "decoder_only",
+          "decision": {
+            "reason": "extend_best",
+            "component": "decoder",
+            "incumbent_id": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9"
+          },
+          "actual_next_parent": 2,
+          "actual_next_edit": [
+            "decoder"
+          ]
+        },
+        {
+          "after_round": 4,
+          "incumbent": 4,
+          "best_observed_score": 34.75499580780448,
+          "planner_parent": 4,
+          "planner_intent": "loss_only",
+          "decision": {
+            "reason": "extend_best",
+            "component": "loss",
+            "incumbent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd"
+          },
+          "actual_next_parent": 4,
+          "actual_next_edit": [
+            "loss"
+          ]
+        },
+        {
+          "after_round": 5,
+          "incumbent": 4,
+          "best_observed_score": 34.75499580780448,
+          "planner_parent": 4,
+          "planner_intent": "decoder_only",
+          "decision": {
+            "reason": "extend_best",
+            "component": "decoder",
+            "incumbent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd"
+          },
+          "actual_next_parent": 4,
+          "actual_next_edit": [
+            "decoder"
+          ]
+        },
+        {
+          "after_round": 6,
+          "incumbent": 4,
+          "best_observed_score": 34.75499580780448,
+          "planner_parent": 2,
+          "planner_intent": "decoder_only",
+          "decision": {
+            "reason": "switch_branch",
+            "component": "decoder",
+            "incumbent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+            "stalled_children": [
+              "bd957b3c95d402b1aff7b856d29978a1006355a27d455cc756788d1936957c44",
+              "487da828935e797d8a78b1f6e23d33010a854e2df195c4567cbcdbbf9ef02aab"
+            ],
+            "trigger": "same_measured_timing"
+          },
+          "actual_next_parent": 4,
+          "actual_next_edit": [
+            "loss"
+          ]
+        },
+        {
+          "after_round": 7,
+          "incumbent": 4,
+          "best_observed_score": 34.75499580780448,
+          "planner_parent": 7,
+          "planner_intent": "loss_only",
+          "decision": {
+            "reason": "targeted_repair",
+            "component": "loss",
+            "incumbent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+            "compared_parent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+            "improving_cells": 4,
+            "regressing_cells": 5,
+            "paired_cells": 9,
+            "protect_gain": {
+              "case": "ariane133-ng45",
+              "seed": "1003",
+              "score_delta": 13.155299187325696
+            },
+            "repair_regression": {
+              "case": "ariane133-ng45",
+              "seed": "1001",
+              "score_delta": -141.95536397548105
+            }
+          },
+          "actual_next_parent": 4,
+          "actual_next_edit": [
+            "loss"
+          ]
+        },
+        {
+          "after_round": 8,
+          "incumbent": 4,
+          "best_observed_score": 34.75499580780448,
+          "planner_parent": 2,
+          "planner_intent": "decoder_only",
+          "decision": {
+            "reason": "switch_branch",
+            "component": "decoder",
+            "incumbent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+            "stalled_children": [
+              "bd957b3c95d402b1aff7b856d29978a1006355a27d455cc756788d1936957c44",
+              "487da828935e797d8a78b1f6e23d33010a854e2df195c4567cbcdbbf9ef02aab",
+              "a82eb476e8856c21f025a1c8d8a71bb272b614557592323a949e8f133fb48123",
+              "e9bd095328de9bf0168834f4bb2ef9f817a9ec51af9a312c76332a4be2d746c5"
+            ],
+            "trigger": "two_unsuccessful_children"
+          },
+          "actual_next_parent": 4,
+          "actual_next_edit": [
+            "loss"
+          ]
+        },
+        {
+          "after_round": 9,
+          "incumbent": 4,
+          "best_observed_score": 34.75499580780448,
+          "planner_parent": 9,
+          "planner_intent": "loss_only",
+          "decision": {
+            "reason": "targeted_repair",
+            "component": "loss",
+            "incumbent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+            "compared_parent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+            "improving_cells": 5,
+            "regressing_cells": 4,
+            "paired_cells": 9,
+            "protect_gain": {
+              "case": "ariane133-ng45",
+              "seed": "1002",
+              "score_delta": 15.11752381010244
+            },
+            "repair_regression": {
+              "case": "ariane133-ng45",
+              "seed": "1001",
+              "score_delta": -64.64621324509454
+            }
+          },
+          "actual_next_parent": 4,
+          "actual_next_edit": [
+            "decoder"
+          ]
+        },
+        {
+          "after_round": 10,
+          "incumbent": 4,
+          "best_observed_score": 34.75499580780448,
+          "planner_parent": 2,
+          "planner_intent": "decoder_only",
+          "decision": {
+            "reason": "switch_branch",
+            "component": "decoder",
+            "incumbent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+            "stalled_children": [
+              "bd957b3c95d402b1aff7b856d29978a1006355a27d455cc756788d1936957c44",
+              "487da828935e797d8a78b1f6e23d33010a854e2df195c4567cbcdbbf9ef02aab",
+              "a82eb476e8856c21f025a1c8d8a71bb272b614557592323a949e8f133fb48123",
+              "e9bd095328de9bf0168834f4bb2ef9f817a9ec51af9a312c76332a4be2d746c5",
+              "eb8d17076588920895968ad74ae866ab95b2e2fae3edd3243320fd1bbd67f9c6",
+              "44734b41501fe91605a5feb2ef63f765aab2cd81c9a16c1edaac96553bd9f632"
+            ],
+            "trigger": "two_unsuccessful_children"
+          }
+        }
+      ]
+    },
+    "evidence": {
+      "source": "exports\\2026-11-18-overnight\\evidence-formal-prefix.json",
+      "observed_complete_rounds": 4,
+      "prefixes": [
+        {
+          "after_round": 0,
+          "incumbent": null,
+          "best_observed_score": null,
+          "planner_parent": "initial",
+          "planner_intent": "decoder_only",
+          "decision": {
+            "reason": "opening_control",
+            "component": "decoder"
+          },
+          "actual_next_parent": "initial",
+          "actual_next_edit": [
+            "decoder"
+          ]
+        },
+        {
+          "after_round": 1,
+          "incumbent": 1,
+          "best_observed_score": 4.551132504098089,
+          "planner_parent": "initial",
+          "planner_intent": "loss_only",
+          "decision": {
+            "reason": "complementary_opening_with_first_receipt",
+            "component": "loss"
+          },
+          "actual_next_parent": "initial",
+          "actual_next_edit": [
+            "loss"
+          ]
+        },
+        {
+          "after_round": 2,
+          "incumbent": 2,
+          "best_observed_score": 14.11487288013456,
+          "planner_parent": 2,
+          "planner_intent": "decoder_only",
+          "decision": {
+            "reason": "extend_best",
+            "component": "decoder",
+            "incumbent_id": "7fb5beec1f62e2d35b7e6143215eaacb6c7d1ea0865a478ccf6a42e384deab37"
+          },
+          "actual_next_parent": "initial",
+          "actual_next_edit": [
+            "loss"
+          ]
+        },
+        {
+          "after_round": 3,
+          "incumbent": 3,
+          "best_observed_score": 26.48940508129844,
+          "planner_parent": 3,
+          "planner_intent": "decoder_only",
+          "decision": {
+            "reason": "extend_best",
+            "component": "decoder",
+            "incumbent_id": "bd829199bc51a4e13005b84d9699f7851a81defca1674d458f910deae617800a"
+          },
+          "actual_next_parent": 3,
+          "actual_next_edit": [
+            "loss"
+          ]
+        },
+        {
+          "after_round": 4,
+          "incumbent": 3,
+          "best_observed_score": 26.48940508129844,
+          "planner_parent": 3,
+          "planner_intent": "decoder_only",
+          "decision": {
+            "reason": "extend_best",
+            "component": "decoder",
+            "incumbent_id": "bd829199bc51a4e13005b84d9699f7851a81defca1674d458f910deae617800a"
+          }
+        }
+      ]
+    }
+  }
+}

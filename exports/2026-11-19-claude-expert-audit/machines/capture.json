@@ -1,0 +1,58 @@
+[
+  {
+    "capture_port": "13624",
+    "capture_utc": "2026-11-19T03:47:47.755783+00:00",
+    "verified_GPU": [
+      "NVIDIA GeForce RTX 3080"
+    ],
+    "archived_runs": 2,
+    "issues": []
+  },
+  {
+    "capture_port": "15416",
+    "capture_utc": "2026-11-19T03:47:49.967189+00:00",
+    "verified_GPU": [
+      "NVIDIA GeForce RTX 3080",
+      "NVIDIA GeForce RTX 3080"
+    ],
+    "archived_runs": 2,
+    "issues": []
+  },
+  {
+    "capture_port": "16012",
+    "capture_utc": "2026-11-19T04:14:37.767042+00:00",
+    "verified_GPU": [
+      "NVIDIA GeForce RTX 3080"
+    ],
+    "archived_runs": 10,
+    "issues": []
+  },
+  {
+    "capture_port": "22120",
+    "capture_utc": "2026-11-19T04:26:28.486090+00:00",
+    "verified_GPU": [
+      "NVIDIA GeForce RTX 3090"
+    ],
+    "archived_runs": 3,
+    "issues": []
+  },
+  {
+    "capture_port": "26016",
+    "capture_utc": "2026-11-19T03:47:50.975359+00:00",
+    "verified_GPU": [
+      "NVIDIA GeForce RTX 3080",
+      "NVIDIA GeForce RTX 3080"
+    ],
+    "archived_runs": 1,
+    "issues": []
+  },
+  {
+    "capture_port": "30924",
+    "capture_utc": "2026-11-19T04:14:37.369389+00:00",
+    "verified_GPU": [
+      "NVIDIA GeForce RTX 3090"
+    ],
+    "archived_runs": 2,
+    "issues": []
+  }
+]

@@ -1,0 +1,209 @@
+[
+  {
+    "request_id": "0b0ef54cee0d4115a0be5ce8fe2dc7de",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 3843,
+    "output_tokens": 631,
+    "cost_rmb": "0.012734",
+    "recorded_at": "2026-11-18T01:26:17.459025+00:00"
+  },
+  {
+    "request_id": "5c5594fa852f4e2a9346c3977f273450",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 4774,
+    "output_tokens": 2636,
+    "cost_rmb": "0.02285872",
+    "recorded_at": "2026-11-18T01:26:37.611109+00:00"
+  },
+  {
+    "request_id": "c5a26738499a4fbe966a3b542f233076",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 8776,
+    "output_tokens": 1243,
+    "cost_rmb": "0.02147488",
+    "recorded_at": "2026-11-18T03:57:30.448217+00:00"
+  },
+  {
+    "request_id": "c72f77c8e26f4bcd99d8df20e516fb7f",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 5205,
+    "output_tokens": 8824,
+    "cost_rmb": "0.07322472",
+    "recorded_at": "2026-11-18T03:58:41.618452+00:00"
+  },
+  {
+    "request_id": "dc010b206611475a98a97beb9cf6211f",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 5212,
+    "output_tokens": 9071,
+    "cost_rmb": "0.07396032",
+    "recorded_at": "2026-11-18T03:59:48.866200+00:00"
+  },
+  {
+    "request_id": "c09a4f4eca754dfdbdaaca171e03d384",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 13925,
+    "output_tokens": 3039,
+    "cost_rmb": "0.04614088",
+    "recorded_at": "2026-11-18T06:26:03.408448+00:00"
+  },
+  {
+    "request_id": "46fa20c752b64cc2a1f752b663fce62d",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 5400,
+    "output_tokens": 7133,
+    "cost_rmb": "0.06008672",
+    "recorded_at": "2026-11-18T06:26:51.687293+00:00"
+  },
+  {
+    "request_id": "239df06484aa41239fb97419ba8d903b",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 19093,
+    "output_tokens": 2040,
+    "cost_rmb": "0.04848488",
+    "recorded_at": "2026-11-18T08:42:40.308659+00:00"
+  },
+  {
+    "request_id": "9c6b8b88ee204f00a66989466e853881",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 5712,
+    "output_tokens": 10249,
+    "cost_rmb": "0.08563872",
+    "recorded_at": "2026-11-18T08:43:41.434216+00:00"
+  },
+  {
+    "request_id": "e42f422a98564d7398b39427509b15c9",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 19493,
+    "output_tokens": 1724,
+    "cost_rmb": "0.02337844",
+    "recorded_at": "2026-11-18T11:08:15.539352+00:00"
+  },
+  {
+    "request_id": "d50b4cc5c34d44b9a082e69fa7d1e981",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 5858,
+    "output_tokens": 6219,
+    "cost_rmb": "0.02684536",
+    "recorded_at": "2026-11-18T11:08:53.503143+00:00"
+  },
+  {
+    "request_id": "b8cbe7b0093341cc9f84d7fe35ac4d59",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 19517,
+    "output_tokens": 1719,
+    "cost_rmb": "0.02338244",
+    "recorded_at": "2026-11-18T13:12:54.726790+00:00"
+  },
+  {
+    "request_id": "7e989579bb594104a55a0ad5cf76c437",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 5752,
+    "output_tokens": 4341,
+    "cost_rmb": "0.01922736",
+    "recorded_at": "2026-11-18T13:13:23.710986+00:00"
+  },
+  {
+    "request_id": "23a2637f11204edd9aba00f91fcc87a4",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 19596,
+    "output_tokens": 1659,
+    "cost_rmb": "0.02322144",
+    "recorded_at": "2026-11-18T15:42:33.714370+00:00"
+  },
+  {
+    "request_id": "ee764eee75a54937882eaa611059093d",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 5823,
+    "output_tokens": 4643,
+    "cost_rmb": "0.02050636",
+    "recorded_at": "2026-11-18T15:43:01.100676+00:00"
+  },
+  {
+    "request_id": "9ba39d328118425dbe70948236a2b702",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 5831,
+    "output_tokens": 5999,
+    "cost_rmb": "0.0254366",
+    "recorded_at": "2026-11-18T15:43:35.171509+00:00"
+  },
+  {
+    "request_id": "23397ec3bd03443a9b0c8cc0d435c5bf",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 5830,
+    "output_tokens": 7442,
+    "cost_rmb": "0.0312076",
+    "recorded_at": "2026-11-18T15:44:18.144139+00:00"
+  },
+  {
+    "request_id": "6171c00a2a364e78adf1e0c7fc7b7a0c",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 19850,
+    "output_tokens": 2251,
+    "cost_rmb": "0.02584344",
+    "recorded_at": "2026-11-18T18:11:25.963590+00:00"
+  },
+  {
+    "request_id": "e800fae9099f4e9ea4c2fa85007ef2e3",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 5764,
+    "output_tokens": 5757,
+    "cost_rmb": "0.02490336",
+    "recorded_at": "2026-11-18T18:12:00.092050+00:00"
+  },
+  {
+    "request_id": "2f10fb4b92e94926b7f54e41855e81e4",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 20446,
+    "output_tokens": 1112,
+    "cost_rmb": "0.02188344",
+    "recorded_at": "2026-11-18T20:41:38.110672+00:00"
+  },
+  {
+    "request_id": "ec1115f3e730425d9bb4d04bdeaf0f8b",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 6256,
+    "output_tokens": 6973,
+    "cost_rmb": "0.03025936",
+    "recorded_at": "2026-11-18T20:42:40.264185+00:00"
+  },
+  {
+    "request_id": "fd2a955325ec4ac184964d1f2ebb4c64",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 25686,
+    "output_tokens": 2095,
+    "cost_rmb": "0.03105544",
+    "recorded_at": "2026-11-18T23:05:05.507858+00:00"
+  },
+  {
+    "request_id": "015907490e7c44f8b15917cdbf457c98",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 6486,
+    "output_tokens": 9164,
+    "cost_rmb": "0.03925336",
+    "recorded_at": "2026-11-18T23:06:38.128159+00:00"
+  }
+]

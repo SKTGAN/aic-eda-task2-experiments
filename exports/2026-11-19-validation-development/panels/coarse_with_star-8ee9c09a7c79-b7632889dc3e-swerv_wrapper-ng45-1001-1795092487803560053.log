@@ -1,0 +1,15 @@
+Running loss_decoder / swerv_wrapper-ng45 / seed 1001 with 6 GiB
+Artifacts: /home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261119-204808-000053
+Result: /home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261119-204808-000053/evaluation/evaluation_result.json
+{
+  "complete": true,
+  "score": 3.224366802803453,
+  "cells": [
+    [
+      "swerv_wrapper-ng45",
+      "1001",
+      "succeeded",
+      3.224366802803453
+    ]
+  ]
+}

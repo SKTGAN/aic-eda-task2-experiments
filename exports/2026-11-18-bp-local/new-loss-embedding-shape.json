@@ -1,0 +1,56 @@
+{
+  "1001": {
+    "initial": {
+      "first_centered_pc_variance_share": 0.9953708015433256,
+      "negative_cosine_median": 0.9200061559677124,
+      "embedding_shape": [
+        46942,
+        128
+      ]
+    },
+    "negative_second_moment": {
+      "first_centered_pc_variance_share": 0.9953108107522057,
+      "negative_cosine_median": 0.9202429056167603,
+      "embedding_shape": [
+        46942,
+        128
+      ]
+    }
+  },
+  "1002": {
+    "initial": {
+      "first_centered_pc_variance_share": 0.9954606511013931,
+      "negative_cosine_median": 0.9425376057624817,
+      "embedding_shape": [
+        46942,
+        128
+      ]
+    },
+    "negative_second_moment": {
+      "first_centered_pc_variance_share": 0.9954573076083421,
+      "negative_cosine_median": 0.9425731897354126,
+      "embedding_shape": [
+        46942,
+        128
+      ]
+    }
+  },
+  "1003": {
+    "initial": {
+      "first_centered_pc_variance_share": 0.9953786298684123,
+      "negative_cosine_median": 0.9434558153152466,
+      "embedding_shape": [
+        46942,
+        128
+      ]
+    },
+    "negative_second_moment": {
+      "first_centered_pc_variance_share": 0.9955343565728157,
+      "negative_cosine_median": 0.9443597197532654,
+      "embedding_shape": [
+        46942,
+        128
+      ]
+    }
+  }
+}

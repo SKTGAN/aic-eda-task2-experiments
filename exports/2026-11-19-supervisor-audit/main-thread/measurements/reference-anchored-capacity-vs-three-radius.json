@@ -1,0 +1,85 @@
+{
+  "scope": "Reference decoder on archived training embeddings, legal partition geometry only.",
+  "candidate": "35a0dbc61535188a2800bfd6b5367269073c99bf14b12a33981c0dbd0e3e2d1d",
+  "parent": "9d0da5bc9726e99d1db300b0dd2d1faa3293c10e4595dd8ff46112ab8e8d83d4",
+  "cells": [
+    {
+      "case": "bp-ng45",
+      "seed": 1001,
+      "embedding_sha256": "0f6bbde6adb8d96f2faa3fc9018bcb6c2cd4989494af199003be2935686a4c3b",
+      "reference_flipped_to_align": false,
+      "reference_iterations": 2,
+      "raw_instances_changed": 0,
+      "raw_groups_changed": 0,
+      "final_changed": 0,
+      "flip_adjusted": 0,
+      "instance_count": 144224,
+      "final_labels_sha256": "15cad4074b67da767f3393c8138ffe66b1033a27fd726dfe0f497439aa94a7a1"
+    },
+    {
+      "case": "bp-ng45",
+      "seed": 1002,
+      "embedding_sha256": "56a21421f5e0dfd6e5dde48054224619a2d02b98dedc15402a4c25ff1ed13704",
+      "reference_flipped_to_align": true,
+      "reference_iterations": 3,
+      "raw_instances_changed": 0,
+      "raw_groups_changed": 0,
+      "final_changed": 0,
+      "flip_adjusted": 0,
+      "instance_count": 144224,
+      "final_labels_sha256": "71a66f8a751395f651f67e48e5ffe4d5f1059d754c11d92ff9ebcaef6a3858a3"
+    },
+    {
+      "case": "bp-ng45",
+      "seed": 1003,
+      "embedding_sha256": "7f34486c6b95a5b2feda684111fb7e59018cd29ff9d1ba6e0ff8514301cab24b",
+      "reference_flipped_to_align": false,
+      "reference_iterations": 3,
+      "raw_instances_changed": 0,
+      "raw_groups_changed": 0,
+      "final_changed": 0,
+      "flip_adjusted": 0,
+      "instance_count": 144224,
+      "final_labels_sha256": "7d48b4b5521181ce1aada9e77854cd0653737298c90318e8771c2ad6a8247354"
+    },
+    {
+      "case": "ariane133-ng45",
+      "seed": 1001,
+      "embedding_sha256": "312020089e5f031231e5437628978184b8e49a086f6a10a8001dfed380a8f2b4",
+      "reference_flipped_to_align": true,
+      "reference_iterations": 3,
+      "raw_instances_changed": 0,
+      "raw_groups_changed": 0,
+      "final_changed": 0,
+      "flip_adjusted": 0,
+      "instance_count": 131550,
+      "final_labels_sha256": "1413baf90da3ecea8c06c654eab03080286e7808b72a6e006868f429157fbf9c"
+    },
+    {
+      "case": "ariane133-ng45",
+      "seed": 1002,
+      "embedding_sha256": "11cd5ac5f94dddc5c466da40a32b1b776fbfe0472b212dd63e541336f16decbb",
+      "reference_flipped_to_align": false,
+      "reference_iterations": 3,
+      "raw_instances_changed": 0,
+      "raw_groups_changed": 0,
+      "final_changed": 0,
+      "flip_adjusted": 0,
+      "instance_count": 131550,
+      "final_labels_sha256": "49a9a3487f4550e27d36ed8f7cecee1284cb78cd52717917b1a58ae8ccfbc610"
+    },
+    {
+      "case": "ariane133-ng45",
+      "seed": 1003,
+      "embedding_sha256": "6df53a33d92a22ae28b600e8415c728c59bac098974899171f569ed7bd262b36",
+      "reference_flipped_to_align": false,
+      "reference_iterations": 3,
+      "raw_instances_changed": 0,
+      "raw_groups_changed": 0,
+      "final_changed": 0,
+      "flip_adjusted": 0,
+      "instance_count": 131550,
+      "final_labels_sha256": "b76ec058346b49dcdfd690987c61ab2b450abe113860517857d1d1eb40f73913"
+    }
+  ]
+}

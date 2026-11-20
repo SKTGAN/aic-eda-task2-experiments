@@ -1,0 +1,362 @@
+{
+  "fixed_candidate_sha256": {
+    "claude_r4": "3cb4c5fe9560f91421cde65ccae5e61e3c50477e0c2ba31310f6498e20135e00",
+    "capacity_quantum": "a9aa8da67ed97235197702a6e291dd1d604d21921aabfea0425e172e69f4ad13",
+    "variance_guard": "52f19e612c20e000b165d59aa6c76241b16a5e68261e6b2334d4f15106de39a6"
+  },
+  "scope": "Training geometry and execution of the decoder only; no new physical timing metrics were opened or generated. Stock has a different GNN loss. All branch checks use the same candidate.",
+  "complete": true,
+  "expected_replays": 14,
+  "cells": [
+    {
+      "cohort": "development_r4",
+      "case": "bp-ng45",
+      "seed": 1002,
+      "embedding_origin": "claude_r4",
+      "trial": "20261118-185108-011766",
+      "embedding_sha256": "56a21421f5e0dfd6e5dde48054224619a2d02b98dedc15402a4c25ff1ed13704",
+      "variance_ratio_between_over_within": 0.6816005346207632,
+      "rms_radius_sum_over_distance": 0.9568001906642879,
+      "branch": "capacity_quantum",
+      "guard_matches_branch_decoder_exactly": true,
+      "predicted_final_assignments": {
+        "claude_r4": {
+          "cut": 5862,
+          "weighted_cut": 8107.43087948337
+        },
+        "capacity_quantum": {
+          "cut": 7418,
+          "weighted_cut": 9462.615461275804
+        }
+      },
+      "baseline_checked": true,
+      "guard_final_diff_vs_r4": 10162,
+      "guard_final_diff_vs_capacity": 0
+    },
+    {
+      "cohort": "development_r4",
+      "case": "ariane133-ng45",
+      "seed": 1001,
+      "embedding_origin": "claude_r4",
+      "trial": "20261118-183031-273756",
+      "embedding_sha256": "312020089e5f031231e5437628978184b8e49a086f6a10a8001dfed380a8f2b4",
+      "variance_ratio_between_over_within": 2.776200098938757,
+      "rms_radius_sum_over_distance": 0.540088847095985,
+      "branch": "claude_r4",
+      "guard_matches_branch_decoder_exactly": true,
+      "predicted_final_assignments": {
+        "claude_r4": {
+          "cut": 10633,
+          "weighted_cut": 18939.04737291236
+        },
+        "capacity_quantum": {
+          "cut": 8065,
+          "weighted_cut": 13136.83889552235
+        }
+      },
+      "baseline_checked": true,
+      "guard_final_diff_vs_r4": 0,
+      "guard_final_diff_vs_capacity": 11680
+    },
+    {
+      "cohort": "development_r4",
+      "case": "bp_fe-ng45",
+      "seed": 1001,
+      "embedding_origin": "claude_r4",
+      "trial": "20261118-182349-190494",
+      "embedding_sha256": "79b1dc1565e5ab5d94fee60fd6a0ffd6f86c9d03834fa2f1b5275c55d429864c",
+      "variance_ratio_between_over_within": 0.3600331475315416,
+      "rms_radius_sum_over_distance": 1.3741951049371146,
+      "branch": "capacity_quantum",
+      "guard_matches_branch_decoder_exactly": true,
+      "predicted_final_assignments": {
+        "claude_r4": {
+          "cut": 3483,
+          "weighted_cut": 5958.099666866877
+        },
+        "capacity_quantum": {
+          "cut": 2316,
+          "weighted_cut": 2747.7229223892614
+        }
+      },
+      "baseline_checked": true,
+      "guard_final_diff_vs_r4": 6114,
+      "guard_final_diff_vs_capacity": 0
+    },
+    {
+      "cohort": "additional_same_loss",
+      "case": "bp-ng45",
+      "seed": 1001,
+      "embedding_origin": "capacity_quantum",
+      "trial": "20261118-200440-077848",
+      "embedding_sha256": "0f6bbde6adb8d96f2faa3fc9018bcb6c2cd4989494af199003be2935686a4c3b",
+      "variance_ratio_between_over_within": 0.6828279420553274,
+      "rms_radius_sum_over_distance": 0.989261092094035,
+      "branch": "capacity_quantum",
+      "guard_matches_branch_decoder_exactly": true,
+      "predicted_final_assignments": {
+        "claude_r4": {
+          "cut": 5882,
+          "weighted_cut": 8123.116823005924
+        },
+        "capacity_quantum": {
+          "cut": 7419,
+          "weighted_cut": 9452.75992506623
+        }
+      },
+      "baseline_checked": true,
+      "guard_final_diff_vs_r4": 10204,
+      "guard_final_diff_vs_capacity": 0
+    },
+    {
+      "cohort": "additional_same_loss",
+      "case": "bp-ng45",
+      "seed": 1003,
+      "embedding_origin": "capacity_quantum",
+      "trial": "20261118-202258-211379",
+      "embedding_sha256": "7f34486c6b95a5b2feda684111fb7e59018cd29ff9d1ba6e0ff8514301cab24b",
+      "variance_ratio_between_over_within": 0.6893778994940495,
+      "rms_radius_sum_over_distance": 0.9569129398320246,
+      "branch": "capacity_quantum",
+      "guard_matches_branch_decoder_exactly": true,
+      "predicted_final_assignments": {
+        "claude_r4": {
+          "cut": 5863,
+          "weighted_cut": 8100.1005186312
+        },
+        "capacity_quantum": {
+          "cut": 7440,
+          "weighted_cut": 9488.440594447748
+        }
+      },
+      "baseline_checked": true,
+      "guard_final_diff_vs_r4": 10178,
+      "guard_final_diff_vs_capacity": 0
+    },
+    {
+      "cohort": "stock_different_loss",
+      "case": "bp-ng45",
+      "seed": 1001,
+      "embedding_origin": "stock",
+      "trial": "20261115-161128-780305",
+      "embedding_sha256": "303c1b6a86c75613aea1444c4c5e1d72937c11342ab43c7b6ccc24b65119b50b",
+      "variance_ratio_between_over_within": 0.6733900859419608,
+      "rms_radius_sum_over_distance": 0.9899974518810224,
+      "branch": "capacity_quantum",
+      "guard_matches_branch_decoder_exactly": true,
+      "predicted_final_assignments": {
+        "claude_r4": {
+          "cut": 5877,
+          "weighted_cut": 8119.975314274833
+        },
+        "capacity_quantum": {
+          "cut": 7444,
+          "weighted_cut": 9483.053566530305
+        }
+      },
+      "baseline_checked": false,
+      "guard_final_diff_vs_r4": 10170,
+      "guard_final_diff_vs_capacity": 0
+    },
+    {
+      "cohort": "stock_different_loss",
+      "case": "bp-ng45",
+      "seed": 1002,
+      "embedding_origin": "stock",
+      "trial": "20261115-205809-358941",
+      "embedding_sha256": "3d84f1205a226aa5d087a102f0e2a80722340726aa0971a88e8a32d23404ac6d",
+      "variance_ratio_between_over_within": 0.6854414066234531,
+      "rms_radius_sum_over_distance": 0.9549680356096915,
+      "branch": "capacity_quantum",
+      "guard_matches_branch_decoder_exactly": true,
+      "predicted_final_assignments": {
+        "claude_r4": {
+          "cut": 5861,
+          "weighted_cut": 8104.05990847612
+        },
+        "capacity_quantum": {
+          "cut": 7459,
+          "weighted_cut": 9514.655204011226
+        }
+      },
+      "baseline_checked": false,
+      "guard_final_diff_vs_r4": 10140,
+      "guard_final_diff_vs_capacity": 0
+    },
+    {
+      "cohort": "stock_different_loss",
+      "case": "bp-ng45",
+      "seed": 1003,
+      "embedding_origin": "stock",
+      "trial": "20261115-213108-753693",
+      "embedding_sha256": "b36dcd99d3b15a2ff7775e1f13a40b4e0cc8ba1541c08346c22d0cd4b5d190ea",
+      "variance_ratio_between_over_within": 0.6957935094522373,
+      "rms_radius_sum_over_distance": 0.956074911338223,
+      "branch": "capacity_quantum",
+      "guard_matches_branch_decoder_exactly": true,
+      "predicted_final_assignments": {
+        "claude_r4": {
+          "cut": 5873,
+          "weighted_cut": 8113.745930110861
+        },
+        "capacity_quantum": {
+          "cut": 7478,
+          "weighted_cut": 9526.956296922937
+        }
+      },
+      "baseline_checked": false,
+      "guard_final_diff_vs_r4": 10142,
+      "guard_final_diff_vs_capacity": 0
+    },
+    {
+      "cohort": "stock_different_loss",
+      "case": "ariane133-ng45",
+      "seed": 1001,
+      "embedding_origin": "stock",
+      "trial": "20261115-224056-146875",
+      "embedding_sha256": "ba629dfa67127dbcb56cddff42205734388da46ddaa7ec7fd4ee794d62f58412",
+      "variance_ratio_between_over_within": 2.7628671929208433,
+      "rms_radius_sum_over_distance": 0.5412159087919606,
+      "branch": "claude_r4",
+      "guard_matches_branch_decoder_exactly": true,
+      "predicted_final_assignments": {
+        "claude_r4": {
+          "cut": 10857,
+          "weighted_cut": 19360.705617105796
+        },
+        "capacity_quantum": {
+          "cut": 8046,
+          "weighted_cut": 13051.61529234851
+        }
+      },
+      "baseline_checked": false,
+      "guard_final_diff_vs_r4": 0,
+      "guard_final_diff_vs_capacity": 11723
+    },
+    {
+      "cohort": "stock_different_loss",
+      "case": "ariane133-ng45",
+      "seed": 1002,
+      "embedding_origin": "stock",
+      "trial": "20261116-101511-641019",
+      "embedding_sha256": "47e1871288f590af1a3923974df24fd7fa5dadfc76ff60ac09d70b2c45020a6c",
+      "variance_ratio_between_over_within": 0.714073693437318,
+      "rms_radius_sum_over_distance": 0.9058227836276846,
+      "branch": "capacity_quantum",
+      "guard_matches_branch_decoder_exactly": true,
+      "predicted_final_assignments": {
+        "claude_r4": {
+          "cut": 17975,
+          "weighted_cut": 32585.120832148892
+        },
+        "capacity_quantum": {
+          "cut": 15201,
+          "weighted_cut": 26804.795989188868
+        }
+      },
+      "baseline_checked": false,
+      "guard_final_diff_vs_r4": 11444,
+      "guard_final_diff_vs_capacity": 0
+    },
+    {
+      "cohort": "stock_different_loss",
+      "case": "ariane133-ng45",
+      "seed": 1003,
+      "embedding_origin": "stock",
+      "trial": "20261116-131846-247236",
+      "embedding_sha256": "45aa631ac8677f74d8c64425318e64ee78129ecbcc4afc73e41e21186673199c",
+      "variance_ratio_between_over_within": 2.080417317805998,
+      "rms_radius_sum_over_distance": 0.6029641898018213,
+      "branch": "claude_r4",
+      "guard_matches_branch_decoder_exactly": true,
+      "predicted_final_assignments": {
+        "claude_r4": {
+          "cut": 11851,
+          "weighted_cut": 21373.657087066553
+        },
+        "capacity_quantum": {
+          "cut": 9132,
+          "weighted_cut": 15128.101844399353
+        }
+      },
+      "baseline_checked": false,
+      "guard_final_diff_vs_r4": 0,
+      "guard_final_diff_vs_capacity": 11877
+    },
+    {
+      "cohort": "stock_different_loss",
+      "case": "bp_fe-ng45",
+      "seed": 1001,
+      "embedding_origin": "stock",
+      "trial": "20261115-193322-241572",
+      "embedding_sha256": "2c95de623d0ed76137f505068070761a865256df6f94c530a9067c95fa3995b0",
+      "variance_ratio_between_over_within": 0.3693340573026317,
+      "rms_radius_sum_over_distance": 1.366904898817407,
+      "branch": "capacity_quantum",
+      "guard_matches_branch_decoder_exactly": true,
+      "predicted_final_assignments": {
+        "claude_r4": {
+          "cut": 3503,
+          "weighted_cut": 5969.778054870636
+        },
+        "capacity_quantum": {
+          "cut": 2353,
+          "weighted_cut": 2807.1180294222318
+        }
+      },
+      "baseline_checked": false,
+      "guard_final_diff_vs_r4": 6056,
+      "guard_final_diff_vs_capacity": 0
+    },
+    {
+      "cohort": "stock_different_loss",
+      "case": "bp_fe-ng45",
+      "seed": 1002,
+      "embedding_origin": "stock",
+      "trial": "20261115-194754-945956",
+      "embedding_sha256": "affbb86ee12f4f1873864a24133860e26ed9a1b502338fa348fbd1a4d4b18796",
+      "variance_ratio_between_over_within": 0.40881171076690576,
+      "rms_radius_sum_over_distance": 1.3316752731516133,
+      "branch": "capacity_quantum",
+      "guard_matches_branch_decoder_exactly": true,
+      "predicted_final_assignments": {
+        "claude_r4": {
+          "cut": 3738,
+          "weighted_cut": 6152.378811821003
+        },
+        "capacity_quantum": {
+          "cut": 2351,
+          "weighted_cut": 2784.9940303090116
+        }
+      },
+      "baseline_checked": false,
+      "guard_final_diff_vs_r4": 5721,
+      "guard_final_diff_vs_capacity": 0
+    },
+    {
+      "cohort": "stock_different_loss",
+      "case": "bp_fe-ng45",
+      "seed": 1003,
+      "embedding_origin": "stock",
+      "trial": "20261115-183343-963338",
+      "embedding_sha256": "bb9c76a51b047274bd814ac7ea3f09f01ed27a932b0445f3c688485fd1b23bd3",
+      "variance_ratio_between_over_within": 0.40780981463606264,
+      "rms_radius_sum_over_distance": 1.2660562573848477,
+      "branch": "capacity_quantum",
+      "guard_matches_branch_decoder_exactly": true,
+      "predicted_final_assignments": {
+        "claude_r4": {
+          "cut": 3102,
+          "weighted_cut": 5576.034057190449
+        },
+        "capacity_quantum": {
+          "cut": 2367,
+          "weighted_cut": 2860.7571720054025
+        }
+      },
+      "baseline_checked": false,
+      "guard_final_diff_vs_r4": 6956,
+      "guard_final_diff_vs_capacity": 0
+    }
+  ]
+}

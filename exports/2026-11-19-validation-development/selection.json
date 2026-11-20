@@ -1,0 +1,43 @@
+{
+  "plan_sha256": "448c3c6f87aac7d1508b1f89d9d204b48413ac9b61bd96663c9decb783d90386",
+  "candidate": "coarse_star_no_flip",
+  "candidate_sha256": "3329809b5502a3624395de0f47362a852ef2513f68651530d069ca04723b23c9",
+  "development_cells": [
+    "swerv_wrapper-ng45/1002",
+    "bp_fe-asap7/1002",
+    "swerv_wrapper-ng45/1001",
+    "bp_fe-asap7/1001"
+  ],
+  "development_scores": {
+    "coarse_majority": -49.67766203346565,
+    "coarse_no_flip": -32.58893960916267,
+    "coarse_with_star": -32.46307966256387,
+    "coarse_star_no_flip": -31.631838437744985
+  },
+  "cell_scores": {
+    "coarse_majority": {
+      "swerv_wrapper-ng45/1002": -100.0,
+      "bp_fe-asap7/1002": -100.0,
+      "swerv_wrapper-ng45/1001": -29.379663610189798,
+      "bp_fe-asap7/1001": 30.66901547632719
+    },
+    "coarse_no_flip": {
+      "swerv_wrapper-ng45/1002": -24.84359542922209,
+      "bp_fe-asap7/1002": -100.0,
+      "swerv_wrapper-ng45/1001": -39.77872724787679,
+      "bp_fe-asap7/1001": 34.26656424044818
+    },
+    "coarse_with_star": {
+      "swerv_wrapper-ng45/1002": -66.75539627256053,
+      "bp_fe-asap7/1002": -63.53634311810603,
+      "swerv_wrapper-ng45/1001": 3.224366802803453,
+      "bp_fe-asap7/1001": -2.784946062392363
+    },
+    "coarse_star_no_flip": {
+      "swerv_wrapper-ng45/1002": -16.265255770091546,
+      "bp_fe-asap7/1002": -97.25279318482428,
+      "swerv_wrapper-ng45/1001": -12.248039073126723,
+      "bp_fe-asap7/1001": -0.7612657229373926
+    }
+  }
+}

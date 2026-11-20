@@ -1,0 +1,62 @@
+{
+  "scope": "training embeddings only, no timing consulted in this replay",
+  "rule": "keep separated clusters only if between variance also exceeds within variance after every single supernode deletion",
+  "cells": [
+    {
+      "case": "bp-ng45",
+      "seed": 1002,
+      "choose_r4": false,
+      "reason": "ordinary separation is already below within-cluster variance"
+    },
+    {
+      "case": "ariane133-ng45",
+      "seed": 1001,
+      "ordinary_between_over_within": 2.7762000989387556,
+      "minimum_leave_one_out_between_over_within": 2.7584784476113464,
+      "choose_r4": true
+    },
+    {
+      "case": "bp_fe-ng45",
+      "seed": 1001,
+      "choose_r4": false,
+      "reason": "ordinary separation is already below within-cluster variance"
+    },
+    {
+      "case": "bp-ng45",
+      "seed": 1001,
+      "choose_r4": false,
+      "reason": "ordinary separation is already below within-cluster variance"
+    },
+    {
+      "case": "bp-ng45",
+      "seed": 1003,
+      "choose_r4": false,
+      "reason": "ordinary separation is already below within-cluster variance"
+    },
+    {
+      "case": "bp_fe-ng45",
+      "seed": 1002,
+      "choose_r4": false,
+      "reason": "ordinary separation is already below within-cluster variance"
+    },
+    {
+      "case": "bp_fe-ng45",
+      "seed": 1003,
+      "choose_r4": false,
+      "reason": "ordinary separation is already below within-cluster variance"
+    },
+    {
+      "case": "ariane133-ng45",
+      "seed": 1002,
+      "choose_r4": false,
+      "reason": "ordinary separation is already below within-cluster variance"
+    },
+    {
+      "case": "ariane133-ng45",
+      "seed": 1003,
+      "ordinary_between_over_within": 2.1472208081307795,
+      "minimum_leave_one_out_between_over_within": 2.1324697717532324,
+      "choose_r4": true
+    }
+  ]
+}

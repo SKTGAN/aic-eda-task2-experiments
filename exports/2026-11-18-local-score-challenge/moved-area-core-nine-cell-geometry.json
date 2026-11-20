@@ -1,0 +1,190 @@
+{
+  "rule": "choose R4 if R4 between>=within and over half of the moved supernode area was inside the assigned R4 centroid's open radius-D/2 ball; otherwise choose capacity_quantum",
+  "inputs": "nine same-host R4-loss training cells, same group embeddings and physical areas, individual area-weighted centroid pairs independently refit to each raw partition",
+  "scope": "decoder geometry, not physical timing or a measured training score",
+  "cells": [
+    {
+      "case": "ariane133-ng45",
+      "seed": 1003,
+      "capacity_trial": "20261118-211819-051412",
+      "embedding_sha256": "6df53a33d92a22ae28b600e8415c728c59bac098974899171f569ed7bd262b36",
+      "r4": {
+        "between": 0.030846699062481647,
+        "within": 0.014365871896209229,
+        "B_over_W": 2.1472208081307804,
+        "between_ge_within": true
+      },
+      "moved_supernode_count": 4630,
+      "moved_in_ball_supernode_count": 759,
+      "moved_area": 557195520.0,
+      "moved_area_inside_own_r4_ball": 324062480.0,
+      "inside_fraction_of_moved_area": 0.5815956309196456,
+      "ball_radius": 0.17563315730919885,
+      "previous_guard_branch": "claude_r4",
+      "revised_branch": "claude_r4"
+    },
+    {
+      "case": "ariane133-ng45",
+      "seed": 1001,
+      "capacity_trial": "20261118-194748-786087",
+      "embedding_sha256": "312020089e5f031231e5437628978184b8e49a086f6a10a8001dfed380a8f2b4",
+      "r4": {
+        "between": 0.03713190572645762,
+        "within": 0.013375082632066701,
+        "B_over_W": 2.776200098938757,
+        "between_ge_within": true
+      },
+      "moved_supernode_count": 4630,
+      "moved_in_ball_supernode_count": 835,
+      "moved_area": 557065180.0,
+      "moved_area_inside_own_r4_ball": 329116480.0,
+      "inside_fraction_of_moved_area": 0.5908042574120321,
+      "ball_radius": 0.1926973901745825,
+      "previous_guard_branch": "claude_r4",
+      "revised_branch": "claude_r4"
+    },
+    {
+      "case": "ariane133-ng45",
+      "seed": 1002,
+      "capacity_trial": "20261118-205819-263444",
+      "embedding_sha256": "11cd5ac5f94dddc5c466da40a32b1b776fbfe0472b212dd63e541336f16decbb",
+      "r4": {
+        "between": 0.014740793982709026,
+        "within": 0.015663743781737453,
+        "B_over_W": 0.9410773176649821,
+        "between_ge_within": false
+      },
+      "moved_supernode_count": 9649,
+      "moved_in_ball_supernode_count": 1355,
+      "moved_area": 1135849260.0,
+      "moved_area_inside_own_r4_ball": 647183320.0,
+      "inside_fraction_of_moved_area": 0.5697792328534862,
+      "ball_radius": 0.12141167152722285,
+      "previous_guard_branch": "capacity_quantum",
+      "revised_branch": "capacity_quantum"
+    },
+    {
+      "case": "bp-ng45",
+      "seed": 1003,
+      "capacity_trial": "20261118-202258-211379",
+      "embedding_sha256": "7f34486c6b95a5b2feda684111fb7e59018cd29ff9d1ba6e0ff8514301cab24b",
+      "r4": {
+        "between": 0.032036648200474666,
+        "within": 0.04647182368913638,
+        "B_over_W": 0.6893778994940498,
+        "between_ge_within": false
+      },
+      "moved_supernode_count": 6792,
+      "moved_in_ball_supernode_count": 3208,
+      "moved_area": 576919420.0,
+      "moved_area_inside_own_r4_ball": 417364640.0,
+      "inside_fraction_of_moved_area": 0.7234366282903079,
+      "ball_radius": 0.17900198088901262,
+      "previous_guard_branch": "capacity_quantum",
+      "revised_branch": "capacity_quantum"
+    },
+    {
+      "case": "bp_fe-ng45",
+      "seed": 1003,
+      "capacity_trial": "20261118-204828-161916",
+      "embedding_sha256": "69aa9862dd3b9e6666f36d48cf72e8716f909b57ac8d33f536f1d28ebdfd8a21",
+      "r4": {
+        "between": 0.004198635453987155,
+        "within": 0.010488643813733878,
+        "B_over_W": 0.4003029875501581,
+        "between_ge_within": false
+      },
+      "moved_supernode_count": 2472,
+      "moved_in_ball_supernode_count": 1681,
+      "moved_area": 355415900.0,
+      "moved_area_inside_own_r4_ball": 268146620.0,
+      "inside_fraction_of_moved_area": 0.7544587059836096,
+      "ball_radius": 0.06479953662201889,
+      "previous_guard_branch": "capacity_quantum",
+      "revised_branch": "capacity_quantum"
+    },
+    {
+      "case": "bp_fe-ng45",
+      "seed": 1001,
+      "capacity_trial": "20261118-194110-430550",
+      "embedding_sha256": "79b1dc1565e5ab5d94fee60fd6a0ffd6f86c9d03834fa2f1b5275c55d429864c",
+      "r4": {
+        "between": 0.0036493359172379233,
+        "within": 0.010136110917171075,
+        "B_over_W": 0.3600331475315416,
+        "between_ge_within": false
+      },
+      "moved_supernode_count": 2193,
+      "moved_in_ball_supernode_count": 1531,
+      "moved_area": 339275020.0,
+      "moved_area_inside_own_r4_ball": 260153320.0,
+      "inside_fraction_of_moved_area": 0.7667918492790893,
+      "ball_radius": 0.060411046343011816,
+      "previous_guard_branch": "capacity_quantum",
+      "revised_branch": "capacity_quantum"
+    },
+    {
+      "case": "bp-ng45",
+      "seed": 1001,
+      "capacity_trial": "20261118-200440-077848",
+      "embedding_sha256": "0f6bbde6adb8d96f2faa3fc9018bcb6c2cd4989494af199003be2935686a4c3b",
+      "r4": {
+        "between": 0.033532460467514444,
+        "within": 0.049108213654205465,
+        "B_over_W": 0.6828279420553274,
+        "between_ge_within": false
+      },
+      "moved_supernode_count": 6806,
+      "moved_in_ball_supernode_count": 3087,
+      "moved_area": 652508640.0,
+      "moved_area_inside_own_r4_ball": 487176340.0,
+      "inside_fraction_of_moved_area": 0.7466205198447641,
+      "ball_radius": 0.18313628180390454,
+      "previous_guard_branch": "capacity_quantum",
+      "revised_branch": "capacity_quantum"
+    },
+    {
+      "case": "bp-ng45",
+      "seed": 1002,
+      "capacity_trial": "20261118-192313-764895",
+      "embedding_sha256": "56a21421f5e0dfd6e5dde48054224619a2d02b98dedc15402a4c25ff1ed13704",
+      "r4": {
+        "between": 0.03354931167114787,
+        "within": 0.04922136936088882,
+        "B_over_W": 0.6816005346207632,
+        "between_ge_within": false
+      },
+      "moved_supernode_count": 7284,
+      "moved_in_ball_supernode_count": 3280,
+      "moved_area": 721189840.0,
+      "moved_area_inside_own_r4_ball": 548635640.0,
+      "inside_fraction_of_moved_area": 0.7607367846446644,
+      "ball_radius": 0.1832172786050689,
+      "previous_guard_branch": "capacity_quantum",
+      "revised_branch": "capacity_quantum"
+    },
+    {
+      "case": "bp_fe-ng45",
+      "seed": 1002,
+      "capacity_trial": "20261118-203954-559404",
+      "embedding_sha256": "d91956a58dffa16d9c63956b5c500d7edc5d06e7ed9fecf0e2f31a90406458f8",
+      "r4": {
+        "between": 0.003634056668198293,
+        "within": 0.008918949431576671,
+        "B_over_W": 0.4074534446099974,
+        "between_ge_within": false
+      },
+      "moved_supernode_count": 2042,
+      "moved_in_ball_supernode_count": 1431,
+      "moved_area": 336261240.0,
+      "moved_area_inside_own_r4_ball": 256179280.0,
+      "inside_fraction_of_moved_area": 0.761845998069834,
+      "ball_radius": 0.06028583339967552,
+      "previous_guard_branch": "capacity_quantum",
+      "revised_branch": "capacity_quantum"
+    }
+  ],
+  "complete": true,
+  "repeats_previous_guard_on_all_nine": true,
+  "repeats_capacity_on_all_nine": false
+}

@@ -1,0 +1,15 @@
+Running loss_decoder / bp-ng45 / seed 1003 with 6 GiB
+Artifacts: /home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261120-101729-957304
+Result: /home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261120-101729-957304/evaluation/evaluation_result.json
+{
+  "complete": true,
+  "score": -2.379864166359974,
+  "cells": [
+    [
+      "bp-ng45",
+      "1003",
+      "succeeded",
+      -2.379864166359974
+    ]
+  ]
+}

@@ -1,0 +1,1073 @@
+{
+ "claude-original": [
+  {
+   "after_round": 1,
+   "official_scores": [
+    11.94
+   ],
+   "branching_choice": {
+    "parent": "S",
+    "intent": "loss_only",
+    "reason": "complementary_opening_with_first_receipt"
+   },
+   "rolling_choice": {
+    "id": "X1",
+    "kind": "edit",
+    "parent": "S",
+    "component": "loss",
+    "question": "Can a loss change of S raise bp-ng45 without losing its other designs?"
+   },
+   "options": [
+    {
+     "id": "X1",
+     "kind": "edit",
+     "parent": "S",
+     "component": "loss",
+     "question": "Can a loss change of S raise bp-ng45 without losing its other designs?"
+    }
+   ],
+   "planning_call": [],
+   "contract": {
+    "target": {
+     "case": "bp-ng45",
+     "seeds": [
+      "1001",
+      "1002",
+      "1003"
+     ],
+     "rule": "mean paired score delta over the case > 0 and most of its seeds improve"
+    },
+    "protect": []
+   },
+   "lessons": [
+    {
+     "evidence": "R1-S",
+     "finding": "paired_reading",
+     "reading": "orientation_carried",
+     "official_delta": 2.212,
+     "edit": {
+      "loss": "unchanged",
+      "decoder": "structural"
+     }
+    }
+   ],
+   "recorded_next": {
+    "parent": "S",
+    "component": [
+     "loss"
+    ],
+    "score": 29.43
+   }
+  },
+  {
+   "after_round": 2,
+   "official_scores": [
+    11.94,
+    29.43
+   ],
+   "branching_choice": {
+    "parent": "R2",
+    "intent": "decoder_only",
+    "reason": "extend_best"
+   },
+   "rolling_choice": {
+    "id": "X1",
+    "kind": "edit",
+    "parent": "R2",
+    "component": "decoder",
+    "question": "Can a decoder change of R2 raise bp_fe-ng45 without losing bp-ng45, ariane133-ng45?"
+   },
+   "options": [
+    {
+     "id": "X1",
+     "kind": "edit",
+     "parent": "R2",
+     "component": "decoder",
+     "question": "Can a decoder change of R2 raise bp_fe-ng45 without losing bp-ng45, ariane133-ng45?"
+    }
+   ],
+   "planning_call": [],
+   "contract": {
+    "target": {
+     "case": "bp_fe-ng45",
+     "seeds": [
+      "1001",
+      "1002",
+      "1003"
+     ],
+     "rule": "mean paired score delta over the case > 0 and most of its seeds improve"
+    },
+    "protect": [
+     {
+      "case": "bp-ng45",
+      "tolerance": 5.0,
+      "cell_tolerance": 8.66,
+      "strength": "mixed_reference",
+      "evidence": "R2-S",
+      "rule": "mean paired score delta over the case >= -tolerance"
+     },
+     {
+      "case": "ariane133-ng45",
+      "tolerance": 44.64,
+      "cell_tolerance": 77.32,
+      "strength": "supported",
+      "evidence": "R2-S",
+      "rule": "mean paired score delta over the case >= -tolerance"
+     }
+    ]
+   },
+   "lessons": [
+    {
+     "evidence": "R2-S",
+     "finding": "paired_reading",
+     "reading": "credited",
+     "official_delta": 19.69,
+     "edit": {
+      "loss": "structural",
+      "decoder": "unchanged"
+     }
+    }
+   ],
+   "recorded_next": {
+    "parent": "R2",
+    "component": [
+     "loss"
+    ],
+    "score": 24.87
+   }
+  },
+  {
+   "after_round": 3,
+   "official_scores": [
+    11.94,
+    29.43,
+    24.87
+   ],
+   "branching_choice": {
+    "parent": "R2",
+    "intent": "decoder_only",
+    "reason": "extend_best"
+   },
+   "rolling_choice": {
+    "id": "X1",
+    "kind": "edit",
+    "parent": "R2",
+    "component": "decoder",
+    "question": "Can a decoder change of R2 raise bp_fe-ng45 without losing bp-ng45, ariane133-ng45?"
+   },
+   "options": [
+    {
+     "id": "X1",
+     "kind": "edit",
+     "parent": "R2",
+     "component": "decoder",
+     "question": "Can a decoder change of R2 raise bp_fe-ng45 without losing bp-ng45, ariane133-ng45?"
+    }
+   ],
+   "planning_call": [],
+   "contract": {
+    "target": {
+     "case": "bp_fe-ng45",
+     "seeds": [
+      "1001",
+      "1002",
+      "1003"
+     ],
+     "rule": "mean paired score delta over the case > 0 and most of its seeds improve"
+    },
+    "protect": [
+     {
+      "case": "bp-ng45",
+      "tolerance": 2.0,
+      "cell_tolerance": 1.669,
+      "strength": "mixed_reference",
+      "evidence": "R2-S",
+      "rule": "mean paired score delta over the case >= -tolerance"
+     },
+     {
+      "case": "ariane133-ng45",
+      "tolerance": 33.42,
+      "cell_tolerance": 57.88,
+      "strength": "supported",
+      "evidence": "R2-S",
+      "rule": "mean paired score delta over the case >= -tolerance"
+     }
+    ]
+   },
+   "lessons": [
+    {
+     "evidence": "R3-R2",
+     "finding": "paired_reading",
+     "reading": "no_gain",
+     "official_delta": -4.559,
+     "edit": {
+      "loss": "structural",
+      "decoder": "unchanged"
+     }
+    }
+   ],
+   "recorded_next": {
+    "parent": "R2",
+    "component": [
+     "decoder"
+    ],
+    "score": 34.75
+   }
+  },
+  {
+   "after_round": 4,
+   "official_scores": [
+    11.94,
+    29.43,
+    24.87,
+    34.75
+   ],
+   "branching_choice": {
+    "parent": "R4",
+    "intent": "loss_only",
+    "reason": "extend_best"
+   },
+   "rolling_choice": {
+    "id": "X1",
+    "kind": "removal",
+    "parent": "R4",
+    "component": "loss",
+    "question": "Does R4 still need its loss change once its decoder is fixed?"
+   },
+   "options": [
+    {
+     "id": "X1",
+     "kind": "removal",
+     "parent": "R4",
+     "component": "loss",
+     "question": "Does R4 still need its loss change once its decoder is fixed?"
+    },
+    {
+     "id": "X2",
+     "kind": "edit",
+     "parent": "R4",
+     "component": "loss",
+     "question": "Can a loss change of R4 raise bp-ng45 without losing ariane133-ng45?"
+    }
+   ],
+   "planning_call": [],
+   "contract": {
+    "target": null,
+    "protect": []
+   },
+   "lessons": [
+    {
+     "evidence": "R4-R2",
+     "finding": "paired_reading",
+     "reading": "orientation_carried",
+     "official_delta": 5.327,
+     "edit": {
+      "loss": "unchanged",
+      "decoder": "structural"
+     }
+    }
+   ],
+   "recorded_next": {
+    "parent": "R4",
+    "component": [
+     "loss"
+    ],
+    "score": 25.12
+   }
+  },
+  {
+   "after_round": 5,
+   "official_scores": [
+    11.94,
+    29.43,
+    24.87,
+    34.75,
+    25.12
+   ],
+   "branching_choice": {
+    "parent": "R4",
+    "intent": "decoder_only",
+    "reason": "extend_best"
+   },
+   "rolling_choice": {
+    "id": "X1",
+    "kind": "edit",
+    "parent": "R4",
+    "component": "decoder",
+    "question": "Can a decoder change of R4 raise bp-ng45 without losing ariane133-ng45?"
+   },
+   "options": [
+    {
+     "id": "X1",
+     "kind": "edit",
+     "parent": "R4",
+     "component": "decoder",
+     "question": "Can a decoder change of R4 raise bp-ng45 without losing ariane133-ng45?"
+    }
+   ],
+   "planning_call": [],
+   "contract": {
+    "target": {
+     "case": "bp-ng45",
+     "seeds": [
+      "1001",
+      "1002",
+      "1003"
+     ],
+     "rule": "mean paired score delta over the case > 0 and most of its seeds improve"
+    },
+    "protect": [
+     {
+      "case": "ariane133-ng45",
+      "tolerance": 26.3,
+      "cell_tolerance": 45.56,
+      "strength": "mixed_reference",
+      "evidence": "R4-S",
+      "rule": "mean paired score delta over the case >= -tolerance"
+     }
+    ]
+   },
+   "lessons": [
+    {
+     "evidence": "R5-R4",
+     "finding": "paired_reading",
+     "reading": "no_gain",
+     "official_delta": -9.636,
+     "edit": {
+      "loss": "structural",
+      "decoder": "unchanged"
+     }
+    }
+   ],
+   "recorded_next": {
+    "parent": "R4",
+    "component": [
+     "decoder"
+    ],
+    "score": 34.75
+   }
+  },
+  {
+   "after_round": 6,
+   "official_scores": [
+    11.94,
+    29.43,
+    24.87,
+    34.75,
+    25.12,
+    34.75
+   ],
+   "branching_choice": {
+    "parent": "R2",
+    "intent": "decoder_only",
+    "reason": "switch_branch"
+   },
+   "rolling_choice": {
+    "id": "X1",
+    "kind": "edit",
+    "parent": "R2",
+    "component": "decoder",
+    "question": "Can a decoder change of R2 raise bp_fe-ng45 without losing bp-ng45, ariane133-ng45?"
+   },
+   "options": [
+    {
+     "id": "X1",
+     "kind": "edit",
+     "parent": "R2",
+     "component": "decoder",
+     "question": "Can a decoder change of R2 raise bp_fe-ng45 without losing bp-ng45, ariane133-ng45?"
+    },
+    {
+     "id": "X2",
+     "kind": "edit",
+     "parent": "R4",
+     "component": "loss",
+     "question": "Is a loss change of R4 more promising than the edit above?"
+    }
+   ],
+   "planning_call": [
+    "duplicate_outcome",
+    "stalled_branch"
+   ],
+   "contract": {
+    "target": {
+     "case": "bp_fe-ng45",
+     "seeds": [
+      "1001",
+      "1002",
+      "1003"
+     ],
+     "rule": "mean paired score delta over the case > 0 and most of its seeds improve"
+    },
+    "protect": [
+     {
+      "case": "bp-ng45",
+      "tolerance": 2.0,
+      "cell_tolerance": 2.264,
+      "strength": "mixed_reference",
+      "evidence": "R2-S",
+      "rule": "mean paired score delta over the case >= -tolerance"
+     },
+     {
+      "case": "ariane133-ng45",
+      "tolerance": 25.77,
+      "cell_tolerance": 44.64,
+      "strength": "supported",
+      "evidence": "R2-S",
+      "rule": "mean paired score delta over the case >= -tolerance"
+     }
+    ]
+   },
+   "lessons": [
+    {
+     "evidence": "R6-R4",
+     "finding": "paired_reading",
+     "reading": "no_gain",
+     "official_delta": 0.0,
+     "edit": {
+      "loss": "unchanged",
+      "decoder": "structural"
+     }
+    },
+    {
+     "evidence": "R6=R4",
+     "finding": "duplicate_outcome",
+     "same_as": "R4",
+     "basis": "timing_only"
+    }
+   ],
+   "recorded_next": {
+    "parent": "R4",
+    "component": [
+     "loss"
+    ],
+    "score": 18.69
+   }
+  },
+  {
+   "after_round": 7,
+   "official_scores": [
+    11.94,
+    29.43,
+    24.87,
+    34.75,
+    25.12,
+    34.75,
+    18.69
+   ],
+   "branching_choice": {
+    "parent": "R7",
+    "intent": "loss_only",
+    "reason": "targeted_repair"
+   },
+   "rolling_choice": {
+    "id": "X1",
+    "kind": "edit",
+    "parent": "R4",
+    "component": "decoder",
+    "question": "Can a decoder change of R4 raise bp-ng45 without losing ariane133-ng45?"
+   },
+   "options": [
+    {
+     "id": "X1",
+     "kind": "edit",
+     "parent": "R4",
+     "component": "decoder",
+     "question": "Can a decoder change of R4 raise bp-ng45 without losing ariane133-ng45?"
+    }
+   ],
+   "planning_call": [],
+   "contract": {
+    "target": {
+     "case": "bp-ng45",
+     "seeds": [
+      "1001",
+      "1002",
+      "1003"
+     ],
+     "rule": "mean paired score delta over the case > 0 and most of its seeds improve"
+    },
+    "protect": [
+     {
+      "case": "ariane133-ng45",
+      "tolerance": 16.71,
+      "cell_tolerance": 28.94,
+      "strength": "mixed_reference",
+      "evidence": "R4-S",
+      "rule": "mean paired score delta over the case >= -tolerance"
+     }
+    ]
+   },
+   "lessons": [
+    {
+     "evidence": "R7-R4",
+     "finding": "paired_reading",
+     "reading": "no_gain",
+     "official_delta": -16.07,
+     "edit": {
+      "loss": "structural",
+      "decoder": "unchanged"
+     }
+    },
+    {
+     "evidence": "protect_gain:ariane133-ng45/1003",
+     "finding": "repair_declined",
+     "conclusion": "the gain to protect (+13.16 on ariane133-ng45/1003) is inside the 28.94-point cell sensitivity this run measured for ariane133-ng45; extend the best program instead",
+     "parent": "R4",
+     "component": "decoder"
+    }
+   ],
+   "recorded_next": {
+    "parent": "R4",
+    "component": [
+     "loss"
+    ],
+    "score": 22.39
+   }
+  },
+  {
+   "after_round": 8,
+   "official_scores": [
+    11.94,
+    29.43,
+    24.87,
+    34.75,
+    25.12,
+    34.75,
+    18.69,
+    22.39
+   ],
+   "branching_choice": {
+    "parent": "R2",
+    "intent": "decoder_only",
+    "reason": "switch_branch"
+   },
+   "rolling_choice": {
+    "id": "X1",
+    "kind": "edit",
+    "parent": "R2",
+    "component": "decoder",
+    "question": "Can a decoder change of R2 raise bp_fe-ng45 without losing bp-ng45, ariane133-ng45?"
+   },
+   "options": [
+    {
+     "id": "X1",
+     "kind": "edit",
+     "parent": "R2",
+     "component": "decoder",
+     "question": "Can a decoder change of R2 raise bp_fe-ng45 without losing bp-ng45, ariane133-ng45?"
+    },
+    {
+     "id": "X2",
+     "kind": "edit",
+     "parent": "R4",
+     "component": "decoder",
+     "question": "Is a decoder change of R4 more promising than the edit above?"
+    }
+   ],
+   "planning_call": [
+    "stalled_branch"
+   ],
+   "contract": {
+    "target": {
+     "case": "bp_fe-ng45",
+     "seeds": [
+      "1001",
+      "1002",
+      "1003"
+     ],
+     "rule": "mean paired score delta over the case > 0 and most of its seeds improve"
+    },
+    "protect": [
+     {
+      "case": "bp-ng45",
+      "tolerance": 2.323,
+      "cell_tolerance": 4.023,
+      "strength": "mixed_reference",
+      "evidence": "R2-S",
+      "rule": "mean paired score delta over the case >= -tolerance"
+     },
+     {
+      "case": "ariane133-ng45",
+      "tolerance": 15.55,
+      "cell_tolerance": 26.93,
+      "strength": "supported",
+      "evidence": "R2-S",
+      "rule": "mean paired score delta over the case >= -tolerance"
+     }
+    ]
+   },
+   "lessons": [
+    {
+     "evidence": "R8-R4",
+     "finding": "paired_reading",
+     "reading": "no_gain",
+     "official_delta": -12.36,
+     "edit": {
+      "loss": "structural",
+      "decoder": "unchanged"
+     }
+    }
+   ],
+   "recorded_next": {
+    "parent": "R4",
+    "component": [
+     "loss"
+    ],
+    "score": 28.41
+   }
+  },
+  {
+   "after_round": 9,
+   "official_scores": [
+    11.94,
+    29.43,
+    24.87,
+    34.75,
+    25.12,
+    34.75,
+    18.69,
+    22.39,
+    28.41
+   ],
+   "branching_choice": {
+    "parent": "R9",
+    "intent": "loss_only",
+    "reason": "targeted_repair"
+   },
+   "rolling_choice": {
+    "id": "X1",
+    "kind": "edit",
+    "parent": "R4",
+    "component": "decoder",
+    "question": "Can a decoder change of R4 raise bp-ng45 without losing ariane133-ng45?"
+   },
+   "options": [
+    {
+     "id": "X1",
+     "kind": "edit",
+     "parent": "R4",
+     "component": "decoder",
+     "question": "Can a decoder change of R4 raise bp-ng45 without losing ariane133-ng45?"
+    }
+   ],
+   "planning_call": [],
+   "contract": {
+    "target": {
+     "case": "bp-ng45",
+     "seeds": [
+      "1001",
+      "1002",
+      "1003"
+     ],
+     "rule": "mean paired score delta over the case > 0 and most of its seeds improve"
+    },
+    "protect": [
+     {
+      "case": "ariane133-ng45",
+      "tolerance": 12.17,
+      "cell_tolerance": 21.08,
+      "strength": "mixed_reference",
+      "evidence": "R4-S",
+      "rule": "mean paired score delta over the case >= -tolerance"
+     }
+    ]
+   },
+   "lessons": [
+    {
+     "evidence": "R9-R4",
+     "finding": "paired_reading",
+     "reading": "no_gain",
+     "official_delta": -6.343,
+     "edit": {
+      "loss": "structural",
+      "decoder": "unchanged"
+     }
+    },
+    {
+     "evidence": "protect_gain:ariane133-ng45/1002",
+     "finding": "repair_declined",
+     "conclusion": "the gain to protect (+15.12 on ariane133-ng45/1002) is inside the 21.08-point cell sensitivity this run measured for ariane133-ng45; extend the best program instead",
+     "parent": "R4",
+     "component": "decoder"
+    }
+   ],
+   "recorded_next": {
+    "parent": "R4",
+    "component": [
+     "decoder"
+    ],
+    "score": 10.55
+   }
+  },
+  {
+   "after_round": 10,
+   "official_scores": [
+    11.94,
+    29.43,
+    24.87,
+    34.75,
+    25.12,
+    34.75,
+    18.69,
+    22.39,
+    28.41,
+    10.55
+   ],
+   "branching_choice": {
+    "parent": "R2",
+    "intent": "decoder_only",
+    "reason": "switch_branch"
+   },
+   "rolling_choice": {
+    "id": "X1",
+    "kind": "edit",
+    "parent": "R2",
+    "component": "decoder",
+    "question": "Can a decoder change of R2 raise bp_fe-ng45 without losing bp-ng45, ariane133-ng45?"
+   },
+   "options": [
+    {
+     "id": "X1",
+     "kind": "edit",
+     "parent": "R2",
+     "component": "decoder",
+     "question": "Can a decoder change of R2 raise bp_fe-ng45 without losing bp-ng45, ariane133-ng45?"
+    },
+    {
+     "id": "X2",
+     "kind": "edit",
+     "parent": "R4",
+     "component": "decoder",
+     "question": "Is a decoder change of R4 more promising than the edit above?"
+    }
+   ],
+   "planning_call": [
+    "stalled_branch"
+   ],
+   "contract": {
+    "target": {
+     "case": "bp_fe-ng45",
+     "seeds": [
+      "1001",
+      "1002",
+      "1003"
+     ],
+     "rule": "mean paired score delta over the case > 0 and most of its seeds improve"
+    },
+    "protect": [
+     {
+      "case": "bp-ng45",
+      "tolerance": 2.83,
+      "cell_tolerance": 4.901,
+      "strength": "mixed_reference",
+      "evidence": "R2-S",
+      "rule": "mean paired score delta over the case >= -tolerance"
+     },
+     {
+      "case": "ariane133-ng45",
+      "tolerance": 15.55,
+      "cell_tolerance": 26.93,
+      "strength": "supported",
+      "evidence": "R2-S",
+      "rule": "mean paired score delta over the case >= -tolerance"
+     }
+    ]
+   },
+   "lessons": [
+    {
+     "evidence": "R10-R4",
+     "finding": "paired_reading",
+     "reading": "no_gain",
+     "official_delta": -24.2,
+     "edit": {
+      "loss": "unchanged",
+      "decoder": "structural"
+     }
+    }
+   ],
+   "recorded_next": null
+  }
+ ],
+ "ours-new": [
+  {
+   "after_round": 1,
+   "official_scores": [
+    4.55
+   ],
+   "branching_choice": {
+    "parent": "S",
+    "intent": "loss_only",
+    "reason": "complementary_opening_with_first_receipt"
+   },
+   "rolling_choice": {
+    "id": "X1",
+    "kind": "edit",
+    "parent": "S",
+    "component": "loss",
+    "question": "Can a loss change of S raise bp-ng45 without losing its other designs?"
+   },
+   "options": [
+    {
+     "id": "X1",
+     "kind": "edit",
+     "parent": "S",
+     "component": "loss",
+     "question": "Can a loss change of S raise bp-ng45 without losing its other designs?"
+    }
+   ],
+   "planning_call": [],
+   "contract": {
+    "target": {
+     "case": "bp-ng45",
+     "seeds": [
+      "1001",
+      "1002",
+      "1003"
+     ],
+     "rule": "mean paired score delta over the case > 0 and most of its seeds improve"
+    },
+    "protect": []
+   },
+   "lessons": [
+    {
+     "evidence": "R1-S",
+     "finding": "paired_reading",
+     "reading": "no_gain",
+     "official_delta": -10.72,
+     "edit": {
+      "loss": "unchanged",
+      "decoder": "structural"
+     }
+    }
+   ],
+   "recorded_next": {
+    "parent": "S",
+    "component": [
+     "loss"
+    ],
+    "score": 14.11
+   }
+  },
+  {
+   "after_round": 2,
+   "official_scores": [
+    4.55,
+    14.11
+   ],
+   "branching_choice": {
+    "parent": "R2",
+    "intent": "decoder_only",
+    "reason": "extend_best"
+   },
+   "rolling_choice": {
+    "id": "X1",
+    "kind": "edit",
+    "parent": "R2",
+    "component": "decoder",
+    "question": "Can a decoder change of R2 raise bp_fe-ng45 without losing bp-ng45?"
+   },
+   "options": [
+    {
+     "id": "X1",
+     "kind": "edit",
+     "parent": "R2",
+     "component": "decoder",
+     "question": "Can a decoder change of R2 raise bp_fe-ng45 without losing bp-ng45?"
+    }
+   ],
+   "planning_call": [],
+   "contract": {
+    "target": {
+     "case": "bp_fe-ng45",
+     "seeds": [
+      "1001",
+      "1002",
+      "1003"
+     ],
+     "rule": "mean paired score delta over the case > 0 and most of its seeds improve"
+    },
+    "protect": [
+     {
+      "case": "bp-ng45",
+      "tolerance": 2.74,
+      "cell_tolerance": 4.746,
+      "strength": "supported",
+      "evidence": "R2-S",
+      "rule": "mean paired score delta over the case >= -tolerance"
+     }
+    ]
+   },
+   "lessons": [
+    {
+     "evidence": "R2-S",
+     "finding": "paired_reading",
+     "reading": "no_gain",
+     "official_delta": -1.763,
+     "edit": {
+      "loss": "structural",
+      "decoder": "unchanged"
+     }
+    }
+   ],
+   "recorded_next": {
+    "parent": "S",
+    "component": [
+     "loss"
+    ],
+    "score": 26.49
+   }
+  },
+  {
+   "after_round": 3,
+   "official_scores": [
+    4.55,
+    14.11,
+    26.49
+   ],
+   "branching_choice": {
+    "parent": "R3",
+    "intent": "decoder_only",
+    "reason": "extend_best"
+   },
+   "rolling_choice": {
+    "id": "X1",
+    "kind": "edit",
+    "parent": "R3",
+    "component": "decoder",
+    "question": "Can a decoder change of R3 raise bp_fe-ng45 without losing bp-ng45, ariane133-ng45?"
+   },
+   "options": [
+    {
+     "id": "X1",
+     "kind": "edit",
+     "parent": "R3",
+     "component": "decoder",
+     "question": "Can a decoder change of R3 raise bp_fe-ng45 without losing bp-ng45, ariane133-ng45?"
+    }
+   ],
+   "planning_call": [],
+   "contract": {
+    "target": {
+     "case": "bp_fe-ng45",
+     "seeds": [
+      "1001",
+      "1002",
+      "1003"
+     ],
+     "rule": "mean paired score delta over the case > 0 and most of its seeds improve"
+    },
+    "protect": [
+     {
+      "case": "bp-ng45",
+      "tolerance": 2.0,
+      "cell_tolerance": 1.032,
+      "strength": "supported",
+      "evidence": "R3-S",
+      "rule": "mean paired score delta over the case >= -tolerance"
+     },
+     {
+      "case": "ariane133-ng45",
+      "tolerance": 21.0,
+      "cell_tolerance": 36.38,
+      "strength": "mixed_reference",
+      "evidence": "R3-S",
+      "rule": "mean paired score delta over the case >= -tolerance"
+     }
+    ]
+   },
+   "lessons": [
+    {
+     "evidence": "R3-S",
+     "finding": "paired_reading",
+     "reading": "one_cell",
+     "official_delta": 10.61,
+     "edit": {
+      "loss": "structural",
+      "decoder": "unchanged"
+     }
+    }
+   ],
+   "recorded_next": {
+    "parent": "R3",
+    "component": [
+     "loss"
+    ],
+    "score": 25.01
+   }
+  },
+  {
+   "after_round": 4,
+   "official_scores": [
+    4.55,
+    14.11,
+    26.49,
+    25.01
+   ],
+   "branching_choice": {
+    "parent": "R3",
+    "intent": "decoder_only",
+    "reason": "extend_best"
+   },
+   "rolling_choice": {
+    "id": "X1",
+    "kind": "edit",
+    "parent": "R3",
+    "component": "decoder",
+    "question": "Can a decoder change of R3 raise bp_fe-ng45 without losing bp-ng45, ariane133-ng45?"
+   },
+   "options": [
+    {
+     "id": "X1",
+     "kind": "edit",
+     "parent": "R3",
+     "component": "decoder",
+     "question": "Can a decoder change of R3 raise bp_fe-ng45 without losing bp-ng45, ariane133-ng45?"
+    }
+   ],
+   "planning_call": [],
+   "contract": {
+    "target": {
+     "case": "bp_fe-ng45",
+     "seeds": [
+      "1001",
+      "1002",
+      "1003"
+     ],
+     "rule": "mean paired score delta over the case > 0 and most of its seeds improve"
+    },
+    "protect": [
+     {
+      "case": "bp-ng45",
+      "tolerance": 2.0,
+      "cell_tolerance": 2.62,
+      "strength": "supported",
+      "evidence": "R3-S",
+      "rule": "mean paired score delta over the case >= -tolerance"
+     },
+     {
+      "case": "ariane133-ng45",
+      "tolerance": 17.71,
+      "cell_tolerance": 30.68,
+      "strength": "mixed_reference",
+      "evidence": "R3-S",
+      "rule": "mean paired score delta over the case >= -tolerance"
+     }
+    ]
+   },
+   "lessons": [
+    {
+     "evidence": "R4-R3",
+     "finding": "paired_reading",
+     "reading": "no_gain",
+     "official_delta": -1.482,
+     "edit": {
+      "loss": "coefficients_only",
+      "decoder": "unchanged"
+     }
+    }
+   ],
+   "recorded_next": null
+  }
+ ]
+}

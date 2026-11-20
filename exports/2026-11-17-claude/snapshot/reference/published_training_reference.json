@@ -1,0 +1,65 @@
+{
+  "ariane133-ng45": {
+    "reference_tns_deficit_ns": 96.42498143235612,
+    "reference_wns_deficit_ns": 0.5290353246723486,
+    "loss_decoder_measurements": {
+      "1001": {
+        "reference_summary_sha256": "89e4722dc3b85db4320a0df53b1b73adf8b4bc434879b10e0475da1bcc09443d",
+        "tns_ns": -22.69812846368777,
+        "wns_ns": -0.46473759489492794
+      },
+      "1002": {
+        "reference_summary_sha256": "d3a21196f2c3b6976f8ef626ebd7f4d4e942ae5e3f961686dc1dc57e5ad79223",
+        "tns_ns": -101.00025635050363,
+        "wns_ns": -0.511323442504157
+      },
+      "1003": {
+        "reference_summary_sha256": "99b3077c8ab7dd2d5d4eafdf0b1420ef0fab94c1ff68cabaa1c60fec04ee8ff3",
+        "tns_ns": -29.767709140211068,
+        "wns_ns": -0.5738236714876622
+      }
+    }
+  },
+  "bp-ng45": {
+    "reference_tns_deficit_ns": 6622.78575944895,
+    "reference_wns_deficit_ns": 8.663351750761597,
+    "loss_decoder_measurements": {
+      "1001": {
+        "reference_summary_sha256": "33107240f73a83eb41aaee41f4f4163a4ed5dc1e1f4284929d7020a33b73667c",
+        "tns_ns": -9059.339646875793,
+        "wns_ns": -8.392474508445966
+      },
+      "1002": {
+        "reference_summary_sha256": "a1d63e8367a129f1f5470b186005c77b62f26d49d24400da8885c0d92a9db597",
+        "tns_ns": -10349.946316496395,
+        "wns_ns": -7.841612026113778
+      },
+      "1003": {
+        "reference_summary_sha256": "37dfb7a94ef4fe76d05a1a7cdf1261d89eaa6d7f584691e7f9b32c6667203b0f",
+        "tns_ns": -8622.276498609612,
+        "wns_ns": -7.870566643414895
+      }
+    }
+  },
+  "bp_fe-ng45": {
+    "reference_tns_deficit_ns": 716.9190029865956,
+    "reference_wns_deficit_ns": 0.9002498352590634,
+    "loss_decoder_measurements": {
+      "1001": {
+        "reference_summary_sha256": "bd221681a4bc854e196e094c19df84554abab52d8fef03a3d562bfa477313a74",
+        "tns_ns": -174.72074415142822,
+        "wns_ns": -0.6611195111821111
+      },
+      "1002": {
+        "reference_summary_sha256": "27aa508db61bdcc031c32141f42668282d136c186b9a5c4fc2aae05663899625",
+        "tns_ns": -211.7487329856929,
+        "wns_ns": -0.7280568576313236
+      },
+      "1003": {
+        "reference_summary_sha256": "0ea9486b11314babf26baa2b8deb01d46bb7376f23a16034916ce6559719aba9",
+        "tns_ns": -188.35428327940795,
+        "wns_ns": -0.639466275808939
+      }
+    }
+  }
+}

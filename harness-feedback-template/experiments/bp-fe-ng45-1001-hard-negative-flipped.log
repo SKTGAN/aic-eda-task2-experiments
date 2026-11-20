@@ -1,0 +1,9 @@
+Running loss_decoder / bp_fe-ng45 / seed 1001 with 6 GiB
+Artifacts: /home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261116-200033-862176
+Waiting for WSL memory before starting the next container
+Waiting for WSL memory before starting the next container
+Result: /home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261116-200033-862176/evaluation/evaluation_result.json
+{
+  "status": "failed",
+  "error_message": "Insufficient available memory"
+}

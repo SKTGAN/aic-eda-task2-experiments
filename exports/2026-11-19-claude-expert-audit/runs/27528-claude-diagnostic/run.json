@@ -1,0 +1,16 @@
+{
+  "source_mount_at_capture": "/root/aic-eda-ours-20261117/claude-overnight-work-20261117",
+  "capture_port": "16012",
+  "capture_utc": "2026-11-19T04:14:37.767042+00:00",
+  "scope": "development diagnostic",
+  "session": null,
+  "diagnostic": {
+    "formal": false,
+    "model_cost_rmb": "0.11600160",
+    "rounds": 3,
+    "selected_candidate_id": "d7b933becb4e6777b4b00b962971667e16fac2538045c366ae39793a926cadd2"
+  },
+  "read_errors": {},
+  "other_record_names": [],
+  "transaction_note": "ledger is a read transaction; receipts and event log are sequential read-only snapshots"
+}

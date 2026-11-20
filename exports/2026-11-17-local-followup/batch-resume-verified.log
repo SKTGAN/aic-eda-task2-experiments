@@ -1,0 +1,9 @@
+Verified existing initial ariane133-ng45/1003: 20261116-131846-247236
+Running flip ariane133-ng45/1003 → flip-ariane133-ng45-1003-1794918084776117514.log
+flip ariane133-ng45/1003 score change +139.0482
+Verified existing initial bp_fe-ng45/1003: 20261115-183343-963338
+Running uniform-control bp_fe-ng45/1003 → uniform-control-bp_fe-ng45-1003-1794919333203061996.log
+uniform-control bp_fe-ng45/1003 score change +4.2502
+Verified existing initial bp_fe-ng45/1003: 20261115-183343-963338
+Running critical-positives bp_fe-ng45/1003 → critical-positives-bp_fe-ng45-1003-1794919819562871041.log
+critical-positives bp_fe-ng45/1003 score change -5.6374

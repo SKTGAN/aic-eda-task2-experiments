@@ -1,0 +1,1 @@
+{"formal": false, "schedule": "case-pinned-three-gpu", "cases": ["bp_fe-ng45", "bp-ng45", "ariane133-ng45"], "seeds": ["1001", "1002", "1003"], "rounds": 10, "allocation": {"26016-0": {"ariane133-ng45": ["1001", "1003"]}, "26016-1": {"bp-ng45": ["1001", "1002", "1003"], "bp_fe-ng45": ["1003"]}, "22120-0": {"ariane133-ng45": ["1002"], "bp_fe-ng45": ["1001", "1002"]}}}

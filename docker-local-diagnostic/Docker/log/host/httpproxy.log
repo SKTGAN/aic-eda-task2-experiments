@@ -1,0 +1,814 @@
+-------------------------------------------------------------------------------->8
+[2026-11-13T03:34:25.740871800Z] host will use proxy: static system http_proxy=http://127.0.0.1:17897 https_proxy=http://127.0.0.1:17897 no_proxy=localhost,127.*,192.168.*,10.*,172.16.*,172.17.*,172.18.*,172.19.*,172.20.*,172.21.*,172.22.*,172.23.*,172.24.*,172.25.*,172.26.*,172.27.*,172.28.*,172.29.*,172.30.*,172.31.*,<local>
+[2026-11-13T03:34:25.740871800Z] Linux will use proxy: static system http_proxy=http://127.0.0.1:17897 https_proxy=http://127.0.0.1:17897 no_proxy=localhost,127.*,192.168.*,10.*,172.16.*,172.17.*,172.18.*,172.19.*,172.20.*,172.21.*,172.22.*,172.23.*,172.24.*,172.25.*,172.26.*,172.27.*,172.28.*,172.29.*,172.30.*,172.31.*,<local>
+[2026-11-13T03:34:25.763819900Z] req 1 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:25.763819900Z] req 3 HTTP CONNECT hub.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:25.763819900Z] req 2 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:25.764868200Z] req 3 HTTP CONNECT hub.docker.com:443: proxying to hub.docker.com:443
+[2026-11-13T03:34:25.765401300Z] req 1 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:25.768362100Z] req 2 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:27.850180200Z] req 1 HTTP CONNECT desktop.docker.com:443: successful after 2.2361238s with 7608 bytes transferred (2 remaining in-progress HTTP requests)
+[2026-11-13T03:34:31.073775000Z] req 3 HTTP CONNECT hub.docker.com:443: successful after 5.3228308s with 1520 bytes transferred (1 remaining in-progress HTTP requests)
+[2026-11-13T03:34:31.081173300Z] req 4 HTTP CONNECT hub.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:31.081681800Z] req 4 HTTP CONNECT hub.docker.com:443: proxying to hub.docker.com:443
+[2026-11-13T03:34:31.298847600Z] req 5 HTTP CONNECT hub.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:31.299351400Z] req 5 HTTP CONNECT hub.docker.com:443: proxying to hub.docker.com:443
+[2026-11-13T03:34:31.470403200Z] req 6 HTTP CONNECT hub.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:31.472000100Z] req 6 HTTP CONNECT hub.docker.com:443: proxying to hub.docker.com:443
+[2026-11-13T03:34:33.601134600Z] req 7 HTTP GET http://ipc/ping: with direct connection to VM
+[2026-11-13T03:34:33.605066300Z] req 7 HTTP GET http://ipc/ping: proxying to ipc:80
+[2026-11-13T03:34:33.613482200Z] req 8 HTTP GET http://ipc/metrics: with direct connection to VM
+[2026-11-13T03:34:33.618592100Z] req 8 HTTP GET http://ipc/metrics: proxying to ipc:80
+[2026-11-13T03:34:33.637445200Z] req 7 HTTP GET http://ipc/ping: successful after 37.4031ms with 294 bytes transferred (5 remaining in-progress HTTP requests)
+[2026-11-13T03:34:33.639008300Z] req 8 HTTP GET http://ipc/metrics: successful after 25.5261ms with 271 bytes transferred (4 remaining in-progress HTTP requests)
+[2026-11-13T03:34:34.470730500Z] req 4 HTTP CONNECT hub.docker.com:443: successful after 3.389544s with 6417 bytes transferred (3 remaining in-progress HTTP requests)
+[2026-11-13T03:34:34.601330800Z] req 9 HTTP CONNECT mcp.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:34.602409700Z] req 9 HTTP CONNECT mcp.docker.com:443: proxying to mcp.docker.com:443
+[2026-11-13T03:34:36.108255800Z] host will use proxy: static system http_proxy=http://127.0.0.1:17897 https_proxy=http://127.0.0.1:17897 no_proxy=localhost,127.*,192.168.*,10.*,172.16.*,172.17.*,172.18.*,172.19.*,172.20.*,172.21.*,172.22.*,172.23.*,172.24.*,172.25.*,172.26.*,172.27.*,172.28.*,172.29.*,172.30.*,172.31.*,<local>
+[2026-11-13T03:34:36.108774000Z] Linux will use proxy: static system http_proxy=http://127.0.0.1:17897 https_proxy=http://127.0.0.1:17897 no_proxy=localhost,127.*,192.168.*,10.*,172.16.*,172.17.*,172.18.*,172.19.*,172.20.*,172.21.*,172.22.*,172.23.*,172.24.*,172.25.*,172.26.*,172.27.*,172.28.*,172.29.*,172.30.*,172.31.*,<local>
+[2026-11-13T03:34:37.196599700Z] req 10 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:37.196599700Z] req 11 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:37.197656300Z] req 10 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:37.197656300Z] req 11 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:37.207234200Z] req 12 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:37.208278300Z] req 12 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:37.815252400Z] TCP 104.16.7.34:443 TLS ServerName registry.npmjs.org container connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:38.837597000Z] req 10 HTTP CONNECT desktop.docker.com:443: successful after 1.6415198s with 9797 bytes transferred (6 remaining in-progress HTTP requests)
+[2026-11-13T03:34:39.129087600Z] req 13 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.129087600Z] req 14 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.129611900Z] req 16 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.129611900Z] req 15 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.129611900Z] req 17 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.130667800Z] req 15 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.130667800Z] req 13 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.130667800Z] req 14 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.130667800Z] req 16 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.130667800Z] req 17 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.138727900Z] req 18 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.138727900Z] req 19 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.139241700Z] req 20 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.139760200Z] req 18 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.139760200Z] req 19 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.140288100Z] req 20 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.149551600Z] req 21 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.149551600Z] req 22 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.150074600Z] req 23 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.150612300Z] req 21 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.150612300Z] req 22 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.150612300Z] req 23 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.159541900Z] req 24 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.160048200Z] req 25 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.160581000Z] req 26 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.160581000Z] req 24 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.161118500Z] req 25 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.161118500Z] req 26 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.169724600Z] req 27 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.170241600Z] req 28 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.170241600Z] req 29 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.170770700Z] req 30 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.170770700Z] req 31 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.170770700Z] req 32 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.170770700Z] req 33 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.170770700Z] req 27 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.171285300Z] req 28 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.171285300Z] req 29 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.171807000Z] req 30 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.171807000Z] req 32 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.172328200Z] req 31 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.172328200Z] req 33 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.180249200Z] req 34 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.180784000Z] req 35 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.180784000Z] req 36 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.181305500Z] req 34 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.181832900Z] req 35 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.181832900Z] req 36 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.190624700Z] req 37 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.191144500Z] req 38 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.191144500Z] req 39 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.191144500Z] req 40 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.192181900Z] req 40 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.192181900Z] req 38 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.192181900Z] req 37 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.192181900Z] req 39 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.201305700Z] req 41 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.201305700Z] req 42 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.201830700Z] req 43 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.201830700Z] req 45 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.201830700Z] req 44 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.202890300Z] req 41 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.202890300Z] req 43 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.202890300Z] req 44 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.202890300Z] req 42 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.203490000Z] req 45 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.211526100Z] req 46 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.211526100Z] req 47 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.212062900Z] req 48 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.212062900Z] req 51 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.212062900Z] req 50 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.212595300Z] req 49 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.212843900Z] req 46 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.213354600Z] req 51 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.213354600Z] req 48 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.213354600Z] req 50 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.213354600Z] req 49 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.213894000Z] req 47 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.222431500Z] req 52 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.222431500Z] req 53 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.222431500Z] req 54 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.223484500Z] req 53 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.223484500Z] req 52 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.223484500Z] req 54 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.233049000Z] req 55 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.233049000Z] req 57 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.233049000Z] req 56 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.234167800Z] req 55 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.234167800Z] req 56 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.234167800Z] req 57 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.243831400Z] req 58 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.243831400Z] req 59 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.243831400Z] req 60 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.243831400Z] req 61 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.244900000Z] req 61 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.244900000Z] req 60 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.244900000Z] req 58 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.244900000Z] req 59 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.253858700Z] req 62 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.254375500Z] req 63 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.254899500Z] req 62 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.254899500Z] req 63 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.264563900Z] req 64 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.264563900Z] req 66 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.265105100Z] req 65 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.265105100Z] req 67 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.265105100Z] req 68 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.265627700Z] req 65 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.265627700Z] req 64 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.266148100Z] req 67 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.266148100Z] req 66 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.266148100Z] req 68 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.274794800Z] req 69 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.274794800Z] req 70 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.275319700Z] req 71 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.275846300Z] req 70 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.275846300Z] req 69 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.276369100Z] req 71 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.284828800Z] req 72 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.284828800Z] req 73 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.285351300Z] req 74 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.285351300Z] req 75 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.285870100Z] req 72 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.285870100Z] req 74 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.286507600Z] req 73 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.286507600Z] req 75 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.294947400Z] req 76 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.295461400Z] req 77 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.295983900Z] req 76 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.295983900Z] req 77 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.305260200Z] req 79 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.305801800Z] req 78 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.305801800Z] req 80 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.305801800Z] req 82 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.305801800Z] req 81 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.306328000Z] req 79 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.306328000Z] req 80 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.306328000Z] req 78 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.306841800Z] req 82 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.306841800Z] req 81 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.315319100Z] req 83 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.315835500Z] req 84 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.315835500Z] req 85 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.316352700Z] req 84 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.316876900Z] req 83 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.316876900Z] req 85 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.325455600Z] req 86 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.325455600Z] req 88 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.325974400Z] req 87 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.325974400Z] req 89 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.325974400Z] req 91 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.325974400Z] req 90 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.326490500Z] req 86 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.326490500Z] req 87 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.326490500Z] req 88 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.327012400Z] req 89 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.327012400Z] req 90 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.327012400Z] req 91 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.335921500Z] req 92 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.336441900Z] req 93 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.337283700Z] req 92 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.337283700Z] req 93 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.346430900Z] req 94 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.346430900Z] req 95 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.347461800Z] req 94 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.347461800Z] req 95 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.356639200Z] req 96 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.357700600Z] req 96 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.366949600Z] req 97 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.366949600Z] req 98 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.367463400Z] req 99 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.367463400Z] req 100 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.368135800Z] req 99 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.368135800Z] req 97 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.368135800Z] req 98 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.368647600Z] req 100 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.377253500Z] req 101 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.378301000Z] req 101 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.387842300Z] req 102 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.387842300Z] req 104 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.387842300Z] req 103 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.388894700Z] req 102 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.388894700Z] req 104 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.388894700Z] req 103 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.398524400Z] req 105 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.399602500Z] req 105 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.408715600Z] req 106 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.408715600Z] req 107 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.409757900Z] req 106 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.409757900Z] req 107 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.419265900Z] req 108 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.419265900Z] req 109 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.420391500Z] req 108 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.420391500Z] req 109 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.429838500Z] req 110 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.430881500Z] req 110 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.440430600Z] req 111 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.440430600Z] req 112 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.441498100Z] req 112 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.441498100Z] req 111 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.450565500Z] req 113 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.451734300Z] req 113 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.460736200Z] req 114 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.461783100Z] req 114 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.471237900Z] req 115 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.472299700Z] req 115 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.481827500Z] req 116 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.481827500Z] req 117 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.482885600Z] req 117 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.482885600Z] req 116 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.492358400Z] req 118 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.493439900Z] req 118 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.502565000Z] req 119 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.503608500Z] req 119 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.513186200Z] req 120 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.514797900Z] req 120 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.523811500Z] req 121 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.524877800Z] req 121 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.534014600Z] req 122 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.535069500Z] req 122 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.544139300Z] req 123 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.545177700Z] req 123 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.554683000Z] req 124 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.555747200Z] req 124 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.564915600Z] req 125 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.565960700Z] req 125 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.575100300Z] req 126 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.576654500Z] req 126 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.585298900Z] req 127 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.586359300Z] req 127 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:39.595885800Z] req 128 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:34:39.596964700Z] req 128 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-13T03:34:41.446656100Z] req 18 HTTP CONNECT desktop.docker.com:443: successful after 2.3079282s with 14018 bytes transferred (121 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.467643800Z] req 101 HTTP CONNECT desktop.docker.com:443: successful after 2.0903903s with 9314 bytes transferred (120 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.471866200Z] req 102 HTTP CONNECT desktop.docker.com:443: successful after 2.0840239s with 10328 bytes transferred (119 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.471866200Z] req 85 HTTP CONNECT desktop.docker.com:443: successful after 2.1560307s with 12672 bytes transferred (118 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.473999300Z] req 24 HTTP CONNECT desktop.docker.com:443: successful after 2.3144574s with 10648 bytes transferred (117 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.474548100Z] req 103 HTTP CONNECT desktop.docker.com:443: successful after 2.0867058s with 9913 bytes transferred (116 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.504874800Z] req 35 HTTP CONNECT desktop.docker.com:443: successful after 2.3240908s with 7581 bytes transferred (115 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.512045700Z] req 38 HTTP CONNECT desktop.docker.com:443: successful after 2.321421s with 10051 bytes transferred (114 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.544520900Z] req 68 HTTP CONNECT desktop.docker.com:443: successful after 2.2794158s with 18374 bytes transferred (113 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.554712800Z] req 30 HTTP CONNECT desktop.docker.com:443: successful after 2.3844712s with 12235 bytes transferred (112 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.560515300Z] req 22 HTTP CONNECT desktop.docker.com:443: successful after 2.4109637s with 15831 bytes transferred (111 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.568718600Z] req 13 HTTP CONNECT desktop.docker.com:443: successful after 2.439631s with 18562 bytes transferred (110 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.577162500Z] req 96 HTTP CONNECT desktop.docker.com:443: successful after 2.2205233s with 15883 bytes transferred (109 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.579906700Z] req 23 HTTP CONNECT desktop.docker.com:443: successful after 2.4303551s with 14596 bytes transferred (108 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.583087400Z] req 37 HTTP CONNECT desktop.docker.com:443: successful after 2.3924627s with 7581 bytes transferred (107 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.591533100Z] req 59 HTTP CONNECT desktop.docker.com:443: successful after 2.3477017s with 15167 bytes transferred (106 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.614948600Z] req 33 HTTP CONNECT desktop.docker.com:443: successful after 2.4441779s with 15027 bytes transferred (105 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.619182900Z] req 76 HTTP CONNECT desktop.docker.com:443: successful after 2.3242355s with 25425 bytes transferred (104 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.619182900Z] req 43 HTTP CONNECT desktop.docker.com:443: successful after 2.4178772s with 12980 bytes transferred (103 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.619702400Z] req 61 HTTP CONNECT desktop.docker.com:443: successful after 2.375871s with 15430 bytes transferred (102 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.620242700Z] req 70 HTTP CONNECT desktop.docker.com:443: successful after 2.3454479s with 12980 bytes transferred (101 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.620242700Z] req 81 HTTP CONNECT desktop.docker.com:443: successful after 2.3144409s with 10066 bytes transferred (100 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.626164000Z] req 47 HTTP CONNECT desktop.docker.com:443: successful after 2.4146379s with 15483 bytes transferred (99 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.631940500Z] req 15 HTTP CONNECT desktop.docker.com:443: successful after 2.5028529s with 14989 bytes transferred (98 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.634146400Z] req 126 HTTP CONNECT desktop.docker.com:443: successful after 2.0590461s with 9892 bytes transferred (97 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.634146400Z] req 25 HTTP CONNECT desktop.docker.com:443: successful after 2.4740982s with 16544 bytes transferred (96 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.638031600Z] req 124 HTTP CONNECT desktop.docker.com:443: successful after 2.0833486s with 7581 bytes transferred (95 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.645635000Z] req 127 HTTP CONNECT desktop.docker.com:443: successful after 2.0603361s with 10568 bytes transferred (94 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.645635000Z] req 120 HTTP CONNECT desktop.docker.com:443: successful after 2.1324488s with 11118 bytes transferred (93 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.651994500Z] req 122 HTTP CONNECT desktop.docker.com:443: successful after 2.1179799s with 15473 bytes transferred (92 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.651994500Z] req 94 HTTP CONNECT desktop.docker.com:443: successful after 2.3055636s with 7581 bytes transferred (91 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.652526100Z] req 12 HTTP CONNECT desktop.docker.com:443: successful after 4.4452919s with 33308 bytes transferred (90 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.656254900Z] req 31 HTTP CONNECT desktop.docker.com:443: successful after 2.4860133s with 13924 bytes transferred (89 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.659716100Z] req 20 HTTP CONNECT desktop.docker.com:443: successful after 2.5204744s with 7581 bytes transferred (88 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.662832500Z] req 17 HTTP CONNECT desktop.docker.com:443: successful after 2.5337449s with 18457 bytes transferred (87 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.665518100Z] req 67 HTTP CONNECT desktop.docker.com:443: successful after 2.4009542s with 17604 bytes transferred (86 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.673563800Z] req 87 HTTP CONNECT desktop.docker.com:443: successful after 2.3481082s with 9600 bytes transferred (85 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.680027700Z] req 117 HTTP CONNECT desktop.docker.com:443: successful after 2.1982002s with 13198 bytes transferred (84 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.681084200Z] req 42 HTTP CONNECT desktop.docker.com:443: successful after 2.4797785s with 13468 bytes transferred (83 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.685379000Z] req 69 HTTP CONNECT desktop.docker.com:443: successful after 2.4105842s with 9624 bytes transferred (82 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.690701500Z] req 79 HTTP CONNECT desktop.docker.com:443: successful after 2.3854413s with 16084 bytes transferred (81 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.695511100Z] req 118 HTTP CONNECT desktop.docker.com:443: successful after 2.2031527s with 14756 bytes transferred (80 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.696049600Z] req 86 HTTP CONNECT desktop.docker.com:443: successful after 2.370594s with 16545 bytes transferred (79 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.706074400Z] req 50 HTTP CONNECT desktop.docker.com:443: successful after 2.4945483s with 10285 bytes transferred (78 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.718783700Z] req 60 HTTP CONNECT desktop.docker.com:443: successful after 2.4749523s with 12019 bytes transferred (77 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.737432300Z] req 71 HTTP CONNECT desktop.docker.com:443: successful after 2.4621126s with 9387 bytes transferred (76 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.750487500Z] req 11 HTTP CONNECT desktop.docker.com:443: successful after 4.5538878s with 31752 bytes transferred (75 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.776754800Z] req 49 HTTP CONNECT desktop.docker.com:443: successful after 2.5652287s with 9920 bytes transferred (74 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.776754800Z] req 105 HTTP CONNECT desktop.docker.com:443: successful after 2.3782304s with 10678 bytes transferred (73 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.801063800Z] req 53 HTTP CONNECT desktop.docker.com:443: successful after 2.5791488s with 15501 bytes transferred (72 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.841892000Z] req 111 HTTP CONNECT desktop.docker.com:443: successful after 2.4014614s with 7581 bytes transferred (71 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.888439500Z] req 75 HTTP CONNECT desktop.docker.com:443: successful after 2.6030882s with 9719 bytes transferred (70 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.899785900Z] req 89 HTTP CONNECT desktop.docker.com:443: successful after 2.5743303s with 7581 bytes transferred (69 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.913902500Z] req 54 HTTP CONNECT desktop.docker.com:443: successful after 2.691471s with 7581 bytes transferred (68 remaining in-progress HTTP requests)
+[2026-11-13T03:34:41.921881000Z] req 125 HTTP CONNECT desktop.docker.com:443: successful after 2.3569654s with 7581 bytes transferred (67 remaining in-progress HTTP requests)
+[2026-11-13T03:34:42.265895200Z] req 115 HTTP CONNECT desktop.docker.com:443: successful after 2.7946573s with 7581 bytes transferred (66 remaining in-progress HTTP requests)
+[2026-11-13T03:34:42.591353600Z] req 46 HTTP CONNECT desktop.docker.com:443: successful after 3.3798275s with 7581 bytes transferred (65 remaining in-progress HTTP requests)
+[2026-11-13T03:34:42.924619100Z] req 92 HTTP CONNECT desktop.docker.com:443: successful after 3.5886976s with 7581 bytes transferred (64 remaining in-progress HTTP requests)
+[2026-11-13T03:34:43.720598100Z] req 128 HTTP CONNECT desktop.docker.com:443: successful after 4.1247123s with 7581 bytes transferred (63 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.133462900Z] req 16 HTTP CONNECT desktop.docker.com:443: successful after 5.0043753s with 1506 bytes transferred (62 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.133968300Z] req 14 HTTP CONNECT desktop.docker.com:443: successful after 5.0048807s with 1506 bytes transferred (61 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.142419600Z] req 19 HTTP CONNECT desktop.docker.com:443: successful after 5.0036917s with 1506 bytes transferred (60 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.154160000Z] req 21 HTTP CONNECT desktop.docker.com:443: successful after 5.0051277s with 1506 bytes transferred (59 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.163440800Z] req 26 HTTP CONNECT desktop.docker.com:443: successful after 5.0033926s with 1506 bytes transferred (58 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.172967500Z] req 29 HTTP CONNECT desktop.docker.com:443: successful after 5.0027259s with 1506 bytes transferred (57 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.173503400Z] req 27 HTTP CONNECT desktop.docker.com:443: successful after 5.0037788s with 1506 bytes transferred (56 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.174572100Z] req 32 HTTP CONNECT desktop.docker.com:443: successful after 5.0038014s with 1506 bytes transferred (55 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.175110700Z] req 28 HTTP CONNECT desktop.docker.com:443: successful after 5.0048691s with 1506 bytes transferred (54 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.184217100Z] req 36 HTTP CONNECT desktop.docker.com:443: successful after 5.0034331s with 1506 bytes transferred (53 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.184736400Z] req 34 HTTP CONNECT desktop.docker.com:443: successful after 5.0044872s with 1506 bytes transferred (52 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.195436200Z] req 40 HTTP CONNECT desktop.docker.com:443: successful after 5.0042917s with 1506 bytes transferred (51 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.195436200Z] req 39 HTTP CONNECT desktop.docker.com:443: successful after 5.0042917s with 1506 bytes transferred (50 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.205529200Z] req 44 HTTP CONNECT desktop.docker.com:443: successful after 5.0042235s with 1506 bytes transferred (49 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.206068400Z] req 41 HTTP CONNECT desktop.docker.com:443: successful after 5.0047627s with 1506 bytes transferred (48 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.206068400Z] req 45 HTTP CONNECT desktop.docker.com:443: successful after 5.0047627s with 1506 bytes transferred (47 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.215799700Z] req 51 HTTP CONNECT desktop.docker.com:443: successful after 5.0037368s with 1506 bytes transferred (46 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.215799700Z] req 48 HTTP CONNECT desktop.docker.com:443: successful after 5.0042736s with 1506 bytes transferred (45 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.226090100Z] req 52 HTTP CONNECT desktop.docker.com:443: successful after 5.0041751s with 1506 bytes transferred (44 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.236824000Z] req 57 HTTP CONNECT desktop.docker.com:443: successful after 5.0043013s with 1506 bytes transferred (43 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.237366500Z] req 56 HTTP CONNECT desktop.docker.com:443: successful after 5.0048438s with 1506 bytes transferred (42 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.237366500Z] req 55 HTTP CONNECT desktop.docker.com:443: successful after 5.0048438s with 1506 bytes transferred (41 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.247668700Z] req 58 HTTP CONNECT desktop.docker.com:443: successful after 5.0043518s with 1506 bytes transferred (40 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.258184100Z] req 62 HTTP CONNECT desktop.docker.com:443: successful after 5.0043254s with 1506 bytes transferred (39 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.258714700Z] req 63 HTTP CONNECT desktop.docker.com:443: successful after 5.004856s with 1506 bytes transferred (38 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.268530000Z] req 64 HTTP CONNECT desktop.docker.com:443: successful after 5.0039661s with 1506 bytes transferred (37 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.289107700Z] req 72 HTTP CONNECT desktop.docker.com:443: successful after 5.0042789s with 1506 bytes transferred (36 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.289107700Z] req 74 HTTP CONNECT desktop.docker.com:443: successful after 5.0042789s with 1506 bytes transferred (35 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.289107700Z] req 73 HTTP CONNECT desktop.docker.com:443: successful after 5.0042789s with 1506 bytes transferred (34 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.298821500Z] req 77 HTTP CONNECT desktop.docker.com:443: successful after 5.0038741s with 1506 bytes transferred (33 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.309905200Z] req 78 HTTP CONNECT desktop.docker.com:443: successful after 5.004645s with 1506 bytes transferred (32 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.309905200Z] req 80 HTTP CONNECT desktop.docker.com:443: successful after 5.004645s with 1506 bytes transferred (31 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.310967600Z] req 82 HTTP CONNECT desktop.docker.com:443: successful after 5.0051658s with 1506 bytes transferred (30 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.319606100Z] req 84 HTTP CONNECT desktop.docker.com:443: successful after 5.004287s with 1506 bytes transferred (29 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.320144500Z] req 83 HTTP CONNECT desktop.docker.com:443: successful after 5.0048254s with 1506 bytes transferred (28 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.329439000Z] req 88 HTTP CONNECT desktop.docker.com:443: successful after 5.0039834s with 1506 bytes transferred (27 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.329964100Z] req 90 HTTP CONNECT desktop.docker.com:443: successful after 5.0045085s with 1506 bytes transferred (26 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.329964100Z] req 91 HTTP CONNECT desktop.docker.com:443: successful after 5.0039897s with 1506 bytes transferred (25 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.340974000Z] req 93 HTTP CONNECT desktop.docker.com:443: successful after 5.0045321s with 1506 bytes transferred (24 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.351838600Z] req 95 HTTP CONNECT desktop.docker.com:443: successful after 5.0054077s with 1506 bytes transferred (23 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.370882600Z] req 97 HTTP CONNECT desktop.docker.com:443: successful after 5.003933s with 1506 bytes transferred (22 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.371388500Z] req 99 HTTP CONNECT desktop.docker.com:443: successful after 5.0044389s with 1506 bytes transferred (21 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.371388500Z] req 98 HTTP CONNECT desktop.docker.com:443: successful after 5.0044389s with 1506 bytes transferred (20 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.371388500Z] req 100 HTTP CONNECT desktop.docker.com:443: successful after 5.0044389s with 1506 bytes transferred (19 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.393349800Z] req 104 HTTP CONNECT desktop.docker.com:443: successful after 5.0055075s with 1506 bytes transferred (18 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.412562500Z] req 107 HTTP CONNECT desktop.docker.com:443: successful after 5.0038469s with 1506 bytes transferred (17 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.413095100Z] req 106 HTTP CONNECT desktop.docker.com:443: successful after 5.0043795s with 1506 bytes transferred (16 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.423684600Z] req 108 HTTP CONNECT desktop.docker.com:443: successful after 5.0044187s with 1506 bytes transferred (15 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.423684600Z] req 109 HTTP CONNECT desktop.docker.com:443: successful after 5.0044187s with 1506 bytes transferred (14 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.433526200Z] req 110 HTTP CONNECT desktop.docker.com:443: successful after 5.0036877s with 1506 bytes transferred (13 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.444245300Z] req 112 HTTP CONNECT desktop.docker.com:443: successful after 5.0038147s with 1506 bytes transferred (12 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.455092400Z] req 113 HTTP CONNECT desktop.docker.com:443: successful after 5.0045269s with 1506 bytes transferred (11 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.465044100Z] req 114 HTTP CONNECT desktop.docker.com:443: successful after 5.0043079s with 1506 bytes transferred (10 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.486755200Z] req 116 HTTP CONNECT desktop.docker.com:443: successful after 5.0049277s with 1506 bytes transferred (9 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.506531500Z] req 119 HTTP CONNECT desktop.docker.com:443: successful after 5.0039665s with 1506 bytes transferred (8 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.528117300Z] req 121 HTTP CONNECT desktop.docker.com:443: successful after 5.0043058s with 1506 bytes transferred (7 remaining in-progress HTTP requests)
+[2026-11-13T03:34:44.548218400Z] req 123 HTTP CONNECT desktop.docker.com:443: successful after 5.0040791s with 1506 bytes transferred (6 remaining in-progress HTTP requests)
+[2026-11-13T03:35:25.569602800Z] req 129 HTTP CONNECT sessions-bugsnag.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:35:25.570518300Z] req 129 HTTP CONNECT sessions-bugsnag.docker.com:443: proxying to sessions-bugsnag.docker.com:443
+[2026-11-13T03:35:37.619437500Z] req 9 HTTP CONNECT mcp.docker.com:443: successful after 1m3.0183691s with 7174 bytes transferred (6 remaining in-progress HTTP requests)
+[2026-11-13T03:36:04.654810500Z] req 5 HTTP CONNECT hub.docker.com:443: successful after 1m33.3560391s with 7476 bytes transferred (5 remaining in-progress HTTP requests)
+[2026-11-13T03:36:05.491547200Z] req 6 HTTP CONNECT hub.docker.com:443: successful after 1m34.021144s with 108309 bytes transferred (4 remaining in-progress HTTP requests)
+[2026-11-13T03:36:12.212503400Z] req 2 HTTP CONNECT desktop.docker.com:443: successful after 1m46.4918624s with 96475 bytes transferred (3 remaining in-progress HTTP requests)
+[2026-11-13T03:36:29.386952900Z] req 129 HTTP CONNECT sessions-bugsnag.docker.com:443: successful after 1m3.8173501s with 7402 bytes transferred (2 remaining in-progress HTTP requests)
+[2026-11-13T03:36:37.110076200Z] req 66 HTTP CONNECT desktop.docker.com:443: successful after 1m57.8455123s with 13423 bytes transferred (1 remaining in-progress HTTP requests)
+[2026-11-13T03:36:37.110076200Z] req 65 HTTP CONNECT desktop.docker.com:443: successful after 1m57.8455123s with 10327 bytes transferred (0 remaining in-progress HTTP requests)
+[2026-11-13T03:39:25.704226200Z] req 130 HTTP CONNECT api.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:39:25.705787000Z] req 130 HTTP CONNECT api.docker.com:443: proxying to api.docker.com:443
+[2026-11-13T03:39:30.945247200Z] req 130 HTTP CONNECT api.docker.com:443: successful after 5.2405112s with 1520 bytes transferred (0 remaining in-progress HTTP requests)
+[2026-11-13T03:46:23.486865400Z] req 131 HTTP CONNECT auth.docker.io:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:46:23.487400800Z] req 131 HTTP CONNECT auth.docker.io:443: proxying to auth.docker.io:443
+[2026-11-13T03:46:25.195380400Z] req 132 HTTP CONNECT api.dso.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:46:25.195908500Z] req 132 HTTP CONNECT api.dso.docker.com:443: proxying to api.dso.docker.com:443
+[2026-11-13T03:47:55.368508800Z] req 131 HTTP CONNECT auth.docker.io:443: successful after 1m31.8821537s with 13214 bytes transferred (1 remaining in-progress HTTP requests)
+[2026-11-13T03:48:06.227270500Z] req 132 HTTP CONNECT api.dso.docker.com:443: successful after 1m41.0318901s with 13117 bytes transferred (0 remaining in-progress HTTP requests)
+[2026-11-13T03:49:25.703434700Z] req 133 HTTP CONNECT api.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-13T03:49:25.704399300Z] req 133 HTTP CONNECT api.docker.com:443: proxying to api.docker.com:443
+[2026-11-13T03:50:27.876451200Z] req 133 HTTP CONNECT api.docker.com:443: successful after 1m2.1730165s with 12252 bytes transferred (0 remaining in-progress HTTP requests)
+-------------------------------------------------------------------------------->8
+[2026-11-14T06:09:54.406579200Z] host will use proxy: static system http_proxy=http://127.0.0.1:17897 https_proxy=http://127.0.0.1:17897 no_proxy=localhost,127.*,192.168.*,10.*,172.16.*,172.17.*,172.18.*,172.19.*,172.20.*,172.21.*,172.22.*,172.23.*,172.24.*,172.25.*,172.26.*,172.27.*,172.28.*,172.29.*,172.30.*,172.31.*,<local>
+[2026-11-14T06:09:54.407098600Z] Linux will use proxy: static system http_proxy=http://127.0.0.1:17897 https_proxy=http://127.0.0.1:17897 no_proxy=localhost,127.*,192.168.*,10.*,172.16.*,172.17.*,172.18.*,172.19.*,172.20.*,172.21.*,172.22.*,172.23.*,172.24.*,172.25.*,172.26.*,172.27.*,172.28.*,172.29.*,172.30.*,172.31.*,<local>
+[2026-11-14T06:09:54.430666400Z] req 1 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:09:54.430666400Z] req 2 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:09:54.430666400Z] req 3 HTTP CONNECT hub.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:09:54.432956200Z] req 2 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:09:54.432956200Z] req 1 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:09:54.433978300Z] req 3 HTTP CONNECT hub.docker.com:443: proxying to hub.docker.com:443
+[2026-11-14T06:09:55.789577600Z] req 2 HTTP CONNECT desktop.docker.com:443: successful after 1.4078583s with 7608 bytes transferred (2 remaining in-progress HTTP requests)
+[2026-11-14T06:09:56.141022700Z] req 4 HTTP CONNECT hub.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:09:56.142059400Z] req 4 HTTP CONNECT hub.docker.com:443: proxying to hub.docker.com:443
+[2026-11-14T06:09:56.827045500Z] req 5 HTTP CONNECT hub.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:09:56.827577700Z] req 5 HTTP CONNECT hub.docker.com:443: proxying to hub.docker.com:443
+[2026-11-14T06:09:56.897289900Z] req 6 HTTP CONNECT mcp.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:09:56.897835600Z] req 6 HTTP CONNECT mcp.docker.com:443: proxying to mcp.docker.com:443
+[2026-11-14T06:09:58.308120300Z] req 5 HTTP CONNECT hub.docker.com:443: successful after 1.4810748s with 6417 bytes transferred (4 remaining in-progress HTTP requests)
+[2026-11-14T06:10:01.190419500Z] host will use proxy: static system http_proxy=http://127.0.0.1:17897 https_proxy=http://127.0.0.1:17897 no_proxy=localhost,127.*,192.168.*,10.*,172.16.*,172.17.*,172.18.*,172.19.*,172.20.*,172.21.*,172.22.*,172.23.*,172.24.*,172.25.*,172.26.*,172.27.*,172.28.*,172.29.*,172.30.*,172.31.*,<local>
+[2026-11-14T06:10:01.190924100Z] Linux will use proxy: static system http_proxy=http://127.0.0.1:17897 https_proxy=http://127.0.0.1:17897 no_proxy=localhost,127.*,192.168.*,10.*,172.16.*,172.17.*,172.18.*,172.19.*,172.20.*,172.21.*,172.22.*,172.23.*,172.24.*,172.25.*,172.26.*,172.27.*,172.28.*,172.29.*,172.30.*,172.31.*,<local>
+[2026-11-14T06:10:04.366240100Z] req 7 HTTP GET http://ipc/ping: with direct connection to VM
+[2026-11-14T06:10:04.400402800Z] req 7 HTTP GET http://ipc/ping: proxying to ipc:80
+[2026-11-14T06:10:04.419840800Z] req 7 HTTP GET http://ipc/ping: successful after 53.6007ms with 294 bytes transferred (4 remaining in-progress HTTP requests)
+[2026-11-14T06:10:04.422081800Z] req 8 HTTP GET http://ipc/metrics: with direct connection to VM
+[2026-11-14T06:10:04.424269800Z] req 8 HTTP GET http://ipc/metrics: proxying to ipc:80
+[2026-11-14T06:10:04.429061200Z] req 8 HTTP GET http://ipc/metrics: successful after 8.0313ms with 271 bytes transferred (4 remaining in-progress HTTP requests)
+[2026-11-14T06:10:07.186872600Z] req 9 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:07.186872600Z] req 10 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:07.187995400Z] req 9 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:07.187995400Z] req 10 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:07.197306100Z] req 11 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:07.197839900Z] req 11 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:09.440700600Z] req 9 HTTP CONNECT desktop.docker.com:443: successful after 2.253828s with 8445 bytes transferred (6 remaining in-progress HTTP requests)
+[2026-11-14T06:10:10.068425900Z] req 12 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.068425900Z] req 13 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.069080700Z] req 13 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.069080700Z] req 12 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.078236600Z] req 14 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.078614900Z] req 15 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.078614900Z] req 16 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.078614900Z] req 17 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.079157000Z] req 14 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.079157000Z] req 15 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.080227000Z] req 16 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.081325100Z] req 17 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.088364100Z] req 18 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.089468300Z] req 19 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.089468300Z] req 18 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.089972100Z] req 19 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.099114800Z] req 20 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.099625700Z] req 21 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.099625700Z] req 20 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.099887500Z] req 22 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.099887500Z] req 23 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.099887500Z] req 21 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.100437100Z] req 23 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.100512300Z] req 22 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.109547400Z] req 24 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.110063200Z] req 25 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.110063200Z] req 26 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.110578800Z] req 24 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.110578800Z] req 26 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.110578800Z] req 25 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.119872400Z] req 27 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.119872400Z] req 28 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.119872400Z] req 29 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.120389100Z] req 30 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.120389100Z] req 29 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.120906300Z] req 28 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.120906300Z] req 27 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.120906300Z] req 30 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.129881300Z] req 31 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.130447000Z] req 32 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.130950100Z] req 31 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.130950100Z] req 32 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.140209400Z] req 33 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.140729100Z] req 34 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.140729100Z] req 35 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.141146000Z] req 34 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.141146000Z] req 35 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.141693500Z] req 33 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.150567800Z] req 36 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.151083100Z] req 37 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.151595200Z] req 36 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.151595200Z] req 37 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.160615200Z] req 40 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.160615200Z] req 42 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.161122600Z] req 41 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.161122600Z] req 44 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.161122600Z] req 39 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.161122600Z] req 43 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.161122600Z] req 38 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.161716600Z] req 40 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.161716600Z] req 42 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.162236000Z] req 41 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.162236000Z] req 44 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.162236000Z] req 39 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.163327500Z] req 38 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.163473300Z] req 43 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.170758300Z] req 45 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.171268500Z] req 46 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.171268500Z] req 45 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.171782500Z] req 46 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.181110900Z] req 47 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.181110900Z] req 48 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.181110900Z] req 49 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.181616700Z] req 50 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.181616700Z] req 47 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.181616700Z] req 48 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.182146100Z] req 49 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.182379400Z] req 50 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.191285700Z] req 51 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.191794100Z] req 52 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.192341500Z] req 51 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.192341500Z] req 52 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.201313000Z] req 53 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.201313000Z] req 54 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.201313000Z] req 55 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.201839600Z] req 56 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.201911100Z] req 55 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.202414200Z] req 54 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.202414200Z] req 53 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.202414200Z] req 56 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.211662600Z] req 57 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.212698000Z] req 57 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.221932600Z] req 60 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.222444300Z] req 59 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.222444300Z] req 61 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.222444300Z] req 58 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.222444300Z] req 62 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.222961600Z] req 60 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.222961600Z] req 61 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.222961600Z] req 59 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.223476700Z] req 58 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.223998700Z] req 62 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.232054000Z] req 63 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.232054000Z] req 64 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.232569900Z] req 63 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.232569900Z] req 64 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.242128000Z] req 65 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.242128000Z] req 66 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.242128000Z] req 67 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.243163000Z] req 67 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.243163000Z] req 66 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.243163000Z] req 65 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.252558100Z] req 68 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.253070200Z] req 68 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.262976300Z] req 69 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.264013600Z] req 69 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.273501600Z] req 71 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.274086500Z] req 70 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.274086500Z] req 72 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.275240300Z] req 71 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.275240300Z] req 72 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.275240300Z] req 70 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.283773800Z] req 73 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.283773800Z] req 76 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.283773800Z] req 75 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.283773800Z] req 78 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.283773800Z] req 74 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.284545700Z] req 77 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.285393600Z] req 73 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.285393600Z] req 78 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.285899700Z] req 75 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.287342900Z] req 74 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.287342900Z] req 76 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.287342900Z] req 77 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.294351400Z] req 79 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.295144100Z] req 79 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.304877600Z] req 80 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.305896700Z] req 80 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.315178700Z] req 81 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.315178700Z] req 82 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.315697600Z] req 83 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.315697600Z] req 84 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.315697600Z] req 85 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.316236800Z] req 83 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.316236800Z] req 81 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.316236800Z] req 82 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.316236800Z] req 85 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.316236800Z] req 84 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.325527100Z] req 86 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.325527100Z] req 87 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.326121200Z] req 86 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.326121200Z] req 87 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.335751200Z] req 88 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.336789100Z] req 88 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.345996900Z] req 89 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.346510100Z] req 89 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.356490500Z] req 90 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.357530500Z] req 90 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.366922600Z] req 92 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.366922600Z] req 91 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.366922600Z] req 93 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.366922600Z] req 94 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.367977800Z] req 91 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.367977800Z] req 93 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.367977800Z] req 92 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.369626500Z] req 94 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.377067600Z] req 95 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.378174700Z] req 95 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.387588200Z] req 96 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.387588200Z] req 97 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.388093200Z] req 98 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.388093200Z] req 99 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.388675000Z] req 99 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.388675000Z] req 98 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.388675000Z] req 97 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.388675000Z] req 96 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.397811600Z] req 100 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.398325100Z] req 100 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.408689200Z] req 101 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.408689200Z] req 102 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.408689200Z] req 103 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.408689200Z] req 104 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.409195600Z] req 102 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.409195600Z] req 101 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.409711900Z] req 104 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.409711900Z] req 103 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.418736500Z] req 105 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.418736500Z] req 106 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.419267100Z] req 105 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.419789200Z] req 106 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.428917400Z] req 107 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.429964500Z] req 107 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.438983900Z] req 108 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.439331600Z] req 109 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.439849600Z] req 109 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.439849600Z] req 108 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.449478800Z] req 110 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.450506800Z] req 110 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.459676600Z] req 111 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.460731900Z] req 111 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.469803100Z] req 112 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.470379800Z] req 112 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.480048400Z] req 113 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.480048400Z] req 114 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.481353000Z] req 114 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.481353000Z] req 113 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.490432700Z] req 115 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.490432700Z] req 116 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.491489800Z] req 115 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.491489800Z] req 116 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.500661700Z] req 117 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.501721100Z] req 117 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.510799800Z] req 118 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.510799800Z] req 119 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.511764700Z] req 119 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.511764700Z] req 118 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.521146300Z] req 120 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.521657800Z] req 120 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.531454000Z] req 121 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.531974600Z] req 121 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.541895000Z] req 122 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.542955900Z] req 122 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.552167600Z] req 123 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.553218900Z] req 123 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.562539000Z] req 124 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.563092800Z] req 124 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.573163600Z] req 125 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.573710900Z] req 125 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.583217100Z] req 126 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.583726300Z] req 126 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:10.593664600Z] req 127 HTTP CONNECT desktop.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:10.594784800Z] req 127 HTTP CONNECT desktop.docker.com:443: proxying to desktop.docker.com:443
+[2026-11-14T06:10:13.315918100Z] req 19 HTTP CONNECT desktop.docker.com:443: successful after 3.2265228s with 14023 bytes transferred (121 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.316423100Z] req 84 HTTP CONNECT desktop.docker.com:443: successful after 3.0012444s with 10738 bytes transferred (120 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.316423100Z] req 120 HTTP CONNECT desktop.docker.com:443: successful after 2.7952768s with 10102 bytes transferred (119 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.318864300Z] req 98 HTTP CONNECT desktop.docker.com:443: successful after 2.9312761s with 7581 bytes transferred (118 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.489634700Z] req 17 HTTP CONNECT desktop.docker.com:443: successful after 3.4110198s with 12682 bytes transferred (117 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.494523100Z] req 67 HTTP CONNECT desktop.docker.com:443: successful after 3.2523951s with 12932 bytes transferred (116 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.496232600Z] req 104 HTTP CONNECT desktop.docker.com:443: successful after 3.0875434s with 9885 bytes transferred (115 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.496232600Z] req 88 HTTP CONNECT desktop.docker.com:443: successful after 3.1604814s with 9381 bytes transferred (113 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.496232600Z] req 103 HTTP CONNECT desktop.docker.com:443: successful after 3.0875434s with 9892 bytes transferred (113 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.496736200Z] req 102 HTTP CONNECT desktop.docker.com:443: successful after 3.088047s with 10131 bytes transferred (112 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.497823200Z] req 10 HTTP CONNECT desktop.docker.com:443: successful after 6.3109506s with 22130 bytes transferred (111 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.497823200Z] req 33 HTTP CONNECT desktop.docker.com:443: successful after 3.3576138s with 7581 bytes transferred (110 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.497823200Z] req 23 HTTP CONNECT desktop.docker.com:443: successful after 3.3981975s with 13132 bytes transferred (109 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.497823200Z] req 22 HTTP CONNECT desktop.docker.com:443: successful after 3.3981975s with 12333 bytes transferred (108 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.498379700Z] req 11 HTTP CONNECT desktop.docker.com:443: successful after 6.3010736s with 25439 bytes transferred (107 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.498882300Z] req 60 HTTP CONNECT desktop.docker.com:443: successful after 3.2769497s with 11862 bytes transferred (106 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.498882300Z] req 29 HTTP CONNECT desktop.docker.com:443: successful after 3.3790099s with 12448 bytes transferred (105 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.498882300Z] req 58 HTTP CONNECT desktop.docker.com:443: successful after 3.2769497s with 12490 bytes transferred (104 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.499516000Z] req 49 HTTP CONNECT desktop.docker.com:443: successful after 3.3184051s with 13143 bytes transferred (103 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.500075100Z] req 71 HTTP CONNECT desktop.docker.com:443: successful after 3.2265735s with 9743 bytes transferred (102 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.500075100Z] req 73 HTTP CONNECT desktop.docker.com:443: successful after 3.2163013s with 13875 bytes transferred (101 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.500075100Z] req 113 HTTP CONNECT desktop.docker.com:443: successful after 3.0200267s with 11902 bytes transferred (100 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.500734400Z] req 24 HTTP CONNECT desktop.docker.com:443: successful after 3.391187s with 12993 bytes transferred (99 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.500734400Z] req 18 HTTP CONNECT desktop.docker.com:443: successful after 3.4123703s with 13622 bytes transferred (98 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.500734400Z] req 39 HTTP CONNECT desktop.docker.com:443: successful after 3.3401192s with 11251 bytes transferred (97 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.501243500Z] req 94 HTTP CONNECT desktop.docker.com:443: successful after 3.1343209s with 10137 bytes transferred (96 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.501243500Z] req 46 HTTP CONNECT desktop.docker.com:443: successful after 3.329975s with 13175 bytes transferred (95 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.501243500Z] req 66 HTTP CONNECT desktop.docker.com:443: successful after 3.2591155s with 13170 bytes transferred (94 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.501243500Z] req 28 HTTP CONNECT desktop.docker.com:443: successful after 3.3813711s with 12421 bytes transferred (93 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.501243500Z] req 38 HTTP CONNECT desktop.docker.com:443: successful after 3.3406283s with 12559 bytes transferred (92 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.501752900Z] req 63 HTTP CONNECT desktop.docker.com:443: successful after 3.2696989s with 10979 bytes transferred (91 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.501752900Z] req 12 HTTP CONNECT desktop.docker.com:443: successful after 3.433327s with 12027 bytes transferred (90 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.502781400Z] req 65 HTTP CONNECT desktop.docker.com:443: successful after 3.2606534s with 12915 bytes transferred (89 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.503297000Z] req 27 HTTP CONNECT desktop.docker.com:443: successful after 3.3834246s with 12953 bytes transferred (88 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.503297000Z] req 76 HTTP CONNECT desktop.docker.com:443: successful after 3.2195232s with 10175 bytes transferred (87 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.503297000Z] req 115 HTTP CONNECT desktop.docker.com:443: successful after 3.0128643s with 9682 bytes transferred (86 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.503297000Z] req 15 HTTP CONNECT desktop.docker.com:443: successful after 3.4253285s with 13722 bytes transferred (85 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.503297000Z] req 69 HTTP CONNECT desktop.docker.com:443: successful after 3.2403207s with 11941 bytes transferred (84 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.503822500Z] req 64 HTTP CONNECT desktop.docker.com:443: successful after 3.2717685s with 12594 bytes transferred (83 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.503822500Z] req 32 HTTP CONNECT desktop.docker.com:443: successful after 3.3733755s with 10818 bytes transferred (82 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.505361800Z] req 41 HTTP CONNECT desktop.docker.com:443: successful after 3.3447466s with 13099 bytes transferred (81 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.506390000Z] req 89 HTTP CONNECT desktop.docker.com:443: successful after 3.1603931s with 13211 bytes transferred (80 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.506390000Z] req 16 HTTP CONNECT desktop.docker.com:443: successful after 3.4281534s with 12296 bytes transferred (79 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.506390000Z] req 53 HTTP CONNECT desktop.docker.com:443: successful after 3.305077s with 14052 bytes transferred (78 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.506900600Z] req 40 HTTP CONNECT desktop.docker.com:443: successful after 3.3462854s with 12820 bytes transferred (77 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.508865600Z] req 57 HTTP CONNECT desktop.docker.com:443: successful after 3.297203s with 9925 bytes transferred (76 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.508865600Z] req 50 HTTP CONNECT desktop.docker.com:443: successful after 3.3272489s with 10775 bytes transferred (75 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.510745100Z] req 21 HTTP CONNECT desktop.docker.com:443: successful after 3.4111194s with 10648 bytes transferred (74 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.511781300Z] req 48 HTTP CONNECT desktop.docker.com:443: successful after 3.3306704s with 7581 bytes transferred (73 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.516384700Z] req 90 HTTP CONNECT desktop.docker.com:443: successful after 3.1598942s with 10647 bytes transferred (72 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.523701600Z] req 35 HTTP CONNECT desktop.docker.com:443: successful after 3.3829725s with 7581 bytes transferred (71 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.535745900Z] req 81 HTTP CONNECT desktop.docker.com:443: successful after 3.2200551s with 7581 bytes transferred (70 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.544830600Z] req 95 HTTP CONNECT desktop.docker.com:443: successful after 3.167763s with 7581 bytes transferred (69 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.545419400Z] req 61 HTTP CONNECT desktop.docker.com:443: successful after 3.3234868s with 7581 bytes transferred (68 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.694958100Z] req 100 HTTP CONNECT desktop.docker.com:443: successful after 3.2971465s with 7581 bytes transferred (67 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.696636800Z] req 13 HTTP CONNECT desktop.docker.com:443: successful after 3.6282109s with 10235 bytes transferred (66 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.697655800Z] req 14 HTTP CONNECT desktop.docker.com:443: successful after 3.6196873s with 10976 bytes transferred (65 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.707869300Z] req 116 HTTP CONNECT desktop.docker.com:443: successful after 3.2174366s with 7581 bytes transferred (64 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.711218300Z] req 122 HTTP CONNECT desktop.docker.com:443: successful after 3.1693233s with 7581 bytes transferred (63 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.711943400Z] req 101 HTTP CONNECT desktop.docker.com:443: successful after 3.3032542s with 7581 bytes transferred (62 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.711943400Z] req 91 HTTP CONNECT desktop.docker.com:443: successful after 3.3450208s with 13045 bytes transferred (61 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.712967100Z] req 56 HTTP CONNECT desktop.docker.com:443: successful after 3.5116541s with 13659 bytes transferred (60 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.717667100Z] req 78 HTTP CONNECT desktop.docker.com:443: successful after 3.4338933s with 12390 bytes transferred (58 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.717667100Z] req 83 HTTP CONNECT desktop.docker.com:443: successful after 3.4024884s with 7581 bytes transferred (58 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.717667100Z] req 99 HTTP CONNECT desktop.docker.com:443: successful after 3.3300789s with 12473 bytes transferred (57 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.721365100Z] req 86 HTTP CONNECT desktop.docker.com:443: successful after 3.395838s with 13398 bytes transferred (56 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.721365100Z] req 68 HTTP CONNECT desktop.docker.com:443: successful after 3.468807s with 12429 bytes transferred (55 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.721365100Z] req 117 HTTP CONNECT desktop.docker.com:443: successful after 3.2207034s with 10051 bytes transferred (54 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.721365100Z] req 109 HTTP CONNECT desktop.docker.com:443: successful after 3.2823812s with 7581 bytes transferred (53 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.721869500Z] req 36 HTTP CONNECT desktop.docker.com:443: successful after 3.5713017s with 12645 bytes transferred (52 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.721869500Z] req 119 HTTP CONNECT desktop.docker.com:443: successful after 3.2110697s with 12035 bytes transferred (51 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.722049900Z] req 121 HTTP CONNECT desktop.docker.com:443: successful after 3.1905959s with 13678 bytes transferred (50 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.722049900Z] req 127 HTTP CONNECT desktop.docker.com:443: successful after 3.1283853s with 10931 bytes transferred (49 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.722049900Z] req 96 HTTP CONNECT desktop.docker.com:443: successful after 3.3344617s with 7581 bytes transferred (48 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.725787200Z] req 110 HTTP CONNECT desktop.docker.com:443: successful after 3.2763084s with 10344 bytes transferred (47 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.725787200Z] req 112 HTTP CONNECT desktop.docker.com:443: successful after 3.2559841s with 10327 bytes transferred (46 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.725787200Z] req 75 HTTP CONNECT desktop.docker.com:443: successful after 3.4420134s with 12213 bytes transferred (45 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.726290900Z] req 77 HTTP CONNECT desktop.docker.com:443: successful after 3.4425171s with 11927 bytes transferred (44 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.726290900Z] req 93 HTTP CONNECT desktop.docker.com:443: successful after 3.3593683s with 17761 bytes transferred (43 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.726290900Z] req 54 HTTP CONNECT desktop.docker.com:443: successful after 3.5249779s with 13274 bytes transferred (42 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.726290900Z] req 97 HTTP CONNECT desktop.docker.com:443: successful after 3.3387027s with 10164 bytes transferred (41 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.726290900Z] req 74 HTTP CONNECT desktop.docker.com:443: successful after 3.4425171s with 7581 bytes transferred (40 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.726290900Z] req 111 HTTP CONNECT desktop.docker.com:443: successful after 3.2666143s with 7581 bytes transferred (38 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.726290900Z] req 114 HTTP CONNECT desktop.docker.com:443: successful after 3.2462425s with 9621 bytes transferred (39 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.726290900Z] req 44 HTTP CONNECT desktop.docker.com:443: successful after 3.5651683s with 11213 bytes transferred (36 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.726290900Z] req 118 HTTP CONNECT desktop.docker.com:443: successful after 3.2154911s with 7581 bytes transferred (37 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.726290900Z] req 105 HTTP CONNECT desktop.docker.com:443: successful after 3.3075544s with 7581 bytes transferred (35 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.730312500Z] req 108 HTTP CONNECT desktop.docker.com:443: successful after 3.2913286s with 7581 bytes transferred (34 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.730850500Z] req 87 HTTP CONNECT desktop.docker.com:443: successful after 3.4053234s with 7581 bytes transferred (33 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.740072800Z] req 45 HTTP CONNECT desktop.docker.com:443: successful after 3.5693145s with 7581 bytes transferred (32 remaining in-progress HTTP requests)
+[2026-11-14T06:10:13.867454000Z] req 59 HTTP CONNECT desktop.docker.com:443: successful after 3.6455214s with 7581 bytes transferred (31 remaining in-progress HTTP requests)
+[2026-11-14T06:10:14.063972600Z] req 106 HTTP CONNECT desktop.docker.com:443: successful after 3.6452361s with 7581 bytes transferred (30 remaining in-progress HTTP requests)
+[2026-11-14T06:10:14.063972600Z] req 26 HTTP CONNECT desktop.docker.com:443: successful after 3.9539094s with 7581 bytes transferred (29 remaining in-progress HTTP requests)
+[2026-11-14T06:10:14.063972600Z] req 20 HTTP CONNECT desktop.docker.com:443: successful after 3.9648578s with 7581 bytes transferred (28 remaining in-progress HTTP requests)
+[2026-11-14T06:10:14.064477200Z] req 125 HTTP CONNECT desktop.docker.com:443: successful after 3.4913136s with 7581 bytes transferred (27 remaining in-progress HTTP requests)
+[2026-11-14T06:10:14.064477200Z] req 124 HTTP CONNECT desktop.docker.com:443: successful after 3.5019382s with 7581 bytes transferred (26 remaining in-progress HTTP requests)
+[2026-11-14T06:10:14.064554200Z] req 37 HTTP CONNECT desktop.docker.com:443: successful after 3.9134711s with 7581 bytes transferred (25 remaining in-progress HTTP requests)
+[2026-11-14T06:10:14.067306500Z] req 72 HTTP CONNECT desktop.docker.com:443: successful after 3.7932738s with 7581 bytes transferred (24 remaining in-progress HTTP requests)
+[2026-11-14T06:10:14.067306500Z] req 42 HTTP CONNECT desktop.docker.com:443: successful after 3.9066913s with 7581 bytes transferred (23 remaining in-progress HTTP requests)
+[2026-11-14T06:10:14.068813600Z] req 70 HTTP CONNECT desktop.docker.com:443: successful after 3.795312s with 7581 bytes transferred (22 remaining in-progress HTTP requests)
+[2026-11-14T06:10:14.069950700Z] req 55 HTTP CONNECT desktop.docker.com:443: successful after 3.8686377s with 7581 bytes transferred (21 remaining in-progress HTTP requests)
+[2026-11-14T06:10:14.072505200Z] req 52 HTTP CONNECT desktop.docker.com:443: successful after 3.8807111s with 7581 bytes transferred (20 remaining in-progress HTTP requests)
+[2026-11-14T06:10:14.072505200Z] req 85 HTTP CONNECT desktop.docker.com:443: successful after 3.7573265s with 7581 bytes transferred (19 remaining in-progress HTTP requests)
+[2026-11-14T06:10:14.073360900Z] req 80 HTTP CONNECT desktop.docker.com:443: successful after 3.7684833s with 7581 bytes transferred (18 remaining in-progress HTTP requests)
+[2026-11-14T06:10:14.073360900Z] req 62 HTTP CONNECT desktop.docker.com:443: successful after 3.8514283s with 7581 bytes transferred (17 remaining in-progress HTTP requests)
+[2026-11-14T06:10:14.076372500Z] req 31 HTTP CONNECT desktop.docker.com:443: successful after 3.9464912s with 7581 bytes transferred (16 remaining in-progress HTTP requests)
+[2026-11-14T06:10:14.077283600Z] req 123 HTTP CONNECT desktop.docker.com:443: successful after 3.525116s with 7581 bytes transferred (15 remaining in-progress HTTP requests)
+[2026-11-14T06:10:14.077283600Z] req 30 HTTP CONNECT desktop.docker.com:443: successful after 3.9568945s with 7581 bytes transferred (14 remaining in-progress HTTP requests)
+[2026-11-14T06:10:14.077891500Z] req 47 HTTP CONNECT desktop.docker.com:443: successful after 3.8967806s with 7581 bytes transferred (13 remaining in-progress HTTP requests)
+[2026-11-14T06:10:14.078111600Z] req 126 HTTP CONNECT desktop.docker.com:443: successful after 3.4948945s with 7581 bytes transferred (12 remaining in-progress HTTP requests)
+[2026-11-14T06:10:14.080543000Z] req 79 HTTP CONNECT desktop.docker.com:443: successful after 3.7861916s with 7581 bytes transferred (11 remaining in-progress HTTP requests)
+[2026-11-14T06:10:14.083845100Z] req 43 HTTP CONNECT desktop.docker.com:443: successful after 3.9232299s with 7581 bytes transferred (10 remaining in-progress HTTP requests)
+[2026-11-14T06:10:14.083845100Z] req 51 HTTP CONNECT desktop.docker.com:443: successful after 3.8925594s with 7581 bytes transferred (9 remaining in-progress HTTP requests)
+[2026-11-14T06:10:14.087662100Z] req 107 HTTP CONNECT desktop.docker.com:443: successful after 3.6587447s with 7581 bytes transferred (8 remaining in-progress HTTP requests)
+[2026-11-14T06:10:14.229716500Z] req 34 HTTP CONNECT desktop.docker.com:443: successful after 4.0895071s with 7581 bytes transferred (7 remaining in-progress HTTP requests)
+[2026-11-14T06:10:42.471876300Z] req 92 HTTP CONNECT desktop.docker.com:443: successful after 32.1049537s with 1506 bytes transferred (6 remaining in-progress HTTP requests)
+[2026-11-14T06:10:44.540648700Z] req 82 HTTP CONNECT desktop.docker.com:443: successful after 34.22547s with 7784 bytes transferred (5 remaining in-progress HTTP requests)
+[2026-11-14T06:10:44.540648700Z] req 25 HTTP CONNECT desktop.docker.com:443: successful after 34.4305855s with 7784 bytes transferred (4 remaining in-progress HTTP requests)
+[2026-11-14T06:10:54.199613300Z] req 128 HTTP CONNECT sessions-bugsnag.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:10:54.200260700Z] req 128 HTTP CONNECT sessions-bugsnag.docker.com:443: proxying to sessions-bugsnag.docker.com:443
+[2026-11-14T06:10:59.693042700Z] req 6 HTTP CONNECT mcp.docker.com:443: successful after 1m2.7957528s with 7171 bytes transferred (4 remaining in-progress HTTP requests)
+[2026-11-14T06:11:26.951584000Z] req 3 HTTP CONNECT hub.docker.com:443: successful after 1m32.5330231s with 8021 bytes transferred (3 remaining in-progress HTTP requests)
+[2026-11-14T06:11:28.067137700Z] req 4 HTTP CONNECT hub.docker.com:443: successful after 1m31.926115s with 108304 bytes transferred (2 remaining in-progress HTTP requests)
+[2026-11-14T06:11:44.156596600Z] req 1 HTTP CONNECT desktop.docker.com:443: successful after 1m49.9014887s with 96517 bytes transferred (1 remaining in-progress HTTP requests)
+[2026-11-14T06:11:56.177914000Z] req 128 HTTP CONNECT sessions-bugsnag.docker.com:443: successful after 1m1.9803088s with 7360 bytes transferred (0 remaining in-progress HTTP requests)
+[2026-11-14T06:14:53.872937400Z] req 129 HTTP CONNECT auth.docker.io:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:14:53.874123700Z] req 129 HTTP CONNECT auth.docker.io:443: proxying to auth.docker.io:443
+[2026-11-14T06:14:54.362514700Z] req 130 HTTP CONNECT api.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:14:54.363543500Z] req 130 HTTP CONNECT api.docker.com:443: proxying to api.docker.com:443
+[2026-11-14T06:14:56.141826200Z] req 131 HTTP CONNECT api.dso.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:14:56.142886200Z] req 131 HTTP CONNECT api.dso.docker.com:443: proxying to api.dso.docker.com:443
+[2026-11-14T06:15:57.223066400Z] req 130 HTTP CONNECT api.docker.com:443: successful after 1m2.8605517s with 68815 bytes transferred (2 remaining in-progress HTTP requests)
+[2026-11-14T06:16:26.222582600Z] req 129 HTTP CONNECT auth.docker.io:443: successful after 1m32.3496452s with 13212 bytes transferred (1 remaining in-progress HTTP requests)
+[2026-11-14T06:16:30.823512700Z] req 131 HTTP CONNECT api.dso.docker.com:443: successful after 1m34.6822236s with 13087 bytes transferred (0 remaining in-progress HTTP requests)
+[2026-11-14T06:16:41.374660700Z] req 132 HTTP GET http://ipc/ping: with direct connection to VM
+[2026-11-14T06:16:41.375811100Z] req 132 HTTP GET http://ipc/ping: proxying to ipc:80
+[2026-11-14T06:16:41.376992900Z] req 132 HTTP GET http://ipc/ping: successful after 2.3322ms with 294 bytes transferred (0 remaining in-progress HTTP requests)
+[2026-11-14T06:16:41.380911600Z] req 133 HTTP GET http://ipc/metrics: with direct connection to VM
+[2026-11-14T06:16:41.381415800Z] req 133 HTTP GET http://ipc/metrics: proxying to ipc:80
+[2026-11-14T06:16:41.383638300Z] req 133 HTTP GET http://ipc/metrics: successful after 2.7267ms with 271 bytes transferred (0 remaining in-progress HTTP requests)
+[2026-11-14T06:16:44.495312100Z] hubproxy: stopping because context canceled
+[2026-11-14T06:16:44.495312100Z] hubproxy: stopping because context canceled
+[2026-11-14T06:16:44.519148900Z] req 134 HTTP CONNECT api.docker.com:443: host connecting via static system HTTPS proxy http://127.0.0.1:17897
+[2026-11-14T06:16:44.519670000Z] req 134 HTTP CONNECT api.docker.com:443: proxying to api.docker.com:443
+[2026-11-14T06:16:46.048750300Z] req 134 HTTP CONNECT api.docker.com:443: successful after 1.5296014s with 0 bytes transferred (0 remaining in-progress HTTP requests)

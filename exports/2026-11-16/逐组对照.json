@@ -1,0 +1,1384 @@
+{
+  "archives": [
+    {
+      "file": "gpu1-12420.zip",
+      "sha256": "b0d18378467a62eb282025224a511d44e4c654bed44069a35f0f2134e4722cb1",
+      "host": "gpu1-12420",
+      "captured_utc": "2026-11-16T14:31:42.492582+00:00",
+      "gpu": "NVIDIA GeForce RTX 4090, 49140 MiB, 595.84",
+      "runs": [
+        {
+          "release": "harness",
+          "unit": "eda-contest2-loss-decoder-formal",
+          "unit_state": [
+            "MainPID=0",
+            "Result=success",
+            "ActiveState=inactive",
+            "SubState=dead"
+          ],
+          "source_checksums": {
+            "source/agent.py": "cf14d097448bfad9d382688b8dbef20982bb7cdba23fc6f189ba1ae7acd4c984",
+            "source/prompt.md": "1efc1a5ecc4d4b0cab4d8a5bd4be8eb6d52ae9c1d7eaef1ebdffd30f1202a081",
+            "source/program.py": "f18b6e303cad3e67b7dd5be6a63a2ca7399e43997fd0c900334adae1a31bc87b",
+            "participant/agent.py": "cf14d097448bfad9d382688b8dbef20982bb7cdba23fc6f189ba1ae7acd4c984",
+            "participant/prompt.md": "1efc1a5ecc4d4b0cab4d8a5bd4be8eb6d52ae9c1d7eaef1ebdffd30f1202a081",
+            "participant/program.py": "f18b6e303cad3e67b7dd5be6a63a2ca7399e43997fd0c900334adae1a31bc87b"
+          },
+          "runtime": {
+            "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+            "capacity": {
+              "cpu": 8,
+              "memory_gb": 24,
+              "storage_gb": 40,
+              "gpus": [
+                "0"
+              ],
+              "build_slots": 0
+            },
+            "host": "local-contest2"
+          },
+          "session": {
+            "baseline": "loss_decoder",
+            "evaluation_mode": "formal",
+            "status": "starting",
+            "matrix_cells": 9,
+            "retain_physical_files": false,
+            "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+            "endpoint": "post-opt-pre-cts"
+          },
+          "cell_receipts": 7,
+          "partition_files": 7
+        },
+        {
+          "release": "harness-v5-20261116",
+          "unit": "eda-contest2-loss-decoder-v5",
+          "unit_state": [
+            "MainPID=0",
+            "Result=timeout",
+            "ActiveState=failed",
+            "SubState=failed"
+          ],
+          "source_checksums": {
+            "source/agent.py": "8a07d69714e4d6b212b5d7f4142ea15a931f25379570c426169a4df3d0243477",
+            "source/prompt.md": "9f83112c2d91072546fd2733758936b1cc1aeb3bcc584030954d60fbee0595d3",
+            "source/program.py": "f18b6e303cad3e67b7dd5be6a63a2ca7399e43997fd0c900334adae1a31bc87b",
+            "participant/agent.py": "8a07d69714e4d6b212b5d7f4142ea15a931f25379570c426169a4df3d0243477",
+            "participant/prompt.md": "9f83112c2d91072546fd2733758936b1cc1aeb3bcc584030954d60fbee0595d3",
+            "participant/program.py": "f18b6e303cad3e67b7dd5be6a63a2ca7399e43997fd0c900334adae1a31bc87b"
+          },
+          "runtime": {
+            "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+            "capacity": {
+              "cpu": 8,
+              "memory_gb": 24,
+              "storage_gb": 40,
+              "gpus": [
+                "0"
+              ],
+              "build_slots": 0
+            },
+            "host": "local-contest2"
+          },
+          "session": {
+            "baseline": "loss_decoder",
+            "evaluation_mode": "formal",
+            "status": "starting",
+            "matrix_cells": 9,
+            "retain_physical_files": false,
+            "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+            "endpoint": "post-opt-pre-cts"
+          },
+          "cell_receipts": 6,
+          "partition_files": 6
+        },
+        {
+          "release": "harness-feedback-20261116",
+          "unit": "eda-contest2-feedback",
+          "unit_state": [
+            "MainPID=0",
+            "Result=timeout",
+            "ActiveState=failed",
+            "SubState=failed"
+          ],
+          "source_checksums": {
+            "source/agent.py": "c82db29f3e88905566e51b4ea47b5826aa736bc5281b08b8ef45de5c4df3ceb2",
+            "source/paired_feedback.py": "27cbd74796f46ef6b2885070a345e98fb9d51293be4ddef7c6f30c2ad1d7bace",
+            "source/prompt.md": "31af840122ab58d061d81e2fd9ff023d25bbe718ba915d5e2a14df2aaf6487e4",
+            "source/program.py": "f18b6e303cad3e67b7dd5be6a63a2ca7399e43997fd0c900334adae1a31bc87b",
+            "participant/agent.py": "c82db29f3e88905566e51b4ea47b5826aa736bc5281b08b8ef45de5c4df3ceb2",
+            "participant/paired_feedback.py": "27cbd74796f46ef6b2885070a345e98fb9d51293be4ddef7c6f30c2ad1d7bace",
+            "participant/prompt.md": "31af840122ab58d061d81e2fd9ff023d25bbe718ba915d5e2a14df2aaf6487e4",
+            "participant/program.py": "f18b6e303cad3e67b7dd5be6a63a2ca7399e43997fd0c900334adae1a31bc87b"
+          },
+          "runtime": {
+            "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+            "capacity": {
+              "cpu": 8,
+              "memory_gb": 48,
+              "storage_gb": 40,
+              "gpus": [
+                "0"
+              ],
+              "build_slots": 0
+            },
+            "host": "local-contest2"
+          },
+          "session": {
+            "baseline": "loss_decoder",
+            "evaluation_mode": "formal",
+            "status": "starting",
+            "matrix_cells": 9,
+            "retain_physical_files": false,
+            "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+            "endpoint": "post-opt-pre-cts"
+          },
+          "cell_receipts": 6,
+          "partition_files": 6
+        },
+        {
+          "release": "harness-opening-20261116",
+          "unit": "eda-contest2-opening",
+          "unit_state": [
+            "MainPID=0",
+            "Result=timeout",
+            "ActiveState=failed",
+            "SubState=failed"
+          ],
+          "source_checksums": {
+            "source/agent.py": "7583a111e5170acfa432055bb0b298c9d7f9c81057695d3ab1512ba26270c822",
+            "source/paired_feedback.py": "27cbd74796f46ef6b2885070a345e98fb9d51293be4ddef7c6f30c2ad1d7bace",
+            "source/prompt.md": "c34a939cc28e658a9c3c351eb72a314706ec407e679723a0f8f833513d4f505e",
+            "source/program.py": "f18b6e303cad3e67b7dd5be6a63a2ca7399e43997fd0c900334adae1a31bc87b",
+            "source/opening.txt": "9ec3571479e8558fcaf5f5e00ac6f964438093c1f5dd810b608a39513e154995",
+            "participant/agent.py": "7583a111e5170acfa432055bb0b298c9d7f9c81057695d3ab1512ba26270c822",
+            "participant/paired_feedback.py": "27cbd74796f46ef6b2885070a345e98fb9d51293be4ddef7c6f30c2ad1d7bace",
+            "participant/prompt.md": "c34a939cc28e658a9c3c351eb72a314706ec407e679723a0f8f833513d4f505e",
+            "participant/program.py": "f18b6e303cad3e67b7dd5be6a63a2ca7399e43997fd0c900334adae1a31bc87b",
+            "participant/opening.txt": "9ec3571479e8558fcaf5f5e00ac6f964438093c1f5dd810b608a39513e154995"
+          },
+          "runtime": {
+            "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+            "capacity": {
+              "cpu": 8,
+              "memory_gb": 48,
+              "storage_gb": 40,
+              "gpus": [
+                "0"
+              ],
+              "build_slots": 0
+            },
+            "host": "local-contest2"
+          },
+          "session": {
+            "baseline": "loss_decoder",
+            "evaluation_mode": "formal",
+            "status": "starting",
+            "matrix_cells": 9,
+            "retain_physical_files": false,
+            "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+            "endpoint": "post-opt-pre-cts"
+          },
+          "cell_receipts": 3,
+          "partition_files": 3
+        }
+      ]
+    },
+    {
+      "file": "gpu2-14828.zip",
+      "sha256": "6c3d4d3d1cd7a2849a87c9ce20dd0332179073b8102800a08943c1253f9e452b",
+      "host": "gpu2-14828",
+      "captured_utc": "2026-11-16T14:31:42.002970+00:00",
+      "gpu": "NVIDIA GeForce RTX 4090, 49140 MiB, 595.84",
+      "runs": [
+        {
+          "release": "harness-v6-20261116",
+          "unit": "eda-contest2-decoder-v6",
+          "unit_state": [
+            "MainPID=0",
+            "Result=success",
+            "ActiveState=inactive",
+            "SubState=dead"
+          ],
+          "source_checksums": {
+            "source/agent.py": "13d932ea40152d69677988624dc3516e91901666d393020c73607fa99aa2111e",
+            "source/prompt.md": "9f83112c2d91072546fd2733758936b1cc1aeb3bcc584030954d60fbee0595d3",
+            "source/program.py": "f18b6e303cad3e67b7dd5be6a63a2ca7399e43997fd0c900334adae1a31bc87b",
+            "source/opening.txt": "c6d0b7f1ba4979a8dda4582848ed5d0ae4b70865d97b412302b7c32b88ecf756",
+            "participant/agent.py": "13d932ea40152d69677988624dc3516e91901666d393020c73607fa99aa2111e",
+            "participant/prompt.md": "9f83112c2d91072546fd2733758936b1cc1aeb3bcc584030954d60fbee0595d3",
+            "participant/program.py": "f18b6e303cad3e67b7dd5be6a63a2ca7399e43997fd0c900334adae1a31bc87b",
+            "participant/opening.txt": "c6d0b7f1ba4979a8dda4582848ed5d0ae4b70865d97b412302b7c32b88ecf756"
+          },
+          "runtime": {
+            "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+            "capacity": {
+              "cpu": 8,
+              "memory_gb": 24,
+              "storage_gb": 40,
+              "gpus": [
+                "0"
+              ],
+              "build_slots": 0
+            },
+            "host": "local-contest2"
+          },
+          "session": {
+            "baseline": "loss_decoder",
+            "evaluation_mode": "formal",
+            "status": "starting",
+            "matrix_cells": 9,
+            "retain_physical_files": false,
+            "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+            "endpoint": "post-opt-pre-cts"
+          },
+          "cell_receipts": 8,
+          "partition_files": 8
+        },
+        {
+          "release": "harness-next-20261116",
+          "unit": "eda-contest2-next",
+          "unit_state": [
+            "MainPID=0",
+            "Result=timeout",
+            "ActiveState=failed",
+            "SubState=failed"
+          ],
+          "source_checksums": {
+            "source/agent.py": "467d6e34fcaaf263574ebf0ae54cf63c3cc3ff61975d79d74f3217adbae7bc97",
+            "source/paired_feedback.py": "27cbd74796f46ef6b2885070a345e98fb9d51293be4ddef7c6f30c2ad1d7bace",
+            "source/prompt.md": "b893d6f11320462fe4574ab85a11aed9286f64ba7545ace643313fcdadb8abc3",
+            "source/program.py": "f18b6e303cad3e67b7dd5be6a63a2ca7399e43997fd0c900334adae1a31bc87b",
+            "source/opening.txt": "c6d0b7f1ba4979a8dda4582848ed5d0ae4b70865d97b412302b7c32b88ecf756",
+            "participant/agent.py": "467d6e34fcaaf263574ebf0ae54cf63c3cc3ff61975d79d74f3217adbae7bc97",
+            "participant/paired_feedback.py": "27cbd74796f46ef6b2885070a345e98fb9d51293be4ddef7c6f30c2ad1d7bace",
+            "participant/prompt.md": "b893d6f11320462fe4574ab85a11aed9286f64ba7545ace643313fcdadb8abc3",
+            "participant/program.py": "f18b6e303cad3e67b7dd5be6a63a2ca7399e43997fd0c900334adae1a31bc87b",
+            "participant/opening.txt": "c6d0b7f1ba4979a8dda4582848ed5d0ae4b70865d97b412302b7c32b88ecf756"
+          },
+          "runtime": {
+            "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+            "capacity": {
+              "cpu": 8,
+              "memory_gb": 48,
+              "storage_gb": 40,
+              "gpus": [
+                "0"
+              ],
+              "build_slots": 0
+            },
+            "host": "local-contest2"
+          },
+          "session": {
+            "baseline": "loss_decoder",
+            "evaluation_mode": "formal",
+            "status": "starting",
+            "matrix_cells": 9,
+            "retain_physical_files": false,
+            "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+            "endpoint": "post-opt-pre-cts"
+          },
+          "cell_receipts": 7,
+          "partition_files": 7
+        }
+      ]
+    }
+  ],
+  "runs": [
+    {
+      "server": "gpu1-12420",
+      "run": "harness",
+      "receipt": {
+        "request_id": "e-a6594076a2de3dc91755a0f007d0206578ae8c4f0c1aa472a280bf683ac8",
+        "candidate_id": "64bbfb49c51d927ed3bb263981888c7fcd57a73c6b71af4fc3b2055174a651fe",
+        "status": "accepted",
+        "accepted_at": "2026-11-16T09:11:45.037003+00:00",
+        "completed_at": null,
+        "reason": null,
+        "payload_digest": "988f3ca42117e35fd629c44ed68cc3603b6fc7bc3557cf2fa275a59cf5499fcc"
+      },
+      "counts_up_tie_down": [
+        4,
+        2,
+        1
+      ],
+      "official_initial_mean": 21.034648473331202,
+      "candidate_mean": 22.329236679541424,
+      "candidate_delta": 1.2945882062102214,
+      "cells": [
+        {
+          "case": "ariane133-ng45",
+          "seed": "1001",
+          "status": "succeeded",
+          "corrected_score": 61.94123220738661,
+          "official_initial_score": 50.73770172924047,
+          "delta_vs_official_initial": 11.203530478146142,
+          "wns_ns": -0.4742051330274817,
+          "tns_ns": -3.5427199954169994,
+          "cut_net_count": 10856,
+          "timing_weighted_cut": 19355.34890951017,
+          "partition_assignment_changed_count": 11,
+          "partition_assignment_sha256": "5607d26e2585092713fbc229a1f582df4452c8f20725d2b2cc7f2a7bcd3181f5",
+          "reported_minutes": 108.56767343333333,
+          "archive_record": "runs/harness/evaluations/e-a6594076a2de3dc91755a0f007d0206578ae8c4f0c1aa472a280bf683ac8/cells/ariane133-ng45/1001/cell.json"
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1001",
+          "status": "succeeded",
+          "corrected_score": -12.058186331549445,
+          "official_initial_score": -20.823599877503156,
+          "delta_vs_official_initial": 8.765413545953711,
+          "wns_ns": -7.869575436270477,
+          "tns_ns": -8358.305658396133,
+          "cut_net_count": 5881,
+          "timing_weighted_cut": 8122.442753062213,
+          "partition_assignment_changed_count": 15,
+          "partition_assignment_sha256": "3e703399d9d0bc7e3f38d496b1e5d0e9a51cdb05eed5a52d5608571453b4af4d",
+          "reported_minutes": 44.063118749999994,
+          "archive_record": "runs/harness/evaluations/e-a6594076a2de3dc91755a0f007d0206578ae8c4f0c1aa472a280bf683ac8/cells/bp-ng45/1001/cell.json"
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1002",
+          "status": "succeeded",
+          "corrected_score": -24.490921345430415,
+          "official_initial_score": -29.972605953397096,
+          "delta_vs_official_initial": 5.481684607966681,
+          "wns_ns": -7.87696419275293,
+          "tns_ns": -9726.862392626164,
+          "cut_net_count": 5859,
+          "timing_weighted_cut": 8101.98917739199,
+          "partition_assignment_changed_count": 0,
+          "partition_assignment_sha256": "0b7ee4099adc4c87167f9be75820f92badc8d4d75d70fea1f9967f5c466a80a8",
+          "reported_minutes": 63.8462411,
+          "archive_record": "runs/harness/evaluations/e-a6594076a2de3dc91755a0f007d0206578ae8c4f0c1aa472a280bf683ac8/cells/bp-ng45/1002/cell.json"
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1003",
+          "status": "succeeded",
+          "corrected_score": -3.557827406112847,
+          "official_initial_score": -14.454241483743441,
+          "delta_vs_official_initial": 10.896414077630595,
+          "wns_ns": -7.909696232979864,
+          "tns_ns": -7399.590895238353,
+          "cut_net_count": 5873,
+          "timing_weighted_cut": 8113.745930110861,
+          "partition_assignment_changed_count": 0,
+          "partition_assignment_sha256": "b254dc303c1eee7950fedc20e5627219c21cfb3540b05af4c8c6bc47cd20de48",
+          "reported_minutes": 83.42662521666666,
+          "archive_record": "runs/harness/evaluations/e-a6594076a2de3dc91755a0f007d0206578ae8c4f0c1aa472a280bf683ac8/cells/bp-ng45/1003/cell.json"
+        },
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1001",
+          "status": "succeeded",
+          "corrected_score": 28.717505032431024,
+          "official_initial_score": 56.00243029865659,
+          "delta_vs_official_initial": -27.284925266225567,
+          "wns_ns": -0.9933631975933916,
+          "tns_ns": -324.34935300086073,
+          "cut_net_count": 3431,
+          "timing_weighted_cut": 5917.4237634883075,
+          "partition_assignment_changed_count": 1,
+          "partition_assignment_sha256": "2cc98e4c3d924bc10c9368a41af98ab05eef1bfe3329228267d10d6d2217744a",
+          "reported_minutes": 8.22214935,
+          "archive_record": "runs/harness/evaluations/e-a6594076a2de3dc91755a0f007d0206578ae8c4f0c1aa472a280bf683ac8/cells/bp_fe-ng45/1001/cell.json"
+        },
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1002",
+          "status": "succeeded",
+          "corrected_score": 49.92933618986978,
+          "official_initial_score": 49.92933618986978,
+          "delta_vs_official_initial": 0.0,
+          "wns_ns": -0.7280568576313236,
+          "tns_ns": -211.7487329856929,
+          "cut_net_count": 3738,
+          "timing_weighted_cut": 6152.378811821003,
+          "partition_assignment_changed_count": 0,
+          "partition_assignment_sha256": "7f21616246748518a1c368a4cefa3b1ba0d5ee4cfb93fb983eb25c20dac495bd",
+          "reported_minutes": 16.059912416666666,
+          "archive_record": "runs/harness/evaluations/e-a6594076a2de3dc91755a0f007d0206578ae8c4f0c1aa472a280bf683ac8/cells/bp_fe-ng45/1002/cell.json"
+        },
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1003",
+          "status": "succeeded",
+          "corrected_score": 55.82351841019526,
+          "official_initial_score": 55.82351841019526,
+          "delta_vs_official_initial": 0.0,
+          "wns_ns": -0.639466275808939,
+          "tns_ns": -188.35428327940795,
+          "cut_net_count": 3102,
+          "timing_weighted_cut": 5576.034057190449,
+          "partition_assignment_changed_count": 0,
+          "partition_assignment_sha256": "c3c1744a4bfb3d9934c3203de982a99f069005b16013f065d4636cbeb9b6760a",
+          "reported_minutes": 24.073000850000003,
+          "archive_record": "runs/harness/evaluations/e-a6594076a2de3dc91755a0f007d0206578ae8c4f0c1aa472a280bf683ac8/cells/bp_fe-ng45/1003/cell.json"
+        }
+      ],
+      "model_calls": [
+        {
+          "request_id": "38ba3cfe60bc4b93a30a0d8e9b53e75f",
+          "model": "deepseek-flash",
+          "status": "settled",
+          "reserved_at": "2026-11-16T09:10:40.322295+00:00",
+          "input_tokens": 3914,
+          "output_tokens": 10894,
+          "cost_rmb": "0.09498",
+          "recorded_at": "2026-11-16T09:11:44.981020+00:00"
+        }
+      ],
+      "search_events": [
+        {
+          "event": "submitted",
+          "parent_id": "7bd9ebe2b3b3864ce07bb69a9c06a30932b26d31b6232418c07dfd37f4d29702",
+          "request_id": "e-a6594076a2de3dc91755a0f007d0206578ae8c4f0c1aa472a280bf683ac8",
+          "search_intent": "loss_only"
+        }
+      ],
+      "model_docstrings": [
+        {
+          "function": "compute_tp_gnn_loss",
+          "docstring": "Hypothesis: add a timing-excess weighted star-edge attraction term so high-weight critical nets stay close in embedding space, reducing cross-die critical nets after the unchanged decoder."
+        },
+        {
+          "function": "decode_tp_gnn_embeddings",
+          "docstring": "Keep the frozen area-balanced global two-way decoder from the selected parent unchanged."
+        }
+      ],
+      "archive": "gpu1-12420.zip"
+    },
+    {
+      "server": "gpu1-12420",
+      "run": "harness-v5-20261116",
+      "receipt": {
+        "request_id": "e-b2257fc3c6d1fb4996e22613f50d2e1d20b04f157aeb1df1c27272997559",
+        "candidate_id": "6e06663d5515450eca449ad796c8b6f68158d9d7b11af18a3773286eccdba51e",
+        "status": "accepted",
+        "accepted_at": "2026-11-16T11:09:01.070370+00:00",
+        "completed_at": null,
+        "reason": null,
+        "payload_digest": "3d17290b51215340d54d18b8264ae8625191775ee7d560b8111d1be3530323f8"
+      },
+      "counts_up_tie_down": [
+        3,
+        2,
+        1
+      ],
+      "official_initial_mean": 16.084139597346322,
+      "candidate_mean": 15.433894894078213,
+      "candidate_delta": -0.6502447032681093,
+      "cells": [
+        {
+          "case": "bp-ng45",
+          "seed": "1001",
+          "status": "succeeded",
+          "corrected_score": -13.818241516483523,
+          "official_initial_score": -20.823599877503156,
+          "delta_vs_official_initial": 7.005358361019633,
+          "wns_ns": -7.8699466948604115,
+          "tns_ns": -8552.39092374888,
+          "cut_net_count": 5880,
+          "timing_weighted_cut": 8123.200789864003,
+          "partition_assignment_changed_count": 8,
+          "partition_assignment_sha256": "358e3a14a93bb74bc3fd8803c75676fe46a0f5ccd95f8ab7c939f308f64409cd",
+          "reported_minutes": 46.24911348333333,
+          "archive_record": "runs/harness-v5-20261116/evaluations/e-b2257fc3c6d1fb4996e22613f50d2e1d20b04f157aeb1df1c27272997559/cells/bp-ng45/1001/cell.json"
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1002",
+          "status": "succeeded",
+          "corrected_score": -24.490921345430415,
+          "official_initial_score": -29.972605953397096,
+          "delta_vs_official_initial": 5.481684607966681,
+          "wns_ns": -7.87696419275293,
+          "tns_ns": -9726.862392626164,
+          "cut_net_count": 5859,
+          "timing_weighted_cut": 8101.98917739199,
+          "partition_assignment_changed_count": 0,
+          "partition_assignment_sha256": "0b7ee4099adc4c87167f9be75820f92badc8d4d75d70fea1f9967f5c466a80a8",
+          "reported_minutes": 66.35831735000001,
+          "archive_record": "runs/harness-v5-20261116/evaluations/e-b2257fc3c6d1fb4996e22613f50d2e1d20b04f157aeb1df1c27272997559/cells/bp-ng45/1002/cell.json"
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1003",
+          "status": "succeeded",
+          "corrected_score": -3.557827406112847,
+          "official_initial_score": -14.454241483743441,
+          "delta_vs_official_initial": 10.896414077630595,
+          "wns_ns": -7.909696232979864,
+          "tns_ns": -7399.590895238353,
+          "cut_net_count": 5873,
+          "timing_weighted_cut": 8113.745930110861,
+          "partition_assignment_changed_count": 0,
+          "partition_assignment_sha256": "b254dc303c1eee7950fedc20e5627219c21cfb3540b05af4c8c6bc47cd20de48",
+          "reported_minutes": 86.05804406666667,
+          "archive_record": "runs/harness-v5-20261116/evaluations/e-b2257fc3c6d1fb4996e22613f50d2e1d20b04f157aeb1df1c27272997559/cells/bp-ng45/1003/cell.json"
+        },
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1001",
+          "status": "succeeded",
+          "corrected_score": 28.717505032431024,
+          "official_initial_score": 56.00243029865659,
+          "delta_vs_official_initial": -27.284925266225567,
+          "wns_ns": -0.9933631975933916,
+          "tns_ns": -324.34935300086073,
+          "cut_net_count": 3431,
+          "timing_weighted_cut": 5917.4237634883075,
+          "partition_assignment_changed_count": 1,
+          "partition_assignment_sha256": "2cc98e4c3d924bc10c9368a41af98ab05eef1bfe3329228267d10d6d2217744a",
+          "reported_minutes": 9.002431483333334,
+          "archive_record": "runs/harness-v5-20261116/evaluations/e-b2257fc3c6d1fb4996e22613f50d2e1d20b04f157aeb1df1c27272997559/cells/bp_fe-ng45/1001/cell.json"
+        },
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1002",
+          "status": "succeeded",
+          "corrected_score": 49.92933618986978,
+          "official_initial_score": 49.92933618986978,
+          "delta_vs_official_initial": 0.0,
+          "wns_ns": -0.7280568576313236,
+          "tns_ns": -211.7487329856929,
+          "cut_net_count": 3738,
+          "timing_weighted_cut": 6152.378811821003,
+          "partition_assignment_changed_count": 0,
+          "partition_assignment_sha256": "7f21616246748518a1c368a4cefa3b1ba0d5ee4cfb93fb983eb25c20dac495bd",
+          "reported_minutes": 17.056078783333334,
+          "archive_record": "runs/harness-v5-20261116/evaluations/e-b2257fc3c6d1fb4996e22613f50d2e1d20b04f157aeb1df1c27272997559/cells/bp_fe-ng45/1002/cell.json"
+        },
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1003",
+          "status": "succeeded",
+          "corrected_score": 55.82351841019526,
+          "official_initial_score": 55.82351841019526,
+          "delta_vs_official_initial": 0.0,
+          "wns_ns": -0.639466275808939,
+          "tns_ns": -188.35428327940795,
+          "cut_net_count": 3102,
+          "timing_weighted_cut": 5576.034057190449,
+          "partition_assignment_changed_count": 0,
+          "partition_assignment_sha256": "c3c1744a4bfb3d9934c3203de982a99f069005b16013f065d4636cbeb9b6760a",
+          "reported_minutes": 25.501949216666667,
+          "archive_record": "runs/harness-v5-20261116/evaluations/e-b2257fc3c6d1fb4996e22613f50d2e1d20b04f157aeb1df1c27272997559/cells/bp_fe-ng45/1003/cell.json"
+        }
+      ],
+      "model_calls": [
+        {
+          "request_id": "a8282ef1e12a49ac9d2e47dd96ebf755",
+          "model": "deepseek-flash",
+          "status": "settled",
+          "reserved_at": "2026-11-16T11:08:17.760032+00:00",
+          "input_tokens": 4155,
+          "output_tokens": 7084,
+          "cost_rmb": "0.032491",
+          "recorded_at": "2026-11-16T11:09:01.004094+00:00"
+        }
+      ],
+      "search_events": [
+        {
+          "event": "submitted",
+          "parent_id": "30ff6987db82c46451c76c4bb708f2835201833de91ccdf1a117336039f44aed",
+          "request_id": "e-b2257fc3c6d1fb4996e22613f50d2e1d20b04f157aeb1df1c27272997559",
+          "search_intent": "loss_only"
+        }
+      ],
+      "model_docstrings": [
+        {
+          "function": "compute_tp_gnn_loss",
+          "docstring": "Parent random-walk objective plus a timing-weighted star-edge\nconsistency term on the supplied graph dot products. Each star edge is\nweighted by its frozen per-edge timing share (weights of one net sum to\nits full net weight), so nets with a large delay/slack spread dominate\nthe attraction and their endpoint groups are pulled into the same\nembedding region, which the unchanged two-way decoder then keeps on one\ndie. Expected measurable effect: lower timing-weighted cut and lower\nfinal WNS/TNS violation deficit at identical area-closure behaviour.\nThe term is a weight-normalized average (finite and zero when the graph\nhas no edges) and is ramped in with epoch progress so early epochs keep\nthe parent scoring geometry."
+        },
+        {
+          "function": "decode_tp_gnn_embeddings",
+          "docstring": "Unchanged parent decoder: the frozen area-balanced global two-way\nclustering, so any timing delta is attributable to the loss geometry."
+        }
+      ],
+      "archive": "gpu1-12420.zip"
+    },
+    {
+      "server": "gpu1-12420",
+      "run": "harness-feedback-20261116",
+      "receipt": {
+        "request_id": "e-8f755cb82d909b7594a5a7c4d78ef7853e8fdd6ee9b7fb06b3b8dbe5cd62",
+        "candidate_id": "70920d3aee0fe793761f19a2bf48281a22de6b8ccaa08f4f79348ce6d17b8d64",
+        "status": "accepted",
+        "accepted_at": "2026-11-16T12:47:00.177301+00:00",
+        "completed_at": null,
+        "reason": null,
+        "payload_digest": "604eb3ee852eca26844647a6b15b28ab356f1e8c2f0f90822041eab3c417669d"
+      },
+      "counts_up_tie_down": [
+        3,
+        2,
+        1
+      ],
+      "official_initial_mean": 16.084139597346322,
+      "candidate_mean": 15.433894894078213,
+      "candidate_delta": -0.6502447032681093,
+      "cells": [
+        {
+          "case": "bp-ng45",
+          "seed": "1001",
+          "status": "succeeded",
+          "corrected_score": -13.818241516483523,
+          "official_initial_score": -20.823599877503156,
+          "delta_vs_official_initial": 7.005358361019633,
+          "wns_ns": -7.8699466948604115,
+          "tns_ns": -8552.39092374888,
+          "cut_net_count": 5880,
+          "timing_weighted_cut": 8123.200789864003,
+          "partition_assignment_changed_count": 8,
+          "partition_assignment_sha256": "358e3a14a93bb74bc3fd8803c75676fe46a0f5ccd95f8ab7c939f308f64409cd",
+          "reported_minutes": 34.530727516666666,
+          "archive_record": "runs/harness-feedback-20261116/evaluations/e-8f755cb82d909b7594a5a7c4d78ef7853e8fdd6ee9b7fb06b3b8dbe5cd62/cells/bp-ng45/1001/cell.json"
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1002",
+          "status": "succeeded",
+          "corrected_score": -24.490921345430415,
+          "official_initial_score": -29.972605953397096,
+          "delta_vs_official_initial": 5.481684607966681,
+          "wns_ns": -7.87696419275293,
+          "tns_ns": -9726.862392626164,
+          "cut_net_count": 5859,
+          "timing_weighted_cut": 8101.98917739199,
+          "partition_assignment_changed_count": 0,
+          "partition_assignment_sha256": "0b7ee4099adc4c87167f9be75820f92badc8d4d75d70fea1f9967f5c466a80a8",
+          "reported_minutes": 41.106529316666666,
+          "archive_record": "runs/harness-feedback-20261116/evaluations/e-8f755cb82d909b7594a5a7c4d78ef7853e8fdd6ee9b7fb06b3b8dbe5cd62/cells/bp-ng45/1002/cell.json"
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1003",
+          "status": "succeeded",
+          "corrected_score": -3.557827406112847,
+          "official_initial_score": -14.454241483743441,
+          "delta_vs_official_initial": 10.896414077630595,
+          "wns_ns": -7.909696232979864,
+          "tns_ns": -7399.590895238353,
+          "cut_net_count": 5873,
+          "timing_weighted_cut": 8113.745930110861,
+          "partition_assignment_changed_count": 0,
+          "partition_assignment_sha256": "b254dc303c1eee7950fedc20e5627219c21cfb3540b05af4c8c6bc47cd20de48",
+          "reported_minutes": 55.56210915,
+          "archive_record": "runs/harness-feedback-20261116/evaluations/e-8f755cb82d909b7594a5a7c4d78ef7853e8fdd6ee9b7fb06b3b8dbe5cd62/cells/bp-ng45/1003/cell.json"
+        },
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1001",
+          "status": "succeeded",
+          "corrected_score": 28.717505032431024,
+          "official_initial_score": 56.00243029865659,
+          "delta_vs_official_initial": -27.284925266225567,
+          "wns_ns": -0.9933631975933916,
+          "tns_ns": -324.34935300086073,
+          "cut_net_count": 3431,
+          "timing_weighted_cut": 5917.4237634883075,
+          "partition_assignment_changed_count": 1,
+          "partition_assignment_sha256": "2cc98e4c3d924bc10c9368a41af98ab05eef1bfe3329228267d10d6d2217744a",
+          "reported_minutes": 12.7713135,
+          "archive_record": "runs/harness-feedback-20261116/evaluations/e-8f755cb82d909b7594a5a7c4d78ef7853e8fdd6ee9b7fb06b3b8dbe5cd62/cells/bp_fe-ng45/1001/cell.json"
+        },
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1002",
+          "status": "succeeded",
+          "corrected_score": 49.92933618986978,
+          "official_initial_score": 49.92933618986978,
+          "delta_vs_official_initial": 0.0,
+          "wns_ns": -0.7280568576313236,
+          "tns_ns": -211.7487329856929,
+          "cut_net_count": 3738,
+          "timing_weighted_cut": 6152.378811821003,
+          "partition_assignment_changed_count": 0,
+          "partition_assignment_sha256": "7f21616246748518a1c368a4cefa3b1ba0d5ee4cfb93fb983eb25c20dac495bd",
+          "reported_minutes": 8.50956335,
+          "archive_record": "runs/harness-feedback-20261116/evaluations/e-8f755cb82d909b7594a5a7c4d78ef7853e8fdd6ee9b7fb06b3b8dbe5cd62/cells/bp_fe-ng45/1002/cell.json"
+        },
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1003",
+          "status": "succeeded",
+          "corrected_score": 55.82351841019526,
+          "official_initial_score": 55.82351841019526,
+          "delta_vs_official_initial": 0.0,
+          "wns_ns": -0.639466275808939,
+          "tns_ns": -188.35428327940795,
+          "cut_net_count": 3102,
+          "timing_weighted_cut": 5576.034057190449,
+          "partition_assignment_changed_count": 0,
+          "partition_assignment_sha256": "c3c1744a4bfb3d9934c3203de982a99f069005b16013f065d4636cbeb9b6760a",
+          "reported_minutes": 17.5508468,
+          "archive_record": "runs/harness-feedback-20261116/evaluations/e-8f755cb82d909b7594a5a7c4d78ef7853e8fdd6ee9b7fb06b3b8dbe5cd62/cells/bp_fe-ng45/1003/cell.json"
+        }
+      ],
+      "model_calls": [
+        {
+          "request_id": "8de29b0a20ab4407818a8e9174929671",
+          "model": "deepseek-flash",
+          "status": "settled",
+          "reserved_at": "2026-11-16T12:46:07.376098+00:00",
+          "input_tokens": 4078,
+          "output_tokens": 7794,
+          "cost_rmb": "0.03512856",
+          "recorded_at": "2026-11-16T12:47:00.072222+00:00"
+        }
+      ],
+      "search_events": [
+        {
+          "event": "submitted",
+          "request_id": "e-8f755cb82d909b7594a5a7c4d78ef7853e8fdd6ee9b7fb06b3b8dbe5cd62",
+          "parent_id": "dd98b7df2ab987e3952da2e119d229643e656f7b502abf09b1252819b572662c",
+          "search_intent": "loss_only",
+          "changed_components": {
+            "loss": "Hypothesis: timing-weighted full-net star smoothness, added to the random-walk contrastive objective, keeps high-criticality connected supernodes in one embedding neighborhood so the unchanged area-ba"
+          }
+        }
+      ],
+      "model_docstrings": [
+        {
+          "function": "compute_tp_gnn_loss",
+          "docstring": "Hypothesis: timing-weighted full-net star smoothness, added to the random-walk contrastive objective, keeps high-criticality connected supernodes in one embedding neighborhood so the unchanged area-balanced decoder cuts fewer timing-critical nets."
+        },
+        {
+          "function": "decode_tp_gnn_embeddings",
+          "docstring": "Unchanged maintained area-balanced global two-way clustering decoder."
+        }
+      ],
+      "archive": "gpu1-12420.zip"
+    },
+    {
+      "server": "gpu1-12420",
+      "run": "harness-opening-20261116",
+      "receipt": {
+        "request_id": "e-8248319b97cb56c3d05d6a138eb065a0058eec6747976ff77cc1c380667f",
+        "candidate_id": "09d946c2070a6a342130d38c6e5799827ff03de49f08da2d2c667dd2acf150c2",
+        "status": "accepted",
+        "accepted_at": "2026-11-16T13:54:21.280291+00:00",
+        "completed_at": null,
+        "reason": null,
+        "payload_digest": "3fd03f87f8e8f90e31efb7e197084a1586f474f8ad7b9ce4e159905c48c5512e"
+      },
+      "counts_up_tie_down": [
+        0,
+        1,
+        2
+      ],
+      "official_initial_mean": 53.918428299573876,
+      "candidate_mean": 49.35443736714615,
+      "candidate_delta": -4.563990932427728,
+      "cells": [
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1001",
+          "status": "succeeded",
+          "corrected_score": 51.147207546468195,
+          "official_initial_score": 56.00243029865659,
+          "delta_vs_official_initial": -4.855222752188396,
+          "wns_ns": -0.6496192656562823,
+          "tns_ns": -238.83962505991042,
+          "cut_net_count": 3432,
+          "timing_weighted_cut": 5918.395510121568,
+          "partition_assignment_changed_count": 6,
+          "partition_assignment_sha256": "01410e88a045067acdd4861a8b2eb2371cf4d744718b7ca7935d3b7cfc95c695",
+          "reported_minutes": 8.68003675,
+          "archive_record": "runs/harness-opening-20261116/evaluations/e-8248319b97cb56c3d05d6a138eb065a0058eec6747976ff77cc1c380667f/cells/bp_fe-ng45/1001/cell.json"
+        },
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1002",
+          "status": "succeeded",
+          "corrected_score": 41.092586144774984,
+          "official_initial_score": 49.92933618986978,
+          "delta_vs_official_initial": -8.836750045094796,
+          "wns_ns": -0.7950578198616463,
+          "tns_ns": -281.76490560495,
+          "cut_net_count": 3739,
+          "timing_weighted_cut": 6153.577450334404,
+          "partition_assignment_changed_count": 1,
+          "partition_assignment_sha256": "56709aa6a0e5f695be4a6d19f79452aad2b313a877e629ce6facc60c19eb1106",
+          "reported_minutes": 12.465328916666666,
+          "archive_record": "runs/harness-opening-20261116/evaluations/e-8248319b97cb56c3d05d6a138eb065a0058eec6747976ff77cc1c380667f/cells/bp_fe-ng45/1002/cell.json"
+        },
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1003",
+          "status": "succeeded",
+          "corrected_score": 55.82351841019526,
+          "official_initial_score": 55.82351841019526,
+          "delta_vs_official_initial": 0.0,
+          "wns_ns": -0.639466275808939,
+          "tns_ns": -188.35428327940795,
+          "cut_net_count": 3102,
+          "timing_weighted_cut": 5576.034057190449,
+          "partition_assignment_changed_count": 0,
+          "partition_assignment_sha256": "c3c1744a4bfb3d9934c3203de982a99f069005b16013f065d4636cbeb9b6760a",
+          "reported_minutes": 17.6721596,
+          "archive_record": "runs/harness-opening-20261116/evaluations/e-8248319b97cb56c3d05d6a138eb065a0058eec6747976ff77cc1c380667f/cells/bp_fe-ng45/1003/cell.json"
+        }
+      ],
+      "model_calls": [
+        {
+          "request_id": "0e75943adc87484a9d54de5be050d32e",
+          "model": "deepseek-flash",
+          "status": "settled",
+          "reserved_at": "2026-11-16T13:53:13.466092+00:00",
+          "input_tokens": 4365,
+          "output_tokens": 8940,
+          "cost_rmb": "0.03999956",
+          "recorded_at": "2026-11-16T13:54:08.240188+00:00"
+        },
+        {
+          "request_id": "4b984315b1b04091959b27850eb0ee4c",
+          "model": "deepseek-flash",
+          "status": "settled",
+          "reserved_at": "2026-11-16T13:54:08.314315+00:00",
+          "input_tokens": 4154,
+          "output_tokens": 1990,
+          "cost_rmb": "0.012114",
+          "recorded_at": "2026-11-16T13:54:21.204493+00:00"
+        }
+      ],
+      "search_events": [
+        {
+          "event": "opening_review",
+          "request_id": "e-8248319b97cb56c3d05d6a138eb065a0058eec6747976ff77cc1c380667f",
+          "parent_id": "2013e368928bc81a6c8481cf977e07f5b9d5d0eac52ef2bffa7f78ce6159dd13",
+          "search_intent": "loss_only",
+          "verdict": "pass",
+          "reason": ""
+        },
+        {
+          "event": "submitted",
+          "request_id": "e-8248319b97cb56c3d05d6a138eb065a0058eec6747976ff77cc1c380667f",
+          "decision": {
+            "reason": "opening_control"
+          },
+          "parent_id": "2013e368928bc81a6c8481cf977e07f5b9d5d0eac52ef2bffa7f78ce6159dd13",
+          "search_intent": "loss_only",
+          "changed_components": {
+            "loss": "Parent optimized only random-walk positive/negative pairs. Change relative to parent: add a normalized timing-weighted graph-star attraction term over the supplied represented-net edges. Since graph_s"
+          }
+        }
+      ],
+      "model_docstrings": [
+        {
+          "function": "compute_tp_gnn_loss",
+          "docstring": "Parent optimized only random-walk positive/negative pairs.\n\nChange relative to parent: add a normalized timing-weighted graph-star\nattraction term over the supplied represented-net edges. Since\ngraph_scores are embedding dot products, (1 - graph_scores) is half the\nsquared Euclidean distance between L2-normalized endpoints. Weighting it\nby graph_weights biases the embedding geometry toward keeping endpoints\nof high timing-weight nets close, so the area-balanced two-means decoder\nis more likely to place them on the same die.\n\nExpected measurable effect: lower timing-weighted cross-die cut and\nimproved WNS/TNS versus the parent, especially on seeds where the parent\ncuts high-weight nets.\n\nInvalidating result: unchanged final labels/cut or worse mean timing\nacross cases and seeds would reject this graph-attraction hypothesis."
+        },
+        {
+          "function": "decode_tp_gnn_embeddings",
+          "docstring": "Unchanged from parent.\n\nThis loss_only candidate tests only the loss-induced embedding geometry.\nThe decoder remains the frozen seeded area-balanced weighted two-way\nclustering helper, so any timing change must come from the loss rather\nthan decoder behavior."
+        }
+      ],
+      "archive": "gpu1-12420.zip"
+    },
+    {
+      "server": "gpu2-14828",
+      "run": "harness-v6-20261116",
+      "receipt": {
+        "request_id": "e-1a9d402b3880cecd717e7414e23b525806dabec834acae7eee7e78c1237c",
+        "candidate_id": "54cde99c5a503a93066a36f50f54ba441ef62bed4e0dc7aff9bab21ae673e866",
+        "status": "accepted",
+        "accepted_at": "2026-11-16T11:24:08.379338+00:00",
+        "completed_at": null,
+        "reason": null,
+        "payload_digest": "6ef9a39022eccc4eef6ccce0e1e1e5aeea06d5d75cc18800ee881cbaeeb49764"
+      },
+      "counts_up_tie_down": [
+        3,
+        1,
+        4
+      ],
+      "official_initial_mean": 18.21684736549113,
+      "candidate_mean": 6.642454731374494,
+      "candidate_delta": -11.574392634116636,
+      "cells": [
+        {
+          "case": "ariane133-ng45",
+          "seed": "1001",
+          "status": "succeeded",
+          "corrected_score": -22.656477978748903,
+          "official_initial_score": 50.73770172924047,
+          "delta_vs_official_initial": -73.39417970798937,
+          "wns_ns": -1.0084688924936598,
+          "tns_ns": -74.57963346873984,
+          "cut_net_count": 10853,
+          "timing_weighted_cut": 19356.19122464571,
+          "partition_assignment_changed_count": 0,
+          "partition_assignment_sha256": "e08f0dd54308ab5598a209395d731902fc1bd4a528a824b2a51550fb7d64abc8",
+          "reported_minutes": 74.79804131666667,
+          "archive_record": "runs/harness-v6-20261116/evaluations/e-1a9d402b3880cecd717e7414e23b525806dabec834acae7eee7e78c1237c/cells/ariane133-ng45/1001/cell.json"
+        },
+        {
+          "case": "ariane133-ng45",
+          "seed": "1002",
+          "status": "succeeded",
+          "corrected_score": -24.343899523373878,
+          "official_initial_score": -1.5077603893893712,
+          "delta_vs_official_initial": -22.836139133984506,
+          "wns_ns": -0.5544742599780464,
+          "tns_ns": -132.4565525864367,
+          "cut_net_count": 17975,
+          "timing_weighted_cut": 32585.120832148892,
+          "partition_assignment_changed_count": 0,
+          "partition_assignment_sha256": "c932591899b83d8549fbb9690f1e11efb0e3e0474287858358721f501cd1a93b",
+          "reported_minutes": 97.63143533333333,
+          "archive_record": "runs/harness-v6-20261116/evaluations/e-1a9d402b3880cecd717e7414e23b525806dabec834acae7eee7e78c1237c/cells/ariane133-ng45/1002/cell.json"
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1001",
+          "status": "succeeded",
+          "corrected_score": -13.264467001342073,
+          "official_initial_score": -20.823599877503156,
+          "delta_vs_official_initial": 7.559132876161083,
+          "wns_ns": -7.918001589617371,
+          "tns_ns": -8466.774728081393,
+          "cut_net_count": 5877,
+          "timing_weighted_cut": 8119.9769301143615,
+          "partition_assignment_changed_count": 144223,
+          "partition_assignment_sha256": "8d2e83d4a47a7847c633dd0b804044d7b3caa7956d5f0d7c94a0468dbbb3e36f",
+          "reported_minutes": 29.210258166666666,
+          "archive_record": "runs/harness-v6-20261116/evaluations/e-1a9d402b3880cecd717e7414e23b525806dabec834acae7eee7e78c1237c/cells/bp-ng45/1001/cell.json"
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1002",
+          "status": "succeeded",
+          "corrected_score": -40.17885633392056,
+          "official_initial_score": -29.972605953397096,
+          "delta_vs_official_initial": -10.20625038052346,
+          "wns_ns": -7.8937818516055875,
+          "tns_ns": -11449.921981739273,
+          "cut_net_count": 5861,
+          "timing_weighted_cut": 8104.05990847612,
+          "partition_assignment_changed_count": 144223,
+          "partition_assignment_sha256": "d4a616048c7c4caa1660d106afa0b58c172a1eaf73485d32fb83dd4e962b83b1",
+          "reported_minutes": 42.88051168333333,
+          "archive_record": "runs/harness-v6-20261116/evaluations/e-1a9d402b3880cecd717e7414e23b525806dabec834acae7eee7e78c1237c/cells/bp-ng45/1002/cell.json"
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1003",
+          "status": "succeeded",
+          "corrected_score": -4.58849605689768,
+          "official_initial_score": -14.454241483743441,
+          "delta_vs_official_initial": 9.865745426845763,
+          "wns_ns": -7.876209241074833,
+          "tns_ns": -7530.422166535901,
+          "cut_net_count": 5873,
+          "timing_weighted_cut": 8113.7416397428115,
+          "partition_assignment_changed_count": 144223,
+          "partition_assignment_sha256": "373f54d211d1e808ce9f415977da683e984d9dd75fc592e7cec62fe66de954bb",
+          "reported_minutes": 57.615418149999996,
+          "archive_record": "runs/harness-v6-20261116/evaluations/e-1a9d402b3880cecd717e7414e23b525806dabec834acae7eee7e78c1237c/cells/bp-ng45/1003/cell.json"
+        },
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1001",
+          "status": "succeeded",
+          "corrected_score": 45.639046933614715,
+          "official_initial_score": 56.00243029865659,
+          "delta_vs_official_initial": -10.363383365041877,
+          "wns_ns": -0.6311568113461243,
+          "tns_ns": -314.4564946327932,
+          "cut_net_count": 3503,
+          "timing_weighted_cut": 5969.778054870636,
+          "partition_assignment_changed_count": 25599,
+          "partition_assignment_sha256": "c1faca9e5da19bd29760d0de43e2f37b927259f447900ea1ef0231fb949dbc11",
+          "reported_minutes": 5.164338849999999,
+          "archive_record": "runs/harness-v6-20261116/evaluations/e-1a9d402b3880cecd717e7414e23b525806dabec834acae7eee7e78c1237c/cells/bp_fe-ng45/1001/cell.json"
+        },
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1002",
+          "status": "succeeded",
+          "corrected_score": 49.92933618986978,
+          "official_initial_score": 49.92933618986978,
+          "delta_vs_official_initial": 0.0,
+          "wns_ns": -0.7280568576313236,
+          "tns_ns": -211.7487329856929,
+          "cut_net_count": 3738,
+          "timing_weighted_cut": 6152.378811821003,
+          "partition_assignment_changed_count": 0,
+          "partition_assignment_sha256": "7f21616246748518a1c368a4cefa3b1ba0d5ee4cfb93fb983eb25c20dac495bd",
+          "reported_minutes": 10.537070433333334,
+          "archive_record": "runs/harness-v6-20261116/evaluations/e-1a9d402b3880cecd717e7414e23b525806dabec834acae7eee7e78c1237c/cells/bp_fe-ng45/1002/cell.json"
+        },
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1003",
+          "status": "succeeded",
+          "corrected_score": 62.60345162179455,
+          "official_initial_score": 55.82351841019526,
+          "delta_vs_official_initial": 6.779933211599285,
+          "wns_ns": -0.6030157655004624,
+          "tns_ns": -126.69494612031998,
+          "cut_net_count": 3102,
+          "timing_weighted_cut": 5576.034057190449,
+          "partition_assignment_changed_count": 25847,
+          "partition_assignment_sha256": "57da4fce9463ddc4d86146b25d089e4447e159bfd945f775a3f6e56ebe647ab6",
+          "reported_minutes": 15.929108466666666,
+          "archive_record": "runs/harness-v6-20261116/evaluations/e-1a9d402b3880cecd717e7414e23b525806dabec834acae7eee7e78c1237c/cells/bp_fe-ng45/1003/cell.json"
+        }
+      ],
+      "model_calls": [
+        {
+          "request_id": "e6e2defb3f1549d193981f5dc02e9864",
+          "model": "deepseek-flash",
+          "status": "settled",
+          "reserved_at": "2026-11-16T11:21:31.822536+00:00",
+          "input_tokens": 4161,
+          "output_tokens": 16384,
+          "cost_rmb": "0.06631012",
+          "recorded_at": "2026-11-16T11:23:05.755138+00:00"
+        },
+        {
+          "request_id": "0e1b56707e4c481aa78b45ba475fff67",
+          "model": "deepseek-flash",
+          "status": "settled",
+          "reserved_at": "2026-11-16T11:23:05.791053+00:00",
+          "input_tokens": 4080,
+          "output_tokens": 11293,
+          "cost_rmb": "0.04599056",
+          "recorded_at": "2026-11-16T11:24:08.314283+00:00"
+        }
+      ],
+      "search_events": [
+        {
+          "event": "invalid_proposal",
+          "parent_id": "6d3edad4228db5bf7b5270eec591fe7c87caf1e788d37f2bb8846f55a0734201",
+          "reason": "The model returned an incomplete response"
+        },
+        {
+          "event": "submitted",
+          "parent_id": "6d3edad4228db5bf7b5270eec591fe7c87caf1e788d37f2bb8846f55a0734201",
+          "request_id": "e-1a9d402b3880cecd717e7414e23b525806dabec834acae7eee7e78c1237c",
+          "search_intent": "decoder_only"
+        }
+      ],
+      "model_docstrings": [
+        {
+          "function": "compute_tp_gnn_loss",
+          "docstring": "Unchanged maintained negative-sampling objective.\n\nThis is a decoder-only experiment, so the embedding loss keeps its exact\nparent behaviour (plain random-walk positive/negative logistic loss). The\nexpected measurable effect is zero change attributable to the loss; any\nWNS/TNS movement is attributable to the handoff split below."
+        },
+        {
+          "function": "decode_tp_gnn_embeddings",
+          "docstring": "Balanced Lloyd split of the learned embeddings (replaces reference k-means).\n\nThe reference helper optimises unconstrained area-weighted two-means and\nleaves the topology balance to the protected closure. Here the split\ndirection is the difference of physical-area-weighted group centres and\nevery step re-thresholds at the area-weighted quantile of the projected\nembeddings, so the returned labels already sit on the 0.5 area target and\nuse exactly the area-weighted centres the protected squared-distance\nmargin recomputes. Expected effect: fewer native closure moves and a\nlower timing-weighted cut, i.e. less negative WNS/TNS versus the parent."
+        }
+      ],
+      "archive": "gpu2-14828.zip"
+    },
+    {
+      "server": "gpu2-14828",
+      "run": "harness-next-20261116",
+      "receipt": {
+        "request_id": "e-cb4f66b4111a33b767ff6273ee39c221ae1f456b9db011da7fd4224038a3",
+        "candidate_id": "05f5dca1553ce14af318732f43f4e70662959d34d36bfcd78aaa233fc556f9c8",
+        "status": "accepted",
+        "accepted_at": "2026-11-16T13:10:38.937703+00:00",
+        "completed_at": null,
+        "reason": null,
+        "payload_digest": "4173b476b55672b7eaf376e29258662575f0afbd843ff8490f6f8fe475e08020"
+      },
+      "counts_up_tie_down": [
+        3,
+        2,
+        2
+      ],
+      "official_initial_mean": 21.034648473331202,
+      "candidate_mean": 10.723745780428835,
+      "candidate_delta": -10.310902692902367,
+      "cells": [
+        {
+          "case": "ariane133-ng45",
+          "seed": "1001",
+          "status": "succeeded",
+          "corrected_score": -22.656477978748903,
+          "official_initial_score": 50.73770172924047,
+          "delta_vs_official_initial": -73.39417970798937,
+          "wns_ns": -1.0084688924936598,
+          "tns_ns": -74.57963346873984,
+          "cut_net_count": 10853,
+          "timing_weighted_cut": 19356.19122464571,
+          "partition_assignment_changed_count": 0,
+          "partition_assignment_sha256": "e08f0dd54308ab5598a209395d731902fc1bd4a528a824b2a51550fb7d64abc8",
+          "reported_minutes": 43.2885234,
+          "archive_record": "runs/harness-next-20261116/evaluations/e-cb4f66b4111a33b767ff6273ee39c221ae1f456b9db011da7fd4224038a3/cells/ariane133-ng45/1001/cell.json"
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1001",
+          "status": "succeeded",
+          "corrected_score": -20.545778074470416,
+          "official_initial_score": -20.823599877503156,
+          "delta_vs_official_initial": 0.2778218030327402,
+          "wns_ns": -7.873377728192749,
+          "tns_ns": -9293.226220493185,
+          "cut_net_count": 5877,
+          "timing_weighted_cut": 8119.975314274833,
+          "partition_assignment_changed_count": 0,
+          "partition_assignment_sha256": "dc294b354e9a716cedffa1f8e2f9d735e4bd9764f6218cf8af3ff10c18c074dc",
+          "reported_minutes": 21.18267215,
+          "archive_record": "runs/harness-next-20261116/evaluations/e-cb4f66b4111a33b767ff6273ee39c221ae1f456b9db011da7fd4224038a3/cells/bp-ng45/1001/cell.json"
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1002",
+          "status": "succeeded",
+          "corrected_score": -24.490921345430415,
+          "official_initial_score": -29.972605953397096,
+          "delta_vs_official_initial": 5.481684607966681,
+          "wns_ns": -7.87696419275293,
+          "tns_ns": -9726.862392626164,
+          "cut_net_count": 5859,
+          "timing_weighted_cut": 8101.98917739199,
+          "partition_assignment_changed_count": 0,
+          "partition_assignment_sha256": "0b7ee4099adc4c87167f9be75820f92badc8d4d75d70fea1f9967f5c466a80a8",
+          "reported_minutes": 25.9001845,
+          "archive_record": "runs/harness-next-20261116/evaluations/e-cb4f66b4111a33b767ff6273ee39c221ae1f456b9db011da7fd4224038a3/cells/bp-ng45/1002/cell.json"
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1003",
+          "status": "succeeded",
+          "corrected_score": -3.557827406112847,
+          "official_initial_score": -14.454241483743441,
+          "delta_vs_official_initial": 10.896414077630595,
+          "wns_ns": -7.909696232979864,
+          "tns_ns": -7399.590895238353,
+          "cut_net_count": 5873,
+          "timing_weighted_cut": 8113.745930110861,
+          "partition_assignment_changed_count": 0,
+          "partition_assignment_sha256": "b254dc303c1eee7950fedc20e5627219c21cfb3540b05af4c8c6bc47cd20de48",
+          "reported_minutes": 34.817085,
+          "archive_record": "runs/harness-next-20261116/evaluations/e-cb4f66b4111a33b767ff6273ee39c221ae1f456b9db011da7fd4224038a3/cells/bp-ng45/1003/cell.json"
+        },
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1001",
+          "status": "succeeded",
+          "corrected_score": 40.564370667699386,
+          "official_initial_score": 56.00243029865659,
+          "delta_vs_official_initial": -15.438059630957206,
+          "wns_ns": -0.8197975863528717,
+          "tns_ns": -274.9419330027015,
+          "cut_net_count": 3503,
+          "timing_weighted_cut": 5969.778054870636,
+          "partition_assignment_changed_count": 248,
+          "partition_assignment_sha256": "4d18796508eb5c534a45dcc5f972a206440df13b80b4ad25c476f4bb2902c4af",
+          "reported_minutes": 5.544646416666667,
+          "archive_record": "runs/harness-next-20261116/evaluations/e-cb4f66b4111a33b767ff6273ee39c221ae1f456b9db011da7fd4224038a3/cells/bp_fe-ng45/1001/cell.json"
+        },
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1002",
+          "status": "succeeded",
+          "corrected_score": 49.92933618986978,
+          "official_initial_score": 49.92933618986978,
+          "delta_vs_official_initial": 0.0,
+          "wns_ns": -0.7280568576313236,
+          "tns_ns": -211.7487329856929,
+          "cut_net_count": 3738,
+          "timing_weighted_cut": 6152.378811821003,
+          "partition_assignment_changed_count": 0,
+          "partition_assignment_sha256": "7f21616246748518a1c368a4cefa3b1ba0d5ee4cfb93fb983eb25c20dac495bd",
+          "reported_minutes": 7.430277733333333,
+          "archive_record": "runs/harness-next-20261116/evaluations/e-cb4f66b4111a33b767ff6273ee39c221ae1f456b9db011da7fd4224038a3/cells/bp_fe-ng45/1002/cell.json"
+        },
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1003",
+          "status": "succeeded",
+          "corrected_score": 55.82351841019526,
+          "official_initial_score": 55.82351841019526,
+          "delta_vs_official_initial": 0.0,
+          "wns_ns": -0.639466275808939,
+          "tns_ns": -188.35428327940795,
+          "cut_net_count": 3102,
+          "timing_weighted_cut": 5576.034057190449,
+          "partition_assignment_changed_count": 0,
+          "partition_assignment_sha256": "c3c1744a4bfb3d9934c3203de982a99f069005b16013f065d4636cbeb9b6760a",
+          "reported_minutes": 10.873932016666666,
+          "archive_record": "runs/harness-next-20261116/evaluations/e-cb4f66b4111a33b767ff6273ee39c221ae1f456b9db011da7fd4224038a3/cells/bp_fe-ng45/1003/cell.json"
+        }
+      ],
+      "model_calls": [
+        {
+          "request_id": "617a2e4e2a054a8f9f3e391a4218cf09",
+          "model": "deepseek-flash",
+          "status": "settled",
+          "reserved_at": "2026-11-16T13:08:06.043588+00:00",
+          "input_tokens": 4270,
+          "output_tokens": 15303,
+          "cost_rmb": "0.065482",
+          "recorded_at": "2026-11-16T13:09:35.378607+00:00"
+        },
+        {
+          "request_id": "533ad15046794acb902eaf0f71882c12",
+          "model": "deepseek-flash",
+          "status": "settled",
+          "reserved_at": "2026-11-16T13:09:35.415246+00:00",
+          "input_tokens": 4167,
+          "output_tokens": 11044,
+          "cost_rmb": "0.04495612",
+          "recorded_at": "2026-11-16T13:10:38.891205+00:00"
+        }
+      ],
+      "search_events": [
+        {
+          "event": "invalid_proposal",
+          "parent_id": "73e591ca67712e7c9fd030fc38daf49cc051e978e226fe11d00497d4e8363d0d",
+          "reason": "Candidate cannot rebind inputs or trusted helpers"
+        },
+        {
+          "event": "submitted",
+          "request_id": "e-cb4f66b4111a33b767ff6273ee39c221ae1f456b9db011da7fd4224038a3",
+          "decision": {
+            "reason": "opening_control"
+          },
+          "parent_id": "73e591ca67712e7c9fd030fc38daf49cc051e978e226fe11d00497d4e8363d0d",
+          "search_intent": "decoder_only",
+          "changed_components": {
+            "decoder": "Area-balanced cosine reassignment of the frozen two-means labels. Parent returned the seeded area-balanced weighted two-means labels directly. This candidate keeps that single unchanged helper call fo"
+          }
+        }
+      ],
+      "model_docstrings": [
+        {
+          "function": "compute_tp_gnn_loss",
+          "docstring": "Reproduce the maintained random-walk negative-sampling objective."
+        },
+        {
+          "function": "decode_tp_gnn_embeddings",
+          "docstring": "Area-balanced cosine reassignment of the frozen two-means labels.\n\nParent returned the seeded area-balanced weighted two-means labels directly.\nThis candidate keeps that single unchanged helper call for the two centers,\nthen reassigns all groups by area-balanced ranking of the cosine-similarity\ndifference between the two physical-area-weighted centers. Expected effect:\nassignments follow the L2-normalized dot-product geometry used by the loss,\nwhich can sharpen the learned communities and improve post-flow timing.\nInvalidation: if the decoded labels are rejected, final cut/timing does not\nimprove versus the parent, or the paired physical score regresses."
+        }
+      ],
+      "archive": "gpu2-14828.zip"
+    }
+  ],
+  "published_initial_cells": {
+    "ariane133-ng45/1001": {
+      "score": 50.73770172924047,
+      "wns_ns": -0.46473759489492794,
+      "tns_ns": -22.69812846368777
+    },
+    "bp-ng45/1001": {
+      "score": -20.823599877503156,
+      "wns_ns": -8.392474508445966,
+      "tns_ns": -9059.339646875793
+    },
+    "bp-ng45/1002": {
+      "score": -29.972605953397096,
+      "wns_ns": -7.841612026113778,
+      "tns_ns": -10349.946316496395
+    },
+    "bp-ng45/1003": {
+      "score": -14.454241483743441,
+      "wns_ns": -7.870566643414895,
+      "tns_ns": -8622.276498609612
+    },
+    "bp_fe-ng45/1001": {
+      "score": 56.00243029865659,
+      "wns_ns": -0.6611195111821111,
+      "tns_ns": -174.72074415142822
+    },
+    "bp_fe-ng45/1002": {
+      "score": 49.92933618986978,
+      "wns_ns": -0.7280568576313236,
+      "tns_ns": -211.7487329856929
+    },
+    "bp_fe-ng45/1003": {
+      "score": 55.82351841019526,
+      "wns_ns": -0.639466275808939,
+      "tns_ns": -188.35428327940795
+    },
+    "ariane133-ng45/1002": {
+      "score": -1.5077603893893712,
+      "wns_ns": -0.511323442504157,
+      "tns_ns": -101.00025635050363
+    }
+  },
+  "adjacent_version_pairs": [
+    {
+      "before": "harness",
+      "after": "harness-v5-20261116",
+      "common_cells": 6,
+      "before_mean": 15.72723742490056,
+      "after_mean": 15.433894894078213,
+      "delta": -0.29334253082234635,
+      "identical_exported_assignment_files": 5
+    },
+    {
+      "before": "harness-v5-20261116",
+      "after": "harness-feedback-20261116",
+      "common_cells": 6,
+      "before_mean": 15.433894894078213,
+      "after_mean": 15.433894894078213,
+      "delta": 0.0,
+      "identical_exported_assignment_files": 6
+    },
+    {
+      "before": "harness-feedback-20261116",
+      "after": "harness-opening-20261116",
+      "common_cells": 3,
+      "before_mean": 44.82345321083202,
+      "after_mean": 49.35443736714615,
+      "delta": 4.530984156314125,
+      "identical_exported_assignment_files": 1
+    },
+    {
+      "before": "harness-v6-20261116",
+      "after": "harness-next-20261116",
+      "common_cells": 7,
+      "before_mean": 11.069076767767118,
+      "after_mean": 10.723745780428835,
+      "delta": -0.3453309873382833,
+      "identical_exported_assignment_files": 2
+    }
+  ],
+  "latest_local_tested_bundle": {
+    "agent.py": "f539afc3435c3497857d7aa0787804f20deacc55874c1810b3e9db0c7d458ec1",
+    "paired_feedback.py": "257a6b7e9f60338dabe6e896862793b4f8f865096f26d6c70e13839d27e9dd6b",
+    "program.py": "f18b6e303cad3e67b7dd5be6a63a2ca7399e43997fd0c900334adae1a31bc87b",
+    "prompt.md": "ff407915c7abc9b7e32309ee3e269922e462c03ed960b08f1f86d7cb64e380c2"
+  },
+  "total_model_api_cost_rmb": "0.43745192",
+  "first_to_last_version_pairs": [
+    {
+      "server": "gpu1-12420",
+      "before": "harness",
+      "after": "harness-opening-20261116",
+      "common_cells": 3,
+      "before_mean": 44.82345321083202,
+      "after_mean": 49.35443736714615,
+      "official_initial_mean": 53.918428299573876,
+      "delta": 4.530984156314125
+    },
+    {
+      "server": "gpu2-14828",
+      "before": "harness-v6-20261116",
+      "after": "harness-next-20261116",
+      "common_cells": 7,
+      "before_mean": 11.069076767767118,
+      "after_mean": 10.723745780428835,
+      "official_initial_mean": 21.034648473331202,
+      "delta": -0.3453309873382833
+    }
+  ],
+  "totals": {
+    "runs": 6,
+    "scored_cells": 37,
+    "exported_assignments": 37,
+    "model_calls": 9,
+    "full_matrix_results": 0,
+    "search_evaluated_events": 0
+  }
+}

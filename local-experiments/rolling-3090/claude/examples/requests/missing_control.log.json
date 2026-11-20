@@ -1,0 +1,465 @@
+[
+ {
+  "event": "submitted",
+  "request_id": "e-e88082bdac994604231e76658d158481bde9037354580e62135a29fa880f",
+  "decision": {
+   "reason": "opening_control"
+  },
+  "parent_id": "c936085bfae4a448ff978d007b0f1a66c623b4d761a4a6a32683bb214d6e96b7",
+  "search_intent": "decoder_only",
+  "changed_components": {
+   "decoder": "Replace the frozen two-means decoder with an area-balanced principal-axis split. Relative to the parent, this keeps the same legal area-balanced top-die fill but ranks groups by a power-iteration proj"
+  }
+ },
+ {
+  "event": "submitted",
+  "request_id": "e-b6617f1892d2d253855621797dc6771e30361e8405fcdf7aa3265b3bf4d4",
+  "decision": {
+   "reason": "opening_control"
+  },
+  "parent_id": "c936085bfae4a448ff978d007b0f1a66c623b4d761a4a6a32683bb214d6e96b7",
+  "search_intent": "loss_only",
+  "changed_components": {
+   "loss": "Relative to the parent (random-walk contrastive loss only), add a timing-weighted star-edge attraction term sum_e w_e * softplus(-graph_scores_e) / sum_e w_e rescaled by (P+Q)/source_batch_size so its"
+  }
+ },
+ {
+  "event": "submitted",
+  "request_id": "e-a83b78148bfc57361789831465ca5ce5d76f43e9e4859959f69b6c7ad6ef",
+  "decision": {
+   "reason": "refine_incumbent",
+   "candidate_id": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9"
+  },
+  "parent_id": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9",
+  "search_intent": "refine",
+  "changed_components": {
+   "loss": "Relative to the parent loss, keep the timing-weighted star-edge attraction sum_e w_e * softplus(-graph_scores_e) but focus each edge by the endpoint timing criticality read from published node_feature"
+  }
+ },
+ {
+  "event": "submitted",
+  "request_id": "e-785401a4543c65fd9c9deeea8b8fb40283e10e2b78b1e255f73d6be7d0af",
+  "decision": {
+   "reason": "explore_from_incumbent",
+   "candidate_id": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9"
+  },
+  "parent_id": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9",
+  "search_intent": "diversify",
+  "changed_components": {
+   "decoder": "Relative to the parent, keep the timing-weighted star-edge loss unchanged and replace the frozen two-means helper with a custom seeded area-balanced two-means decoder. Initial centers are an embedding"
+  }
+ },
+ {
+  "event": "runtime_capabilities",
+  "python": "3.12.3",
+  "numpy": "2.5.5",
+  "torch": "2.15.0+cpu",
+  "reference_helper": null,
+  "decoder_probe": "custom decoders",
+  "loss_probe": "runs"
+ },
+ {
+  "event": "plan",
+  "choice": "X1",
+  "kind": "removal",
+  "parent": "R4",
+  "component": "loss",
+  "hard": [],
+  "budget": {
+   "remaining": 2,
+   "total": 6,
+   "splices_used": 0,
+   "splice_cap": 2
+  },
+  "planned": null,
+  "options": [
+   {
+    "id": "X1",
+    "kind": "removal",
+    "parent": "R4",
+    "component": "loss",
+    "question": "Does R4 still need its loss change once its decoder is fixed?"
+   },
+   {
+    "id": "X2",
+    "kind": "edit",
+    "parent": "R4",
+    "component": "loss",
+    "question": "Can a loss change of R4 raise bp-ng45 without losing ariane133-ng45?"
+   }
+  ],
+  "lessons": [
+   {
+    "evidence": "R4-R2",
+    "finding": "paired_reading",
+    "reading": "orientation_carried",
+    "official_delta": 5.3272,
+    "edit": {
+     "loss": "unchanged",
+     "decoder": "structural"
+    }
+   }
+  ]
+ },
+ {
+  "event": "submitted",
+  "request_id": "e-437548cffb38cf57a21f0fd86bad998ba3914b46353b2ea1b65045e56061",
+  "decision": {
+   "reason": "extend_best",
+   "component": "loss",
+   "incumbent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+   "experiment": {
+    "id": "X1",
+    "kind": "removal",
+    "question": "Does R4 still need its loss change once its decoder is fixed?"
+   }
+  },
+  "parent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+  "search_intent": "loss_only",
+  "changed_components": {
+   "loss": {
+    "mechanism": "removal splice: loss from S",
+    "decision": "Does R4 still need its loss change once its decoder is fixed?",
+    "prediction": "if_within_tolerance: build the next loss edit on the removal program; if_worse: keep the anchor's loss and edit its decoder next",
+    "falsifier": "the first explanation fails if the removal scores within 11.23 of R4; the second fails if it scores more than 11.23 below"
+   }
+  },
+  "policy_action": "removal",
+  "mechanism_keys": {
+   "loss": {
+    "shape": "d3f0932404eee4a7",
+    "added_signal_families": []
+   }
+  },
+  "model_calls": {},
+  "experiment": {
+   "id": "X1",
+   "kind": "removal",
+   "parent": "R4",
+   "parent_candidate": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+   "component": "loss",
+   "question": "Does R4 still need its loss change once its decoder is fixed?",
+   "contract": {
+    "anchor": "R4",
+    "anchor_candidate": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+    "component": "loss",
+    "kind": "removal",
+    "target": null,
+    "protect": [],
+    "fragile": [
+     "bp_fe-ng45/1002",
+     "bp_fe-ng45/1003",
+     "bp-ng45/1001",
+     "bp-ng45/1003"
+    ],
+    "tolerances": {
+     "bp_fe-ng45": {
+      "cell": 6.484,
+      "case_mean": 3.743,
+      "pairs": 8,
+      "source": "calibrated"
+     },
+     "bp-ng45": {
+      "cell": 1.967,
+      "case_mean": 2.0,
+      "pairs": 6,
+      "source": "calibrated"
+     },
+     "ariane133-ng45": {
+      "cell": 57.881,
+      "case_mean": 33.418,
+      "pairs": 15,
+      "source": "calibrated"
+     }
+    }
+   },
+   "factors": {
+    "loss": "c57107feeb9c",
+    "decoder": "5acdbee3b4a9"
+   },
+   "donors": {
+    "loss": "S",
+    "decoder": "R4"
+   },
+   "planned": false
+  },
+  "preflight": {
+   "static": [
+    {
+     "check": "python38_syntax",
+     "status": "pass",
+     "detail": ""
+    },
+    {
+     "check": "program_bytes",
+     "status": "pass",
+     "detail": "3108 of 18000 bytes"
+    },
+    {
+     "check": "ast_nodes",
+     "status": "pass",
+     "detail": "522 of 3000 nodes"
+    },
+    {
+     "check": "manifest",
+     "status": "pass",
+     "detail": "changes ['loss']"
+    },
+    {
+     "check": "identity_rules",
+     "status": "pass",
+     "detail": ""
+    }
+   ],
+   "probes": [
+    {
+     "probe": "loss_contract",
+     "status": "pass",
+     "loss": 8.101765,
+     "ratio_vs_parent": 0.5164
+    }
+   ]
+  }
+ },
+ {
+  "event": "official_receipt",
+  "request_id": "e-437548cffb38cf57a21f0fd86bad998ba3914b46353b2ea1b65045e56061",
+  "candidate_id": "cand-437548cffb38",
+  "status": "succeeded",
+  "score": 33.75499580780448
+ },
+ {
+  "event": "plan",
+  "choice": "X1",
+  "kind": "edit",
+  "parent": "R5",
+  "component": "loss",
+  "hard": [],
+  "budget": {
+   "remaining": 1,
+   "total": 6,
+   "splices_used": 1,
+   "splice_cap": 2
+  },
+  "planned": null,
+  "options": [
+   {
+    "id": "X1",
+    "kind": "edit",
+    "parent": "R5",
+    "component": "loss",
+    "question": "Can a loss change of R5 raise bp-ng45 without losing ariane133-ng45?"
+   }
+  ],
+  "lessons": [
+   {
+    "evidence": "R5-R4",
+    "finding": "paired_reading",
+    "reading": "no_gain",
+    "official_delta": -1.0,
+    "edit": {
+     "loss": "structural",
+     "decoder": "unchanged"
+    }
+   },
+   {
+    "evidence": "R5-R4",
+    "finding": "plan_verdict",
+    "reading": "no_gain",
+    "official_delta": -1.0,
+    "verdict": "measured",
+    "target": {
+     "case": null,
+     "mean_delta": null,
+     "met": null
+    },
+    "protected_regressions": []
+   },
+   {
+    "evidence": "R5-R4",
+    "finding": "removal",
+    "conclusion": "the loss change of R4 is not needed (-1.00 within 11.23)",
+    "parent": "R5",
+    "component": "loss"
+   }
+  ]
+ },
+ {
+  "event": "submitted",
+  "request_id": "e-49af746eb47e472b31f1e54024812ea699bba10766274eb3a5aae226cf2e",
+  "decision": {
+   "reason": "removal_follow_up",
+   "note": "the loss change of R4 is not needed (-1.00 within 11.23)",
+   "incumbent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+   "component": "loss",
+   "rolling_plan_override": true,
+   "experiment": {
+    "id": "X1",
+    "kind": "edit",
+    "question": "Can a loss change of R5 raise bp-ng45 without losing ariane133-ng45?"
+   },
+   "evidence": {
+    "candidate_id": "cand-437548cffb38",
+    "score": 33.75499580780448,
+    "parent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+    "complete": true,
+    "official_score_delta": -1.0,
+    "largest_regression": {
+     "case": "bp_fe-ng45",
+     "seed": "1001",
+     "score_delta": -1.0
+    },
+    "largest_gain": null,
+    "paired_case_deltas": [
+     {
+      "case": "bp_fe-ng45",
+      "scored_pairs": 3,
+      "expected_cells": 3,
+      "mean_paired_score_delta": -1.0
+     },
+     {
+      "case": "bp-ng45",
+      "scored_pairs": 3,
+      "expected_cells": 3,
+      "mean_paired_score_delta": -1.0
+     },
+     {
+      "case": "ariane133-ng45",
+      "scored_pairs": 3,
+      "expected_cells": 3,
+      "mean_paired_score_delta": -1.0
+     }
+    ],
+    "gains_across_seeds": [],
+    "timing_attribution_unconfirmed": [],
+    "failures": []
+   }
+  },
+  "parent_id": "cand-437548cffb38",
+  "search_intent": "loss_only",
+  "changed_components": {
+   "loss": {
+    "mechanism": "weaken the negative-pair repulsion",
+    "decision": "boundary groups move toward their neighbours",
+    "prediction": "fewer timing-critical nets cross the dies",
+    "falsifier": "TNS does not improve on most seeds"
+   }
+  },
+  "policy_action": "removal_follow_up",
+  "mechanism_keys": {
+   "loss": {
+    "shape": "1a6743caccc7e075",
+    "added_signal_families": []
+   }
+  },
+  "model_calls": {
+   "proposal": "0c120b23d4314bf290269dcba4161a31",
+   "accepted_code": "0c120b23d4314bf290269dcba4161a31"
+  },
+  "experiment": {
+   "id": "X1",
+   "kind": "edit",
+   "parent": "R5",
+   "parent_candidate": "cand-437548cffb38",
+   "component": "loss",
+   "question": "Can a loss change of R5 raise bp-ng45 without losing ariane133-ng45?",
+   "contract": {
+    "anchor": "R5",
+    "anchor_candidate": "cand-437548cffb38",
+    "component": "loss",
+    "kind": "edit",
+    "target": {
+     "case": "bp-ng45",
+     "seeds": [
+      "1001",
+      "1002",
+      "1003"
+     ],
+     "rule": "mean paired score delta over the case > 0 and most of its seeds improve"
+    },
+    "protect": [
+     {
+      "case": "ariane133-ng45",
+      "tolerance": 16.537,
+      "cell_tolerance": 28.643,
+      "strength": "mixed_reference",
+      "evidence": "R5-S",
+      "rule": "mean paired score delta over the case >= -tolerance"
+     }
+    ],
+    "fragile": [
+     "bp_fe-ng45/1002",
+     "bp-ng45/1001",
+     "bp-ng45/1003"
+    ],
+    "tolerances": {
+     "bp_fe-ng45": {
+      "cell": 4.565,
+      "case_mean": 2.636,
+      "pairs": 15,
+      "source": "calibrated"
+     },
+     "bp-ng45": {
+      "cell": 1.669,
+      "case_mean": 2.0,
+      "pairs": 14,
+      "source": "calibrated"
+     },
+     "ariane133-ng45": {
+      "cell": 28.643,
+      "case_mean": 16.537,
+      "pairs": 24,
+      "source": "calibrated"
+     }
+    }
+   },
+   "factors": null,
+   "donors": null,
+   "planned": false
+  },
+  "preflight": {
+   "static": [
+    {
+     "check": "python38_syntax",
+     "status": "pass",
+     "detail": ""
+    },
+    {
+     "check": "program_bytes",
+     "status": "pass",
+     "detail": "3252 of 18000 bytes"
+    },
+    {
+     "check": "ast_nodes",
+     "status": "pass",
+     "detail": "525 of 3000 nodes"
+    },
+    {
+     "check": "manifest",
+     "status": "pass",
+     "detail": "changes ['loss']"
+    },
+    {
+     "check": "identity_rules",
+     "status": "pass",
+     "detail": ""
+    }
+   ],
+   "probes": [
+    {
+     "probe": "loss_contract",
+     "status": "pass",
+     "loss": 7.556381,
+     "ratio_vs_parent": 0.9327
+    }
+   ]
+  }
+ },
+ {
+  "event": "official_receipt",
+  "request_id": "e-49af746eb47e472b31f1e54024812ea699bba10766274eb3a5aae226cf2e",
+  "candidate_id": "cand-49af746eb47e",
+  "status": "succeeded",
+  "score": 33.75499580780448
+ }
+]

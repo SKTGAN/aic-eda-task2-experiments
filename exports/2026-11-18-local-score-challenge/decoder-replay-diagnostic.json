@@ -1,0 +1,88 @@
+{
+  "numpy_version": "2.3.5",
+  "numpy_warmup": false,
+  "diagnostic_only": true,
+  "physical_score_measured": false,
+  "case": "bp-ng45",
+  "seeds": [
+    {
+      "seed": 1001,
+      "stage": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261115-161128-780305/baseline/qualification/cells/bp-ng45/1001/result/run/20_partition",
+      "embeddings_from": "official-start embeddings",
+      "preclosure": {
+        "count": 144224,
+        "direct": 3742,
+        "flip_adjusted": 3742
+      },
+      "postclosure": {
+        "count": 144224,
+        "direct": 0,
+        "flip_adjusted": 0
+      },
+      "parent_and_candidate_legalizer": [
+        {
+          "cut_nets": 5877,
+          "status": "accepted"
+        },
+        {
+          "cut_nets": 5877,
+          "status": "accepted"
+        }
+      ]
+    },
+    {
+      "seed": 1002,
+      "stage": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261115-205809-358941/baseline/qualification/cells/bp-ng45/1002/result/run/20_partition",
+      "embeddings_from": "official-start embeddings",
+      "preclosure": {
+        "count": 144224,
+        "direct": 6286,
+        "flip_adjusted": 6286
+      },
+      "postclosure": {
+        "count": 144224,
+        "direct": 0,
+        "flip_adjusted": 0
+      },
+      "parent_and_candidate_legalizer": [
+        {
+          "cut_nets": 5861,
+          "status": "accepted"
+        },
+        {
+          "cut_nets": 5861,
+          "status": "accepted"
+        }
+      ]
+    },
+    {
+      "seed": 1003,
+      "stage": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261115-213108-753693/baseline/qualification/cells/bp-ng45/1003/result/run/20_partition",
+      "embeddings_from": "official-start embeddings",
+      "preclosure": {
+        "count": 144224,
+        "direct": 3592,
+        "flip_adjusted": 3592
+      },
+      "postclosure": {
+        "count": 144224,
+        "direct": 0,
+        "flip_adjusted": 0
+      },
+      "parent_and_candidate_legalizer": [
+        {
+          "cut_nets": 5873,
+          "status": "accepted"
+        },
+        {
+          "cut_nets": 5873,
+          "status": "accepted"
+        }
+      ]
+    }
+  ],
+  "decoder_parent": "Claude original round 4",
+  "parent_archive_member": "claude-original/programs/round-04.py",
+  "candidate_sha256": "a885d1f65fc6e1c2648a05b9391f738b48245b808ec004300d4af86eec77d25a",
+  "reproduced_previous_warm_replay_exactly": true
+}

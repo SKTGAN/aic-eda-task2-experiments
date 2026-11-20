@@ -1,0 +1,22 @@
+{
+  "purpose": "matched local physical cell only; outer candidate matrix receipt absent",
+  "seed": "1002",
+  "case": "bp-ng45",
+  "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+  "initial": {
+    "native_receipt": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261115-205809-358941/baseline/qualification/cells/bp-ng45/1002/result/evaluation_result.json",
+    "sha256": "f958fb2e2d0b1fe8ce3c9377a3e1118fe697a96d5eec8473002c6436c8ccab8b",
+    "wns_ns": -7.885057274742126,
+    "tns_ns": -10297.035551229634
+  },
+  "candidate": {
+    "native_receipt": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-133345-887557/evaluation/cells/bp-ng45/1002/result/evaluation_result.json",
+    "sha256": "aa94fbf21cffb3482f8f3ba4c7202acc83ea00c330023903cd771ada8aae8cd6",
+    "wns_ns": -7.885057274742126,
+    "tns_ns": -10297.035551229634
+  },
+  "changed_instances": 0,
+  "instances": 144224,
+  "wns_delta_ns": 0.0,
+  "tns_delta_ns": 0.0
+}

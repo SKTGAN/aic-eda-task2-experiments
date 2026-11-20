@@ -1,0 +1,20 @@
+[
+  {
+    "request_id": "441ed7b3afa549ec9e148584797f7a8c",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 4572,
+    "output_tokens": 16384,
+    "cost_rmb": "0.140216",
+    "recorded_at": "2026-11-17T03:21:44.929196+00:00"
+  },
+  {
+    "request_id": "d24449c96cec49a392c45c68d09c5b6c",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 4442,
+    "output_tokens": 14455,
+    "cost_rmb": "0.11724848",
+    "recorded_at": "2026-11-17T03:23:10.029474+00:00"
+  }
+]

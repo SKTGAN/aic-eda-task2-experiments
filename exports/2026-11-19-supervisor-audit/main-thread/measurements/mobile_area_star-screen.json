@@ -1,0 +1,31 @@
+{
+  "scope": "local paired training probes",
+  "parent_sha256": "9d0da5bc9726e99d1db300b0dd2d1faa3293c10e4595dd8ff46112ab8e8d83d4",
+  "candidate_sha256": "465543225b943d7f278f16dc136961d1faeb368fbaaf23d6c566596cedf1746e",
+  "parent_full_score": 39.68092703127543,
+  "probes": [
+    {
+      "cell": "bp_fe-ng45/1002",
+      "candidate_score": 44.632464887832754,
+      "parent_score": 39.46643367032345,
+      "change": 5.166031217509307,
+      "receipt": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261119-134627-619574/evaluation/evaluation_result.json"
+    },
+    {
+      "cell": "bp_fe-ng45/1001",
+      "candidate_score": 53.36296417902005,
+      "parent_score": 55.97944043792447,
+      "change": -2.61647625890442,
+      "receipt": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261119-161426-747572/evaluation/evaluation_result.json"
+    },
+    {
+      "cell": "bp_fe-ng45/1003",
+      "candidate_score": 56.728237985696815,
+      "parent_score": 51.50987592410557,
+      "change": 5.218362061591243,
+      "receipt": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261119-162514-164384/evaluation/evaluation_result.json"
+    }
+  ],
+  "mean_probe_change": 2.58930567339871,
+  "promoted": false
+}

@@ -1,0 +1,696 @@
+{
+  "source_sha256": "d14f9ca79b710310562f4979a9e5766b16ea9feb517ccf8a5bef4968cb361a40",
+  "historical_runner_candidate_id": "d5fd4448ad8d57fe652cc16b641a1d5002fa11145f699750b888cf1728df62ca",
+  "C_development_program_sha256": "d14f9ca79b710310562f4979a9e5766b16ea9feb517ccf8a5bef4968cb361a40",
+  "historical_score": 29.665496497232258,
+  "C_score": 2.5567655369479656,
+  "historical_image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+  "retain_physical_files_on_historical_runner": false,
+  "historical_endpoint": "post-opt-pre-cts",
+  "paired": [
+    {
+      "case": "bp_fe-ng45",
+      "seed": "1001",
+      "historical": 28.717505032431024,
+      "C": 28.717505032431024,
+      "raw_C": 28.717505032431024,
+      "delta": 0.0,
+      "matched_frontend_metrics": [
+        "bottom_count",
+        "cut_net_count",
+        "partition_assignment_changed_count",
+        "timing_weighted_cut",
+        "top_count",
+        "tp_gnn_area_balance_cut_delta",
+        "tp_gnn_area_balance_weighted_cut_delta",
+        "tp_gnn_area_balance_weighted_cut_relative_change",
+        "tp_gnn_balanced_cut_net_count",
+        "tp_gnn_balanced_timing_weighted_cut",
+        "tp_gnn_embedding_pair_cosine_median",
+        "tp_gnn_embedding_total_variance",
+        "tp_gnn_epochs_completed",
+        "tp_gnn_feasibility_cut_delta",
+        "tp_gnn_feasibility_weighted_cut_delta",
+        "tp_gnn_feasibility_weighted_cut_relative_change",
+        "tp_gnn_feasible_cut_net_count",
+        "tp_gnn_feasible_timing_weighted_cut",
+        "tp_gnn_final_loss",
+        "tp_gnn_negative_pair_cosine_median",
+        "tp_gnn_negative_pair_sample_count",
+        "tp_gnn_optimizer_steps_completed",
+        "tp_gnn_positive_pair_cosine_median",
+        "tp_gnn_positive_pair_sample_count",
+        "tp_gnn_raw_cut_net_count",
+        "tp_gnn_raw_timing_weighted_cut",
+        "tp_gnn_repair_moved_area_fraction",
+        "tp_gnn_repair_moved_supernodes"
+      ],
+      "metrics": {
+        "final_global_wns_setup_ns": [
+          -0.9933631975933916,
+          -0.9933631975933916
+        ],
+        "final_global_tns_setup_ns": [
+          -324.34935300086073,
+          -324.34935300086073
+        ],
+        "tp_gnn_raw_cut_net_count": [
+          1342,
+          1342
+        ],
+        "tp_gnn_balanced_cut_net_count": [
+          3431,
+          3431
+        ],
+        "tp_gnn_feasible_cut_net_count": [
+          3431,
+          3431
+        ],
+        "partition_assignment_changed_count": [
+          1,
+          1
+        ],
+        "tp_gnn_final_loss": [
+          44.750288009643555,
+          44.750288009643555
+        ],
+        "reference_wns_deficit_ns": [
+          0.9002498352590634,
+          0.9002498352590634
+        ],
+        "reference_tns_deficit_ns": [
+          716.9190029865956,
+          716.9190029865956
+        ]
+      }
+    },
+    {
+      "case": "bp_fe-ng45",
+      "seed": "1002",
+      "historical": 41.092586144774984,
+      "C": 41.092586144774984,
+      "raw_C": 41.092586144774984,
+      "delta": 0.0,
+      "matched_frontend_metrics": [
+        "bottom_count",
+        "cut_net_count",
+        "partition_assignment_changed_count",
+        "timing_weighted_cut",
+        "top_count",
+        "tp_gnn_area_balance_cut_delta",
+        "tp_gnn_area_balance_weighted_cut_delta",
+        "tp_gnn_area_balance_weighted_cut_relative_change",
+        "tp_gnn_balanced_cut_net_count",
+        "tp_gnn_balanced_timing_weighted_cut",
+        "tp_gnn_embedding_pair_cosine_median",
+        "tp_gnn_embedding_total_variance",
+        "tp_gnn_epochs_completed",
+        "tp_gnn_feasibility_cut_delta",
+        "tp_gnn_feasibility_weighted_cut_delta",
+        "tp_gnn_feasibility_weighted_cut_relative_change",
+        "tp_gnn_feasible_cut_net_count",
+        "tp_gnn_feasible_timing_weighted_cut",
+        "tp_gnn_final_loss",
+        "tp_gnn_negative_pair_cosine_median",
+        "tp_gnn_negative_pair_sample_count",
+        "tp_gnn_optimizer_steps_completed",
+        "tp_gnn_positive_pair_cosine_median",
+        "tp_gnn_positive_pair_sample_count",
+        "tp_gnn_raw_cut_net_count",
+        "tp_gnn_raw_timing_weighted_cut",
+        "tp_gnn_repair_moved_area_fraction",
+        "tp_gnn_repair_moved_supernodes"
+      ],
+      "metrics": {
+        "final_global_wns_setup_ns": [
+          -0.7950578198616463,
+          -0.7950578198616463
+        ],
+        "final_global_tns_setup_ns": [
+          -281.76490560495,
+          -281.76490560495
+        ],
+        "tp_gnn_raw_cut_net_count": [
+          1346,
+          1346
+        ],
+        "tp_gnn_balanced_cut_net_count": [
+          3739,
+          3739
+        ],
+        "tp_gnn_feasible_cut_net_count": [
+          3739,
+          3739
+        ],
+        "partition_assignment_changed_count": [
+          1,
+          1
+        ],
+        "tp_gnn_final_loss": [
+          44.809152603149414,
+          44.809152603149414
+        ],
+        "reference_wns_deficit_ns": [
+          0.9002498352590634,
+          0.9002498352590634
+        ],
+        "reference_tns_deficit_ns": [
+          716.9190029865956,
+          716.9190029865956
+        ]
+      }
+    },
+    {
+      "case": "bp_fe-ng45",
+      "seed": "1003",
+      "historical": 55.82351841019526,
+      "C": 53.126825914136866,
+      "raw_C": 53.126825914136866,
+      "delta": -2.6966924960583967,
+      "matched_frontend_metrics": [
+        "bottom_count",
+        "cut_net_count",
+        "partition_assignment_changed_count",
+        "timing_weighted_cut",
+        "top_count",
+        "tp_gnn_area_balance_cut_delta",
+        "tp_gnn_area_balance_weighted_cut_delta",
+        "tp_gnn_area_balance_weighted_cut_relative_change",
+        "tp_gnn_balanced_cut_net_count",
+        "tp_gnn_balanced_timing_weighted_cut",
+        "tp_gnn_embedding_pair_cosine_median",
+        "tp_gnn_embedding_total_variance",
+        "tp_gnn_epochs_completed",
+        "tp_gnn_feasibility_cut_delta",
+        "tp_gnn_feasibility_weighted_cut_delta",
+        "tp_gnn_feasibility_weighted_cut_relative_change",
+        "tp_gnn_feasible_cut_net_count",
+        "tp_gnn_feasible_timing_weighted_cut",
+        "tp_gnn_final_loss",
+        "tp_gnn_negative_pair_cosine_median",
+        "tp_gnn_negative_pair_sample_count",
+        "tp_gnn_optimizer_steps_completed",
+        "tp_gnn_positive_pair_cosine_median",
+        "tp_gnn_positive_pair_sample_count",
+        "tp_gnn_raw_cut_net_count",
+        "tp_gnn_raw_timing_weighted_cut",
+        "tp_gnn_repair_moved_area_fraction",
+        "tp_gnn_repair_moved_supernodes"
+      ],
+      "metrics": {
+        "final_global_wns_setup_ns": [
+          -0.639466275808939,
+          -0.663550788652499
+        ],
+        "final_global_tns_setup_ns": [
+          -188.35428327940795,
+          -207.78956032835512
+        ],
+        "tp_gnn_raw_cut_net_count": [
+          1377,
+          1377
+        ],
+        "tp_gnn_balanced_cut_net_count": [
+          3102,
+          3102
+        ],
+        "tp_gnn_feasible_cut_net_count": [
+          3102,
+          3102
+        ],
+        "partition_assignment_changed_count": [
+          0,
+          0
+        ],
+        "tp_gnn_final_loss": [
+          44.72877311706543,
+          44.72877311706543
+        ],
+        "reference_wns_deficit_ns": [
+          0.9002498352590634,
+          0.9002498352590634
+        ],
+        "reference_tns_deficit_ns": [
+          716.9190029865956,
+          716.9190029865956
+        ]
+      }
+    },
+    {
+      "case": "bp-ng45",
+      "seed": "1001",
+      "historical": -13.818241516483523,
+      "C": -25.362346624448374,
+      "raw_C": -25.362346624448374,
+      "delta": -11.544105107964851,
+      "matched_frontend_metrics": [
+        "bottom_count",
+        "cut_net_count",
+        "partition_assignment_changed_count",
+        "timing_weighted_cut",
+        "top_count",
+        "tp_gnn_area_balance_cut_delta",
+        "tp_gnn_area_balance_weighted_cut_delta",
+        "tp_gnn_area_balance_weighted_cut_relative_change",
+        "tp_gnn_balanced_cut_net_count",
+        "tp_gnn_balanced_timing_weighted_cut",
+        "tp_gnn_embedding_pair_cosine_median",
+        "tp_gnn_embedding_total_variance",
+        "tp_gnn_epochs_completed",
+        "tp_gnn_feasibility_cut_delta",
+        "tp_gnn_feasibility_weighted_cut_delta",
+        "tp_gnn_feasibility_weighted_cut_relative_change",
+        "tp_gnn_feasible_cut_net_count",
+        "tp_gnn_feasible_timing_weighted_cut",
+        "tp_gnn_final_loss",
+        "tp_gnn_negative_pair_cosine_median",
+        "tp_gnn_negative_pair_sample_count",
+        "tp_gnn_optimizer_steps_completed",
+        "tp_gnn_positive_pair_cosine_median",
+        "tp_gnn_positive_pair_sample_count",
+        "tp_gnn_raw_cut_net_count",
+        "tp_gnn_raw_timing_weighted_cut",
+        "tp_gnn_repair_moved_area_fraction",
+        "tp_gnn_repair_moved_supernodes"
+      ],
+      "metrics": {
+        "final_global_wns_setup_ns": [
+          -7.8699466948604115,
+          -7.866748364280616
+        ],
+        "final_global_tns_setup_ns": [
+          -8552.39092374888,
+          -9828.25650282624
+        ],
+        "tp_gnn_raw_cut_net_count": [
+          4393,
+          4393
+        ],
+        "tp_gnn_balanced_cut_net_count": [
+          5931,
+          5931
+        ],
+        "tp_gnn_feasible_cut_net_count": [
+          5880,
+          5880
+        ],
+        "partition_assignment_changed_count": [
+          8,
+          8
+        ],
+        "tp_gnn_final_loss": [
+          42.63954416910807,
+          42.63954416910807
+        ],
+        "reference_wns_deficit_ns": [
+          8.663351750761597,
+          8.663351750761597
+        ],
+        "reference_tns_deficit_ns": [
+          6622.78575944895,
+          6622.78575944895
+        ]
+      }
+    },
+    {
+      "case": "bp-ng45",
+      "seed": "1002",
+      "historical": -24.490921345430415,
+      "C": -29.849037711906657,
+      "raw_C": -29.849037711906657,
+      "delta": -5.358116366476242,
+      "matched_frontend_metrics": [
+        "bottom_count",
+        "cut_net_count",
+        "partition_assignment_changed_count",
+        "timing_weighted_cut",
+        "top_count",
+        "tp_gnn_area_balance_cut_delta",
+        "tp_gnn_area_balance_weighted_cut_delta",
+        "tp_gnn_area_balance_weighted_cut_relative_change",
+        "tp_gnn_balanced_cut_net_count",
+        "tp_gnn_balanced_timing_weighted_cut",
+        "tp_gnn_embedding_pair_cosine_median",
+        "tp_gnn_embedding_total_variance",
+        "tp_gnn_epochs_completed",
+        "tp_gnn_feasibility_cut_delta",
+        "tp_gnn_feasibility_weighted_cut_delta",
+        "tp_gnn_feasibility_weighted_cut_relative_change",
+        "tp_gnn_feasible_cut_net_count",
+        "tp_gnn_feasible_timing_weighted_cut",
+        "tp_gnn_final_loss",
+        "tp_gnn_negative_pair_cosine_median",
+        "tp_gnn_negative_pair_sample_count",
+        "tp_gnn_optimizer_steps_completed",
+        "tp_gnn_positive_pair_cosine_median",
+        "tp_gnn_positive_pair_sample_count",
+        "tp_gnn_raw_cut_net_count",
+        "tp_gnn_raw_timing_weighted_cut",
+        "tp_gnn_repair_moved_area_fraction",
+        "tp_gnn_repair_moved_supernodes"
+      ],
+      "metrics": {
+        "final_global_wns_setup_ns": [
+          -7.87696419275293,
+          -7.8203064015794475
+        ],
+        "final_global_tns_setup_ns": [
+          -9726.862392626164,
+          -10347.165081619713
+        ],
+        "tp_gnn_raw_cut_net_count": [
+          4447,
+          4447
+        ],
+        "tp_gnn_balanced_cut_net_count": [
+          5885,
+          5885
+        ],
+        "tp_gnn_feasible_cut_net_count": [
+          5859,
+          5859
+        ],
+        "partition_assignment_changed_count": [
+          0,
+          0
+        ],
+        "tp_gnn_final_loss": [
+          42.72952842712402,
+          42.72952842712402
+        ],
+        "reference_wns_deficit_ns": [
+          8.663351750761597,
+          8.663351750761597
+        ],
+        "reference_tns_deficit_ns": [
+          6622.78575944895,
+          6622.78575944895
+        ]
+      }
+    },
+    {
+      "case": "bp-ng45",
+      "seed": "1003",
+      "historical": -2.526227370995658,
+      "C": -2.4928290291365056,
+      "raw_C": -2.4928290291365056,
+      "delta": 0.03339834185915258,
+      "matched_frontend_metrics": [
+        "bottom_count",
+        "cut_net_count",
+        "partition_assignment_changed_count",
+        "timing_weighted_cut",
+        "top_count",
+        "tp_gnn_area_balance_cut_delta",
+        "tp_gnn_area_balance_weighted_cut_delta",
+        "tp_gnn_area_balance_weighted_cut_relative_change",
+        "tp_gnn_balanced_cut_net_count",
+        "tp_gnn_balanced_timing_weighted_cut",
+        "tp_gnn_embedding_pair_cosine_median",
+        "tp_gnn_embedding_total_variance",
+        "tp_gnn_epochs_completed",
+        "tp_gnn_feasibility_cut_delta",
+        "tp_gnn_feasibility_weighted_cut_delta",
+        "tp_gnn_feasibility_weighted_cut_relative_change",
+        "tp_gnn_feasible_cut_net_count",
+        "tp_gnn_feasible_timing_weighted_cut",
+        "tp_gnn_final_loss",
+        "tp_gnn_negative_pair_cosine_median",
+        "tp_gnn_negative_pair_sample_count",
+        "tp_gnn_optimizer_steps_completed",
+        "tp_gnn_positive_pair_cosine_median",
+        "tp_gnn_positive_pair_sample_count",
+        "tp_gnn_raw_cut_net_count",
+        "tp_gnn_raw_timing_weighted_cut",
+        "tp_gnn_repair_moved_area_fraction",
+        "tp_gnn_repair_moved_supernodes"
+      ],
+      "metrics": {
+        "final_global_wns_setup_ns": [
+          -7.912559720285962,
+          -7.849878302899714
+        ],
+        "final_global_tns_setup_ns": [
+          -7284.263780560416,
+          -7312.522236491056
+        ],
+        "tp_gnn_raw_cut_net_count": [
+          4410,
+          4410
+        ],
+        "tp_gnn_balanced_cut_net_count": [
+          6105,
+          6105
+        ],
+        "tp_gnn_feasible_cut_net_count": [
+          5874,
+          5874
+        ],
+        "partition_assignment_changed_count": [
+          10,
+          10
+        ],
+        "tp_gnn_final_loss": [
+          42.82264264424642,
+          42.82264264424642
+        ],
+        "reference_wns_deficit_ns": [
+          8.663351750761597,
+          8.663351750761597
+        ],
+        "reference_tns_deficit_ns": [
+          6622.78575944895,
+          6622.78575944895
+        ]
+      }
+    },
+    {
+      "case": "ariane133-ng45",
+      "seed": "1001",
+      "historical": 43.44485960454817,
+      "C": -12.626232792775971,
+      "raw_C": -12.626232792775971,
+      "delta": -56.07109239732414,
+      "matched_frontend_metrics": [
+        "bottom_count",
+        "cut_net_count",
+        "partition_assignment_changed_count",
+        "timing_weighted_cut",
+        "top_count",
+        "tp_gnn_area_balance_cut_delta",
+        "tp_gnn_area_balance_weighted_cut_delta",
+        "tp_gnn_area_balance_weighted_cut_relative_change",
+        "tp_gnn_balanced_cut_net_count",
+        "tp_gnn_balanced_timing_weighted_cut",
+        "tp_gnn_embedding_pair_cosine_median",
+        "tp_gnn_embedding_total_variance",
+        "tp_gnn_epochs_completed",
+        "tp_gnn_feasibility_cut_delta",
+        "tp_gnn_feasibility_weighted_cut_delta",
+        "tp_gnn_feasibility_weighted_cut_relative_change",
+        "tp_gnn_feasible_cut_net_count",
+        "tp_gnn_feasible_timing_weighted_cut",
+        "tp_gnn_final_loss",
+        "tp_gnn_negative_pair_cosine_median",
+        "tp_gnn_negative_pair_sample_count",
+        "tp_gnn_optimizer_steps_completed",
+        "tp_gnn_positive_pair_cosine_median",
+        "tp_gnn_positive_pair_sample_count",
+        "tp_gnn_raw_cut_net_count",
+        "tp_gnn_raw_timing_weighted_cut",
+        "tp_gnn_repair_moved_area_fraction",
+        "tp_gnn_repair_moved_supernodes"
+      ],
+      "metrics": {
+        "final_global_wns_setup_ns": [
+          -0.6459100104261047,
+          -0.8015464074902753
+        ],
+        "final_global_tns_setup_ns": [
+          -12.40398929789383,
+          -83.60344120297553
+        ],
+        "tp_gnn_raw_cut_net_count": [
+          7365,
+          7365
+        ],
+        "tp_gnn_balanced_cut_net_count": [
+          11494,
+          11494
+        ],
+        "tp_gnn_feasible_cut_net_count": [
+          10849,
+          10849
+        ],
+        "partition_assignment_changed_count": [
+          46,
+          46
+        ],
+        "tp_gnn_final_loss": [
+          44.7283681233724,
+          44.7283681233724
+        ],
+        "reference_wns_deficit_ns": [
+          0.5290353246723486,
+          0.5290353246723486
+        ],
+        "reference_tns_deficit_ns": [
+          96.42498143235612,
+          96.42498143235612
+        ]
+      }
+    },
+    {
+      "case": "ariane133-ng45",
+      "seed": "1002",
+      "historical": 68.47153112881385,
+      "C": 70.40441889945633,
+      "raw_C": 70.40441889945633,
+      "delta": 1.9328877706424805,
+      "matched_frontend_metrics": [
+        "bottom_count",
+        "cut_net_count",
+        "partition_assignment_changed_count",
+        "timing_weighted_cut",
+        "top_count",
+        "tp_gnn_area_balance_cut_delta",
+        "tp_gnn_area_balance_weighted_cut_delta",
+        "tp_gnn_area_balance_weighted_cut_relative_change",
+        "tp_gnn_balanced_cut_net_count",
+        "tp_gnn_balanced_timing_weighted_cut",
+        "tp_gnn_embedding_pair_cosine_median",
+        "tp_gnn_embedding_total_variance",
+        "tp_gnn_epochs_completed",
+        "tp_gnn_feasibility_cut_delta",
+        "tp_gnn_feasibility_weighted_cut_delta",
+        "tp_gnn_feasibility_weighted_cut_relative_change",
+        "tp_gnn_feasible_cut_net_count",
+        "tp_gnn_feasible_timing_weighted_cut",
+        "tp_gnn_final_loss",
+        "tp_gnn_negative_pair_cosine_median",
+        "tp_gnn_negative_pair_sample_count",
+        "tp_gnn_optimizer_steps_completed",
+        "tp_gnn_positive_pair_cosine_median",
+        "tp_gnn_positive_pair_sample_count",
+        "tp_gnn_raw_cut_net_count",
+        "tp_gnn_raw_timing_weighted_cut",
+        "tp_gnn_repair_moved_area_fraction",
+        "tp_gnn_repair_moved_supernodes"
+      ],
+      "metrics": {
+        "final_global_wns_setup_ns": [
+          -0.38127058145379045,
+          -0.35056536443793457
+        ],
+        "final_global_tns_setup_ns": [
+          -4.340506743550353,
+          -4.965200391375832
+        ],
+        "tp_gnn_raw_cut_net_count": [
+          8706,
+          8706
+        ],
+        "tp_gnn_balanced_cut_net_count": [
+          15400,
+          15400
+        ],
+        "tp_gnn_feasible_cut_net_count": [
+          17776,
+          17776
+        ],
+        "partition_assignment_changed_count": [
+          2499,
+          2499
+        ],
+        "tp_gnn_final_loss": [
+          45.2027899424235,
+          45.2027899424235
+        ],
+        "reference_wns_deficit_ns": [
+          0.5290353246723486,
+          0.5290353246723486
+        ],
+        "reference_tns_deficit_ns": [
+          96.42498143235612,
+          96.42498143235612
+        ]
+      }
+    },
+    {
+      "case": "ariane133-ng45",
+      "seed": "1003",
+      "historical": 70.27485838723663,
+      "C": -100.0,
+      "raw_C": -135.10709834287928,
+      "delta": -170.27485838723663,
+      "matched_frontend_metrics": [
+        "bottom_count",
+        "cut_net_count",
+        "partition_assignment_changed_count",
+        "timing_weighted_cut",
+        "top_count",
+        "tp_gnn_area_balance_cut_delta",
+        "tp_gnn_area_balance_weighted_cut_delta",
+        "tp_gnn_area_balance_weighted_cut_relative_change",
+        "tp_gnn_balanced_cut_net_count",
+        "tp_gnn_balanced_timing_weighted_cut",
+        "tp_gnn_embedding_pair_cosine_median",
+        "tp_gnn_embedding_total_variance",
+        "tp_gnn_epochs_completed",
+        "tp_gnn_feasibility_cut_delta",
+        "tp_gnn_feasibility_weighted_cut_delta",
+        "tp_gnn_feasibility_weighted_cut_relative_change",
+        "tp_gnn_feasible_cut_net_count",
+        "tp_gnn_feasible_timing_weighted_cut",
+        "tp_gnn_final_loss",
+        "tp_gnn_negative_pair_cosine_median",
+        "tp_gnn_negative_pair_sample_count",
+        "tp_gnn_optimizer_steps_completed",
+        "tp_gnn_positive_pair_cosine_median",
+        "tp_gnn_positive_pair_sample_count",
+        "tp_gnn_raw_cut_net_count",
+        "tp_gnn_raw_timing_weighted_cut",
+        "tp_gnn_repair_moved_area_fraction",
+        "tp_gnn_repair_moved_supernodes"
+      ],
+      "metrics": {
+        "final_global_wns_setup_ns": [
+          -0.2540598914268465,
+          -0.796712496304345
+        ],
+        "final_global_tns_setup_ns": [
+          -16.899838451443117,
+          -281.0277317066049
+        ],
+        "tp_gnn_raw_cut_net_count": [
+          8510,
+          8510
+        ],
+        "tp_gnn_balanced_cut_net_count": [
+          12612,
+          12612
+        ],
+        "tp_gnn_feasible_cut_net_count": [
+          11844,
+          11844
+        ],
+        "partition_assignment_changed_count": [
+          58,
+          58
+        ],
+        "tp_gnn_final_loss": [
+          44.759450912475586,
+          44.759450912475586
+        ],
+        "reference_wns_deficit_ns": [
+          0.5290353246723486,
+          0.5290353246723486
+        ],
+        "reference_tns_deficit_ns": [
+          96.42498143235612,
+          96.42498143235612
+        ]
+      }
+    }
+  ]
+}

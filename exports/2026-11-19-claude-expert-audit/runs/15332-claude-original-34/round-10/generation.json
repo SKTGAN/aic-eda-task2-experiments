@@ -1,0 +1,56 @@
+{
+  "association": "chronological context before submit",
+  "associated_call_ids": {},
+  "sequence_at_submission": 34,
+  "recorded_reason": {
+    "reason": "explore_from_incumbent",
+    "candidate_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd"
+  },
+  "candidate_explanation": {
+    "decoder": "Relative to the parent custom area-balanced two-means decoder, replace the distance-margin ranking by a seeded area-weighted variance-axis projection refined with an iterative Fisher between-group dir"
+  },
+  "generation_events": [
+    {
+      "sequence": 31,
+      "event": {
+        "event": "invalid_proposal",
+        "parent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+        "reason": "The model returned an incomplete response"
+      }
+    },
+    {
+      "sequence": 32,
+      "event": {
+        "event": "invalid_proposal",
+        "parent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+        "reason": "Unsupported NumPy operation: searchsorted"
+      }
+    },
+    {
+      "sequence": 33,
+      "event": {
+        "event": "invalid_proposal",
+        "parent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+        "reason": "The model returned an incomplete response"
+      }
+    },
+    {
+      "sequence": 34,
+      "event": {
+        "event": "submitted",
+        "request_id": "e-d2f59cfa409feb6db60e80cfff68800915e2621ef64850aa0ed11c384cee",
+        "decision": {
+          "reason": "explore_from_incumbent",
+          "candidate_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd"
+        },
+        "parent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+        "search_intent": "diversify",
+        "changed_components": {
+          "decoder": "Relative to the parent custom area-balanced two-means decoder, replace the distance-margin ranking by a seeded area-weighted variance-axis projection refined with an iterative Fisher between-group dir"
+        }
+      }
+    }
+  ],
+  "evaluation_event_sequence": 35,
+  "verified_source_sha256": "f86bcb001301980a6a885e802a6cf41fcd65a429e9c42e972b8bb4223f4cc7a3"
+}

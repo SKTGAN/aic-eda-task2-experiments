@@ -1,0 +1,51 @@
+{
+  "association": "chronological context before submit",
+  "associated_call_ids": {},
+  "sequence_at_submission": 10,
+  "recorded_reason": {
+    "reason": "opening_control"
+  },
+  "candidate_explanation": {
+    "loss": "Relative to the parent (random-walk contrastive loss only), add a timing-weighted star-edge attraction term sum_e w_e * softplus(-graph_scores_e) / sum_e w_e rescaled by (P+Q)/source_batch_size so its"
+  },
+  "generation_events": [
+    {
+      "sequence": 8,
+      "event": {
+        "event": "opening_alternative_rejected",
+        "parent_id": "c936085bfae4a448ff978d007b0f1a66c623b4d761a4a6a32683bb214d6e96b7",
+        "reason": "Candidate cannot rebind inputs or trusted helpers"
+      }
+    },
+    {
+      "sequence": 9,
+      "event": {
+        "event": "opening_review",
+        "parent_id": "c936085bfae4a448ff978d007b0f1a66c623b4d761a4a6a32683bb214d6e96b7",
+        "search_intent": "loss_only",
+        "proposals": [
+          "A"
+        ],
+        "verdict": "A",
+        "reason": ""
+      }
+    },
+    {
+      "sequence": 10,
+      "event": {
+        "event": "submitted",
+        "request_id": "e-b6617f1892d2d253855621797dc6771e30361e8405fcdf7aa3265b3bf4d4",
+        "decision": {
+          "reason": "opening_control"
+        },
+        "parent_id": "c936085bfae4a448ff978d007b0f1a66c623b4d761a4a6a32683bb214d6e96b7",
+        "search_intent": "loss_only",
+        "changed_components": {
+          "loss": "Relative to the parent (random-walk contrastive loss only), add a timing-weighted star-edge attraction term sum_e w_e * softplus(-graph_scores_e) / sum_e w_e rescaled by (P+Q)/source_batch_size so its"
+        }
+      }
+    }
+  ],
+  "evaluation_event_sequence": 11,
+  "verified_source_sha256": "c7f62f39510af1dedcff7740f4237efc180dc6d97d4b83ac061fb12c35d84a32"
+}

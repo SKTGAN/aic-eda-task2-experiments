@@ -1,0 +1,1141 @@
+[
+ {
+  "effort": "high",
+  "system": "You plan one official experiment for a TP-GNN loss/decoder search. Do not write code.\nReply with one JSON object: {\"choice\": \"<option id>\", \"explanations\": [\"<H1>\", \"<H2>\"],\n\"discriminating_prediction\": \"...\", \"falsifier\": \"...\", \"edit_brief\": \"...\",\n\"expected_footprint\": \"structural\" | \"coefficients_only\" | \"either\", \"probe\": null}.\nChoose exactly one offered option. Give two competing explanations of the latest evidence and the\noutcome of the chosen experiment that would separate them. For an edit, `edit_brief` states the\nsingle change in at most 60 words; for a splice it may be empty. `probe` may name one allowed\nsynthetic check from `allowed_probes`, or be null. Evidence ids such as R3-S name paired\ncomparisons. Case and seed names are evidence labels only; never propose rules keyed to them.\nLabels that only exchange the two dies, published start values and timing changes with identical\nlabels are confounded evidence. Keep the whole reply under 200 words.\n\n# Official numerical interface (offline placeholder)\n",
+  "request": {
+   "options": [
+    {
+     "id": "X1",
+     "kind": "edit",
+     "parent": "R2",
+     "component": "decoder",
+     "question": "Can a decoder change of R2 raise bp_fe-ng45 without losing bp-ng45, ariane133-ng45?",
+     "decides": null,
+     "hypotheses": [
+      "a decoder change of R2 can raise bp_fe-ng45, whose mean is -5.17 against the start",
+      "bp_fe-ng45 does not respond to decoder changes of R2: 1 earlier tries moved it by R4 +6.57"
+     ],
+     "distinguishes": "bp_fe-ng45 improves on most seeds against R2 with every protected design inside its tolerance, or it does not",
+     "falsifier": "bp_fe-ng45 does not improve on most seeds against R2, or a protected design (bp-ng45 2.00, ariane133-ng45 25.77) falls more than its tolerance below R2"
+    },
+    {
+     "id": "X2",
+     "kind": "edit",
+     "parent": "R4",
+     "component": "loss",
+     "question": "Is a loss change of R4 more promising than the edit above?",
+     "decides": null,
+     "hypotheses": null,
+     "distinguishes": null,
+     "falsifier": null
+    }
+   ],
+   "triggers": [
+    "duplicate_outcome",
+    "stalled_branch"
+   ],
+   "lessons": [
+    {
+     "evidence": "R6-R4",
+     "finding": "paired_reading",
+     "reading": "no_gain",
+     "official_delta": 0.0,
+     "edit": {
+      "loss": "unchanged",
+      "decoder": "structural"
+     }
+    },
+    {
+     "evidence": "R6=R4",
+     "finding": "duplicate_outcome",
+     "same_as": "R4",
+     "basis": "timing_only"
+    }
+   ],
+   "anchor_review": {
+    "anchor": "R2",
+    "official_delta": 19.6949,
+    "reading": "credited",
+    "weak": {
+     "case": "bp_fe-ng45",
+     "mean_delta": -5.1699,
+     "anchor_case_mean": 48.7486,
+     "seeds": [
+      "1001",
+      "1002",
+      "1003"
+     ],
+     "cells": [
+      {
+       "seed": "1001",
+       "delta": -7.8954,
+       "evidence": "published_reference"
+      },
+      {
+       "seed": "1002",
+       "delta": -7.8809,
+       "evidence": "published_reference"
+      },
+      {
+       "seed": "1003",
+       "delta": 0.2667,
+       "evidence": "published_reference"
+      }
+     ]
+    },
+    "protected": [
+     {
+      "case": "bp-ng45",
+      "mean_delta": 6.256,
+      "tolerance": 2.0,
+      "cell_tolerance": 2.264,
+      "seeds": [
+       "1001",
+       "1002",
+       "1003"
+      ],
+      "strength": "mixed_reference",
+      "evidence": "R2-S"
+     },
+     {
+      "case": "ariane133-ng45",
+      "mean_delta": 57.9987,
+      "tolerance": 25.775,
+      "cell_tolerance": 44.644,
+      "seeds": [
+       "1001",
+       "1002",
+       "1003"
+      ],
+      "strength": "supported",
+      "evidence": "R2-S"
+     }
+    ],
+    "fragile": [
+     {
+      "cell": "bp_fe-ng45/1003",
+      "delta": 0.2667,
+      "reason": "published_reference"
+     }
+    ],
+    "rows": [
+     {
+      "cell": "bp_fe-ng45/1001",
+      "anchor": 48.1071,
+      "start": 56.0024,
+      "start_measured_on": "published",
+      "delta": -7.8954,
+      "wns_delta_ns": -0.023322,
+      "tns_delta_ns": -81.9573,
+      "labels_vs_start": "local",
+      "evidence": "published_reference"
+     },
+     {
+      "cell": "bp_fe-ng45/1002",
+      "anchor": 42.0484,
+      "start": 49.9293,
+      "start_measured_on": "published",
+      "delta": -7.8809,
+      "wns_delta_ns": -0.042448,
+      "tns_delta_ns": -71.6306,
+      "labels_vs_start": "local",
+      "evidence": "published_reference"
+     },
+     {
+      "cell": "bp_fe-ng45/1003",
+      "anchor": 56.0903,
+      "start": 55.8235,
+      "start_measured_on": "published",
+      "delta": 0.2667,
+      "wns_delta_ns": 0.036531,
+      "tns_delta_ns": -16.2069,
+      "labels_vs_start": "local",
+      "evidence": "published_reference"
+     },
+     {
+      "cell": "bp-ng45/1001",
+      "anchor": -15.3717,
+      "start": -20.8236,
+      "start_measured_on": "published",
+      "delta": 5.4519,
+      "wns_delta_ns": 0.567384,
+      "tns_delta_ns": 312.612,
+      "labels_vs_start": "local",
+      "evidence": "published_reference"
+     },
+     {
+      "cell": "bp-ng45/1002",
+      "anchor": -29.7348,
+      "start": -29.9726,
+      "start_measured_on": "published",
+      "delta": 0.2378,
+      "wns_delta_ns": -0.019618,
+      "tns_delta_ns": 36.2452,
+      "labels_vs_start": "local",
+      "evidence": "published_reference"
+     },
+     {
+      "cell": "bp-ng45/1003",
+      "anchor": -1.37598,
+      "start": -14.4542,
+      "start_measured_on": "published",
+      "delta": 13.0783,
+      "wns_delta_ns": -0.060829,
+      "tns_delta_ns": 1474.58,
+      "labels_vs_start": "local",
+      "evidence": "published_reference"
+     },
+     {
+      "cell": "ariane133-ng45/1001",
+      "anchor": 35.2245,
+      "start": -22.6565,
+      "start_measured_on": "this_host",
+      "delta": 57.881,
+      "wns_delta_ns": 0.476764,
+      "tns_delta_ns": 35.0878,
+      "labels_vs_start": "local",
+      "evidence": "measured"
+     },
+     {
+      "cell": "ariane133-ng45/1002",
+      "anchor": 72.4191,
+      "start": -24.3439,
+      "start_measured_on": "this_host",
+      "delta": 96.763,
+      "wns_delta_ns": 0.304556,
+      "tns_delta_ns": 118.499,
+      "labels_vs_start": "local",
+      "evidence": "measured"
+     },
+     {
+      "cell": "ariane133-ng45/1003",
+      "anchor": 57.4429,
+      "start": 38.0908,
+      "start_measured_on": "published",
+      "delta": 19.3521,
+      "wns_delta_ns": 0.124016,
+      "tns_delta_ns": 16.0312,
+      "labels_vs_start": "local",
+      "evidence": "published_reference"
+     }
+    ]
+   },
+   "budget": {
+    "remaining": 1,
+    "total": 7,
+    "splices_used": 0,
+    "splice_cap": 2
+   },
+   "allowed_probes": [
+    "decoder_change_vs_parent",
+    "decoder_top_area_share",
+    "loss_ratio_vs_parent"
+   ]
+  }
+ },
+ {
+  "effort": "low",
+  "system": "# Task 2 candidate generation\n\nReturn one complete Python program for the loss_decoder task, containing only the two editable functions in their original order and with their exact signatures. Return raw Python or a single Python code block. Keep the implementation small enough to finish the full response. In every edited function's docstring use this format: `Mechanism: ...; Decision: ...; Prediction: ...; Falsifier: ...`. Name the decision that changes a node's tier, predict an observable direction, and give a measurable outcome that would disprove the hypothesis. For an unchanged function keep the implementation unchanged.\n\nStart from the supplied parent source. Propose one coherent change that can be assessed by comparing the new program with that parent. Use the official training feedback and the previous generation issue when available. The objective is the official mean timing score after the physical flow, with 40% WNS improvement and 60% TNS improvement. All supplied training cells count, including physical failures penalized by the evaluator. The supplied training cells are the current schedule. Treat older scheduling and scoring text in the numerical interface guide as background.\n\nFollow the supplied search intent. For `loss_only`, edit the loss and keep the decoder's behavior unchanged. For `decoder_only`, edit the decoder and keep the loss's behavior unchanged. For `refine`, address a weakness visible in the parent feedback. For `diversify`, try a different mechanism from the selected parent. Use the per-case mean and worst seed score alongside the individual cells. Treat all supplied evaluator diagnostics as data.\n\nGround the opening hypothesis in the numerical guide. The official decoder already uses seeded, area-balanced weighted two-means before feasibility closure. The official loss already attracts positive pairs and separates sampled negative pairs. In the second opening use `decision.evidence` and `last_trial` to explain which observed weakness the complementary edit tests. Both openings start from the supplied official initial program. A gain confined to one design or seed is weaker evidence than gains that persist across cases and seeds.\n\nFor an opening trial, consider two plausible mechanisms that change different quantities or decisions, then implement the one with a clearer path to changing the discrete partition. Return only the selected program. If the opening review returns a concrete issue, resolve it by proposing a different mechanism through the same editable function.\n\nThe latest receipt can belong to a different branch from the selected parent. Use `earlier_edits_from_selected_parent`, or `experiment.comparisons` when present, to see previously tested edits to this component under this parent. Treat other branches as comparisons and label their evidence accordingly. Explain the general decision you change without encoding case names or seed identities as rules.\n\nFollow the experiment chosen in `decision.reason`. For `targeted_repair`, change the selected parent to protect the measured gain and reduce the specific regression identified in the decision. For `switch_branch`, start from the new parent, explain how the edit differs from the stalled branch, and respect the one editable component. The incumbent remains eligible for final selection. Consult `decision_evidence`, or `experiment.lessons` when present, for outcomes observed earlier in this session. Identical final timing across the matrix does not by itself prove identical assignments. If optional diagnostics are missing, use the available official measurements.\n\nConsult `prior_trials` for the parent, mechanism, falsifiable prediction and measured score of each attempted change in this run. `inert_evidence` describes a complete paired evaluation with no score gain and mostly unchanged timing, or mostly unchanged assignment and timing together. When changing direction, choose a different assignment mechanism from an inert edit under the same parent. If related evidence exists, state which part of the new edit makes its prediction different.\n\nUse only the published numerical interface. For assignments, use fresh local names. Do not assign to function parameters, trusted numerical helpers, array elements, or names starting with an underscore, including the `_` placeholder. Preserve the graph, optimizer, physical flow and constraints. The loss must produce a finite differentiable scalar and the decoder must produce legal binary labels. Use a general algorithm without branches keyed to the design name, seed identity, or expected timing result. Read only the text supplied in this request. The Agent will validate the returned source and submit it through the official evaluator.\n\nIn `last_trial`, use `parent_comparison` for causally relevant changes to the actual parent on matched case and seed, and `initial_comparison` for context against the published starting measurements. An initial comparison pointer to `parent_comparison` means the tables are identical. Published initial timing is a reference; it may differ from a repeat measurement on the current host. Inspect the largest regression, cross-seed consistency and official aggregate. WNS and TNS point contributions use the raw formula; a separate floor term accounts for clipping. Weighted cut is a diagnostic. A missing field means there is no verified evidence for it.\n\nAn assignment row may report the literal change in tier labels and the difference after optionally flipping all labels. Interpret them separately: a global flip can itself affect physical timing. If identical assignments have different timing, treat the cause as unresolved pending a controlled comparison. Preserve the official scores when selecting the best candidate. Do not attribute that timing change to a new partition solely from its score.\n\nUse the reported failure stage, reason and bounded log excerpts as evidence. Treat `runtime_environment` failures as infrastructure observations. A confirmed `candidate_contract` failure identifies the component to repair. Keep undiagnosed failures provisional. Use `related_experiment` to see whether an earlier mechanism fixed or reproduced the issue on a comparable cell. Prefer a single change whose predicted effect can be checked in the next official evaluation.\n\n`experiment` states the question this candidate answers, fixed before generation. Raise the `contract.target` design without moving any `contract.protect` design below its stated tolerance; `fragile` gains rest on exchanged dies or published start values and are not protected. `anchor_review.rows` compare the parent with the start, measured on this host where `start_measured_on` says so. Evidence ids such as `R5-R4` name a measured program and its exact one-function control in this run. When `experiment_plan` is present, implement its `edit_brief` and keep its falsifier measurable. Explain the change in general terms; case and seed names are evidence labels only.\n\n# Official numerical interface (offline placeholder)\n",
+  "request": {
+   "search_intent": "decoder_only",
+   "decision": {
+    "reason": "switch_branch",
+    "component": "decoder",
+    "incumbent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+    "stalled_children": [
+     "bd957b3c95d402b1aff7b856d29978a1006355a27d455cc756788d1936957c44",
+     "487da828935e797d8a78b1f6e23d33010a854e2df195c4567cbcdbbf9ef02aab"
+    ],
+    "trigger": "same_measured_timing",
+    "experiment": {
+     "id": "X1",
+     "kind": "edit",
+     "question": "Can a decoder change of R2 raise bp_fe-ng45 without losing bp-ng45, ariane133-ng45?"
+    },
+    "evidence": {
+     "candidate_id": "487da828935e797d8a78b1f6e23d33010a854e2df195c4567cbcdbbf9ef02aab",
+     "score": 34.755,
+     "parent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+     "complete": true,
+     "official_score_delta": 0.0,
+     "largest_regression": null,
+     "largest_gain": null,
+     "paired_case_deltas": [
+      {
+       "case": "bp_fe-ng45",
+       "scored_pairs": 3,
+       "expected_cells": 3,
+       "mean_paired_score_delta": 0.0
+      },
+      {
+       "case": "bp-ng45",
+       "scored_pairs": 3,
+       "expected_cells": 3,
+       "mean_paired_score_delta": 0.0
+      },
+      {
+       "case": "ariane133-ng45",
+       "scored_pairs": 3,
+       "expected_cells": 3,
+       "mean_paired_score_delta": 0.0
+      }
+     ],
+     "gains_across_seeds": [],
+     "timing_attribution_unconfirmed": [],
+     "failures": []
+    }
+   },
+   "parent_id": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9",
+   "parent_program": "def compute_tp_gnn_loss(\n    positive_scores,\n    negative_scores,\n    embeddings,\n    positive_sources,\n    positive_targets,\n    negative_sources,\n    negative_targets,\n    source_batch_size,\n    epoch,\n    max_epochs,\n    graph_scores,\n    graph_sources,\n    graph_targets,\n    graph_net_ids,\n    graph_weights,\n    net_weights,\n    node_features,\n    node_areas,\n):\n    \"\"\"Relative to the parent (random-walk contrastive loss only), add a\n    timing-weighted star-edge attraction term\n        sum_e w_e * softplus(-graph_scores_e) / sum_e w_e\n    rescaled by (P+Q)/source_batch_size so its total gradient is comparable to\n    the existing pair term and is strong enough to reorder groups at the\n    area-balanced two-means boundary. Expected measurable effect: embeddings\n    keep timing-heavy nets locally close, lowering the timing-weighted cut and\n    shifting the official decoder's discrete top/bottom split, improving\n    WNS/TNS. The hypothesis is invalidated if the final layer assignment is\n    essentially unchanged or the timing-weighted cut does not fall.\n    \"\"\"\n    pair_term = -(\n        F.logsigmoid(positive_scores).sum()\n        + F.logsigmoid(-negative_scores).sum()\n    ) / max(1, source_batch_size)\n    weight_total = graph_weights.sum()\n    edge_mean = (graph_weights * F.softplus(-graph_scores)).sum() / (weight_total + 1e-6)\n    pair_count = float(len(positive_scores)) + float(len(negative_scores))\n    batch_scale = pair_count / max(1.0, float(source_batch_size))\n    return pair_term + batch_scale * edge_mean\n\n\ndef decode_tp_gnn_embeddings(embeddings, node_areas, seed, max_iterations, balance_target):\n    \"\"\"Reproduce the frozen area-balanced global two-way decoder.\"\"\"\n    return reference_global_two_way(embeddings, node_areas, seed, max_iterations, balance_target)\n",
+   "training_cells": [
+    {
+     "case": "bp_fe-ng45",
+     "seed": "1001"
+    },
+    {
+     "case": "bp_fe-ng45",
+     "seed": "1002"
+    },
+    {
+     "case": "bp_fe-ng45",
+     "seed": "1003"
+    },
+    {
+     "case": "bp-ng45",
+     "seed": "1001"
+    },
+    {
+     "case": "bp-ng45",
+     "seed": "1002"
+    },
+    {
+     "case": "bp-ng45",
+     "seed": "1003"
+    },
+    {
+     "case": "ariane133-ng45",
+     "seed": "1001"
+    },
+    {
+     "case": "ariane133-ng45",
+     "seed": "1002"
+    },
+    {
+     "case": "ariane133-ng45",
+     "seed": "1003"
+    }
+   ],
+   "evaluations_remaining": 1,
+   "parent_feedback": {
+    "candidate_id": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9",
+    "score": 29.4277,
+    "parent_id": "c936085bfae4a448ff978d007b0f1a66c623b4d761a4a6a32683bb214d6e96b7",
+    "complete": true,
+    "official_score_delta": 9.00269,
+    "largest_regression": {
+     "case": "ariane133-ng45",
+     "seed": "1001",
+     "score_delta": -15.5132
+    },
+    "largest_gain": {
+     "case": "ariane133-ng45",
+     "seed": "1002",
+     "score_delta": 73.9269
+    },
+    "paired_case_deltas": [
+     {
+      "case": "bp_fe-ng45",
+      "scored_pairs": 3,
+      "expected_cells": 3,
+      "mean_paired_score_delta": -5.16985
+     },
+     {
+      "case": "bp-ng45",
+      "scored_pairs": 3,
+      "expected_cells": 3,
+      "mean_paired_score_delta": 6.25597
+     },
+     {
+      "case": "ariane133-ng45",
+      "scored_pairs": 3,
+      "expected_cells": 3,
+      "mean_paired_score_delta": 25.9219
+     }
+    ],
+    "gains_across_seeds": [
+     {
+      "case": "bp-ng45",
+      "improved_seeds": 3,
+      "total_seeds": 3,
+      "worst_seed_delta": 0.237788
+     },
+     {
+      "case": "ariane133-ng45",
+      "improved_seeds": 2,
+      "total_seeds": 3,
+      "worst_seed_delta": -15.5132
+     }
+    ],
+    "timing_attribution_unconfirmed": [],
+    "failures": []
+   },
+   "incumbent_feedback": {
+    "candidate_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+    "score": 34.755,
+    "parent_id": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9",
+    "complete": true,
+    "official_score_delta": 5.32725,
+    "largest_regression": {
+     "case": "bp-ng45",
+     "seed": "1002",
+     "score_delta": -19.5115
+    },
+    "largest_gain": {
+     "case": "ariane133-ng45",
+     "seed": "1001",
+     "score_delta": 47.7496
+    },
+    "paired_case_deltas": [
+     {
+      "case": "bp_fe-ng45",
+      "scored_pairs": 3,
+      "expected_cells": 3,
+      "mean_paired_score_delta": 6.56905
+     },
+     {
+      "case": "bp-ng45",
+      "scored_pairs": 3,
+      "expected_cells": 3,
+      "mean_paired_score_delta": -6.50384
+     },
+     {
+      "case": "ariane133-ng45",
+      "scored_pairs": 3,
+      "expected_cells": 3,
+      "mean_paired_score_delta": 15.9165
+     }
+    ],
+    "gains_across_seeds": [
+     {
+      "case": "bp_fe-ng45",
+      "improved_seeds": 2,
+      "total_seeds": 3,
+      "worst_seed_delta": 0.0
+     }
+    ],
+    "timing_attribution_unconfirmed": [],
+    "failures": []
+   },
+   "last_trial": {
+    "request_id": "e-a113cc644507c5acc4fc984d95eebae0fc332a3e6ccab6ee3c91f5334369",
+    "candidate_id": "487da828935e797d8a78b1f6e23d33010a854e2df195c4567cbcdbbf9ef02aab",
+    "status": "succeeded",
+    "reason": "",
+    "score": 34.755,
+    "case_scores": {
+     "bp_fe-ng45": {
+      "mean": 55.3176,
+      "worst_seed_score": 54.0562,
+      "scored_seeds": 3
+     },
+     "bp-ng45": {
+      "mean": -21.998,
+      "worst_seed_score": -49.2463,
+      "scored_seeds": 3
+     },
+     "ariane133-ng45": {
+      "mean": 70.9454,
+      "worst_seed_score": 57.4429,
+      "scored_seeds": 3
+     }
+    },
+    "attempt": {
+     "parent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+     "search_intent": "diversify",
+     "changed_components": {
+      "decoder": "Relative to the parent, keep the timing-weighted star-edge loss unchanged and change the custom seeded area-balanced two-means decoder's initialization and area-fill selection. The bottom initial cent"
+     }
+    },
+    "cells": [
+     {
+      "case": "bp_fe-ng45",
+      "seed": "1001",
+      "score": 55.8064,
+      "valid": true,
+      "status": "succeeded",
+      "final_global_wns_setup_ns": -0.626114,
+      "final_global_tns_setup_ns": -195.648,
+      "cut_net_count": 3483,
+      "timing_weighted_cut": 5958.1,
+      "tp_gnn_repair_moved_area_fraction": 0.0,
+      "moved_fraction_vs_start": 0.00762177
+     },
+     {
+      "case": "bp_fe-ng45",
+      "seed": "1002",
+      "score": 54.0562,
+      "valid": true,
+      "status": "succeeded",
+      "final_global_wns_setup_ns": -0.658306,
+      "final_global_tns_setup_ns": -199.469,
+      "cut_net_count": 3727,
+      "timing_weighted_cut": 6132.41,
+      "tp_gnn_repair_moved_area_fraction": 0.0,
+      "moved_fraction_vs_start": 0.999188
+     },
+     {
+      "case": "bp_fe-ng45",
+      "seed": "1003",
+      "score": 56.0903,
+      "valid": true,
+      "status": "succeeded",
+      "final_global_wns_setup_ns": -0.602936,
+      "final_global_tns_setup_ns": -204.561,
+      "cut_net_count": 3085,
+      "timing_weighted_cut": 5548.22,
+      "tp_gnn_repair_moved_area_fraction": 0.0,
+      "moved_fraction_vs_start": 0.00166364
+     },
+     {
+      "case": "bp-ng45",
+      "seed": "1001",
+      "score": -15.3717,
+      "valid": true,
+      "status": "succeeded",
+      "final_global_wns_setup_ns": -7.82509,
+      "final_global_tns_setup_ns": -8746.73,
+      "cut_net_count": 5882,
+      "timing_weighted_cut": 8123.12,
+      "tp_gnn_repair_moved_area_fraction": 0.055053,
+      "moved_fraction_vs_start": 0.000159474
+     },
+     {
+      "case": "bp-ng45",
+      "seed": "1002",
+      "score": -49.2463,
+      "valid": true,
+      "status": "succeeded",
+      "final_global_wns_setup_ns": -7.82559,
+      "final_global_tns_setup_ns": -12485.5,
+      "cut_net_count": 5862,
+      "timing_weighted_cut": 8107.43,
+      "tp_gnn_repair_moved_area_fraction": 0.0670853,
+      "moved_fraction_vs_start": 0.999834
+     },
+     {
+      "case": "bp-ng45",
+      "seed": "1003",
+      "score": -1.37598,
+      "valid": true,
+      "status": "succeeded",
+      "final_global_wns_setup_ns": -7.9314,
+      "final_global_tns_setup_ns": -7147.7,
+      "cut_net_count": 5863,
+      "timing_weighted_cut": 8100.1,
+      "tp_gnn_repair_moved_area_fraction": 0.041802,
+      "moved_fraction_vs_start": 0.000235744
+     },
+     {
+      "case": "ariane133-ng45",
+      "seed": "1001",
+      "score": 82.9742,
+      "valid": true,
+      "status": "succeeded",
+      "final_global_wns_setup_ns": -0.217482,
+      "final_global_tns_setup_ns": -0.935589,
+      "cut_net_count": 10633,
+      "timing_weighted_cut": 18939.0,
+      "tp_gnn_repair_moved_area_fraction": 0.01697,
+      "moved_fraction_vs_start": 0.997347
+     },
+     {
+      "case": "ariane133-ng45",
+      "seed": "1002",
+      "score": 72.4191,
+      "valid": true,
+      "status": "succeeded",
+      "final_global_wns_setup_ns": -0.249918,
+      "final_global_tns_setup_ns": -13.9571,
+      "cut_net_count": 15797,
+      "timing_weighted_cut": 28247.4,
+      "tp_gnn_repair_moved_area_fraction": 0.102138,
+      "moved_fraction_vs_start": 0.0757887
+     },
+     {
+      "case": "ariane133-ng45",
+      "seed": "1003",
+      "score": 57.4429,
+      "valid": true,
+      "status": "succeeded",
+      "final_global_wns_setup_ns": -0.449807,
+      "final_global_tns_setup_ns": -13.7366,
+      "cut_net_count": 11709,
+      "timing_weighted_cut": 21159.9,
+      "tp_gnn_repair_moved_area_fraction": 0.0169935,
+      "moved_fraction_vs_start": 0.00395287
+     }
+    ],
+    "parent_comparison": {
+     "parent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+     "candidate_id": "487da828935e797d8a78b1f6e23d33010a854e2df195c4567cbcdbbf9ef02aab",
+     "parent_source": "run_evaluation",
+     "complete": true,
+     "expected_cells": 9,
+     "scored_pairs": 9,
+     "official_score_delta": 0.0,
+     "improved_pairs": 0,
+     "regressed_pairs": 0,
+     "largest_gain": null,
+     "largest_regression": null,
+     "candidate_invalid_cells": 0,
+     "failure_counts": {},
+     "assignment_pairs_verified": 0,
+     "timing_changes_with_identical_assignment": [],
+     "cases": [
+      {
+       "case": "bp_fe-ng45",
+       "scored_pairs": 3,
+       "expected_cells": 3,
+       "mean_paired_score_delta": 0.0
+      },
+      {
+       "case": "bp-ng45",
+       "scored_pairs": 3,
+       "expected_cells": 3,
+       "mean_paired_score_delta": 0.0
+      },
+      {
+       "case": "ariane133-ng45",
+       "scored_pairs": 3,
+       "expected_cells": 3,
+       "mean_paired_score_delta": 0.0
+      }
+     ],
+     "cells": [
+      {
+       "case": "bp_fe-ng45",
+       "seed": "1001",
+       "parent_score": 55.8064,
+       "score_delta": 0.0,
+       "wns_slack_delta_ns": 0.0,
+       "tns_slack_delta_ns": 0.0,
+       "cut_nets_delta": 0
+      },
+      {
+       "case": "bp_fe-ng45",
+       "seed": "1002",
+       "parent_score": 54.0562,
+       "score_delta": 0.0,
+       "wns_slack_delta_ns": 0.0,
+       "tns_slack_delta_ns": 0.0,
+       "cut_nets_delta": 0
+      },
+      {
+       "case": "bp_fe-ng45",
+       "seed": "1003",
+       "parent_score": 56.0903,
+       "score_delta": 0.0,
+       "wns_slack_delta_ns": 0.0,
+       "tns_slack_delta_ns": 0.0,
+       "cut_nets_delta": 0
+      },
+      {
+       "case": "bp-ng45",
+       "seed": "1001",
+       "parent_score": -15.3717,
+       "score_delta": 0.0,
+       "wns_slack_delta_ns": 0.0,
+       "tns_slack_delta_ns": 0.0,
+       "cut_nets_delta": 0
+      },
+      {
+       "case": "bp-ng45",
+       "seed": "1002",
+       "parent_score": -49.2463,
+       "score_delta": 0.0,
+       "wns_slack_delta_ns": 0.0,
+       "tns_slack_delta_ns": 0.0,
+       "cut_nets_delta": 0
+      },
+      {
+       "case": "bp-ng45",
+       "seed": "1003",
+       "parent_score": -1.37599,
+       "score_delta": 0.0,
+       "wns_slack_delta_ns": 0.0,
+       "tns_slack_delta_ns": 0.0,
+       "cut_nets_delta": 0
+      },
+      {
+       "case": "ariane133-ng45",
+       "seed": "1001",
+       "parent_score": 82.9742,
+       "score_delta": 0.0,
+       "wns_slack_delta_ns": 0.0,
+       "tns_slack_delta_ns": 0.0,
+       "cut_nets_delta": 0
+      },
+      {
+       "case": "ariane133-ng45",
+       "seed": "1002",
+       "parent_score": 72.4191,
+       "score_delta": 0.0,
+       "wns_slack_delta_ns": 0.0,
+       "tns_slack_delta_ns": 0.0,
+       "cut_nets_delta": 0
+      },
+      {
+       "case": "ariane133-ng45",
+       "seed": "1003",
+       "parent_score": 57.4429,
+       "score_delta": 0.0,
+       "wns_slack_delta_ns": 0.0,
+       "tns_slack_delta_ns": 0.0,
+       "cut_nets_delta": 0
+      }
+     ]
+    },
+    "initial_comparison": {
+     "parent_id": "c936085bfae4a448ff978d007b0f1a66c623b4d761a4a6a32683bb214d6e96b7",
+     "candidate_id": "487da828935e797d8a78b1f6e23d33010a854e2df195c4567cbcdbbf9ef02aab",
+     "parent_source": "published_initial_reference",
+     "complete": true,
+     "expected_cells": 9,
+     "scored_pairs": 9,
+     "official_score_delta": 14.3299,
+     "improved_pairs": 7,
+     "regressed_pairs": 2,
+     "largest_gain": {
+      "case": "ariane133-ng45",
+      "seed": "1002",
+      "score_delta": 73.9269
+     },
+     "largest_regression": {
+      "case": "bp-ng45",
+      "seed": "1002",
+      "score_delta": -19.2737
+     },
+     "candidate_invalid_cells": 0,
+     "failure_counts": {},
+     "assignment_pairs_verified": 9,
+     "timing_changes_with_identical_assignment": [],
+     "cases": [
+      {
+       "case": "bp_fe-ng45",
+       "scored_pairs": 3,
+       "expected_cells": 3,
+       "mean_paired_score_delta": 1.3992
+      },
+      {
+       "case": "bp-ng45",
+       "scored_pairs": 3,
+       "expected_cells": 3,
+       "mean_paired_score_delta": -0.247877
+      },
+      {
+       "case": "ariane133-ng45",
+       "scored_pairs": 3,
+       "expected_cells": 3,
+       "mean_paired_score_delta": 41.8385
+      }
+     ]
+    }
+   },
+   "prior_trials": [
+    {
+     "evidence_id": "R1",
+     "parent": "S",
+     "changed": {
+      "decoder": "Replace the frozen two-means decoder with an area-balanced principal-axis split. Relative to the parent, this keeps the same legal area-balanced top-die fill bu"
+     },
+     "status": "succeeded",
+     "score": 11.9448,
+     "paired_score_delta": -8.48031,
+     "inert_evidence": null
+    },
+    {
+     "evidence_id": "R2",
+     "parent": "S",
+     "changed": {
+      "loss": "Relative to the parent (random-walk contrastive loss only), add a timing-weighted star-edge attraction term sum_e w_e * softplus(-graph_scores_e) / sum_e w_e re"
+     },
+     "status": "succeeded",
+     "score": 29.4277,
+     "paired_score_delta": 9.00269,
+     "inert_evidence": null
+    },
+    {
+     "evidence_id": "R3",
+     "parent": "R2",
+     "changed": {
+      "loss": "Relative to the parent loss, keep the timing-weighted star-edge attraction sum_e w_e * softplus(-graph_scores_e) but focus each edge by the endpoint timing crit"
+     },
+     "status": "succeeded",
+     "score": 24.8685,
+     "paired_score_delta": -4.55921,
+     "inert_evidence": null
+    },
+    {
+     "evidence_id": "R4",
+     "parent": "R2",
+     "changed": {
+      "decoder": "Relative to the parent, keep the timing-weighted star-edge loss unchanged and replace the frozen two-means helper with a custom seeded area-balanced two-means d"
+     },
+     "status": "succeeded",
+     "score": 34.755,
+     "paired_score_delta": 5.32725,
+     "inert_evidence": null
+    },
+    {
+     "evidence_id": "R5",
+     "parent": "R4",
+     "changed": {
+      "loss": "Relative to the parent timing-weighted star-edge attraction, this substitutes an area-mobility-weighted edge mean read from the published graph endpoints and no"
+     },
+     "status": "succeeded",
+     "score": 25.1195,
+     "paired_score_delta": -9.63553,
+     "inert_evidence": null
+    },
+    {
+     "evidence_id": "R6",
+     "parent": "R4",
+     "changed": {
+      "decoder": "Relative to the parent, keep the timing-weighted star-edge loss unchanged and change the custom seeded area-balanced two-means decoder's initialization and area"
+     },
+     "status": "succeeded",
+     "score": 34.755,
+     "paired_score_delta": 0.0,
+     "inert_evidence": {
+      "reason": "timing_mostly_unchanged",
+      "unchanged_pairs": 9
+     }
+    }
+   ],
+   "related_experiment": {
+    "candidate_id": "bd957b3c95d402b1aff7b856d29978a1006355a27d455cc756788d1936957c44",
+    "attempt": {
+     "parent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+     "search_intent": "diversify",
+     "changed_components": {
+      "loss": "Relative to the parent timing-weighted star-edge attraction, this substitutes an area-mobility-weighted edge mean read from the published graph endpoints and node_areas. Small movable standard-cell su"
+     }
+    },
+    "mechanism_match": null,
+    "focus": {
+     "case": "bp-ng45",
+     "seed": "1002",
+     "stage": null
+    },
+    "cell": {
+     "case": "bp-ng45",
+     "seed": "1002",
+     "score": -35.5167
+    },
+    "cell_score_delta_vs_parent": 13.7297,
+    "paired_evidence": {}
+   },
+   "previous_generation_issue": null,
+   "experiment": {
+    "experiment": {
+     "id": "X1",
+     "kind": "edit",
+     "parent": "R2",
+     "component": "decoder",
+     "question": "Can a decoder change of R2 raise bp_fe-ng45 without losing bp-ng45, ariane133-ng45?",
+     "hypotheses": [
+      "a decoder change of R2 can raise bp_fe-ng45, whose mean is -5.17 against the start",
+      "bp_fe-ng45 does not respond to decoder changes of R2: 1 earlier tries moved it by R4 +6.57"
+     ],
+     "falsifier": "bp_fe-ng45 does not improve on most seeds against R2, or a protected design (bp-ng45 2.00, ariane133-ng45 25.77) falls more than its tolerance below R2"
+    },
+    "contract": {
+     "anchor": "R2",
+     "anchor_candidate": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9",
+     "component": "decoder",
+     "kind": "edit",
+     "target": {
+      "case": "bp_fe-ng45",
+      "seeds": [
+       "1001",
+       "1002",
+       "1003"
+      ],
+      "rule": "mean paired score delta over the case > 0 and most of its seeds improve"
+     },
+     "protect": [
+      {
+       "case": "bp-ng45",
+       "tolerance": 2.0,
+       "cell_tolerance": 2.264,
+       "strength": "mixed_reference",
+       "evidence": "R2-S",
+       "rule": "mean paired score delta over the case >= -tolerance"
+      },
+      {
+       "case": "ariane133-ng45",
+       "tolerance": 25.775,
+       "cell_tolerance": 44.644,
+       "strength": "supported",
+       "evidence": "R2-S",
+       "rule": "mean paired score delta over the case >= -tolerance"
+      }
+     ],
+     "fragile": [
+      "bp_fe-ng45/1003"
+     ],
+     "tolerances": {
+      "bp_fe-ng45": {
+       "cell": 7.699,
+       "case_mean": 4.445,
+       "pairs": 21,
+       "source": "calibrated"
+      },
+      "bp-ng45": {
+       "cell": 2.264,
+       "case_mean": 2.0,
+       "pairs": 17,
+       "source": "calibrated"
+      },
+      "ariane133-ng45": {
+       "cell": 44.644,
+       "case_mean": 25.775,
+       "pairs": 31,
+       "source": "calibrated"
+      }
+     }
+    },
+    "anchor_review": {
+     "anchor": "R2",
+     "official_delta": 19.6949,
+     "reading": "credited",
+     "weak": {
+      "case": "bp_fe-ng45",
+      "mean_delta": -5.1699,
+      "anchor_case_mean": 48.7486,
+      "seeds": [
+       "1001",
+       "1002",
+       "1003"
+      ],
+      "cells": [
+       {
+        "seed": "1001",
+        "delta": -7.8954,
+        "evidence": "published_reference"
+       },
+       {
+        "seed": "1002",
+        "delta": -7.8809,
+        "evidence": "published_reference"
+       },
+       {
+        "seed": "1003",
+        "delta": 0.2667,
+        "evidence": "published_reference"
+       }
+      ]
+     },
+     "protected": [
+      {
+       "case": "bp-ng45",
+       "mean_delta": 6.256,
+       "tolerance": 2.0,
+       "cell_tolerance": 2.264,
+       "seeds": [
+        "1001",
+        "1002",
+        "1003"
+       ],
+       "strength": "mixed_reference",
+       "evidence": "R2-S"
+      },
+      {
+       "case": "ariane133-ng45",
+       "mean_delta": 57.9987,
+       "tolerance": 25.775,
+       "cell_tolerance": 44.644,
+       "seeds": [
+        "1001",
+        "1002",
+        "1003"
+       ],
+       "strength": "supported",
+       "evidence": "R2-S"
+      }
+     ],
+     "fragile": [
+      {
+       "cell": "bp_fe-ng45/1003",
+       "delta": 0.2667,
+       "reason": "published_reference"
+      }
+     ],
+     "rows": [
+      {
+       "cell": "bp_fe-ng45/1001",
+       "anchor": 48.1071,
+       "start": 56.0024,
+       "start_measured_on": "published",
+       "delta": -7.8954,
+       "wns_delta_ns": -0.023322,
+       "tns_delta_ns": -81.9573,
+       "labels_vs_start": "local",
+       "evidence": "published_reference"
+      },
+      {
+       "cell": "bp_fe-ng45/1002",
+       "anchor": 42.0484,
+       "start": 49.9293,
+       "start_measured_on": "published",
+       "delta": -7.8809,
+       "wns_delta_ns": -0.042448,
+       "tns_delta_ns": -71.6306,
+       "labels_vs_start": "local",
+       "evidence": "published_reference"
+      },
+      {
+       "cell": "bp_fe-ng45/1003",
+       "anchor": 56.0903,
+       "start": 55.8235,
+       "start_measured_on": "published",
+       "delta": 0.2667,
+       "wns_delta_ns": 0.036531,
+       "tns_delta_ns": -16.2069,
+       "labels_vs_start": "local",
+       "evidence": "published_reference"
+      },
+      {
+       "cell": "bp-ng45/1001",
+       "anchor": -15.3717,
+       "start": -20.8236,
+       "start_measured_on": "published",
+       "delta": 5.4519,
+       "wns_delta_ns": 0.567384,
+       "tns_delta_ns": 312.612,
+       "labels_vs_start": "local",
+       "evidence": "published_reference"
+      },
+      {
+       "cell": "bp-ng45/1002",
+       "anchor": -29.7348,
+       "start": -29.9726,
+       "start_measured_on": "published",
+       "delta": 0.2378,
+       "wns_delta_ns": -0.019618,
+       "tns_delta_ns": 36.2452,
+       "labels_vs_start": "local",
+       "evidence": "published_reference"
+      },
+      {
+       "cell": "bp-ng45/1003",
+       "anchor": -1.37598,
+       "start": -14.4542,
+       "start_measured_on": "published",
+       "delta": 13.0783,
+       "wns_delta_ns": -0.060829,
+       "tns_delta_ns": 1474.58,
+       "labels_vs_start": "local",
+       "evidence": "published_reference"
+      },
+      {
+       "cell": "ariane133-ng45/1001",
+       "anchor": 35.2245,
+       "start": -22.6565,
+       "start_measured_on": "this_host",
+       "delta": 57.881,
+       "wns_delta_ns": 0.476764,
+       "tns_delta_ns": 35.0878,
+       "labels_vs_start": "local",
+       "evidence": "measured"
+      },
+      {
+       "cell": "ariane133-ng45/1002",
+       "anchor": 72.4191,
+       "start": -24.3439,
+       "start_measured_on": "this_host",
+       "delta": 96.763,
+       "wns_delta_ns": 0.304556,
+       "tns_delta_ns": 118.499,
+       "labels_vs_start": "local",
+       "evidence": "measured"
+      },
+      {
+       "cell": "ariane133-ng45/1003",
+       "anchor": 57.4429,
+       "start": 38.0908,
+       "start_measured_on": "published",
+       "delta": 19.3521,
+       "wns_delta_ns": 0.124016,
+       "tns_delta_ns": 16.0312,
+       "labels_vs_start": "local",
+       "evidence": "published_reference"
+      }
+     ]
+    },
+    "comparisons": [
+     {
+      "evidence": "R2-R6",
+      "varies": "decoder",
+      "official_delta": -5.3272,
+      "reading": "no_gain",
+      "case_mean_deltas": {
+       "bp_fe-ng45": -6.569,
+       "bp-ng45": 6.5038,
+       "ariane133-ng45": -15.9165
+      }
+     },
+     {
+      "evidence": "R2-R4",
+      "varies": "decoder",
+      "official_delta": -5.3272,
+      "reading": "no_gain",
+      "case_mean_deltas": {
+       "bp_fe-ng45": -6.569,
+       "bp-ng45": 6.5038,
+       "ariane133-ng45": -15.9165
+      }
+     },
+     {
+      "evidence": "R2-R3",
+      "varies": "loss",
+      "official_delta": 4.5592,
+      "reading": "credited",
+      "case_mean_deltas": {
+       "bp_fe-ng45": 4.9098,
+       "bp-ng45": -1.6698,
+       "ariane133-ng45": 10.4376
+      }
+     }
+    ],
+    "lessons": [
+     {
+      "evidence": "R6-R4",
+      "finding": "paired_reading",
+      "reading": "no_gain",
+      "official_delta": 0.0,
+      "edit": {
+       "loss": "unchanged",
+       "decoder": "structural"
+      }
+     },
+     {
+      "evidence": "R6=R4",
+      "finding": "duplicate_outcome",
+      "same_as": "R4",
+      "basis": "timing_only"
+     }
+    ]
+   },
+   "experiment_plan": {
+    "explanations": [
+     "round 6 reproduced round 4's labels",
+     "the decoder rewrite changed no boundary group"
+    ],
+    "discriminating_prediction": "a grouping change moves bp_fe seeds by more than 4 points",
+    "falsifier": "all nine cells repeat round 2",
+    "edit_brief": "exchange the dies of R2"
+   }
+  }
+ }
+]

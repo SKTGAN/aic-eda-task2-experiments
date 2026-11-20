@@ -1,0 +1,2422 @@
+{
+  "artifacts": {
+    "matrix_result": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/evaluation_result.json"
+  },
+  "metrics": {
+    "combined_score": 17.59630873163384,
+    "evaluation_complete": 1.0,
+    "matrix": {
+      "all_valid": true,
+      "cases": [
+        {
+          "case": "bp_fe-ng45",
+          "complete": true,
+          "max": 54.615957643502625,
+          "mean": 52.76640922568552,
+          "min": 50.556444119417066,
+          "scores": {
+            "1001": 50.556444119417066,
+            "1002": 54.615957643502625,
+            "1003": 53.126825914136866
+          },
+          "stddev": 1.6767702396858206
+        },
+        {
+          "case": "bp-ng45",
+          "complete": true,
+          "max": -6.245628524326527,
+          "mean": -20.48567095356052,
+          "min": -29.849037711906657,
+          "scores": {
+            "1001": -25.362346624448374,
+            "1002": -29.849037711906657,
+            "1003": -6.245628524326527
+          },
+          "stddev": 10.234474600367708
+        },
+        {
+          "case": "ariane133-ng45",
+          "complete": true,
+          "max": 65.62576913539621,
+          "mean": 20.508187922776518,
+          "min": -37.92828526792314,
+          "scores": {
+            "1001": 65.62576913539621,
+            "1002": -37.92828526792314,
+            "1003": 33.82707990085648
+          },
+          "stddev": 43.312086138353486
+        }
+      ],
+      "cells": [
+        {
+          "artifacts": {
+            "base_config": "/root/aic-26016/official/contest-data/task2/loss_decoder/train/configs/bp_fe-ng45/1001.yaml",
+            "candidate": "/root/aic-26016/two-round/work/candidates/35f0adc0cba637fe1c74f640d79be37048934097920bbb0bb2b9fa95e65d3934",
+            "cascade": [
+              {
+                "name": "policy",
+                "status": "passed"
+              },
+              {
+                "name": "frozen_inputs",
+                "status": "passed"
+              },
+              {
+                "name": "interface",
+                "status": "passed"
+              },
+              {
+                "name": "source_validation",
+                "status": "passed"
+              },
+              {
+                "name": "stage",
+                "status": "passed"
+              },
+              {
+                "name": "metrics",
+                "status": "passed"
+              }
+            ],
+            "command": [
+              "python3",
+              "-m",
+              "open3dbench",
+              "--repo",
+              "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1001/result/workspace/Open3DBench-V2.0",
+              "run",
+              "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1001/result/resolved_config.yaml",
+              "--from",
+              "partition",
+              "--to",
+              "opt",
+              "--resume",
+              "--run-dir",
+              "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1001/result/run"
+            ],
+            "evaluation_boundary": "open3dbench-stage",
+            "evaluation_result": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1001/result/evaluation_result.json",
+            "executed_seed_evidence": {
+              "partition": {
+                "seed": 1001,
+                "sha256": "8dd322c75b934c259de4ea421670fee197d746f081831e5fefc3712fc7fd1575"
+              },
+              "placement": {
+                "seed": 1001,
+                "sha256": "b3d1946e07b6cdbbc1554844a1e98cedd428e6689e5ea07267342cc248f7a908"
+              }
+            },
+            "execution_mode": "gpu-frontend-cpu-backend",
+            "exit_code": 0,
+            "frozen_inputs": {
+              "tp_gnn_timing": {
+                "adopted_path": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1001/result/harness_inputs/frozen/tp_gnn_timing",
+                "files": {
+                  "openroad_full_partition_last.connections.tsv": {
+                    "bytes": 4351394,
+                    "sha256": "f85c4af527cdf181bae8db6c0c1f1418d5385061ccd0ce01d544d5bca4214d96"
+                  },
+                  "timing_features.csv": {
+                    "bytes": 3696555,
+                    "sha256": "9fd993e1836d5c2aa495cb3f520cfbee485b6e89ee0ec3896d7a8b2c2dd1e563"
+                  },
+                  "timing_manifest.json": {
+                    "bytes": 4025,
+                    "sha256": "9a3e56b46a7f4d8a320010e32aa0b61912059e2e45f573b29ca8d80393e47970"
+                  },
+                  "timing_net_weights.csv": {
+                    "bytes": 3981578,
+                    "sha256": "98d8469d4ba1156530f0a37831d16aae41c64dcdcac3ca7701b267417c12871c"
+                  }
+                },
+                "inject_as": "partition.timing_input",
+                "source": "baseline_run",
+                "source_path": "/root/aic-26016/official/contest-data/task2/inputs/bp_fe-ng45/20_partition/timing_input"
+              }
+            },
+            "matrix_cell_contract": {
+              "base_config_sha256": "504d68303a75da7da17d4d3f327ffda5e28ba0cda94b0bd181d98baa8c2b4895",
+              "initial_candidate_sha256": "5d971f90afd62b93f440e9583e01deae06c64b0f41099a825c3ab42b284cc8b7",
+              "schema_version": 1,
+              "seed_contract_sha256": "dee3067d58d9706a086db3aba96c44b7e5ea72a15e54177a1cd756c18e93053c",
+              "seeds": {
+                "io": 1,
+                "partition": 1001,
+                "placement": 1001,
+                "routing": -1
+              },
+              "task": "tp_gnn_loss_decoder_timing",
+              "upstream": {
+                "floorplan": "6aecd912375979ef09fb75ff7ff6261761eb2bd2249de2fd7ddceb1ec0bb6625",
+                "input": "a9f9cbbc2c802cac0c62c5b2202de7061b7c1dd9f9fe65eb0ce4434e5a5c16db"
+              }
+            },
+            "matrix_reference": false,
+            "native_flow_execution": [
+              {
+                "command": [
+                  "python3",
+                  "-m",
+                  "contest2.native_entry",
+                  "--flow",
+                  "--repo",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1001/result/workspace/Open3DBench-V2.0",
+                  "run",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1001/result/resolved_config.yaml",
+                  "--from",
+                  "partition",
+                  "--to",
+                  "placement",
+                  "--resume",
+                  "--run-dir",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1001/result/run"
+                ],
+                "completed_at_utc": "2026-11-19T02:30:48.375603+00:00",
+                "cwd": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1001/result/workspace/Open3DBench-V2.0",
+                "invocation": "stage",
+                "process_started": true,
+                "returncode": 0,
+                "schema_version": 1,
+                "started_at_utc": "2026-11-19T02:28:17.217491+00:00",
+                "status": "completed",
+                "timeout_seconds": null,
+                "wall_seconds": 151.15806295400034
+              },
+              {
+                "command": [
+                  "python3",
+                  "-m",
+                  "contest2.native_entry",
+                  "--flow",
+                  "--repo",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1001/result/workspace/Open3DBench-V2.0",
+                  "run",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1001/result/resolved_config.yaml",
+                  "--from",
+                  "pdn",
+                  "--to",
+                  "opt",
+                  "--resume",
+                  "--run-dir",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1001/result/run"
+                ],
+                "completed_at_utc": "2026-11-19T02:34:42.606272+00:00",
+                "cwd": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1001/result/workspace/Open3DBench-V2.0",
+                "invocation": "stage",
+                "process_started": true,
+                "returncode": 0,
+                "schema_version": 1,
+                "started_at_utc": "2026-11-19T02:30:50.238946+00:00",
+                "status": "completed",
+                "timeout_seconds": null,
+                "wall_seconds": 232.36727585299923
+              }
+            ],
+            "output_dir": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1001/result",
+            "patch": {
+              "added_lines": 0,
+              "deleted_lines": 0,
+              "paths": [],
+              "present": false
+            },
+            "plan_log": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1001/result/plan.log",
+            "reference_admission": {
+              "mode": "ADOPT_PACKED",
+              "producer_receipt_sha256": "4cb16bf60b77c60b645dd5a864deed08d6f239e4a670623237832ddc57cdc932",
+              "reference_receipt_sha256": "af177c25588ef3b4c89ccdd782cbc6de4d23be045c325900d30630e5adb22246",
+              "task_id": "tp_gnn_loss_decoder_timing"
+            },
+            "replay_start_stage": "partition",
+            "resolved_config": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1001/result/resolved_config.yaml",
+            "run_dir": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1001/result/run",
+            "runtime_seconds": 383.52763405600035,
+            "source_validation": {
+              "checks": [],
+              "status": "skipped"
+            },
+            "stage_log": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1001/result/stage.log",
+            "task": "tp_gnn_loss_decoder_timing",
+            "upstream_materialization": "copy",
+            "workspace": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1001/result/workspace/Open3DBench-V2.0"
+          },
+          "case": "bp_fe-ng45",
+          "metrics": {
+            "area_balance_error": 0.0006182730602970802,
+            "bottom_count": 10782,
+            "combined_score": 50.556444119417066,
+            "cut_net_count": 3431,
+            "cut_net_ratio": 0.12920353982300886,
+            "cut_pin_count": 30497,
+            "final_global_tns_setup_ns": -242.38844506488644,
+            "final_global_wns_setup_ns": -0.6562306439549076,
+            "instance_count": 25847,
+            "macro_area_error": 0.03739445114595896,
+            "macro_count_error": 0.045454545454545414,
+            "native_paired_combined_score": -22.94164243322952,
+            "opt_passes": 1.0,
+            "partition_assignment_changed_count": 1,
+            "partition_assignment_changed_fraction": 3.8689209579448294e-05,
+            "partition_assignment_identical": 0,
+            "partition_complete": 1.0,
+            "partition_constraints_passed": 1.0,
+            "partition_decoder": "global-2way",
+            "partition_method": "tp-gnn-flat",
+            "raw_score": 50.556444119417066,
+            "reference_tns_deficit_ns": 716.9190029865956,
+            "reference_wns_deficit_ns": 0.9002498352590634,
+            "runs_successfully": 1.0,
+            "scoring_reference": "common-five-case",
+            "sta_graph_complete": 1.0,
+            "sta_tns_weight": 0.6,
+            "sta_wns_weight": 0.4,
+            "timing_evaluation_boundary": "post-opt-pre-cts",
+            "timing_total_net_weight": 41624.256255968554,
+            "timing_weight_mode": "paper_delay_slack_hyperedge_v1",
+            "timing_weighted_cut": 5917.4237634883075,
+            "timing_weighted_cut_ratio": 0.14216287078138004,
+            "tns_deficit_improvement": 0.6619026081675528,
+            "top_count": 15065,
+            "tp_gnn_area_balance_cut_delta": 2085,
+            "tp_gnn_area_balance_weighted_cut_delta": 4362.297173794617,
+            "tp_gnn_area_balance_weighted_cut_relative_change": 2.805107444438879,
+            "tp_gnn_balanced_cut_net_count": 3431,
+            "tp_gnn_balanced_timing_weighted_cut": 5917.4237634883075,
+            "tp_gnn_embedding_pair_cosine_median": 0.9841263294219971,
+            "tp_gnn_embedding_total_variance": 0.04625192657113075,
+            "tp_gnn_epochs_completed": 50,
+            "tp_gnn_feasibility_cut_delta": 0,
+            "tp_gnn_feasibility_weighted_cut_delta": 0.0,
+            "tp_gnn_feasibility_weighted_cut_relative_change": 0.0,
+            "tp_gnn_feasible_cut_net_count": 3431,
+            "tp_gnn_feasible_timing_weighted_cut": 5917.4237634883075,
+            "tp_gnn_final_loss": 42.84767723083496,
+            "tp_gnn_negative_pair_cosine_median": 0.9836887717247009,
+            "tp_gnn_negative_pair_sample_count": 4096,
+            "tp_gnn_optimizer_steps_completed": 100,
+            "tp_gnn_positive_pair_cosine_median": 0.9994738101959229,
+            "tp_gnn_positive_pair_sample_count": 4096,
+            "tp_gnn_raw_cut_net_count": 1346,
+            "tp_gnn_raw_timing_weighted_cut": 1555.1265896936904,
+            "tp_gnn_repair_moved_area_fraction": 0.0,
+            "tp_gnn_repair_moved_supernodes": 0,
+            "tp_gnn_training_runtime_seconds": 67.54288757700033,
+            "valid": true,
+            "wns_deficit_improvement": 0.2710571907340975
+          },
+          "raw_score": 50.556444119417066,
+          "result_dir": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1001/result",
+          "score": 50.556444119417066,
+          "seed": "1001",
+          "status": "succeeded",
+          "valid": true
+        },
+        {
+          "artifacts": {
+            "base_config": "/root/aic-26016/official/contest-data/task2/loss_decoder/train/configs/bp_fe-ng45/1002.yaml",
+            "candidate": "/root/aic-26016/two-round/work/candidates/35f0adc0cba637fe1c74f640d79be37048934097920bbb0bb2b9fa95e65d3934",
+            "cascade": [
+              {
+                "name": "policy",
+                "status": "passed"
+              },
+              {
+                "name": "frozen_inputs",
+                "status": "passed"
+              },
+              {
+                "name": "interface",
+                "status": "passed"
+              },
+              {
+                "name": "source_validation",
+                "status": "passed"
+              },
+              {
+                "name": "stage",
+                "status": "passed"
+              },
+              {
+                "name": "metrics",
+                "status": "passed"
+              }
+            ],
+            "command": [
+              "python3",
+              "-m",
+              "open3dbench",
+              "--repo",
+              "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1002/result/workspace/Open3DBench-V2.0",
+              "run",
+              "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1002/result/resolved_config.yaml",
+              "--from",
+              "partition",
+              "--to",
+              "opt",
+              "--resume",
+              "--run-dir",
+              "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1002/result/run"
+            ],
+            "evaluation_boundary": "open3dbench-stage",
+            "evaluation_result": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1002/result/evaluation_result.json",
+            "executed_seed_evidence": {
+              "partition": {
+                "seed": 1002,
+                "sha256": "1160e4094e89a694977eaffdeba537c98c0d815c9bdd47a75e65af2313d75f1b"
+              },
+              "placement": {
+                "seed": 1002,
+                "sha256": "80613bb81a88f9aaf085bc51ce2b24a6f3f89ff1b34ac9a5a9867c7f80728817"
+              }
+            },
+            "execution_mode": "gpu-frontend-cpu-backend",
+            "exit_code": 0,
+            "frozen_inputs": {
+              "tp_gnn_timing": {
+                "adopted_path": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1002/result/harness_inputs/frozen/tp_gnn_timing",
+                "files": {
+                  "openroad_full_partition_last.connections.tsv": {
+                    "bytes": 4351394,
+                    "sha256": "f85c4af527cdf181bae8db6c0c1f1418d5385061ccd0ce01d544d5bca4214d96"
+                  },
+                  "timing_features.csv": {
+                    "bytes": 3696555,
+                    "sha256": "9fd993e1836d5c2aa495cb3f520cfbee485b6e89ee0ec3896d7a8b2c2dd1e563"
+                  },
+                  "timing_manifest.json": {
+                    "bytes": 4025,
+                    "sha256": "9a3e56b46a7f4d8a320010e32aa0b61912059e2e45f573b29ca8d80393e47970"
+                  },
+                  "timing_net_weights.csv": {
+                    "bytes": 3981578,
+                    "sha256": "98d8469d4ba1156530f0a37831d16aae41c64dcdcac3ca7701b267417c12871c"
+                  }
+                },
+                "inject_as": "partition.timing_input",
+                "source": "baseline_run",
+                "source_path": "/root/aic-26016/official/contest-data/task2/inputs/bp_fe-ng45/20_partition/timing_input"
+              }
+            },
+            "matrix_cell_contract": {
+              "base_config_sha256": "ae52154c888ef2b99f1605f4e24dfcb1279120c2bbb1daabaaea5d407eb96417",
+              "initial_candidate_sha256": "5d971f90afd62b93f440e9583e01deae06c64b0f41099a825c3ab42b284cc8b7",
+              "schema_version": 1,
+              "seed_contract_sha256": "dee3067d58d9706a086db3aba96c44b7e5ea72a15e54177a1cd756c18e93053c",
+              "seeds": {
+                "io": 1,
+                "partition": 1002,
+                "placement": 1002,
+                "routing": -1
+              },
+              "task": "tp_gnn_loss_decoder_timing",
+              "upstream": {
+                "floorplan": "6aecd912375979ef09fb75ff7ff6261761eb2bd2249de2fd7ddceb1ec0bb6625",
+                "input": "a9f9cbbc2c802cac0c62c5b2202de7061b7c1dd9f9fe65eb0ce4434e5a5c16db"
+              }
+            },
+            "matrix_reference": false,
+            "native_flow_execution": [
+              {
+                "command": [
+                  "python3",
+                  "-m",
+                  "contest2.native_entry",
+                  "--flow",
+                  "--repo",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1002/result/workspace/Open3DBench-V2.0",
+                  "run",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1002/result/resolved_config.yaml",
+                  "--from",
+                  "partition",
+                  "--to",
+                  "placement",
+                  "--resume",
+                  "--run-dir",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1002/result/run"
+                ],
+                "completed_at_utc": "2026-11-19T02:30:46.720206+00:00",
+                "cwd": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1002/result/workspace/Open3DBench-V2.0",
+                "invocation": "stage",
+                "process_started": true,
+                "returncode": 0,
+                "schema_version": 1,
+                "started_at_utc": "2026-11-19T02:28:16.963606+00:00",
+                "status": "completed",
+                "timeout_seconds": null,
+                "wall_seconds": 149.75639440599934
+              },
+              {
+                "command": [
+                  "python3",
+                  "-m",
+                  "contest2.native_entry",
+                  "--flow",
+                  "--repo",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1002/result/workspace/Open3DBench-V2.0",
+                  "run",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1002/result/resolved_config.yaml",
+                  "--from",
+                  "pdn",
+                  "--to",
+                  "opt",
+                  "--resume",
+                  "--run-dir",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1002/result/run"
+                ],
+                "completed_at_utc": "2026-11-19T02:34:31.504244+00:00",
+                "cwd": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1002/result/workspace/Open3DBench-V2.0",
+                "invocation": "stage",
+                "process_started": true,
+                "returncode": 0,
+                "schema_version": 1,
+                "started_at_utc": "2026-11-19T02:30:48.157861+00:00",
+                "status": "completed",
+                "timeout_seconds": null,
+                "wall_seconds": 223.34633923399997
+              }
+            ],
+            "output_dir": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1002/result",
+            "patch": {
+              "added_lines": 0,
+              "deleted_lines": 0,
+              "paths": [],
+              "present": false
+            },
+            "plan_log": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1002/result/plan.log",
+            "reference_admission": {
+              "mode": "ADOPT_PACKED",
+              "producer_receipt_sha256": "3ef9e32c2d790f7b1596b4ec5e1add070759448b82075dec693b0fe1c85f0a1e",
+              "reference_receipt_sha256": "f763ba430e2d0a36ac2df662ea1b1fec9cda3a6a40c03353e5be4953198d1319",
+              "task_id": "tp_gnn_loss_decoder_timing"
+            },
+            "replay_start_stage": "partition",
+            "resolved_config": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1002/result/resolved_config.yaml",
+            "run_dir": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1002/result/run",
+            "runtime_seconds": 373.10504450699864,
+            "source_validation": {
+              "checks": [],
+              "status": "skipped"
+            },
+            "stage_log": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1002/result/stage.log",
+            "task": "tp_gnn_loss_decoder_timing",
+            "upstream_materialization": "copy",
+            "workspace": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1002/result/workspace/Open3DBench-V2.0"
+          },
+          "case": "bp_fe-ng45",
+          "metrics": {
+            "area_balance_error": 0.009665668842644354,
+            "bottom_count": 14470,
+            "combined_score": 54.615957643502625,
+            "cut_net_count": 3738,
+            "cut_net_ratio": 0.14076445113914518,
+            "cut_pin_count": 31253,
+            "final_global_tns_setup_ns": -150.05712297463396,
+            "final_global_wns_setup_ns": -0.7387797249733241,
+            "instance_count": 25847,
+            "macro_area_error": 0.03739445114595896,
+            "macro_count_error": 0.04545454545454547,
+            "native_paired_combined_score": 16.891485498743137,
+            "opt_passes": 1.0,
+            "partition_assignment_changed_count": 0,
+            "partition_assignment_changed_fraction": 0.0,
+            "partition_assignment_identical": 1,
+            "partition_complete": 1.0,
+            "partition_constraints_passed": 1.0,
+            "partition_decoder": "global-2way",
+            "partition_method": "tp-gnn-flat",
+            "raw_score": 54.615957643502625,
+            "reference_tns_deficit_ns": 716.9190029865956,
+            "reference_wns_deficit_ns": 0.9002498352590634,
+            "runs_successfully": 1.0,
+            "scoring_reference": "common-five-case",
+            "sta_graph_complete": 1.0,
+            "sta_tns_weight": 0.6,
+            "sta_wns_weight": 0.4,
+            "timing_evaluation_boundary": "post-opt-pre-cts",
+            "timing_total_net_weight": 41624.256255968554,
+            "timing_weight_mode": "paper_delay_slack_hyperedge_v1",
+            "timing_weighted_cut": 6152.378811821003,
+            "timing_weighted_cut_ratio": 0.14780753736443775,
+            "tns_deficit_improvement": 0.7906916648191572,
+            "top_count": 11377,
+            "tp_gnn_area_balance_cut_delta": 2389,
+            "tp_gnn_area_balance_weighted_cut_delta": 4587.604686151633,
+            "tp_gnn_area_balance_weighted_cut_relative_change": 2.931799938977885,
+            "tp_gnn_balanced_cut_net_count": 3738,
+            "tp_gnn_balanced_timing_weighted_cut": 6152.378811821003,
+            "tp_gnn_embedding_pair_cosine_median": 0.9830637574195862,
+            "tp_gnn_embedding_total_variance": 0.042835649102926254,
+            "tp_gnn_epochs_completed": 50,
+            "tp_gnn_feasibility_cut_delta": 0,
+            "tp_gnn_feasibility_weighted_cut_delta": 0.0,
+            "tp_gnn_feasibility_weighted_cut_relative_change": 0.0,
+            "tp_gnn_feasible_cut_net_count": 3738,
+            "tp_gnn_feasible_timing_weighted_cut": 6152.378811821003,
+            "tp_gnn_final_loss": 42.90745544433594,
+            "tp_gnn_negative_pair_cosine_median": 0.9854389429092407,
+            "tp_gnn_negative_pair_sample_count": 4096,
+            "tp_gnn_optimizer_steps_completed": 100,
+            "tp_gnn_positive_pair_cosine_median": 0.9995023012161255,
+            "tp_gnn_positive_pair_sample_count": 4096,
+            "tp_gnn_raw_cut_net_count": 1349,
+            "tp_gnn_raw_timing_weighted_cut": 1564.7741256693703,
+            "tp_gnn_repair_moved_area_fraction": 0.0,
+            "tp_gnn_repair_moved_supernodes": 0,
+            "tp_gnn_training_runtime_seconds": 67.98036683499959,
+            "valid": true,
+            "wns_deficit_improvement": 0.17936144385882985
+          },
+          "raw_score": 54.615957643502625,
+          "result_dir": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1002/result",
+          "score": 54.615957643502625,
+          "seed": "1002",
+          "status": "succeeded",
+          "valid": true
+        },
+        {
+          "artifacts": {
+            "base_config": "/root/aic-26016/official/contest-data/task2/loss_decoder/train/configs/bp_fe-ng45/1003.yaml",
+            "candidate": "/root/aic-26016/two-round/work/candidates/35f0adc0cba637fe1c74f640d79be37048934097920bbb0bb2b9fa95e65d3934",
+            "cascade": [
+              {
+                "name": "policy",
+                "status": "passed"
+              },
+              {
+                "name": "frozen_inputs",
+                "status": "passed"
+              },
+              {
+                "name": "interface",
+                "status": "passed"
+              },
+              {
+                "name": "source_validation",
+                "status": "passed"
+              },
+              {
+                "name": "stage",
+                "status": "passed"
+              },
+              {
+                "name": "metrics",
+                "status": "passed"
+              }
+            ],
+            "command": [
+              "python3",
+              "-m",
+              "open3dbench",
+              "--repo",
+              "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1003/result/workspace/Open3DBench-V2.0",
+              "run",
+              "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1003/result/resolved_config.yaml",
+              "--from",
+              "partition",
+              "--to",
+              "opt",
+              "--resume",
+              "--run-dir",
+              "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1003/result/run"
+            ],
+            "evaluation_boundary": "open3dbench-stage",
+            "evaluation_result": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1003/result/evaluation_result.json",
+            "executed_seed_evidence": {
+              "partition": {
+                "seed": 1003,
+                "sha256": "d9468702cfdc16849cb671adbc1a7e6d76accad4fa0ea22a04637e7a3082bd96"
+              },
+              "placement": {
+                "seed": 1003,
+                "sha256": "597a0bea0766b0ecda1f2770861e805ebe29c4152dcf4490d2ec60b74dd38297"
+              }
+            },
+            "execution_mode": "gpu-frontend-cpu-backend",
+            "exit_code": 0,
+            "frozen_inputs": {
+              "tp_gnn_timing": {
+                "adopted_path": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1003/result/harness_inputs/frozen/tp_gnn_timing",
+                "files": {
+                  "openroad_full_partition_last.connections.tsv": {
+                    "bytes": 4351394,
+                    "sha256": "f85c4af527cdf181bae8db6c0c1f1418d5385061ccd0ce01d544d5bca4214d96"
+                  },
+                  "timing_features.csv": {
+                    "bytes": 3696555,
+                    "sha256": "9fd993e1836d5c2aa495cb3f520cfbee485b6e89ee0ec3896d7a8b2c2dd1e563"
+                  },
+                  "timing_manifest.json": {
+                    "bytes": 4025,
+                    "sha256": "9a3e56b46a7f4d8a320010e32aa0b61912059e2e45f573b29ca8d80393e47970"
+                  },
+                  "timing_net_weights.csv": {
+                    "bytes": 3981578,
+                    "sha256": "98d8469d4ba1156530f0a37831d16aae41c64dcdcac3ca7701b267417c12871c"
+                  }
+                },
+                "inject_as": "partition.timing_input",
+                "source": "baseline_run",
+                "source_path": "/root/aic-26016/official/contest-data/task2/inputs/bp_fe-ng45/20_partition/timing_input"
+              }
+            },
+            "matrix_cell_contract": {
+              "base_config_sha256": "97967bbaa0d5565915deb07051e7d60d6cb5e24229e4aa0dd12484afde449621",
+              "initial_candidate_sha256": "5d971f90afd62b93f440e9583e01deae06c64b0f41099a825c3ab42b284cc8b7",
+              "schema_version": 1,
+              "seed_contract_sha256": "dee3067d58d9706a086db3aba96c44b7e5ea72a15e54177a1cd756c18e93053c",
+              "seeds": {
+                "io": 1,
+                "partition": 1003,
+                "placement": 1003,
+                "routing": -1
+              },
+              "task": "tp_gnn_loss_decoder_timing",
+              "upstream": {
+                "floorplan": "6aecd912375979ef09fb75ff7ff6261761eb2bd2249de2fd7ddceb1ec0bb6625",
+                "input": "a9f9cbbc2c802cac0c62c5b2202de7061b7c1dd9f9fe65eb0ce4434e5a5c16db"
+              }
+            },
+            "matrix_reference": false,
+            "native_flow_execution": [
+              {
+                "command": [
+                  "python3",
+                  "-m",
+                  "contest2.native_entry",
+                  "--flow",
+                  "--repo",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1003/result/workspace/Open3DBench-V2.0",
+                  "run",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1003/result/resolved_config.yaml",
+                  "--from",
+                  "partition",
+                  "--to",
+                  "placement",
+                  "--resume",
+                  "--run-dir",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1003/result/run"
+                ],
+                "completed_at_utc": "2026-11-19T02:37:45.153690+00:00",
+                "cwd": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1003/result/workspace/Open3DBench-V2.0",
+                "invocation": "stage",
+                "process_started": true,
+                "returncode": 0,
+                "schema_version": 1,
+                "started_at_utc": "2026-11-19T02:35:13.531283+00:00",
+                "status": "completed",
+                "timeout_seconds": null,
+                "wall_seconds": 151.6223624159993
+              },
+              {
+                "command": [
+                  "python3",
+                  "-m",
+                  "contest2.native_entry",
+                  "--flow",
+                  "--repo",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1003/result/workspace/Open3DBench-V2.0",
+                  "run",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1003/result/resolved_config.yaml",
+                  "--from",
+                  "pdn",
+                  "--to",
+                  "opt",
+                  "--resume",
+                  "--run-dir",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1003/result/run"
+                ],
+                "completed_at_utc": "2026-11-19T02:41:58.462673+00:00",
+                "cwd": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1003/result/workspace/Open3DBench-V2.0",
+                "invocation": "stage",
+                "process_started": true,
+                "returncode": 0,
+                "schema_version": 1,
+                "started_at_utc": "2026-11-19T02:37:46.432133+00:00",
+                "status": "completed",
+                "timeout_seconds": null,
+                "wall_seconds": 252.03049363399987
+              }
+            ],
+            "output_dir": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1003/result",
+            "patch": {
+              "added_lines": 0,
+              "deleted_lines": 0,
+              "paths": [],
+              "present": false
+            },
+            "plan_log": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1003/result/plan.log",
+            "reference_admission": {
+              "mode": "ADOPT_PACKED",
+              "producer_receipt_sha256": "d59e4408ff1540f3c2cc0ee7259a8cb229630aed1a8234478f23cd3da7d7e83d",
+              "reference_receipt_sha256": "8a7a5d9676c236893be73b53fa5779d63dc4aa0265b87ff67ccceef563c7702a",
+              "task_id": "tp_gnn_loss_decoder_timing"
+            },
+            "replay_start_stage": "partition",
+            "resolved_config": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1003/result/resolved_config.yaml",
+            "run_dir": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1003/result/run",
+            "runtime_seconds": 403.65514051500213,
+            "source_validation": {
+              "checks": [],
+              "status": "skipped"
+            },
+            "stage_log": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1003/result/stage.log",
+            "task": "tp_gnn_loss_decoder_timing",
+            "upstream_materialization": "copy",
+            "workspace": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1003/result/workspace/Open3DBench-V2.0"
+          },
+          "case": "bp_fe-ng45",
+          "metrics": {
+            "area_balance_error": 0.00889797979277548,
+            "bottom_count": 10123,
+            "combined_score": 53.126825914136866,
+            "cut_net_count": 3102,
+            "cut_net_ratio": 0.1168141592920354,
+            "cut_pin_count": 29652,
+            "final_global_tns_setup_ns": -207.78956032835512,
+            "final_global_wns_setup_ns": -0.663550788652499,
+            "instance_count": 25847,
+            "macro_area_error": 0.039800386668208954,
+            "macro_count_error": 0.04545454545454547,
+            "native_paired_combined_score": -7.697619413281333,
+            "opt_passes": 1.0,
+            "partition_assignment_changed_count": 0,
+            "partition_assignment_changed_fraction": 0.0,
+            "partition_assignment_identical": 1,
+            "partition_complete": 1.0,
+            "partition_constraints_passed": 1.0,
+            "partition_decoder": "global-2way",
+            "partition_method": "tp-gnn-flat",
+            "raw_score": 53.126825914136866,
+            "reference_tns_deficit_ns": 716.9190029865956,
+            "reference_wns_deficit_ns": 0.9002498352590634,
+            "runs_successfully": 1.0,
+            "scoring_reference": "common-five-case",
+            "sta_graph_complete": 1.0,
+            "sta_tns_weight": 0.6,
+            "sta_wns_weight": 0.4,
+            "timing_evaluation_boundary": "post-opt-pre-cts",
+            "timing_total_net_weight": 41624.256255968554,
+            "timing_weight_mode": "paper_delay_slack_hyperedge_v1",
+            "timing_weighted_cut": 5576.034057190449,
+            "timing_weighted_cut_ratio": 0.13396116972999114,
+            "tns_deficit_improvement": 0.7101631293594819,
+            "top_count": 15724,
+            "tp_gnn_area_balance_cut_delta": 1725,
+            "tp_gnn_area_balance_weighted_cut_delta": 3983.0600933505384,
+            "tp_gnn_area_balance_weighted_cut_relative_change": 2.5003924632573744,
+            "tp_gnn_balanced_cut_net_count": 3102,
+            "tp_gnn_balanced_timing_weighted_cut": 5576.034057190449,
+            "tp_gnn_embedding_pair_cosine_median": 0.9810034036636353,
+            "tp_gnn_embedding_total_variance": 0.04723389819264412,
+            "tp_gnn_epochs_completed": 50,
+            "tp_gnn_feasibility_cut_delta": 0,
+            "tp_gnn_feasibility_weighted_cut_delta": 0.0,
+            "tp_gnn_feasibility_weighted_cut_relative_change": 0.0,
+            "tp_gnn_feasible_cut_net_count": 3102,
+            "tp_gnn_feasible_timing_weighted_cut": 5576.034057190449,
+            "tp_gnn_final_loss": 42.826507568359375,
+            "tp_gnn_negative_pair_cosine_median": 0.9843249917030334,
+            "tp_gnn_negative_pair_sample_count": 4096,
+            "tp_gnn_optimizer_steps_completed": 100,
+            "tp_gnn_positive_pair_cosine_median": 0.9994369745254517,
+            "tp_gnn_positive_pair_sample_count": 4096,
+            "tp_gnn_raw_cut_net_count": 1377,
+            "tp_gnn_raw_timing_weighted_cut": 1592.9739638399108,
+            "tp_gnn_repair_moved_area_fraction": 0.0,
+            "tp_gnn_repair_moved_supernodes": 0,
+            "tp_gnn_training_runtime_seconds": 67.68669454799965,
+            "valid": true,
+            "wns_deficit_improvement": 0.2629259538141987
+          },
+          "raw_score": 53.126825914136866,
+          "result_dir": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp_fe-ng45/1003/result",
+          "score": 53.126825914136866,
+          "seed": "1003",
+          "status": "succeeded",
+          "valid": true
+        },
+        {
+          "artifacts": {
+            "base_config": "/root/aic-26016/official/contest-data/task2/loss_decoder/train/configs/bp-ng45/1001.yaml",
+            "candidate": "/root/aic-26016/two-round/work/candidates/35f0adc0cba637fe1c74f640d79be37048934097920bbb0bb2b9fa95e65d3934",
+            "cascade": [
+              {
+                "name": "policy",
+                "status": "passed"
+              },
+              {
+                "name": "frozen_inputs",
+                "status": "passed"
+              },
+              {
+                "name": "interface",
+                "status": "passed"
+              },
+              {
+                "name": "source_validation",
+                "status": "passed"
+              },
+              {
+                "name": "stage",
+                "status": "passed"
+              },
+              {
+                "name": "metrics",
+                "status": "passed"
+              }
+            ],
+            "command": [
+              "python3",
+              "-m",
+              "open3dbench",
+              "--repo",
+              "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1001/result/workspace/Open3DBench-V2.0",
+              "run",
+              "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1001/result/resolved_config.yaml",
+              "--from",
+              "partition",
+              "--to",
+              "opt",
+              "--resume",
+              "--run-dir",
+              "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1001/result/run"
+            ],
+            "evaluation_boundary": "open3dbench-stage",
+            "evaluation_result": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1001/result/evaluation_result.json",
+            "executed_seed_evidence": {
+              "partition": {
+                "seed": 1001,
+                "sha256": "37dc928ff031e41bee9c9693a1ac3d3f30553ad2d59d5626ae0f4d129ed90cc5"
+              },
+              "placement": {
+                "seed": 1001,
+                "sha256": "862ad9ddc33fb2b8cd2ee6d69d0863f80027495f08c6546b4f97761bcbd8a32c"
+              }
+            },
+            "execution_mode": "gpu-frontend-cpu-backend",
+            "exit_code": 0,
+            "frozen_inputs": {
+              "tp_gnn_timing": {
+                "adopted_path": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1001/result/harness_inputs/frozen/tp_gnn_timing",
+                "files": {
+                  "openroad_full_partition_last.connections.tsv": {
+                    "bytes": 25367909,
+                    "sha256": "433d2118745c419cadf799e1cec08dc6375eb4427ef963320e0a99be10a5e7a3"
+                  },
+                  "timing_features.csv": {
+                    "bytes": 20772796,
+                    "sha256": "ccfad8e6ce4c92df44aa89149860d605c23d66fb09aedbb71ad62f4d2e382629"
+                  },
+                  "timing_manifest.json": {
+                    "bytes": 4004,
+                    "sha256": "022c79a0c6a3112d656bbcf2b7a04dd65316d6c025c577cddfdfcf0c0217f679"
+                  },
+                  "timing_net_weights.csv": {
+                    "bytes": 24092583,
+                    "sha256": "fae83fda725b0079c06d6b8661f072b44e67c02bb07054c24ef11bac11307dcd"
+                  }
+                },
+                "inject_as": "partition.timing_input",
+                "source": "baseline_run",
+                "source_path": "/root/aic-26016/official/contest-data/task2/inputs/bp-ng45/20_partition/timing_input"
+              }
+            },
+            "matrix_cell_contract": {
+              "base_config_sha256": "f448ac0c186b4d178b96b7d80913f69c25bb0d3fae0ba67e65fdf775fbdd5b73",
+              "initial_candidate_sha256": "5d971f90afd62b93f440e9583e01deae06c64b0f41099a825c3ab42b284cc8b7",
+              "schema_version": 1,
+              "seed_contract_sha256": "dee3067d58d9706a086db3aba96c44b7e5ea72a15e54177a1cd756c18e93053c",
+              "seeds": {
+                "io": 1,
+                "partition": 1001,
+                "placement": 1001,
+                "routing": -1
+              },
+              "task": "tp_gnn_loss_decoder_timing",
+              "upstream": {
+                "floorplan": "adfab0e79ef8aea90bad0980572d9d227eef337f61751aef910d92db50599e33",
+                "input": "8f67febe06355c7f672290343fc01be3881882ac15eaf0ac9bdf6e63653b6c60"
+              }
+            },
+            "matrix_reference": false,
+            "native_flow_execution": [
+              {
+                "command": [
+                  "python3",
+                  "-m",
+                  "contest2.native_entry",
+                  "--flow",
+                  "--repo",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1001/result/workspace/Open3DBench-V2.0",
+                  "run",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1001/result/resolved_config.yaml",
+                  "--from",
+                  "partition",
+                  "--to",
+                  "placement",
+                  "--resume",
+                  "--run-dir",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1001/result/run"
+                ],
+                "completed_at_utc": "2026-11-19T02:40:52.011728+00:00",
+                "cwd": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1001/result/workspace/Open3DBench-V2.0",
+                "invocation": "stage",
+                "process_started": true,
+                "returncode": 0,
+                "schema_version": 1,
+                "started_at_utc": "2026-11-19T02:35:27.185335+00:00",
+                "status": "completed",
+                "timeout_seconds": null,
+                "wall_seconds": 324.82623516900094
+              },
+              {
+                "command": [
+                  "python3",
+                  "-m",
+                  "contest2.native_entry",
+                  "--flow",
+                  "--repo",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1001/result/workspace/Open3DBench-V2.0",
+                  "run",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1001/result/resolved_config.yaml",
+                  "--from",
+                  "pdn",
+                  "--to",
+                  "opt",
+                  "--resume",
+                  "--run-dir",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1001/result/run"
+                ],
+                "completed_at_utc": "2026-11-19T02:52:08.118273+00:00",
+                "cwd": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1001/result/workspace/Open3DBench-V2.0",
+                "invocation": "stage",
+                "process_started": true,
+                "returncode": 0,
+                "schema_version": 1,
+                "started_at_utc": "2026-11-19T02:40:53.446143+00:00",
+                "status": "completed",
+                "timeout_seconds": null,
+                "wall_seconds": 674.6720816739999
+              }
+            ],
+            "output_dir": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1001/result",
+            "patch": {
+              "added_lines": 0,
+              "deleted_lines": 0,
+              "paths": [],
+              "present": false
+            },
+            "plan_log": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1001/result/plan.log",
+            "reference_admission": {
+              "mode": "ADOPT_PACKED",
+              "producer_receipt_sha256": "0cd10d2b00f299b58327050e4e4b8bd7db5832856b11286fb3fc5615e61379f3",
+              "reference_receipt_sha256": "84b56fe82f2f19067a048d4b870ee767573517b0ee87a7a24ad1572e431895c7",
+              "task_id": "tp_gnn_loss_decoder_timing"
+            },
+            "replay_start_stage": "partition",
+            "resolved_config": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1001/result/resolved_config.yaml",
+            "run_dir": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1001/result/run",
+            "runtime_seconds": 999.5007635080001,
+            "source_validation": {
+              "checks": [],
+              "status": "skipped"
+            },
+            "stage_log": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1001/result/stage.log",
+            "task": "tp_gnn_loss_decoder_timing",
+            "upstream_materialization": "copy",
+            "workspace": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1001/result/workspace/Open3DBench-V2.0"
+          },
+          "case": "bp-ng45",
+          "metrics": {
+            "area_balance_error": 6.524361032042069e-06,
+            "bottom_count": 70192,
+            "combined_score": -25.362346624448374,
+            "cut_net_count": 5880,
+            "cut_net_ratio": 0.03936217214925493,
+            "cut_pin_count": 104070,
+            "final_global_tns_setup_ns": -9828.25650282624,
+            "final_global_wns_setup_ns": -7.866748364280616,
+            "instance_count": 144224,
+            "macro_area_error": 0.04762114990647909,
+            "macro_count_error": 0.041666666666666685,
+            "native_paired_combined_score": -2.5868331188973914,
+            "opt_passes": 1.0,
+            "partition_assignment_changed_count": 8,
+            "partition_assignment_changed_fraction": 5.546927002440648e-05,
+            "partition_assignment_identical": 0,
+            "partition_complete": 1.0,
+            "partition_constraints_passed": 1.0,
+            "partition_decoder": "global-2way",
+            "partition_method": "tp-gnn-flat",
+            "raw_score": -25.362346624448374,
+            "reference_tns_deficit_ns": 6622.78575944895,
+            "reference_wns_deficit_ns": 8.663351750761597,
+            "runs_successfully": 1.0,
+            "scoring_reference": "common-five-case",
+            "sta_graph_complete": 1.0,
+            "sta_tns_weight": 0.6,
+            "sta_wns_weight": 0.4,
+            "timing_evaluation_boundary": "post-opt-pre-cts",
+            "timing_total_net_weight": 171438.82800355964,
+            "timing_weight_mode": "paper_delay_slack_hyperedge_v1",
+            "timing_weighted_cut": 8123.200789864003,
+            "timing_weighted_cut_ratio": 0.04738250304473231,
+            "tns_deficit_improvement": -0.4840064075459391,
+            "top_count": 74032,
+            "tp_gnn_area_balance_cut_delta": 1556,
+            "tp_gnn_area_balance_weighted_cut_delta": -53.396573521284154,
+            "tp_gnn_area_balance_weighted_cut_relative_change": -0.008009922018897801,
+            "tp_gnn_balanced_cut_net_count": 5948,
+            "tp_gnn_balanced_timing_weighted_cut": 6612.9072176149675,
+            "tp_gnn_embedding_pair_cosine_median": 0.9238195717334747,
+            "tp_gnn_embedding_total_variance": 0.1323493868112564,
+            "tp_gnn_epochs_completed": 20,
+            "tp_gnn_feasibility_cut_delta": -68,
+            "tp_gnn_feasibility_weighted_cut_delta": 1510.2935722490356,
+            "tp_gnn_feasibility_weighted_cut_relative_change": 0.2283857194043232,
+            "tp_gnn_feasible_cut_net_count": 5880,
+            "tp_gnn_feasible_timing_weighted_cut": 8123.200789864003,
+            "tp_gnn_final_loss": 40.735586166381836,
+            "tp_gnn_negative_pair_cosine_median": 0.9201825857162476,
+            "tp_gnn_negative_pair_sample_count": 4096,
+            "tp_gnn_optimizer_steps_completed": 120,
+            "tp_gnn_positive_pair_cosine_median": 0.9999562501907349,
+            "tp_gnn_positive_pair_sample_count": 4096,
+            "tp_gnn_raw_cut_net_count": 4392,
+            "tp_gnn_raw_timing_weighted_cut": 6666.303791136252,
+            "tp_gnn_repair_moved_area_fraction": 0.0606229646323709,
+            "tp_gnn_repair_moved_supernodes": 4252,
+            "tp_gnn_training_runtime_seconds": 148.03535942599956,
+            "valid": true,
+            "wns_deficit_improvement": 0.09195094570769934
+          },
+          "raw_score": -25.362346624448374,
+          "result_dir": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1001/result",
+          "score": -25.362346624448374,
+          "seed": "1001",
+          "status": "succeeded",
+          "valid": true
+        },
+        {
+          "artifacts": {
+            "base_config": "/root/aic-26016/official/contest-data/task2/loss_decoder/train/configs/bp-ng45/1002.yaml",
+            "candidate": "/root/aic-26016/two-round/work/candidates/35f0adc0cba637fe1c74f640d79be37048934097920bbb0bb2b9fa95e65d3934",
+            "cascade": [
+              {
+                "name": "policy",
+                "status": "passed"
+              },
+              {
+                "name": "frozen_inputs",
+                "status": "passed"
+              },
+              {
+                "name": "interface",
+                "status": "passed"
+              },
+              {
+                "name": "source_validation",
+                "status": "passed"
+              },
+              {
+                "name": "stage",
+                "status": "passed"
+              },
+              {
+                "name": "metrics",
+                "status": "passed"
+              }
+            ],
+            "command": [
+              "python3",
+              "-m",
+              "open3dbench",
+              "--repo",
+              "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1002/result/workspace/Open3DBench-V2.0",
+              "run",
+              "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1002/result/resolved_config.yaml",
+              "--from",
+              "partition",
+              "--to",
+              "opt",
+              "--resume",
+              "--run-dir",
+              "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1002/result/run"
+            ],
+            "evaluation_boundary": "open3dbench-stage",
+            "evaluation_result": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1002/result/evaluation_result.json",
+            "executed_seed_evidence": {
+              "partition": {
+                "seed": 1002,
+                "sha256": "36e43e953f07a81935281763f0b8ff8913d9a016dc1e600733d59563cfbe69d1"
+              },
+              "placement": {
+                "seed": 1002,
+                "sha256": "821e431560d8f99feb3481cf6ee6886b473f63052752eab3214ffa8b0227beb4"
+              }
+            },
+            "execution_mode": "gpu-frontend-cpu-backend",
+            "exit_code": 0,
+            "frozen_inputs": {
+              "tp_gnn_timing": {
+                "adopted_path": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1002/result/harness_inputs/frozen/tp_gnn_timing",
+                "files": {
+                  "openroad_full_partition_last.connections.tsv": {
+                    "bytes": 25367909,
+                    "sha256": "433d2118745c419cadf799e1cec08dc6375eb4427ef963320e0a99be10a5e7a3"
+                  },
+                  "timing_features.csv": {
+                    "bytes": 20772796,
+                    "sha256": "ccfad8e6ce4c92df44aa89149860d605c23d66fb09aedbb71ad62f4d2e382629"
+                  },
+                  "timing_manifest.json": {
+                    "bytes": 4004,
+                    "sha256": "022c79a0c6a3112d656bbcf2b7a04dd65316d6c025c577cddfdfcf0c0217f679"
+                  },
+                  "timing_net_weights.csv": {
+                    "bytes": 24092583,
+                    "sha256": "fae83fda725b0079c06d6b8661f072b44e67c02bb07054c24ef11bac11307dcd"
+                  }
+                },
+                "inject_as": "partition.timing_input",
+                "source": "baseline_run",
+                "source_path": "/root/aic-26016/official/contest-data/task2/inputs/bp-ng45/20_partition/timing_input"
+              }
+            },
+            "matrix_cell_contract": {
+              "base_config_sha256": "b9e4f049e1c2f2e882ce3e6e93aacbfaf9f0c49d4ff409adc0b26246b0512fbd",
+              "initial_candidate_sha256": "5d971f90afd62b93f440e9583e01deae06c64b0f41099a825c3ab42b284cc8b7",
+              "schema_version": 1,
+              "seed_contract_sha256": "dee3067d58d9706a086db3aba96c44b7e5ea72a15e54177a1cd756c18e93053c",
+              "seeds": {
+                "io": 1,
+                "partition": 1002,
+                "placement": 1002,
+                "routing": -1
+              },
+              "task": "tp_gnn_loss_decoder_timing",
+              "upstream": {
+                "floorplan": "adfab0e79ef8aea90bad0980572d9d227eef337f61751aef910d92db50599e33",
+                "input": "8f67febe06355c7f672290343fc01be3881882ac15eaf0ac9bdf6e63653b6c60"
+              }
+            },
+            "matrix_reference": false,
+            "native_flow_execution": [
+              {
+                "command": [
+                  "python3",
+                  "-m",
+                  "contest2.native_entry",
+                  "--flow",
+                  "--repo",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1002/result/workspace/Open3DBench-V2.0",
+                  "run",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1002/result/resolved_config.yaml",
+                  "--from",
+                  "partition",
+                  "--to",
+                  "placement",
+                  "--resume",
+                  "--run-dir",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1002/result/run"
+                ],
+                "completed_at_utc": "2026-11-19T02:48:07.405973+00:00",
+                "cwd": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1002/result/workspace/Open3DBench-V2.0",
+                "invocation": "stage",
+                "process_started": true,
+                "returncode": 0,
+                "schema_version": 1,
+                "started_at_utc": "2026-11-19T02:42:39.721867+00:00",
+                "status": "completed",
+                "timeout_seconds": null,
+                "wall_seconds": 327.6840411239991
+              },
+              {
+                "command": [
+                  "python3",
+                  "-m",
+                  "contest2.native_entry",
+                  "--flow",
+                  "--repo",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1002/result/workspace/Open3DBench-V2.0",
+                  "run",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1002/result/resolved_config.yaml",
+                  "--from",
+                  "pdn",
+                  "--to",
+                  "opt",
+                  "--resume",
+                  "--run-dir",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1002/result/run"
+                ],
+                "completed_at_utc": "2026-11-19T02:59:56.322339+00:00",
+                "cwd": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1002/result/workspace/Open3DBench-V2.0",
+                "invocation": "stage",
+                "process_started": true,
+                "returncode": 0,
+                "schema_version": 1,
+                "started_at_utc": "2026-11-19T02:48:08.993893+00:00",
+                "status": "completed",
+                "timeout_seconds": null,
+                "wall_seconds": 707.3284045870005
+              }
+            ],
+            "output_dir": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1002/result",
+            "patch": {
+              "added_lines": 0,
+              "deleted_lines": 0,
+              "paths": [],
+              "present": false
+            },
+            "plan_log": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1002/result/plan.log",
+            "reference_admission": {
+              "mode": "ADOPT_PACKED",
+              "producer_receipt_sha256": "09a8d0b484c2f97b06faf6fd8c7aaf7f6d153f1a17f19a61cbf7f83fb79a9c69",
+              "reference_receipt_sha256": "c5cd566fa3609349b8ef6d2836a71a3f37836a567d5c14203f4c74a79a485e7b",
+              "task_id": "tp_gnn_loss_decoder_timing"
+            },
+            "replay_start_stage": "partition",
+            "resolved_config": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1002/result/resolved_config.yaml",
+            "run_dir": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1002/result/run",
+            "runtime_seconds": 1035.0150287399993,
+            "source_validation": {
+              "checks": [],
+              "status": "skipped"
+            },
+            "stage_log": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1002/result/stage.log",
+            "task": "tp_gnn_loss_decoder_timing",
+            "upstream_materialization": "copy",
+            "workspace": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1002/result/workspace/Open3DBench-V2.0"
+          },
+          "case": "bp-ng45",
+          "metrics": {
+            "area_balance_error": 1.8641031520120197e-06,
+            "bottom_count": 74011,
+            "combined_score": -29.849037711906657,
+            "cut_net_count": 5859,
+            "cut_net_ratio": 0.03922159296300759,
+            "cut_pin_count": 103803,
+            "final_global_tns_setup_ns": -10347.165081619713,
+            "final_global_wns_setup_ns": -7.8203064015794475,
+            "instance_count": 144224,
+            "macro_area_error": 0.04762114990647903,
+            "macro_count_error": 0.04166666666666663,
+            "native_paired_combined_score": 0.12480300409009304,
+            "opt_passes": 1.0,
+            "partition_assignment_changed_count": 0,
+            "partition_assignment_changed_fraction": 0.0,
+            "partition_assignment_identical": 1,
+            "partition_complete": 1.0,
+            "partition_constraints_passed": 1.0,
+            "partition_decoder": "global-2way",
+            "partition_method": "tp-gnn-flat",
+            "raw_score": -29.849037711906657,
+            "reference_tns_deficit_ns": 6622.78575944895,
+            "reference_wns_deficit_ns": 8.663351750761597,
+            "runs_successfully": 1.0,
+            "scoring_reference": "common-five-case",
+            "sta_graph_complete": 1.0,
+            "sta_tns_weight": 0.6,
+            "sta_wns_weight": 0.4,
+            "timing_evaluation_boundary": "post-opt-pre-cts",
+            "timing_total_net_weight": 171438.82800355964,
+            "timing_weight_mode": "paper_delay_slack_hyperedge_v1",
+            "timing_weighted_cut": 8101.98917739199,
+            "timing_weighted_cut_ratio": 0.047258776041234754,
+            "tns_deficit_improvement": -0.5623584179598542,
+            "top_count": 70213,
+            "tp_gnn_area_balance_cut_delta": 1456,
+            "tp_gnn_area_balance_weighted_cut_delta": -39.643428459135976,
+            "tp_gnn_area_balance_weighted_cut_relative_change": -0.005901013497869381,
+            "tp_gnn_balanced_cut_net_count": 5892,
+            "tp_gnn_balanced_timing_weighted_cut": 6678.427708549722,
+            "tp_gnn_embedding_pair_cosine_median": 0.9372115731239319,
+            "tp_gnn_embedding_total_variance": 0.12741528451442719,
+            "tp_gnn_epochs_completed": 20,
+            "tp_gnn_feasibility_cut_delta": -33,
+            "tp_gnn_feasibility_weighted_cut_delta": 1423.5614688422675,
+            "tp_gnn_feasibility_weighted_cut_relative_change": 0.21315817599100823,
+            "tp_gnn_feasible_cut_net_count": 5859,
+            "tp_gnn_feasible_timing_weighted_cut": 8101.98917739199,
+            "tp_gnn_final_loss": 40.82787005106608,
+            "tp_gnn_negative_pair_cosine_median": 0.9425754547119141,
+            "tp_gnn_negative_pair_sample_count": 4096,
+            "tp_gnn_optimizer_steps_completed": 120,
+            "tp_gnn_positive_pair_cosine_median": 0.9999525547027588,
+            "tp_gnn_positive_pair_sample_count": 4096,
+            "tp_gnn_raw_cut_net_count": 4436,
+            "tp_gnn_raw_timing_weighted_cut": 6718.071137008858,
+            "tp_gnn_repair_moved_area_fraction": 0.06706250897099642,
+            "tp_gnn_repair_moved_supernodes": 3901,
+            "tp_gnn_training_runtime_seconds": 147.0216090190006,
+            "valid": true,
+            "wns_deficit_improvement": 0.09731168414211482
+          },
+          "raw_score": -29.849037711906657,
+          "result_dir": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1002/result",
+          "score": -29.849037711906657,
+          "seed": "1002",
+          "status": "succeeded",
+          "valid": true
+        },
+        {
+          "artifacts": {
+            "base_config": "/root/aic-26016/official/contest-data/task2/loss_decoder/train/configs/bp-ng45/1003.yaml",
+            "candidate": "/root/aic-26016/two-round/work/candidates/35f0adc0cba637fe1c74f640d79be37048934097920bbb0bb2b9fa95e65d3934",
+            "cascade": [
+              {
+                "name": "policy",
+                "status": "passed"
+              },
+              {
+                "name": "frozen_inputs",
+                "status": "passed"
+              },
+              {
+                "name": "interface",
+                "status": "passed"
+              },
+              {
+                "name": "source_validation",
+                "status": "passed"
+              },
+              {
+                "name": "stage",
+                "status": "passed"
+              },
+              {
+                "name": "metrics",
+                "status": "passed"
+              }
+            ],
+            "command": [
+              "python3",
+              "-m",
+              "open3dbench",
+              "--repo",
+              "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1003/result/workspace/Open3DBench-V2.0",
+              "run",
+              "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1003/result/resolved_config.yaml",
+              "--from",
+              "partition",
+              "--to",
+              "opt",
+              "--resume",
+              "--run-dir",
+              "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1003/result/run"
+            ],
+            "evaluation_boundary": "open3dbench-stage",
+            "evaluation_result": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1003/result/evaluation_result.json",
+            "executed_seed_evidence": {
+              "partition": {
+                "seed": 1003,
+                "sha256": "a41933ae4ad425e3a2d90f8ef15cdfd00bab2aba13f4ea1889ff5c9646b8dfeb"
+              },
+              "placement": {
+                "seed": 1003,
+                "sha256": "03f899f9ffaee33055652a5e86a349b4238588dd065f5a3e6d1bb424f5d62a68"
+              }
+            },
+            "execution_mode": "gpu-frontend-cpu-backend",
+            "exit_code": 0,
+            "frozen_inputs": {
+              "tp_gnn_timing": {
+                "adopted_path": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1003/result/harness_inputs/frozen/tp_gnn_timing",
+                "files": {
+                  "openroad_full_partition_last.connections.tsv": {
+                    "bytes": 25367909,
+                    "sha256": "433d2118745c419cadf799e1cec08dc6375eb4427ef963320e0a99be10a5e7a3"
+                  },
+                  "timing_features.csv": {
+                    "bytes": 20772796,
+                    "sha256": "ccfad8e6ce4c92df44aa89149860d605c23d66fb09aedbb71ad62f4d2e382629"
+                  },
+                  "timing_manifest.json": {
+                    "bytes": 4004,
+                    "sha256": "022c79a0c6a3112d656bbcf2b7a04dd65316d6c025c577cddfdfcf0c0217f679"
+                  },
+                  "timing_net_weights.csv": {
+                    "bytes": 24092583,
+                    "sha256": "fae83fda725b0079c06d6b8661f072b44e67c02bb07054c24ef11bac11307dcd"
+                  }
+                },
+                "inject_as": "partition.timing_input",
+                "source": "baseline_run",
+                "source_path": "/root/aic-26016/official/contest-data/task2/inputs/bp-ng45/20_partition/timing_input"
+              }
+            },
+            "matrix_cell_contract": {
+              "base_config_sha256": "929978dfc19484e2679211799b09b6675290370a080d2de4bfd63af22561b152",
+              "initial_candidate_sha256": "5d971f90afd62b93f440e9583e01deae06c64b0f41099a825c3ab42b284cc8b7",
+              "schema_version": 1,
+              "seed_contract_sha256": "dee3067d58d9706a086db3aba96c44b7e5ea72a15e54177a1cd756c18e93053c",
+              "seeds": {
+                "io": 1,
+                "partition": 1003,
+                "placement": 1003,
+                "routing": -1
+              },
+              "task": "tp_gnn_loss_decoder_timing",
+              "upstream": {
+                "floorplan": "adfab0e79ef8aea90bad0980572d9d227eef337f61751aef910d92db50599e33",
+                "input": "8f67febe06355c7f672290343fc01be3881882ac15eaf0ac9bdf6e63653b6c60"
+              }
+            },
+            "matrix_reference": false,
+            "native_flow_execution": [
+              {
+                "command": [
+                  "python3",
+                  "-m",
+                  "contest2.native_entry",
+                  "--flow",
+                  "--repo",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1003/result/workspace/Open3DBench-V2.0",
+                  "run",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1003/result/resolved_config.yaml",
+                  "--from",
+                  "partition",
+                  "--to",
+                  "placement",
+                  "--resume",
+                  "--run-dir",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1003/result/run"
+                ],
+                "completed_at_utc": "2026-11-19T02:58:31.597820+00:00",
+                "cwd": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1003/result/workspace/Open3DBench-V2.0",
+                "invocation": "stage",
+                "process_started": true,
+                "returncode": 0,
+                "schema_version": 1,
+                "started_at_utc": "2026-11-19T02:53:01.061101+00:00",
+                "status": "completed",
+                "timeout_seconds": null,
+                "wall_seconds": 330.5366689429993
+              },
+              {
+                "command": [
+                  "python3",
+                  "-m",
+                  "contest2.native_entry",
+                  "--flow",
+                  "--repo",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1003/result/workspace/Open3DBench-V2.0",
+                  "run",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1003/result/resolved_config.yaml",
+                  "--from",
+                  "pdn",
+                  "--to",
+                  "opt",
+                  "--resume",
+                  "--run-dir",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1003/result/run"
+                ],
+                "completed_at_utc": "2026-11-19T03:10:18.259369+00:00",
+                "cwd": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1003/result/workspace/Open3DBench-V2.0",
+                "invocation": "stage",
+                "process_started": true,
+                "returncode": 0,
+                "schema_version": 1,
+                "started_at_utc": "2026-11-19T02:58:33.511160+00:00",
+                "status": "completed",
+                "timeout_seconds": null,
+                "wall_seconds": 704.7481695700008
+              }
+            ],
+            "output_dir": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1003/result",
+            "patch": {
+              "added_lines": 0,
+              "deleted_lines": 0,
+              "paths": [],
+              "present": false
+            },
+            "plan_log": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1003/result/plan.log",
+            "reference_admission": {
+              "mode": "ADOPT_PACKED",
+              "producer_receipt_sha256": "47a9ed8b21f585e001365cdef2684077be7c5c1d3fcf2bba85a574f511492d67",
+              "reference_receipt_sha256": "61d686845d4f160b66442b19158f3fa8ff1c38a847365af0501aae5cc109467d",
+              "task_id": "tp_gnn_loss_decoder_timing"
+            },
+            "replay_start_stage": "partition",
+            "resolved_config": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1003/result/resolved_config.yaml",
+            "run_dir": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1003/result/run",
+            "runtime_seconds": 1035.2886279989998,
+            "source_validation": {
+              "checks": [],
+              "status": "skipped"
+            },
+            "stage_log": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1003/result/stage.log",
+            "task": "tp_gnn_loss_decoder_timing",
+            "upstream_materialization": "copy",
+            "workspace": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1003/result/workspace/Open3DBench-V2.0"
+          },
+          "case": "bp-ng45",
+          "metrics": {
+            "area_balance_error": 9.320515760060098e-07,
+            "bottom_count": 70197,
+            "combined_score": -6.245628524326527,
+            "cut_net_count": 5873,
+            "cut_net_ratio": 0.039315312420505816,
+            "cut_pin_count": 104412,
+            "final_global_tns_setup_ns": -7724.028582914622,
+            "final_global_wns_setup_ns": -7.855228689851307,
+            "instance_count": 144224,
+            "macro_area_error": 0.04762114990647909,
+            "macro_count_error": 0.041666666666666685,
+            "native_paired_combined_score": 6.328605860640576,
+            "opt_passes": 1.0,
+            "partition_assignment_changed_count": 0,
+            "partition_assignment_changed_fraction": 0.0,
+            "partition_assignment_identical": 1,
+            "partition_complete": 1.0,
+            "partition_constraints_passed": 1.0,
+            "partition_decoder": "global-2way",
+            "partition_method": "tp-gnn-flat",
+            "raw_score": -6.245628524326527,
+            "reference_tns_deficit_ns": 6622.78575944895,
+            "reference_wns_deficit_ns": 8.663351750761597,
+            "runs_successfully": 1.0,
+            "scoring_reference": "common-five-case",
+            "sta_graph_complete": 1.0,
+            "sta_tns_weight": 0.6,
+            "sta_wns_weight": 0.4,
+            "timing_evaluation_boundary": "post-opt-pre-cts",
+            "timing_total_net_weight": 171438.82800355964,
+            "timing_weight_mode": "paper_delay_slack_hyperedge_v1",
+            "timing_weighted_cut": 8113.745930110861,
+            "timing_weighted_cut_ratio": 0.04732735299580088,
+            "tns_deficit_improvement": -0.16628090707818727,
+            "top_count": 74027,
+            "tp_gnn_area_balance_cut_delta": 1706,
+            "tp_gnn_area_balance_weighted_cut_delta": 347.3171510838238,
+            "tp_gnn_area_balance_weighted_cut_relative_change": 0.052069643136501385,
+            "tp_gnn_balanced_cut_net_count": 6112,
+            "tp_gnn_balanced_timing_weighted_cut": 7017.559737024473,
+            "tp_gnn_embedding_pair_cosine_median": 0.9458209574222565,
+            "tp_gnn_embedding_total_variance": 0.12315952777862549,
+            "tp_gnn_epochs_completed": 20,
+            "tp_gnn_feasibility_cut_delta": -239,
+            "tp_gnn_feasibility_weighted_cut_delta": 1096.186193086388,
+            "tp_gnn_feasibility_weighted_cut_relative_change": 0.15620617909427068,
+            "tp_gnn_feasible_cut_net_count": 5873,
+            "tp_gnn_feasible_timing_weighted_cut": 8113.745930110861,
+            "tp_gnn_final_loss": 40.92117436726888,
+            "tp_gnn_negative_pair_cosine_median": 0.9434521198272705,
+            "tp_gnn_negative_pair_sample_count": 4096,
+            "tp_gnn_optimizer_steps_completed": 120,
+            "tp_gnn_positive_pair_cosine_median": 0.9999576210975647,
+            "tp_gnn_positive_pair_sample_count": 4096,
+            "tp_gnn_raw_cut_net_count": 4406,
+            "tp_gnn_raw_timing_weighted_cut": 6670.242585940649,
+            "tp_gnn_repair_moved_area_fraction": 0.04232912232431294,
+            "tp_gnn_repair_moved_supernodes": 3477,
+            "tp_gnn_training_runtime_seconds": 149.06063128200003,
+            "valid": true,
+            "wns_deficit_improvement": 0.0932806475091177
+          },
+          "raw_score": -6.245628524326527,
+          "result_dir": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/bp-ng45/1003/result",
+          "score": -6.245628524326527,
+          "seed": "1003",
+          "status": "succeeded",
+          "valid": true
+        },
+        {
+          "artifacts": {
+            "base_config": "/root/aic-26016/official/contest-data/task2/loss_decoder/train/configs/ariane133-ng45/1001.yaml",
+            "candidate": "/root/aic-26016/two-round/work/candidates/35f0adc0cba637fe1c74f640d79be37048934097920bbb0bb2b9fa95e65d3934",
+            "cascade": [
+              {
+                "name": "policy",
+                "status": "passed"
+              },
+              {
+                "name": "frozen_inputs",
+                "status": "passed"
+              },
+              {
+                "name": "interface",
+                "status": "passed"
+              },
+              {
+                "name": "source_validation",
+                "status": "passed"
+              },
+              {
+                "name": "stage",
+                "status": "passed"
+              },
+              {
+                "name": "metrics",
+                "status": "passed"
+              }
+            ],
+            "command": [
+              "python3",
+              "-m",
+              "open3dbench",
+              "--repo",
+              "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1001/result/workspace/Open3DBench-V2.0",
+              "run",
+              "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1001/result/resolved_config.yaml",
+              "--from",
+              "partition",
+              "--to",
+              "opt",
+              "--resume",
+              "--run-dir",
+              "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1001/result/run"
+            ],
+            "evaluation_boundary": "open3dbench-stage",
+            "evaluation_result": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1001/result/evaluation_result.json",
+            "executed_seed_evidence": {
+              "partition": {
+                "seed": 1001,
+                "sha256": "16e2414c04acfc78d196999a38c14d5708c61438a88ae295e07827b314a0bd9e"
+              },
+              "placement": {
+                "seed": 1001,
+                "sha256": "0d4563ae089de039ccc556aa0dd7484c6e4d1c09699e2cd3fc70b845540c1fd0"
+              }
+            },
+            "execution_mode": "gpu-frontend-cpu-backend",
+            "exit_code": 0,
+            "frozen_inputs": {
+              "tp_gnn_timing": {
+                "adopted_path": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1001/result/harness_inputs/frozen/tp_gnn_timing",
+                "files": {
+                  "openroad_full_partition_last.connections.tsv": {
+                    "bytes": 20791889,
+                    "sha256": "9266ad2e905521829ff5a60b1ca5ef9ca3d0ed683821fa4e18a777fa89bfb510"
+                  },
+                  "timing_features.csv": {
+                    "bytes": 18464399,
+                    "sha256": "c0d45ad672e110acc4ddf3bc4642963bd4e3b126d90826ef61e733df1b74090d"
+                  },
+                  "timing_manifest.json": {
+                    "bytes": 4081,
+                    "sha256": "47db5cc3d0d5b6e8895780eff4ab3536dbea2371c97e9b9b1e8457469aebb187"
+                  },
+                  "timing_net_weights.csv": {
+                    "bytes": 23049661,
+                    "sha256": "4475456c8b28cb9d51d9d137db4e9cc9c9a09d304a48ba34b6474ad264ac8dcc"
+                  }
+                },
+                "inject_as": "partition.timing_input",
+                "source": "baseline_run",
+                "source_path": "/root/aic-26016/official/contest-data/task2/inputs/ariane133-ng45/20_partition/timing_input"
+              }
+            },
+            "matrix_cell_contract": {
+              "base_config_sha256": "d00ae4100be4f009dc8f75e9dea52008d1c1f3314de7970915cad760e7d9cf08",
+              "initial_candidate_sha256": "5d971f90afd62b93f440e9583e01deae06c64b0f41099a825c3ab42b284cc8b7",
+              "schema_version": 1,
+              "seed_contract_sha256": "dee3067d58d9706a086db3aba96c44b7e5ea72a15e54177a1cd756c18e93053c",
+              "seeds": {
+                "io": 1,
+                "partition": 1001,
+                "placement": 1001,
+                "routing": -1
+              },
+              "task": "tp_gnn_loss_decoder_timing",
+              "upstream": {
+                "floorplan": "619a0f1eea8c11d7c19a09032f36c5a37f7088ac3f61b44cdfd1119b17531c9a",
+                "input": "b53e66ffe3ba1044759f8357f3a44a4f3bb10e1fe8445d617e7877da258177fd"
+              }
+            },
+            "matrix_reference": false,
+            "native_flow_execution": [
+              {
+                "command": [
+                  "python3",
+                  "-m",
+                  "contest2.native_entry",
+                  "--flow",
+                  "--repo",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1001/result/workspace/Open3DBench-V2.0",
+                  "run",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1001/result/resolved_config.yaml",
+                  "--from",
+                  "partition",
+                  "--to",
+                  "placement",
+                  "--resume",
+                  "--run-dir",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1001/result/run"
+                ],
+                "completed_at_utc": "2026-11-19T03:07:39.472863+00:00",
+                "cwd": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1001/result/workspace/Open3DBench-V2.0",
+                "invocation": "stage",
+                "process_started": true,
+                "returncode": 0,
+                "schema_version": 1,
+                "started_at_utc": "2026-11-19T03:00:48.852392+00:00",
+                "status": "completed",
+                "timeout_seconds": null,
+                "wall_seconds": 410.6203547690002
+              },
+              {
+                "command": [
+                  "python3",
+                  "-m",
+                  "contest2.native_entry",
+                  "--flow",
+                  "--repo",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1001/result/workspace/Open3DBench-V2.0",
+                  "run",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1001/result/resolved_config.yaml",
+                  "--from",
+                  "pdn",
+                  "--to",
+                  "opt",
+                  "--resume",
+                  "--run-dir",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1001/result/run"
+                ],
+                "completed_at_utc": "2026-11-19T03:22:43.019194+00:00",
+                "cwd": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1001/result/workspace/Open3DBench-V2.0",
+                "invocation": "stage",
+                "process_started": true,
+                "returncode": 0,
+                "schema_version": 1,
+                "started_at_utc": "2026-11-19T03:07:40.994340+00:00",
+                "status": "completed",
+                "timeout_seconds": null,
+                "wall_seconds": 902.0247647199994
+              }
+            ],
+            "output_dir": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1001/result",
+            "patch": {
+              "added_lines": 0,
+              "deleted_lines": 0,
+              "paths": [],
+              "present": false
+            },
+            "plan_log": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1001/result/plan.log",
+            "reference_admission": {
+              "mode": "ADOPT_PACKED",
+              "producer_receipt_sha256": "ad3ac29cd4c673ded27e9d14e5fe6c0d551ad0021e0c907a8ffd106b6a6b21ad",
+              "reference_receipt_sha256": "19ac9fa9eb95c6d90703bc0cd7b8136137b301ab0c1261ffbe1e14d3fdcf8953",
+              "task_id": "tp_gnn_loss_decoder_timing"
+            },
+            "replay_start_stage": "partition",
+            "resolved_config": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1001/result/resolved_config.yaml",
+            "run_dir": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1001/result/run",
+            "runtime_seconds": 1312.6477599289992,
+            "source_validation": {
+              "checks": [],
+              "status": "skipped"
+            },
+            "stage_log": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1001/result/stage.log",
+            "task": "tp_gnn_loss_decoder_timing",
+            "upstream_materialization": "copy",
+            "workspace": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1001/result/workspace/Open3DBench-V2.0"
+          },
+          "case": "ariane133-ng45",
+          "metrics": {
+            "area_balance_error": 1.5657170592702192e-05,
+            "bottom_count": 72185,
+            "combined_score": 65.62576913539621,
+            "cut_net_count": 10865,
+            "cut_net_ratio": 0.07094351942539993,
+            "cut_pin_count": 98710,
+            "final_global_tns_setup_ns": -6.366037210902079,
+            "final_global_wns_setup_ns": -0.40223869817908986,
+            "instance_count": 131550,
+            "macro_area_error": 0.048872180451127845,
+            "macro_count_error": 0.048872180451127845,
+            "native_paired_combined_score": 48.55136729876489,
+            "opt_passes": 1.0,
+            "partition_assignment_changed_count": 12,
+            "partition_assignment_changed_fraction": 9.122006841505132e-05,
+            "partition_assignment_identical": 0,
+            "partition_complete": 1.0,
+            "partition_constraints_passed": 1.0,
+            "partition_decoder": "global-2way",
+            "partition_method": "tp-gnn-flat",
+            "raw_score": 65.62576913539621,
+            "reference_tns_deficit_ns": 96.42498143235612,
+            "reference_wns_deficit_ns": 0.5290353246723486,
+            "runs_successfully": 1.0,
+            "scoring_reference": "common-five-case",
+            "sta_graph_complete": 1.0,
+            "sta_tns_weight": 0.6,
+            "sta_wns_weight": 0.4,
+            "timing_evaluation_boundary": "post-opt-pre-cts",
+            "timing_total_net_weight": 270078.0153773446,
+            "timing_weight_mode": "paper_delay_slack_hyperedge_v1",
+            "timing_weighted_cut": 19373.16600769188,
+            "timing_weighted_cut_ratio": 0.07173174010711052,
+            "tns_deficit_improvement": 0.9339793784106873,
+            "top_count": 59365,
+            "tp_gnn_area_balance_cut_delta": 4159,
+            "tp_gnn_area_balance_weighted_cut_delta": 8729.564332088767,
+            "tp_gnn_area_balance_weighted_cut_relative_change": 0.7260024237392863,
+            "tp_gnn_balanced_cut_net_count": 11509,
+            "tp_gnn_balanced_timing_weighted_cut": 20753.71748453558,
+            "tp_gnn_embedding_pair_cosine_median": 0.9628519117832184,
+            "tp_gnn_embedding_total_variance": 0.07459630072116852,
+            "tp_gnn_epochs_completed": 20,
+            "tp_gnn_feasibility_cut_delta": -644,
+            "tp_gnn_feasibility_weighted_cut_delta": -1380.5514768436988,
+            "tp_gnn_feasibility_weighted_cut_relative_change": -0.06652068372195981,
+            "tp_gnn_feasible_cut_net_count": 10865,
+            "tp_gnn_feasible_timing_weighted_cut": 19373.16600769188,
+            "tp_gnn_final_loss": 42.82300885518392,
+            "tp_gnn_negative_pair_cosine_median": 0.9631979465484619,
+            "tp_gnn_negative_pair_sample_count": 4096,
+            "tp_gnn_optimizer_steps_completed": 120,
+            "tp_gnn_positive_pair_cosine_median": 0.9994890689849854,
+            "tp_gnn_positive_pair_sample_count": 4096,
+            "tp_gnn_raw_cut_net_count": 7350,
+            "tp_gnn_raw_timing_weighted_cut": 12024.153152446814,
+            "tp_gnn_repair_moved_area_fraction": 0.009290965029709481,
+            "tp_gnn_repair_moved_supernodes": 504,
+            "tp_gnn_training_runtime_seconds": 176.51141510699927,
+            "valid": true,
+            "wns_deficit_improvement": 0.23967516076887424
+          },
+          "raw_score": 65.62576913539621,
+          "result_dir": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1001/result",
+          "score": 65.62576913539621,
+          "seed": "1001",
+          "status": "succeeded",
+          "valid": true
+        },
+        {
+          "artifacts": {
+            "base_config": "/root/aic-26016/official/contest-data/task2/loss_decoder/train/configs/ariane133-ng45/1002.yaml",
+            "candidate": "/root/aic-26016/two-round/work/candidates/35f0adc0cba637fe1c74f640d79be37048934097920bbb0bb2b9fa95e65d3934",
+            "cascade": [
+              {
+                "name": "policy",
+                "status": "passed"
+              },
+              {
+                "name": "frozen_inputs",
+                "status": "passed"
+              },
+              {
+                "name": "interface",
+                "status": "passed"
+              },
+              {
+                "name": "source_validation",
+                "status": "passed"
+              },
+              {
+                "name": "stage",
+                "status": "passed"
+              },
+              {
+                "name": "metrics",
+                "status": "passed"
+              }
+            ],
+            "command": [
+              "python3",
+              "-m",
+              "open3dbench",
+              "--repo",
+              "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1002/result/workspace/Open3DBench-V2.0",
+              "run",
+              "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1002/result/resolved_config.yaml",
+              "--from",
+              "partition",
+              "--to",
+              "opt",
+              "--resume",
+              "--run-dir",
+              "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1002/result/run"
+            ],
+            "evaluation_boundary": "open3dbench-stage",
+            "evaluation_result": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1002/result/evaluation_result.json",
+            "executed_seed_evidence": {
+              "partition": {
+                "seed": 1002,
+                "sha256": "8a8ea8bd3efb9beb87f957c97f84eb346f286e0006f4555680cf705bd1aae804"
+              },
+              "placement": {
+                "seed": 1002,
+                "sha256": "17d5010f55ab93d4d371fd07932cd937e7ededbbec7127cee333a7e7bcf48e79"
+              }
+            },
+            "execution_mode": "gpu-frontend-cpu-backend",
+            "exit_code": 0,
+            "frozen_inputs": {
+              "tp_gnn_timing": {
+                "adopted_path": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1002/result/harness_inputs/frozen/tp_gnn_timing",
+                "files": {
+                  "openroad_full_partition_last.connections.tsv": {
+                    "bytes": 20791889,
+                    "sha256": "9266ad2e905521829ff5a60b1ca5ef9ca3d0ed683821fa4e18a777fa89bfb510"
+                  },
+                  "timing_features.csv": {
+                    "bytes": 18464399,
+                    "sha256": "c0d45ad672e110acc4ddf3bc4642963bd4e3b126d90826ef61e733df1b74090d"
+                  },
+                  "timing_manifest.json": {
+                    "bytes": 4081,
+                    "sha256": "47db5cc3d0d5b6e8895780eff4ab3536dbea2371c97e9b9b1e8457469aebb187"
+                  },
+                  "timing_net_weights.csv": {
+                    "bytes": 23049661,
+                    "sha256": "4475456c8b28cb9d51d9d137db4e9cc9c9a09d304a48ba34b6474ad264ac8dcc"
+                  }
+                },
+                "inject_as": "partition.timing_input",
+                "source": "baseline_run",
+                "source_path": "/root/aic-26016/official/contest-data/task2/inputs/ariane133-ng45/20_partition/timing_input"
+              }
+            },
+            "matrix_cell_contract": {
+              "base_config_sha256": "f7afa5c35f12d8532c9fa91c6fe91b7dde86033273c5f78718e5ee3bb354151f",
+              "initial_candidate_sha256": "5d971f90afd62b93f440e9583e01deae06c64b0f41099a825c3ab42b284cc8b7",
+              "schema_version": 1,
+              "seed_contract_sha256": "dee3067d58d9706a086db3aba96c44b7e5ea72a15e54177a1cd756c18e93053c",
+              "seeds": {
+                "io": 1,
+                "partition": 1002,
+                "placement": 1002,
+                "routing": -1
+              },
+              "task": "tp_gnn_loss_decoder_timing",
+              "upstream": {
+                "floorplan": "619a0f1eea8c11d7c19a09032f36c5a37f7088ac3f61b44cdfd1119b17531c9a",
+                "input": "b53e66ffe3ba1044759f8357f3a44a4f3bb10e1fe8445d617e7877da258177fd"
+              }
+            },
+            "matrix_reference": false,
+            "native_flow_execution": [
+              {
+                "command": [
+                  "python3",
+                  "-m",
+                  "contest2.native_entry",
+                  "--flow",
+                  "--repo",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1002/result/workspace/Open3DBench-V2.0",
+                  "run",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1002/result/resolved_config.yaml",
+                  "--from",
+                  "partition",
+                  "--to",
+                  "placement",
+                  "--resume",
+                  "--run-dir",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1002/result/run"
+                ],
+                "completed_at_utc": "2026-11-19T03:17:15.091252+00:00",
+                "cwd": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1002/result/workspace/Open3DBench-V2.0",
+                "invocation": "stage",
+                "process_started": true,
+                "returncode": 0,
+                "schema_version": 1,
+                "started_at_utc": "2026-11-19T03:11:12.220875+00:00",
+                "status": "completed",
+                "timeout_seconds": null,
+                "wall_seconds": 362.8703194240006
+              },
+              {
+                "command": [
+                  "python3",
+                  "-m",
+                  "contest2.native_entry",
+                  "--flow",
+                  "--repo",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1002/result/workspace/Open3DBench-V2.0",
+                  "run",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1002/result/resolved_config.yaml",
+                  "--from",
+                  "pdn",
+                  "--to",
+                  "opt",
+                  "--resume",
+                  "--run-dir",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1002/result/run"
+                ],
+                "completed_at_utc": "2026-11-19T03:39:38.389397+00:00",
+                "cwd": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1002/result/workspace/Open3DBench-V2.0",
+                "invocation": "stage",
+                "process_started": true,
+                "returncode": 0,
+                "schema_version": 1,
+                "started_at_utc": "2026-11-19T03:17:16.444837+00:00",
+                "status": "completed",
+                "timeout_seconds": null,
+                "wall_seconds": 1341.944524646
+              }
+            ],
+            "output_dir": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1002/result",
+            "patch": {
+              "added_lines": 0,
+              "deleted_lines": 0,
+              "paths": [],
+              "present": false
+            },
+            "plan_log": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1002/result/plan.log",
+            "reference_admission": {
+              "mode": "ADOPT_PACKED",
+              "producer_receipt_sha256": "5009d4525fb5977f6d9623424666a271774a772d6d005cddce9ff9117fac75b4",
+              "reference_receipt_sha256": "d4bb11358ae902fb7f80e991b746d62570cc859aef76226f6249d9ea71161005",
+              "task_id": "tp_gnn_loss_decoder_timing"
+            },
+            "replay_start_stage": "partition",
+            "resolved_config": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1002/result/resolved_config.yaml",
+            "run_dir": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1002/result/run",
+            "runtime_seconds": 1704.8173572880005,
+            "source_validation": {
+              "checks": [],
+              "status": "skipped"
+            },
+            "stage_log": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1002/result/stage.log",
+            "task": "tp_gnn_loss_decoder_timing",
+            "upstream_materialization": "copy",
+            "workspace": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1002/result/workspace/Open3DBench-V2.0"
+          },
+          "case": "ariane133-ng45",
+          "metrics": {
+            "area_balance_error": 0.0,
+            "bottom_count": 59293,
+            "combined_score": -37.92828526792314,
+            "cut_net_count": 17970,
+            "cut_net_ratio": 0.11733594515181195,
+            "cut_pin_count": 137199,
+            "final_global_tns_setup_ns": -162.62570062013728,
+            "final_global_wns_setup_ns": -0.48585536968817944,
+            "instance_count": 131550,
+            "macro_area_error": 0.048872180451127845,
+            "macro_count_error": 0.048872180451127845,
+            "native_paired_combined_score": -34.61675604442651,
+            "opt_passes": 1.0,
+            "partition_assignment_changed_count": 199,
+            "partition_assignment_changed_fraction": 0.0015127328012162675,
+            "partition_assignment_identical": 0,
+            "partition_complete": 1.0,
+            "partition_constraints_passed": 1.0,
+            "partition_decoder": "global-2way",
+            "partition_method": "tp-gnn-flat",
+            "raw_score": -37.92828526792314,
+            "reference_tns_deficit_ns": 96.42498143235612,
+            "reference_wns_deficit_ns": 0.5290353246723486,
+            "runs_successfully": 1.0,
+            "scoring_reference": "common-five-case",
+            "sta_graph_complete": 1.0,
+            "sta_tns_weight": 0.6,
+            "sta_wns_weight": 0.4,
+            "timing_evaluation_boundary": "post-opt-pre-cts",
+            "timing_total_net_weight": 270078.0153773446,
+            "timing_weight_mode": "paper_delay_slack_hyperedge_v1",
+            "timing_weighted_cut": 32575.379567001735,
+            "timing_weighted_cut_ratio": 0.12061470283498797,
+            "tns_deficit_improvement": -0.6865515367946653,
+            "top_count": 72257,
+            "tp_gnn_area_balance_cut_delta": 5713,
+            "tp_gnn_area_balance_weighted_cut_delta": 11721.191806193032,
+            "tp_gnn_area_balance_weighted_cut_relative_change": 0.7592038607135024,
+            "tp_gnn_balanced_cut_net_count": 14966,
+            "tp_gnn_balanced_timing_weighted_cut": 27159.985538323708,
+            "tp_gnn_embedding_pair_cosine_median": 0.9813039898872375,
+            "tp_gnn_embedding_total_variance": 0.04876946657896042,
+            "tp_gnn_epochs_completed": 20,
+            "tp_gnn_feasibility_cut_delta": 3004,
+            "tp_gnn_feasibility_weighted_cut_delta": 5415.394028678027,
+            "tp_gnn_feasibility_weighted_cut_relative_change": 0.19938869337896786,
+            "tp_gnn_feasible_cut_net_count": 17970,
+            "tp_gnn_feasible_timing_weighted_cut": 32575.379567001735,
+            "tp_gnn_final_loss": 43.312538146972656,
+            "tp_gnn_negative_pair_cosine_median": 0.9805406332015991,
+            "tp_gnn_negative_pair_sample_count": 4096,
+            "tp_gnn_optimizer_steps_completed": 120,
+            "tp_gnn_positive_pair_cosine_median": 0.9995755553245544,
+            "tp_gnn_positive_pair_sample_count": 4096,
+            "tp_gnn_raw_cut_net_count": 9253,
+            "tp_gnn_raw_timing_weighted_cut": 15438.793732130676,
+            "tp_gnn_repair_moved_area_fraction": 0.14122767874617378,
+            "tp_gnn_repair_moved_supernodes": 8345,
+            "tp_gnn_training_runtime_seconds": 173.40768120899884,
+            "valid": true,
+            "wns_deficit_improvement": 0.08162017349391956
+          },
+          "raw_score": -37.92828526792314,
+          "result_dir": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1002/result",
+          "score": -37.92828526792314,
+          "seed": "1002",
+          "status": "succeeded",
+          "valid": true
+        },
+        {
+          "artifacts": {
+            "base_config": "/root/aic-26016/official/contest-data/task2/loss_decoder/train/configs/ariane133-ng45/1003.yaml",
+            "candidate": "/root/aic-26016/two-round/work/candidates/35f0adc0cba637fe1c74f640d79be37048934097920bbb0bb2b9fa95e65d3934",
+            "cascade": [
+              {
+                "name": "policy",
+                "status": "passed"
+              },
+              {
+                "name": "frozen_inputs",
+                "status": "passed"
+              },
+              {
+                "name": "interface",
+                "status": "passed"
+              },
+              {
+                "name": "source_validation",
+                "status": "passed"
+              },
+              {
+                "name": "stage",
+                "status": "passed"
+              },
+              {
+                "name": "metrics",
+                "status": "passed"
+              }
+            ],
+            "command": [
+              "python3",
+              "-m",
+              "open3dbench",
+              "--repo",
+              "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1003/result/workspace/Open3DBench-V2.0",
+              "run",
+              "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1003/result/resolved_config.yaml",
+              "--from",
+              "partition",
+              "--to",
+              "opt",
+              "--resume",
+              "--run-dir",
+              "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1003/result/run"
+            ],
+            "evaluation_boundary": "open3dbench-stage",
+            "evaluation_result": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1003/result/evaluation_result.json",
+            "executed_seed_evidence": {
+              "partition": {
+                "seed": 1003,
+                "sha256": "8b25470f3f81886d4fe513c983425af794a9f502ca79c55172db319b4fc3f637"
+              },
+              "placement": {
+                "seed": 1003,
+                "sha256": "a25bf94293620d2eae78c3b6af1e09a9bf63271f646db1265a8a10d701849123"
+              }
+            },
+            "execution_mode": "gpu-frontend-cpu-backend",
+            "exit_code": 0,
+            "frozen_inputs": {
+              "tp_gnn_timing": {
+                "adopted_path": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1003/result/harness_inputs/frozen/tp_gnn_timing",
+                "files": {
+                  "openroad_full_partition_last.connections.tsv": {
+                    "bytes": 20791889,
+                    "sha256": "9266ad2e905521829ff5a60b1ca5ef9ca3d0ed683821fa4e18a777fa89bfb510"
+                  },
+                  "timing_features.csv": {
+                    "bytes": 18464399,
+                    "sha256": "c0d45ad672e110acc4ddf3bc4642963bd4e3b126d90826ef61e733df1b74090d"
+                  },
+                  "timing_manifest.json": {
+                    "bytes": 4081,
+                    "sha256": "47db5cc3d0d5b6e8895780eff4ab3536dbea2371c97e9b9b1e8457469aebb187"
+                  },
+                  "timing_net_weights.csv": {
+                    "bytes": 23049661,
+                    "sha256": "4475456c8b28cb9d51d9d137db4e9cc9c9a09d304a48ba34b6474ad264ac8dcc"
+                  }
+                },
+                "inject_as": "partition.timing_input",
+                "source": "baseline_run",
+                "source_path": "/root/aic-26016/official/contest-data/task2/inputs/ariane133-ng45/20_partition/timing_input"
+              }
+            },
+            "matrix_cell_contract": {
+              "base_config_sha256": "8173497cd7fbff456baeab6004a7dbd05e5cb54992eb262188f485a4502a56b2",
+              "initial_candidate_sha256": "5d971f90afd62b93f440e9583e01deae06c64b0f41099a825c3ab42b284cc8b7",
+              "schema_version": 1,
+              "seed_contract_sha256": "dee3067d58d9706a086db3aba96c44b7e5ea72a15e54177a1cd756c18e93053c",
+              "seeds": {
+                "io": 1,
+                "partition": 1003,
+                "placement": 1003,
+                "routing": -1
+              },
+              "task": "tp_gnn_loss_decoder_timing",
+              "upstream": {
+                "floorplan": "619a0f1eea8c11d7c19a09032f36c5a37f7088ac3f61b44cdfd1119b17531c9a",
+                "input": "b53e66ffe3ba1044759f8357f3a44a4f3bb10e1fe8445d617e7877da258177fd"
+              }
+            },
+            "matrix_reference": false,
+            "native_flow_execution": [
+              {
+                "command": [
+                  "python3",
+                  "-m",
+                  "contest2.native_entry",
+                  "--flow",
+                  "--repo",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1003/result/workspace/Open3DBench-V2.0",
+                  "run",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1003/result/resolved_config.yaml",
+                  "--from",
+                  "partition",
+                  "--to",
+                  "placement",
+                  "--resume",
+                  "--run-dir",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1003/result/run"
+                ],
+                "completed_at_utc": "2026-11-19T03:31:08.535160+00:00",
+                "cwd": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1003/result/workspace/Open3DBench-V2.0",
+                "invocation": "stage",
+                "process_started": true,
+                "returncode": 0,
+                "schema_version": 1,
+                "started_at_utc": "2026-11-19T03:23:39.857619+00:00",
+                "status": "completed",
+                "timeout_seconds": null,
+                "wall_seconds": 448.67747395100014
+              },
+              {
+                "command": [
+                  "python3",
+                  "-m",
+                  "contest2.native_entry",
+                  "--flow",
+                  "--repo",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1003/result/workspace/Open3DBench-V2.0",
+                  "run",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1003/result/resolved_config.yaml",
+                  "--from",
+                  "pdn",
+                  "--to",
+                  "opt",
+                  "--resume",
+                  "--run-dir",
+                  "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1003/result/run"
+                ],
+                "completed_at_utc": "2026-11-19T03:46:35.576018+00:00",
+                "cwd": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1003/result/workspace/Open3DBench-V2.0",
+                "invocation": "stage",
+                "process_started": true,
+                "returncode": 0,
+                "schema_version": 1,
+                "started_at_utc": "2026-11-19T03:31:10.076468+00:00",
+                "status": "completed",
+                "timeout_seconds": null,
+                "wall_seconds": 925.4995068700009
+              }
+            ],
+            "output_dir": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1003/result",
+            "patch": {
+              "added_lines": 0,
+              "deleted_lines": 0,
+              "paths": [],
+              "present": false
+            },
+            "plan_log": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1003/result/plan.log",
+            "reference_admission": {
+              "mode": "ADOPT_PACKED",
+              "producer_receipt_sha256": "e9b540add9adcdb7dbab1de60fa0df7a74a3027fc1c32e90df0615f9a442dad8",
+              "reference_receipt_sha256": "0875969fe95578096bd7967ec2381e087217de8eef2d2ef98e4c2a76f0cb616f",
+              "task_id": "tp_gnn_loss_decoder_timing"
+            },
+            "replay_start_stage": "partition",
+            "resolved_config": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1003/result/resolved_config.yaml",
+            "run_dir": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1003/result/run",
+            "runtime_seconds": 1374.179278091,
+            "source_validation": {
+              "checks": [],
+              "status": "skipped"
+            },
+            "stage_log": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1003/result/stage.log",
+            "task": "tp_gnn_loss_decoder_timing",
+            "upstream_materialization": "copy",
+            "workspace": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1003/result/workspace/Open3DBench-V2.0"
+          },
+          "case": "ariane133-ng45",
+          "metrics": {
+            "area_balance_error": 1.1742877944526644e-05,
+            "bottom_count": 59508,
+            "combined_score": 33.82707990085648,
+            "cut_net_count": 11849,
+            "cut_net_ratio": 0.07736859288279464,
+            "cut_pin_count": 104925,
+            "final_global_tns_setup_ns": -20.66269169805175,
+            "final_global_wns_setup_ns": -0.7051466277141206,
+            "instance_count": 131550,
+            "macro_area_error": 0.048872180451127845,
+            "macro_count_error": 0.048872180451127845,
+            "native_paired_combined_score": 9.197898364898299,
+            "opt_passes": 1.0,
+            "partition_assignment_changed_count": 5,
+            "partition_assignment_changed_fraction": 3.800836183960471e-05,
+            "partition_assignment_identical": 0,
+            "partition_complete": 1.0,
+            "partition_constraints_passed": 1.0,
+            "partition_decoder": "global-2way",
+            "partition_method": "tp-gnn-flat",
+            "raw_score": 33.82707990085648,
+            "reference_tns_deficit_ns": 96.42498143235612,
+            "reference_wns_deficit_ns": 0.5290353246723486,
+            "runs_successfully": 1.0,
+            "scoring_reference": "common-five-case",
+            "sta_graph_complete": 1.0,
+            "sta_tns_weight": 0.6,
+            "sta_wns_weight": 0.4,
+            "timing_evaluation_boundary": "post-opt-pre-cts",
+            "timing_total_net_weight": 270078.0153773446,
+            "timing_weight_mode": "paper_delay_slack_hyperedge_v1",
+            "timing_weighted_cut": 21373.298212729886,
+            "timing_weighted_cut_ratio": 0.07913749730005894,
+            "tns_deficit_improvement": 0.7857122563975084,
+            "top_count": 72042,
+            "tp_gnn_area_balance_cut_delta": 4181,
+            "tp_gnn_area_balance_weighted_cut_delta": 8981.121420151214,
+            "tp_gnn_area_balance_weighted_cut_relative_change": 0.6449603731983478,
+            "tp_gnn_balanced_cut_net_count": 12616,
+            "tp_gnn_balanced_timing_weighted_cut": 22906.19618965059,
+            "tp_gnn_embedding_pair_cosine_median": 0.9605359137058258,
+            "tp_gnn_embedding_total_variance": 0.0726105123758316,
+            "tp_gnn_epochs_completed": 20,
+            "tp_gnn_feasibility_cut_delta": -767,
+            "tp_gnn_feasibility_weighted_cut_delta": -1532.8979769207035,
+            "tp_gnn_feasibility_weighted_cut_relative_change": -0.06692066915995826,
+            "tp_gnn_feasible_cut_net_count": 11849,
+            "tp_gnn_feasible_timing_weighted_cut": 21373.298212729886,
+            "tp_gnn_final_loss": 42.858099619547524,
+            "tp_gnn_negative_pair_cosine_median": 0.9628570079803467,
+            "tp_gnn_negative_pair_sample_count": 4096,
+            "tp_gnn_optimizer_steps_completed": 120,
+            "tp_gnn_positive_pair_cosine_median": 0.9994257688522339,
+            "tp_gnn_positive_pair_sample_count": 4096,
+            "tp_gnn_raw_cut_net_count": 8435,
+            "tp_gnn_raw_timing_weighted_cut": 13925.074769499375,
+            "tp_gnn_repair_moved_area_fraction": 0.011393723040309386,
+            "tp_gnn_repair_moved_supernodes": 723,
+            "tp_gnn_training_runtime_seconds": 173.86919341999965,
+            "valid": true,
+            "wns_deficit_improvement": -0.33289138707485055
+          },
+          "raw_score": 33.82707990085648,
+          "result_dir": "/root/aic-26016/two-round/work/evaluations/e-607d06761cc67a65836f1c240e443ca65c1d88a7ab9b4da540f3f69f963c/cells/ariane133-ng45/1003/result",
+          "score": 33.82707990085648,
+          "seed": "1003",
+          "status": "succeeded",
+          "valid": true
+        }
+      ],
+      "complete": true,
+      "expected_cells": 9,
+      "matrix_sha256": "1f7be1f13f3b0857aae74fff9d42676dc1e08384657ce5d3dcdeb9d6433b70af",
+      "penalized_cells": 0,
+      "qualification": false,
+      "scored_cells": 9,
+      "succeeded_cells": 9
+    },
+    "runs_successfully": 1.0,
+    "valid": true
+  }
+}

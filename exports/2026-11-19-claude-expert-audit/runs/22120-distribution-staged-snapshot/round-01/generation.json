@@ -1,0 +1,67 @@
+{
+  "association": "chronological context before submit",
+  "associated_call_ids": {},
+  "sequence_at_submission": 5,
+  "recorded_reason": {
+    "reason": "opening_control"
+  },
+  "candidate_explanation": {
+    "decoder": "Deterministic area-balanced two-means decoder. Change: replace the seeded reference clustering with a custom bounded loop that initializes centers from weighted-mean extreme embeddings and applies cum"
+  },
+  "generation_events": [
+    {
+      "sequence": 1,
+      "event": {
+        "event": "invalid_proposal",
+        "parent_id": "1db68b580dcc9c60efff3352cc8ba2178c6de6f49e52be544319e3b6eb94c72b",
+        "reason": "Candidate may read only declared inputs, local variables and trusted helpers"
+      }
+    },
+    {
+      "sequence": 2,
+      "event": {
+        "event": "invalid_proposal",
+        "parent_id": "1db68b580dcc9c60efff3352cc8ba2178c6de6f49e52be544319e3b6eb94c72b",
+        "reason": "Candidate cannot rebind inputs or trusted helpers"
+      }
+    },
+    {
+      "sequence": 3,
+      "event": {
+        "event": "opening_alternative_rejected",
+        "parent_id": "1db68b580dcc9c60efff3352cc8ba2178c6de6f49e52be544319e3b6eb94c72b",
+        "reason": "Keep the other function unchanged for this paired search direction"
+      }
+    },
+    {
+      "sequence": 4,
+      "event": {
+        "event": "opening_review",
+        "parent_id": "1db68b580dcc9c60efff3352cc8ba2178c6de6f49e52be544319e3b6eb94c72b",
+        "search_intent": "decoder_only",
+        "proposals": [
+          "A"
+        ],
+        "verdict": "A",
+        "reason": ""
+      }
+    },
+    {
+      "sequence": 5,
+      "event": {
+        "event": "submitted",
+        "request_id": "e-6e62222a67448e0b65d0ddaa2e512fb71465df4a76932823d348df15dd03",
+        "decision": {
+          "reason": "opening_control"
+        },
+        "parent_id": "1db68b580dcc9c60efff3352cc8ba2178c6de6f49e52be544319e3b6eb94c72b",
+        "search_intent": "decoder_only",
+        "changed_components": {
+          "decoder": "Deterministic area-balanced two-means decoder. Change: replace the seeded reference clustering with a custom bounded loop that initializes centers from weighted-mean extreme embeddings and applies cum"
+        }
+      }
+    }
+  ],
+  "evaluation_event_sequence": 6,
+  "verified_source_sha256": "d9faa29aafdf994c1cbbe095c87bb67c7feddc8e837093bf282f2402e325f2be"
+}

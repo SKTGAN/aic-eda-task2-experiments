@@ -1,0 +1,246 @@
+{
+  "candidate_sha256": {
+    "variance_guard": "52f19e612c20e000b165d59aa6c76241b16a5e68261e6b2334d4f15106de39a6",
+    "guarded_adjacent": "e9f3e8849d51150d37b3bf6b61d4433e5e075a486a22ac991c9d4cfc07857419"
+  },
+  "scope": "Direct decoder replay on nine saved same-R4-loss training embeddings; post-closure partition hashes use sorted public instance names, NUL, side, LF. No post-OPT metrics consumed.",
+  "official_static_validation": "both fixed sources validated by native materialize_loss_decoder and validate_candidate",
+  "cells": [
+    {
+      "case": "bp_fe-ng45",
+      "seed": 1003,
+      "trial": "20261118-204828-161916",
+      "embedding_sha256": "69aa9862dd3b9e6666f36d48cf72e8716f909b57ac8d33f536f1d28ebdfd8a21",
+      "previous_guard_branch": "capacity_quantum",
+      "raw_difference": {
+        "direct": 6,
+        "flip_adjusted": 6,
+        "total_instances": 25847
+      },
+      "postclosure_difference": {
+        "direct": 6,
+        "flip_adjusted": 6,
+        "total_instances": 25847
+      },
+      "postclosure_public_sha256": {
+        "variance_guard": "47f12c80fd89c0611feb010bf650236f7d78f549f3f4c6f2cf65391ca9569cc7",
+        "guarded_adjacent": "b788a64d44365946b36fd7b913e446fe6db338e67eb21f6842d915f000513499"
+      },
+      "closure_evidence": {
+        "variance_guard": "labels identical to measured capacity raw; verified native closure reused",
+        "guarded_adjacent": "native closure executed"
+      }
+    },
+    {
+      "case": "bp_fe-ng45",
+      "seed": 1001,
+      "trial": "20261118-194110-430550",
+      "embedding_sha256": "79b1dc1565e5ab5d94fee60fd6a0ffd6f86c9d03834fa2f1b5275c55d429864c",
+      "previous_guard_branch": "capacity_quantum",
+      "raw_difference": {
+        "direct": 0,
+        "flip_adjusted": 0,
+        "total_instances": 25847
+      },
+      "postclosure_difference": {
+        "direct": 0,
+        "flip_adjusted": 0,
+        "total_instances": 25847
+      },
+      "postclosure_public_sha256": {
+        "variance_guard": "275427a8cbaf7789a9011ace4e37bffe59d63cc7226385221f63a8b2c1bea16e",
+        "guarded_adjacent": "275427a8cbaf7789a9011ace4e37bffe59d63cc7226385221f63a8b2c1bea16e"
+      },
+      "closure_evidence": {
+        "variance_guard": "labels identical to measured capacity raw; verified native closure reused",
+        "guarded_adjacent": "labels identical to measured capacity raw; verified native closure reused"
+      }
+    },
+    {
+      "case": "bp_fe-ng45",
+      "seed": 1002,
+      "trial": "20261118-203954-559404",
+      "embedding_sha256": "d91956a58dffa16d9c63956b5c500d7edc5d06e7ed9fecf0e2f31a90406458f8",
+      "previous_guard_branch": "capacity_quantum",
+      "raw_difference": {
+        "direct": 0,
+        "flip_adjusted": 0,
+        "total_instances": 25847
+      },
+      "postclosure_difference": {
+        "direct": 0,
+        "flip_adjusted": 0,
+        "total_instances": 25847
+      },
+      "postclosure_public_sha256": {
+        "variance_guard": "bb6c3fe4ef06e10c70ed15d749be991a4ee5731f2e705605ad526a908b7a164a",
+        "guarded_adjacent": "bb6c3fe4ef06e10c70ed15d749be991a4ee5731f2e705605ad526a908b7a164a"
+      },
+      "closure_evidence": {
+        "variance_guard": "labels identical to measured capacity raw; verified native closure reused",
+        "guarded_adjacent": "labels identical to measured capacity raw; verified native closure reused"
+      }
+    },
+    {
+      "case": "ariane133-ng45",
+      "seed": 1002,
+      "trial": "20261118-205819-263444",
+      "embedding_sha256": "11cd5ac5f94dddc5c466da40a32b1b776fbfe0472b212dd63e541336f16decbb",
+      "previous_guard_branch": "capacity_quantum",
+      "raw_difference": {
+        "direct": 5,
+        "flip_adjusted": 5,
+        "total_instances": 131550
+      },
+      "postclosure_difference": {
+        "direct": 5,
+        "flip_adjusted": 5,
+        "total_instances": 131550
+      },
+      "postclosure_public_sha256": {
+        "variance_guard": "54bfc4cfe7c610317ae42d9cffdca0d8d89e7ece6b7119a12f2142def6ba5306",
+        "guarded_adjacent": "dd65b50239916dfd3b02d1d0c1ba6ba8c0303d3a093752b3d3b1c1a9470aab3f"
+      },
+      "closure_evidence": {
+        "variance_guard": "labels identical to measured capacity raw; verified native closure reused",
+        "guarded_adjacent": "native closure executed"
+      }
+    },
+    {
+      "case": "ariane133-ng45",
+      "seed": 1001,
+      "trial": "20261118-194748-786087",
+      "embedding_sha256": "312020089e5f031231e5437628978184b8e49a086f6a10a8001dfed380a8f2b4",
+      "previous_guard_branch": "claude_r4",
+      "raw_difference": {
+        "direct": 0,
+        "flip_adjusted": 0,
+        "total_instances": 131550
+      },
+      "postclosure_difference": {
+        "direct": 0,
+        "flip_adjusted": 0,
+        "total_instances": 131550
+      },
+      "postclosure_public_sha256": {
+        "variance_guard": "ab35e01ad7d47d8752ad2905d30d7f2a7bb58806df31f8ad5c215b20284cca69",
+        "guarded_adjacent": "ab35e01ad7d47d8752ad2905d30d7f2a7bb58806df31f8ad5c215b20284cca69"
+      },
+      "closure_evidence": {
+        "variance_guard": "native closure executed",
+        "guarded_adjacent": "labels identical to variance_guard; same native closure"
+      }
+    },
+    {
+      "case": "ariane133-ng45",
+      "seed": 1003,
+      "trial": "20261118-211819-051412",
+      "embedding_sha256": "6df53a33d92a22ae28b600e8415c728c59bac098974899171f569ed7bd262b36",
+      "previous_guard_branch": "claude_r4",
+      "raw_difference": {
+        "direct": 0,
+        "flip_adjusted": 0,
+        "total_instances": 131550
+      },
+      "postclosure_difference": {
+        "direct": 0,
+        "flip_adjusted": 0,
+        "total_instances": 131550
+      },
+      "postclosure_public_sha256": {
+        "variance_guard": "45df21dc74116a9256cddaa394cd799ad255675113b63aaace0a6623632bac64",
+        "guarded_adjacent": "45df21dc74116a9256cddaa394cd799ad255675113b63aaace0a6623632bac64"
+      },
+      "closure_evidence": {
+        "variance_guard": "native closure executed",
+        "guarded_adjacent": "labels identical to variance_guard; same native closure"
+      }
+    },
+    {
+      "case": "bp-ng45",
+      "seed": 1001,
+      "trial": "20261118-200440-077848",
+      "embedding_sha256": "0f6bbde6adb8d96f2faa3fc9018bcb6c2cd4989494af199003be2935686a4c3b",
+      "previous_guard_branch": "capacity_quantum",
+      "raw_difference": {
+        "direct": 0,
+        "flip_adjusted": 0,
+        "total_instances": 144224
+      },
+      "postclosure_difference": {
+        "direct": 0,
+        "flip_adjusted": 0,
+        "total_instances": 144224
+      },
+      "postclosure_public_sha256": {
+        "variance_guard": "3b065bd56505b1b9a98d799ca3ec04816542dc4b33eb0dc8fc34dfc995614c0d",
+        "guarded_adjacent": "3b065bd56505b1b9a98d799ca3ec04816542dc4b33eb0dc8fc34dfc995614c0d"
+      },
+      "closure_evidence": {
+        "variance_guard": "labels identical to measured capacity raw; verified native closure reused",
+        "guarded_adjacent": "labels identical to measured capacity raw; verified native closure reused"
+      }
+    },
+    {
+      "case": "bp-ng45",
+      "seed": 1002,
+      "trial": "20261118-192313-764895",
+      "embedding_sha256": "56a21421f5e0dfd6e5dde48054224619a2d02b98dedc15402a4c25ff1ed13704",
+      "previous_guard_branch": "capacity_quantum",
+      "raw_difference": {
+        "direct": 0,
+        "flip_adjusted": 0,
+        "total_instances": 144224
+      },
+      "postclosure_difference": {
+        "direct": 0,
+        "flip_adjusted": 0,
+        "total_instances": 144224
+      },
+      "postclosure_public_sha256": {
+        "variance_guard": "45bb28873bf44d913cb05bc6bfb3ed94cb86a9e61de186e7cb7326fcf934dfd8",
+        "guarded_adjacent": "45bb28873bf44d913cb05bc6bfb3ed94cb86a9e61de186e7cb7326fcf934dfd8"
+      },
+      "closure_evidence": {
+        "variance_guard": "labels identical to measured capacity raw; verified native closure reused",
+        "guarded_adjacent": "labels identical to measured capacity raw; verified native closure reused"
+      }
+    },
+    {
+      "case": "bp-ng45",
+      "seed": 1003,
+      "trial": "20261118-202258-211379",
+      "embedding_sha256": "7f34486c6b95a5b2feda684111fb7e59018cd29ff9d1ba6e0ff8514301cab24b",
+      "previous_guard_branch": "capacity_quantum",
+      "raw_difference": {
+        "direct": 0,
+        "flip_adjusted": 0,
+        "total_instances": 144224
+      },
+      "postclosure_difference": {
+        "direct": 0,
+        "flip_adjusted": 0,
+        "total_instances": 144224
+      },
+      "postclosure_public_sha256": {
+        "variance_guard": "25dc700d5d790e3103d439955669ad21f3a5cd6545a2bb82f790b0abe332ba1a",
+        "guarded_adjacent": "25dc700d5d790e3103d439955669ad21f3a5cd6545a2bb82f790b0abe332ba1a"
+      },
+      "closure_evidence": {
+        "variance_guard": "labels identical to measured capacity raw; verified native closure reused",
+        "guarded_adjacent": "labels identical to measured capacity raw; verified native closure reused"
+      }
+    }
+  ],
+  "complete": true,
+  "distinct_cells": [
+    [
+      "bp_fe-ng45",
+      1003
+    ],
+    [
+      "ariane133-ng45",
+      1002
+    ]
+  ]
+}

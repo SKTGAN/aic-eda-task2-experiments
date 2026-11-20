@@ -1,0 +1,295 @@
+{
+  "scope": "Local training only, decoder/official closure replay on frozen embeddings. No physical timing estimated.",
+  "guard_oriented_program_sha256": "772c14a80a2b24c5d1e405faef7eabf5c4b71b73635a1d0187ffc269c580699f",
+  "complete": true,
+  "cells": [
+    {
+      "case": "ariane133-ng45",
+      "seed": 1001,
+      "embedding_origin": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-194748-786087/evaluation/evaluation_result.json",
+      "parents": {
+        "capacity_quantum": {
+          "flip": false,
+          "concentration_top_bottom": [
+            0.6230133814999935,
+            0.6137039945692601
+          ],
+          "instance_count": 131550,
+          "postclosure_changed": 0,
+          "postclosure_change_excluding_flip": 0,
+          "sha256_labels": "f3838835a656d6b4fdffe9c2d55cc9eeb73d7fe95a85fe639b0b5264f1741216",
+          "confirmed_physical_parent_assignments": true
+        },
+        "variance_guard": {
+          "flip": true,
+          "concentration_top_bottom": [
+            0.5413608629819908,
+            0.6948664251638434
+          ],
+          "instance_count": 131550,
+          "postclosure_changed": 131547,
+          "postclosure_change_excluding_flip": 3,
+          "sha256_labels": "fffc1830c4977d023ad1050561ee04afa8c0479ec6118983ae602ebb2a3898a8",
+          "confirmed_physical_parent_assignments": false
+        }
+      },
+      "oriented_children_differ": 119873
+    },
+    {
+      "case": "ariane133-ng45",
+      "seed": 1002,
+      "embedding_origin": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-205819-263444/evaluation/evaluation_result.json",
+      "parents": {
+        "capacity_quantum": {
+          "flip": false,
+          "concentration_top_bottom": [
+            0.6230240491608586,
+            0.6136933707860065
+          ],
+          "instance_count": 131550,
+          "postclosure_changed": 0,
+          "postclosure_change_excluding_flip": 0,
+          "sha256_labels": "876e2e7259599dd0c076da5c56e6e5a3d2325261cb19d267435190185fc32e3e",
+          "confirmed_physical_parent_assignments": true
+        },
+        "variance_guard": {
+          "flip": false,
+          "concentration_top_bottom": [
+            0.6230240491608586,
+            0.6136933707860065
+          ],
+          "instance_count": 131550,
+          "postclosure_changed": 0,
+          "postclosure_change_excluding_flip": 0,
+          "sha256_labels": "876e2e7259599dd0c076da5c56e6e5a3d2325261cb19d267435190185fc32e3e",
+          "confirmed_physical_parent_assignments": true
+        }
+      },
+      "oriented_children_differ": 0
+    },
+    {
+      "case": "ariane133-ng45",
+      "seed": 1003,
+      "embedding_origin": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-211819-051412/evaluation/evaluation_result.json",
+      "parents": {
+        "capacity_quantum": {
+          "flip": false,
+          "concentration_top_bottom": [
+            0.6230173667549496,
+            0.6137000093330233
+          ],
+          "instance_count": 131550,
+          "postclosure_changed": 0,
+          "postclosure_change_excluding_flip": 0,
+          "sha256_labels": "6b4b47352dc180593ef72486b8ecec5d100f64eb8f5564f80f5495d3f0116b93",
+          "confirmed_physical_parent_assignments": true
+        },
+        "variance_guard": {
+          "flip": true,
+          "concentration_top_bottom": [
+            0.5413421300050832,
+            0.69489091030867
+          ],
+          "instance_count": 131550,
+          "postclosure_changed": 131548,
+          "postclosure_change_excluding_flip": 2,
+          "sha256_labels": "61da636b1de0490bff8cc5fd13a8f1306afe7ad81fb95df6df0426ab65cb7963",
+          "confirmed_physical_parent_assignments": true
+        }
+      },
+      "oriented_children_differ": 119610
+    },
+    {
+      "case": "bp-ng45",
+      "seed": 1001,
+      "embedding_origin": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-200440-077848/evaluation/evaluation_result.json",
+      "parents": {
+        "capacity_quantum": {
+          "flip": false,
+          "concentration_top_bottom": [
+            0.5554008672394521,
+            0.5329047541958095
+          ],
+          "instance_count": 144224,
+          "postclosure_changed": 0,
+          "postclosure_change_excluding_flip": 0,
+          "sha256_labels": "c81d555815a2e66c5ec58f4b7dd9dc08c3bf436beaaeebf0b42d9d805eb2f60d",
+          "confirmed_physical_parent_assignments": true
+        },
+        "variance_guard": {
+          "flip": false,
+          "concentration_top_bottom": [
+            0.5554008672394521,
+            0.5329047541958095
+          ],
+          "instance_count": 144224,
+          "postclosure_changed": 0,
+          "postclosure_change_excluding_flip": 0,
+          "sha256_labels": "c81d555815a2e66c5ec58f4b7dd9dc08c3bf436beaaeebf0b42d9d805eb2f60d",
+          "confirmed_physical_parent_assignments": false
+        }
+      },
+      "oriented_children_differ": 0
+    },
+    {
+      "case": "bp-ng45",
+      "seed": 1002,
+      "embedding_origin": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-192313-764895/evaluation/evaluation_result.json",
+      "parents": {
+        "capacity_quantum": {
+          "flip": false,
+          "concentration_top_bottom": [
+            0.5554013563984148,
+            0.5329042860017076
+          ],
+          "instance_count": 144224,
+          "postclosure_changed": 0,
+          "postclosure_change_excluding_flip": 0,
+          "sha256_labels": "dc0ff667c197c78aa07435a22f326c17533716f9fe0fddcab967d0055ec7d3e7",
+          "confirmed_physical_parent_assignments": true
+        },
+        "variance_guard": {
+          "flip": false,
+          "concentration_top_bottom": [
+            0.5554013563984148,
+            0.5329042860017076
+          ],
+          "instance_count": 144224,
+          "postclosure_changed": 0,
+          "postclosure_change_excluding_flip": 0,
+          "sha256_labels": "dc0ff667c197c78aa07435a22f326c17533716f9fe0fddcab967d0055ec7d3e7",
+          "confirmed_physical_parent_assignments": false
+        }
+      },
+      "oriented_children_differ": 0
+    },
+    {
+      "case": "bp-ng45",
+      "seed": 1003,
+      "embedding_origin": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-202258-211379/evaluation/evaluation_result.json",
+      "parents": {
+        "capacity_quantum": {
+          "flip": false,
+          "concentration_top_bottom": [
+            0.5554075702086055,
+            0.532898323914813
+          ],
+          "instance_count": 144224,
+          "postclosure_changed": 0,
+          "postclosure_change_excluding_flip": 0,
+          "sha256_labels": "b26cfc04e8369a306c973b6172d428c600344e32b1dc3ff1b7a17790f9c47fab",
+          "confirmed_physical_parent_assignments": true
+        },
+        "variance_guard": {
+          "flip": false,
+          "concentration_top_bottom": [
+            0.5554075702086055,
+            0.532898323914813
+          ],
+          "instance_count": 144224,
+          "postclosure_changed": 0,
+          "postclosure_change_excluding_flip": 0,
+          "sha256_labels": "b26cfc04e8369a306c973b6172d428c600344e32b1dc3ff1b7a17790f9c47fab",
+          "confirmed_physical_parent_assignments": false
+        }
+      },
+      "oriented_children_differ": 0
+    },
+    {
+      "case": "bp_fe-ng45",
+      "seed": 1001,
+      "embedding_origin": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-194110-430550/evaluation/evaluation_result.json",
+      "parents": {
+        "capacity_quantum": {
+          "flip": false,
+          "concentration_top_bottom": [
+            0.8379044221048353,
+            0.6837010528173777
+          ],
+          "instance_count": 25847,
+          "postclosure_changed": 0,
+          "postclosure_change_excluding_flip": 0,
+          "sha256_labels": "25354c5799e51312430899acdb249f0a925b36198e61fcd7e0f282c3d42d5b77",
+          "confirmed_physical_parent_assignments": true
+        },
+        "variance_guard": {
+          "flip": false,
+          "concentration_top_bottom": [
+            0.8379044221048353,
+            0.6837010528173777
+          ],
+          "instance_count": 25847,
+          "postclosure_changed": 0,
+          "postclosure_change_excluding_flip": 0,
+          "sha256_labels": "25354c5799e51312430899acdb249f0a925b36198e61fcd7e0f282c3d42d5b77",
+          "confirmed_physical_parent_assignments": false
+        }
+      },
+      "oriented_children_differ": 0
+    },
+    {
+      "case": "bp_fe-ng45",
+      "seed": 1002,
+      "embedding_origin": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-203954-559404/evaluation/evaluation_result.json",
+      "parents": {
+        "capacity_quantum": {
+          "flip": false,
+          "concentration_top_bottom": [
+            0.8378588857341416,
+            0.6837382471696563
+          ],
+          "instance_count": 25847,
+          "postclosure_changed": 0,
+          "postclosure_change_excluding_flip": 0,
+          "sha256_labels": "20fe22145248b9a0b8717e3296ae5ce3339e6e4d44b66662de4972772a723210",
+          "confirmed_physical_parent_assignments": true
+        },
+        "variance_guard": {
+          "flip": false,
+          "concentration_top_bottom": [
+            0.8378588857341416,
+            0.6837382471696563
+          ],
+          "instance_count": 25847,
+          "postclosure_changed": 0,
+          "postclosure_change_excluding_flip": 0,
+          "sha256_labels": "20fe22145248b9a0b8717e3296ae5ce3339e6e4d44b66662de4972772a723210",
+          "confirmed_physical_parent_assignments": true
+        }
+      },
+      "oriented_children_differ": 0
+    },
+    {
+      "case": "bp_fe-ng45",
+      "seed": 1003,
+      "embedding_origin": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-204828-161916/evaluation/evaluation_result.json",
+      "parents": {
+        "capacity_quantum": {
+          "flip": false,
+          "concentration_top_bottom": [
+            0.8378890602270164,
+            0.6837136330155754
+          ],
+          "instance_count": 25847,
+          "postclosure_changed": 0,
+          "postclosure_change_excluding_flip": 0,
+          "sha256_labels": "c37ed0a470f064ed08857df9843f257b718a4d5379778afe84e141f09ed49557",
+          "confirmed_physical_parent_assignments": true
+        },
+        "variance_guard": {
+          "flip": false,
+          "concentration_top_bottom": [
+            0.8378890602270164,
+            0.6837136330155754
+          ],
+          "instance_count": 25847,
+          "postclosure_changed": 0,
+          "postclosure_change_excluding_flip": 0,
+          "sha256_labels": "c37ed0a470f064ed08857df9843f257b718a4d5379778afe84e141f09ed49557",
+          "confirmed_physical_parent_assignments": false
+        }
+      },
+      "oriented_children_differ": 0
+    }
+  ]
+}

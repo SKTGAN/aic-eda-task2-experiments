@@ -1,0 +1,221 @@
+{
+  "candidate_sha256": "a3196f651ee57932158a5aa372fa4a362b6e7ef9b31b72d627a7efb38503e784",
+  "parent_sha256": "a9aa8da67ed97235197702a6e291dd1d604d21921aabfea0425e172e69f4ad13",
+  "scope": "Paired same-loss training embedding decoder/closure comparisons against verified capacity native assignments, not post-OPT scores.",
+  "rule": "Swap only the last included and first excluded reserve group if absolute reserve capacity error strictly decreases.",
+  "cells": [
+    {
+      "cohort": "original_three_reused",
+      "case": "bp-ng45",
+      "seed": 1002,
+      "trial": "20261118-185108-011766",
+      "capacity_native_source_stage": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-192313-764895/evaluation/cells/bp-ng45/1002/result/run/20_partition",
+      "raw_diff": {
+        "count": 144224,
+        "direct": 0,
+        "flip_adjusted": 0
+      },
+      "post_diff": {
+        "count": 144224,
+        "direct": 0,
+        "flip_adjusted": 0
+      },
+      "weighted_cut_delta": 0.0
+    },
+    {
+      "cohort": "original_three_reused",
+      "case": "ariane133-ng45",
+      "seed": 1001,
+      "trial": "20261118-183031-273756",
+      "capacity_native_source_stage": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-194748-786087/evaluation/cells/ariane133-ng45/1001/result/run/20_partition",
+      "raw_diff": {
+        "count": 131550,
+        "direct": 0,
+        "flip_adjusted": 0
+      },
+      "post_diff": {
+        "count": 131550,
+        "direct": 0,
+        "flip_adjusted": 0
+      },
+      "weighted_cut_delta": 0.0
+    },
+    {
+      "cohort": "original_three_reused",
+      "case": "bp_fe-ng45",
+      "seed": 1001,
+      "trial": "20261118-182349-190494",
+      "capacity_native_source_stage": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-194110-430550/evaluation/cells/bp_fe-ng45/1001/result/run/20_partition",
+      "raw_diff": {
+        "count": 25847,
+        "direct": 0,
+        "flip_adjusted": 0
+      },
+      "post_diff": {
+        "count": 25847,
+        "direct": 0,
+        "flip_adjusted": 0
+      },
+      "weighted_cut_delta": 0.0
+    },
+    {
+      "cohort": "six_new_same_loss",
+      "case": "bp-ng45",
+      "seed": 1001,
+      "capacity_native_trial": "20261118-200440-077848",
+      "embedding_sha256": "0f6bbde6adb8d96f2faa3fc9018bcb6c2cd4989494af199003be2935686a4c3b",
+      "raw_capacity_native_reproduced": true,
+      "raw_diff": {
+        "count": 144224,
+        "direct": 0,
+        "flip_adjusted": 0
+      },
+      "post_diff": {
+        "count": 144224,
+        "direct": 0,
+        "flip_adjusted": 0
+      },
+      "new_closure_executed": false,
+      "raw_area_error_before": 10640.0,
+      "raw_area_error_after": 10640.0,
+      "weighted_cut_before": 9452.75992506623,
+      "weighted_cut_after": 9452.75992506623,
+      "weighted_cut_delta": 0.0
+    },
+    {
+      "cohort": "six_new_same_loss",
+      "case": "bp-ng45",
+      "seed": 1003,
+      "capacity_native_trial": "20261118-202258-211379",
+      "embedding_sha256": "7f34486c6b95a5b2feda684111fb7e59018cd29ff9d1ba6e0ff8514301cab24b",
+      "raw_capacity_native_reproduced": true,
+      "raw_diff": {
+        "count": 144224,
+        "direct": 0,
+        "flip_adjusted": 0
+      },
+      "post_diff": {
+        "count": 144224,
+        "direct": 0,
+        "flip_adjusted": 0
+      },
+      "new_closure_executed": false,
+      "raw_area_error_before": 23940.0,
+      "raw_area_error_after": 23940.0,
+      "weighted_cut_before": 9488.440594447748,
+      "weighted_cut_after": 9488.440594447748,
+      "weighted_cut_delta": 0.0
+    },
+    {
+      "cohort": "six_new_same_loss",
+      "case": "bp_fe-ng45",
+      "seed": 1002,
+      "capacity_native_trial": "20261118-203954-559404",
+      "embedding_sha256": "d91956a58dffa16d9c63956b5c500d7edc5d06e7ed9fecf0e2f31a90406458f8",
+      "raw_capacity_native_reproduced": true,
+      "raw_diff": {
+        "count": 25847,
+        "direct": 0,
+        "flip_adjusted": 0
+      },
+      "post_diff": {
+        "count": 25847,
+        "direct": 0,
+        "flip_adjusted": 0
+      },
+      "new_closure_executed": false,
+      "raw_area_error_before": 2660.0,
+      "raw_area_error_after": 2660.0,
+      "weighted_cut_before": 2776.9446506032014,
+      "weighted_cut_after": 2776.9446506032014,
+      "weighted_cut_delta": 0.0
+    },
+    {
+      "cohort": "six_new_same_loss",
+      "case": "bp_fe-ng45",
+      "seed": 1003,
+      "capacity_native_trial": "20261118-204828-161916",
+      "embedding_sha256": "69aa9862dd3b9e6666f36d48cf72e8716f909b57ac8d33f536f1d28ebdfd8a21",
+      "raw_capacity_native_reproduced": true,
+      "raw_diff": {
+        "count": 25847,
+        "direct": 6,
+        "flip_adjusted": 6
+      },
+      "post_diff": {
+        "count": 25847,
+        "direct": 6,
+        "flip_adjusted": 6
+      },
+      "new_closure_executed": true,
+      "raw_area_error_before": 34580.0,
+      "raw_area_error_after": 5320.0,
+      "weighted_cut_before": 2827.5309363623724,
+      "weighted_cut_after": 2827.921104298062,
+      "weighted_cut_delta": 0.3901679356895329
+    },
+    {
+      "cohort": "six_new_same_loss",
+      "case": "ariane133-ng45",
+      "seed": 1002,
+      "capacity_native_trial": "20261118-205819-263444",
+      "embedding_sha256": "11cd5ac5f94dddc5c466da40a32b1b776fbfe0472b212dd63e541336f16decbb",
+      "raw_capacity_native_reproduced": true,
+      "raw_diff": {
+        "count": 131550,
+        "direct": 5,
+        "flip_adjusted": 5
+      },
+      "post_diff": {
+        "count": 131550,
+        "direct": 5,
+        "flip_adjusted": 5
+      },
+      "new_closure_executed": true,
+      "raw_area_error_before": 23940.0,
+      "raw_area_error_after": 15960.0,
+      "weighted_cut_before": 20808.76813937304,
+      "weighted_cut_after": 20812.827361232365,
+      "weighted_cut_delta": 4.059221859322861
+    },
+    {
+      "cohort": "six_new_same_loss",
+      "case": "ariane133-ng45",
+      "seed": 1003,
+      "capacity_native_trial": "20261118-211819-051412",
+      "embedding_sha256": "6df53a33d92a22ae28b600e8415c728c59bac098974899171f569ed7bd262b36",
+      "raw_capacity_native_reproduced": true,
+      "raw_diff": {
+        "count": 131550,
+        "direct": 5,
+        "flip_adjusted": 5
+      },
+      "post_diff": {
+        "count": 131550,
+        "direct": 5,
+        "flip_adjusted": 5
+      },
+      "new_closure_executed": true,
+      "raw_area_error_before": 7980.0,
+      "raw_area_error_after": 5320.0,
+      "weighted_cut_before": 14866.042599717424,
+      "weighted_cut_after": 14872.541996603833,
+      "weighted_cut_delta": 6.4993968864091585
+    }
+  ],
+  "complete": true,
+  "changed_after_protected_closure": [
+    [
+      "bp_fe-ng45",
+      1003
+    ],
+    [
+      "ariane133-ng45",
+      1002
+    ],
+    [
+      "ariane133-ng45",
+      1003
+    ]
+  ]
+}

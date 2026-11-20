@@ -1,0 +1,2173 @@
+[
+ {
+  "after_round": 4,
+  "branching_choice": {
+   "parent": "R4",
+   "intent": "loss_only",
+   "reason": "extend_best"
+  },
+  "rolling_choice": {
+   "id": "X1",
+   "kind": "removal",
+   "parent": "R4",
+   "component": "loss",
+   "question": "Does R4 still need its loss change once its decoder is fixed?",
+   "donors": {
+    "loss": "S",
+    "decoder": "R4"
+   },
+   "decides": {
+    "if_within_tolerance": "build the next loss edit on the removal program",
+    "if_worse": "keep the anchor's loss and edit its decoder next"
+   }
+  },
+  "evidence_the_plan_uses": {
+   "lessons": [
+    {
+     "evidence": "R4-R2",
+     "finding": "paired_reading",
+     "reading": "orientation_carried",
+     "official_delta": 5.3272,
+     "edit": {
+      "loss": "unchanged",
+      "decoder": "structural"
+     }
+    }
+   ],
+   "tolerances": {
+    "bp_fe-ng45": {
+     "cell": 6.484,
+     "case_mean": 3.743,
+     "pairs": 8,
+     "source": "calibrated"
+    },
+    "bp-ng45": {
+     "cell": 1.967,
+     "case_mean": 2.0,
+     "pairs": 6,
+     "source": "calibrated"
+    },
+    "ariane133-ng45": {
+     "cell": 57.881,
+     "case_mean": 33.418,
+     "pairs": 15,
+     "source": "calibrated"
+    }
+   },
+   "decision_override": null
+  },
+  "competing_explanations": [
+   "R4's loss change still contributes once its decoder is in place",
+   "R4's score is carried by its decoder (its gain over R2 is +5.33, 89% of it from exchanged dies); the loss change adds nothing measurable"
+  ],
+  "experiment_that_separates_them": "its outcome selects between the two branches of `decides`",
+  "gains_to_protect": [],
+  "falsifier": "the first explanation fails if the removal scores within 11.23 of R4; the second fails if it scores more than 11.23 below",
+  "planner_request_if_overrides_are_reviewed": {
+   "options": [
+    {
+     "id": "X1",
+     "kind": "removal",
+     "parent": "R4",
+     "component": "loss",
+     "question": "Does R4 still need its loss change once its decoder is fixed?",
+     "decides": {
+      "if_within_tolerance": "build the next loss edit on the removal program",
+      "if_worse": "keep the anchor's loss and edit its decoder next"
+     },
+     "hypotheses": [
+      "R4's loss change still contributes once its decoder is in place",
+      "R4's score is carried by its decoder (its gain over R2 is +5.33, 89% of it from exchanged dies); the loss change adds nothing measurable"
+     ],
+     "distinguishes": "its outcome selects between the two branches of `decides`",
+     "falsifier": "the first explanation fails if the removal scores within 11.23 of R4; the second fails if it scores more than 11.23 below"
+    },
+    {
+     "id": "X2",
+     "kind": "edit",
+     "parent": "R4",
+     "component": "loss",
+     "question": "Can a loss change of R4 raise bp-ng45 without losing ariane133-ng45?",
+     "decides": null,
+     "hypotheses": [
+      "a loss change of R4 can raise bp-ng45, whose mean is -0.25 against the start",
+      "the bp-ng45 deficit comes from R4's decoder, which this edit keeps"
+     ],
+     "distinguishes": "bp-ng45 improves on most seeds against R4 with every protected design inside its tolerance, or it does not",
+     "falsifier": "bp-ng45 does not improve on most seeds against R4, or a protected design (ariane133-ng45 33.42) falls more than its tolerance below R4"
+    }
+   ],
+   "triggers": [
+    "rolling_override"
+   ],
+   "lessons": [
+    {
+     "evidence": "R4-R2",
+     "finding": "paired_reading",
+     "reading": "orientation_carried",
+     "official_delta": 5.3272,
+     "edit": {
+      "loss": "unchanged",
+      "decoder": "structural"
+     }
+    }
+   ],
+   "anchor_review": {
+    "anchor": "R4",
+    "official_delta": 25.022,
+    "reading": "within_sensitivity",
+    "weak": {
+     "case": "bp-ng45",
+     "mean_delta": -0.2478,
+     "anchor_case_mean": -21.998,
+     "seeds": [
+      "1001",
+      "1002",
+      "1003"
+     ],
+     "cells": [
+      {
+       "seed": "1001",
+       "delta": 5.4519,
+       "evidence": "published_reference"
+      },
+      {
+       "seed": "1002",
+       "delta": -19.274,
+       "evidence": "orientation"
+      },
+      {
+       "seed": "1003",
+       "delta": 13.078,
+       "evidence": "published_reference"
+      }
+     ]
+    },
+    "protected": [
+     {
+      "case": "ariane133-ng45",
+      "mean_delta": 73.915,
+      "tolerance": 33.418,
+      "cell_tolerance": 57.881,
+      "seeds": [
+       "1001",
+       "1002",
+       "1003"
+      ],
+      "strength": "mixed_reference",
+      "evidence": "R4-S"
+     }
+    ],
+    "fragile": [
+     {
+      "cell": "bp_fe-ng45/1002",
+      "delta": 4.1269,
+      "reason": "orientation"
+     },
+     {
+      "cell": "bp_fe-ng45/1003",
+      "delta": 0.2667,
+      "reason": "published_reference"
+     },
+     {
+      "cell": "bp-ng45/1001",
+      "delta": 5.4519,
+      "reason": "published_reference"
+     },
+     {
+      "cell": "bp-ng45/1003",
+      "delta": 13.078,
+      "reason": "published_reference"
+     }
+    ],
+    "rows": [
+     {
+      "cell": "bp_fe-ng45/1001",
+      "anchor": 55.806,
+      "start": 56.002,
+      "start_measured_on": "published",
+      "delta": -0.196,
+      "wns_delta_ns": 0.035006,
+      "tns_delta_ns": -20.927,
+      "labels_vs_start": "local",
+      "evidence": "published_reference"
+     },
+     {
+      "cell": "bp_fe-ng45/1002",
+      "anchor": 54.056,
+      "start": 49.929,
+      "start_measured_on": "published",
+      "delta": 4.1269,
+      "wns_delta_ns": 0.069751,
+      "tns_delta_ns": 12.28,
+      "labels_vs_start": "exchange",
+      "evidence": "orientation"
+     },
+     {
+      "cell": "bp_fe-ng45/1003",
+      "anchor": 56.09,
+      "start": 55.824,
+      "start_measured_on": "published",
+      "delta": 0.2667,
+      "wns_delta_ns": 0.036531,
+      "tns_delta_ns": -16.207,
+      "labels_vs_start": "local",
+      "evidence": "published_reference"
+     },
+     {
+      "cell": "bp-ng45/1001",
+      "anchor": -15.372,
+      "start": -20.824,
+      "start_measured_on": "published",
+      "delta": 5.4519,
+      "wns_delta_ns": 0.56738,
+      "tns_delta_ns": 312.61,
+      "labels_vs_start": "local",
+      "evidence": "published_reference"
+     },
+     {
+      "cell": "bp-ng45/1002",
+      "anchor": -49.246,
+      "start": -29.973,
+      "start_measured_on": "published",
+      "delta": -19.274,
+      "wns_delta_ns": 0.016024,
+      "tns_delta_ns": -2135.6,
+      "labels_vs_start": "exchange",
+      "evidence": "orientation"
+     },
+     {
+      "cell": "bp-ng45/1003",
+      "anchor": -1.376,
+      "start": -14.454,
+      "start_measured_on": "published",
+      "delta": 13.078,
+      "wns_delta_ns": -0.060829,
+      "tns_delta_ns": 1474.6,
+      "labels_vs_start": "local",
+      "evidence": "published_reference"
+     },
+     {
+      "cell": "ariane133-ng45/1001",
+      "anchor": 82.974,
+      "start": -22.657,
+      "start_measured_on": "this_host",
+      "delta": 105.63,
+      "wns_delta_ns": 0.79099,
+      "tns_delta_ns": 73.644,
+      "labels_vs_start": "exchange",
+      "evidence": "orientation"
+     },
+     {
+      "cell": "ariane133-ng45/1002",
+      "anchor": 72.419,
+      "start": -24.344,
+      "start_measured_on": "this_host",
+      "delta": 96.763,
+      "wns_delta_ns": 0.30456,
+      "tns_delta_ns": 118.5,
+      "labels_vs_start": "local",
+      "evidence": "measured"
+     },
+     {
+      "cell": "ariane133-ng45/1003",
+      "anchor": 57.443,
+      "start": 38.091,
+      "start_measured_on": "published",
+      "delta": 19.352,
+      "wns_delta_ns": 0.12402,
+      "tns_delta_ns": 16.031,
+      "labels_vs_start": "local",
+      "evidence": "published_reference"
+     }
+    ]
+   },
+   "budget": {
+    "remaining": 6,
+    "total": 10,
+    "splices_used": 0,
+    "splice_cap": 3
+   },
+   "allowed_probes": [
+    "decoder_change_vs_parent",
+    "decoder_top_area_share",
+    "loss_ratio_vs_parent"
+   ]
+  },
+  "generation_request_sent": {
+   "effort": "low",
+   "fields": {
+    "search_intent": 11,
+    "decision": 1061,
+    "parent_id": 19,
+    "parent_program": 3203,
+    "training_cells": 363,
+    "evaluations_remaining": 1,
+    "parent_feedback": 25,
+    "incumbent_feedback": 893,
+    "last_trial": 7114,
+    "prior_trials": 1523,
+    "related_experiment": 659,
+    "previous_generation_issue": 4,
+    "experiment": 5144
+   },
+   "total_characters": 20285,
+   "search_intent": "loss_only",
+   "parent_id": "cand-437548cffb38",
+   "decision": {
+    "reason": "removal_follow_up",
+    "note": "the loss change of R4 is not needed (-1.00 within 11.23)",
+    "incumbent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+    "component": "loss",
+    "rolling_plan_override": true,
+    "experiment": {
+     "id": "X1",
+     "kind": "edit",
+     "question": "Can a loss change of R5 raise bp-ng45 without losing ariane133-ng45?"
+    },
+    "evidence": {
+     "candidate_id": "cand-437548cffb38",
+     "score": 33.755,
+     "parent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+     "complete": true,
+     "official_score_delta": -1.0,
+     "largest_regression": {
+      "case": "bp_fe-ng45",
+      "seed": "1001",
+      "score_delta": -1.0
+     },
+     "largest_gain": null,
+     "paired_case_deltas": [
+      {
+       "case": "bp_fe-ng45",
+       "scored_pairs": 3,
+       "expected_cells": 3,
+       "mean_paired_score_delta": -1.0
+      },
+      {
+       "case": "bp-ng45",
+       "scored_pairs": 3,
+       "expected_cells": 3,
+       "mean_paired_score_delta": -1.0
+      },
+      {
+       "case": "ariane133-ng45",
+       "scored_pairs": 3,
+       "expected_cells": 3,
+       "mean_paired_score_delta": -1.0
+      }
+     ],
+     "gains_across_seeds": [],
+     "timing_attribution_unconfirmed": [],
+     "failures": []
+    }
+   },
+   "experiment": {
+    "experiment": {
+     "id": "X1",
+     "kind": "edit",
+     "parent": "R5",
+     "component": "loss",
+     "question": "Can a loss change of R5 raise bp-ng45 without losing ariane133-ng45?",
+     "hypotheses": [
+      "a loss change of R5 can raise bp-ng45, whose mean is -1.25 against the start",
+      "the bp-ng45 deficit comes from R5's decoder, which this edit keeps"
+     ],
+     "falsifier": "bp-ng45 does not improve on most seeds against R5, or a protected design (ariane133-ng45 16.54) falls more than its tolerance below R5"
+    },
+    "contract": {
+     "anchor": "R5",
+     "anchor_candidate": "cand-437548cffb38",
+     "component": "loss",
+     "kind": "edit",
+     "target": {
+      "case": "bp-ng45",
+      "seeds": [
+       "1001",
+       "1002",
+       "1003"
+      ],
+      "rule": "mean paired score delta over the case > 0 and most of its seeds improve"
+     },
+     "protect": [
+      {
+       "case": "ariane133-ng45",
+       "tolerance": 16.537,
+       "cell_tolerance": 28.643,
+       "strength": "mixed_reference",
+       "evidence": "R5-S",
+       "rule": "mean paired score delta over the case >= -tolerance"
+      }
+     ],
+     "fragile": [
+      "bp_fe-ng45/1002",
+      "bp-ng45/1001",
+      "bp-ng45/1003"
+     ],
+     "tolerances": {
+      "bp_fe-ng45": {
+       "cell": 4.565,
+       "case_mean": 2.636,
+       "pairs": 15,
+       "source": "calibrated"
+      },
+      "bp-ng45": {
+       "cell": 1.669,
+       "case_mean": 2.0,
+       "pairs": 14,
+       "source": "calibrated"
+      },
+      "ariane133-ng45": {
+       "cell": 28.643,
+       "case_mean": 16.537,
+       "pairs": 24,
+       "source": "calibrated"
+      }
+     }
+    },
+    "anchor_review": {
+     "anchor": "R5",
+     "official_delta": 24.022,
+     "reading": "within_sensitivity",
+     "weak": {
+      "case": "bp-ng45",
+      "mean_delta": -1.2478,
+      "anchor_case_mean": -22.998,
+      "seeds": [
+       "1001",
+       "1002",
+       "1003"
+      ],
+      "cells": [
+       {
+        "seed": "1001",
+        "delta": 4.4519,
+        "evidence": "published_reference"
+       },
+       {
+        "seed": "1002",
+        "delta": -20.274,
+        "evidence": "orientation"
+       },
+       {
+        "seed": "1003",
+        "delta": 12.078,
+        "evidence": "published_reference"
+       }
+      ]
+     },
+     "protected": [
+      {
+       "case": "ariane133-ng45",
+       "mean_delta": 72.915,
+       "tolerance": 16.537,
+       "cell_tolerance": 28.643,
+       "seeds": [
+        "1001",
+        "1002",
+        "1003"
+       ],
+       "strength": "mixed_reference",
+       "evidence": "R5-S"
+      }
+     ],
+     "fragile": [
+      {
+       "cell": "bp_fe-ng45/1002",
+       "delta": 3.1269,
+       "reason": "orientation"
+      },
+      {
+       "cell": "bp-ng45/1001",
+       "delta": 4.4519,
+       "reason": "published_reference"
+      },
+      {
+       "cell": "bp-ng45/1003",
+       "delta": 12.078,
+       "reason": "published_reference"
+      }
+     ],
+     "rows": [
+      {
+       "cell": "bp_fe-ng45/1001",
+       "anchor": 54.806,
+       "start": 56.002,
+       "start_measured_on": "published",
+       "delta": -1.196,
+       "wns_delta_ns": 0.035006,
+       "tns_delta_ns": -20.927,
+       "labels_vs_start": "local",
+       "evidence": "published_reference"
+      },
+      {
+       "cell": "bp_fe-ng45/1002",
+       "anchor": 53.056,
+       "start": 49.929,
+       "start_measured_on": "published",
+       "delta": 3.1269,
+       "wns_delta_ns": 0.069751,
+       "tns_delta_ns": 12.28,
+       "labels_vs_start": "exchange",
+       "evidence": "orientation"
+      },
+      {
+       "cell": "bp_fe-ng45/1003",
+       "anchor": 55.09,
+       "start": 55.824,
+       "start_measured_on": "published",
+       "delta": -0.7333,
+       "wns_delta_ns": 0.036531,
+       "tns_delta_ns": -16.207,
+       "labels_vs_start": "local",
+       "evidence": "published_reference"
+      },
+      {
+       "cell": "bp-ng45/1001",
+       "anchor": -16.372,
+       "start": -20.824,
+       "start_measured_on": "published",
+       "delta": 4.4519,
+       "wns_delta_ns": 0.56738,
+       "tns_delta_ns": 312.61,
+       "labels_vs_start": "local",
+       "evidence": "published_reference"
+      },
+      {
+       "cell": "bp-ng45/1002",
+       "anchor": -50.246,
+       "start": -29.973,
+       "start_measured_on": "published",
+       "delta": -20.274,
+       "wns_delta_ns": 0.016024,
+       "tns_delta_ns": -2135.6,
+       "labels_vs_start": "exchange",
+       "evidence": "orientation"
+      },
+      {
+       "cell": "bp-ng45/1003",
+       "anchor": -2.376,
+       "start": -14.454,
+       "start_measured_on": "published",
+       "delta": 12.078,
+       "wns_delta_ns": -0.060829,
+       "tns_delta_ns": 1474.6,
+       "labels_vs_start": "local",
+       "evidence": "published_reference"
+      },
+      {
+       "cell": "ariane133-ng45/1001",
+       "anchor": 81.974,
+       "start": -22.657,
+       "start_measured_on": "this_host",
+       "delta": 104.63,
+       "wns_delta_ns": 0.79099,
+       "tns_delta_ns": 73.644,
+       "labels_vs_start": "exchange",
+       "evidence": "orientation"
+      },
+      {
+       "cell": "ariane133-ng45/1002",
+       "anchor": 71.419,
+       "start": -24.344,
+       "start_measured_on": "this_host",
+       "delta": 95.763,
+       "wns_delta_ns": 0.30456,
+       "tns_delta_ns": 118.5,
+       "labels_vs_start": "local",
+       "evidence": "measured"
+      },
+      {
+       "cell": "ariane133-ng45/1003",
+       "anchor": 56.443,
+       "start": 38.091,
+       "start_measured_on": "published",
+       "delta": 18.352,
+       "wns_delta_ns": 0.12402,
+       "tns_delta_ns": 16.031,
+       "labels_vs_start": "local",
+       "evidence": "published_reference"
+      }
+     ]
+    },
+    "comparisons": [
+     {
+      "evidence": "R5-R4",
+      "varies": "loss",
+      "official_delta": -1.0,
+      "reading": "no_gain",
+      "case_mean_deltas": {
+       "bp_fe-ng45": -1.0,
+       "bp-ng45": -1.0,
+       "ariane133-ng45": -1.0
+      }
+     },
+     {
+      "evidence": "R5-R1",
+      "varies": "decoder",
+      "official_delta": 21.81,
+      "reading": "orientation_carried",
+      "case_mean_deltas": {
+       "bp_fe-ng45": 9.3854,
+       "bp-ng45": -3.6541,
+       "ariane133-ng45": 59.699
+      }
+     }
+    ],
+    "lessons": [
+     {
+      "evidence": "R5-R4",
+      "finding": "paired_reading",
+      "reading": "no_gain",
+      "official_delta": -1.0,
+      "edit": {
+       "loss": "structural",
+       "decoder": "unchanged"
+      }
+     },
+     {
+      "evidence": "R5-R4",
+      "finding": "plan_verdict",
+      "reading": "no_gain",
+      "official_delta": -1.0,
+      "verdict": "measured",
+      "target": {
+       "case": null,
+       "mean_delta": null,
+       "met": null
+      },
+      "protected_regressions": []
+     },
+     {
+      "evidence": "R5-R4",
+      "finding": "removal",
+      "conclusion": "the loss change of R4 is not needed (-1.00 within 11.23)",
+      "parent": "R5",
+      "component": "loss"
+     }
+    ]
+   },
+   "note": "Round 5 is the spliced removal, submitted with no model call. This is the round-6 request that followed it in the replay, where the hypothetical removal outcome (R4 minus 1 point) fell within tolerance."
+  },
+  "checks_that_ran_on_the_generated_program": {
+   "parent_id": "cand-437548cffb38",
+   "policy_action": "removal_follow_up",
+   "static": [
+    {
+     "check": "python38_syntax",
+     "status": "pass",
+     "detail": ""
+    },
+    {
+     "check": "program_bytes",
+     "status": "pass",
+     "detail": "3252 of 18000 bytes"
+    },
+    {
+     "check": "ast_nodes",
+     "status": "pass",
+     "detail": "525 of 3000 nodes"
+    },
+    {
+     "check": "manifest",
+     "status": "pass",
+     "detail": "changes ['loss']"
+    },
+    {
+     "check": "identity_rules",
+     "status": "pass",
+     "detail": ""
+    }
+   ],
+   "probes": [
+    {
+     "probe": "loss_contract",
+     "status": "pass",
+     "loss": 7.5564,
+     "ratio_vs_parent": 0.9327
+    }
+   ],
+   "runtime": {
+    "event": "runtime_capabilities",
+    "python": "3.12.3",
+    "numpy": "2.5.5",
+    "torch": "2.15.0+cpu",
+    "reference_helper": null,
+    "decoder_probe": "custom decoders",
+    "loss_probe": "runs"
+   }
+  }
+ },
+ {
+  "after_round": 7,
+  "branching_choice": {
+   "parent": "R7",
+   "intent": "loss_only",
+   "reason": "targeted_repair"
+  },
+  "rolling_choice": {
+   "id": "X1",
+   "kind": "edit",
+   "parent": "R4",
+   "component": "decoder",
+   "question": "Can a decoder change of R4 raise bp-ng45 without losing ariane133-ng45?",
+   "donors": null,
+   "decides": null
+  },
+  "evidence_the_plan_uses": {
+   "lessons": [
+    {
+     "evidence": "R7-R4",
+     "finding": "paired_reading",
+     "reading": "no_gain",
+     "official_delta": -16.068,
+     "edit": {
+      "loss": "structural",
+      "decoder": "unchanged"
+     }
+    },
+    {
+     "evidence": "protect_gain:ariane133-ng45/1003",
+     "finding": "repair_declined",
+     "conclusion": "the gain to protect (+13.16 on ariane133-ng45/1003) is inside the 28.94-point cell sensitivity this run measured for ariane133-ng45; extend the best program instead",
+     "parent": "R4",
+     "component": "decoder"
+    }
+   ],
+   "tolerances": {
+    "bp_fe-ng45": {
+     "cell": 7.699,
+     "case_mean": 4.445,
+     "pairs": 34,
+     "source": "calibrated"
+    },
+    "bp-ng45": {
+     "cell": 3.516,
+     "case_mean": 2.03,
+     "pairs": 31,
+     "source": "calibrated"
+    },
+    "ariane133-ng45": {
+     "cell": 28.941,
+     "case_mean": 16.709,
+     "pairs": 46,
+     "source": "calibrated"
+    }
+   },
+   "decision_override": {
+    "reason": "extend_best",
+    "note": "the gain to protect (+13.16 on ariane133-ng45/1003) is inside the 28.94-point cell sensitivity this run measured for ariane133-ng45; extend the best program instead",
+    "incumbent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd"
+   }
+  },
+  "competing_explanations": [
+   "the child's gain on ariane133-ng45/1003 (+13.16) is a real effect of its edit and its loss on ariane133-ng45/1001 (-141.96) can be repaired without losing it",
+   "the gain to protect is within what small label changes do to ariane133-ng45 here (median 28.94 points per cell over 46 pairs), so there is no measured gain for the repair to keep; its loss on ariane133-ng45/1001 (-141.96) is real, but R4's own value on that cell came from exchanged dies"
+  ],
+  "experiment_that_separates_them": "nothing: it spends the slot on R4 instead. The test of the first explanation is the repair itself, which the measured sensitivity makes a poor bet",
+  "gains_to_protect": [
+   {
+    "case": "ariane133-ng45",
+    "tolerance": 16.709,
+    "cell_tolerance": 28.941,
+    "strength": "mixed_reference",
+    "evidence": "R4-S",
+    "rule": "mean paired score delta over the case >= -tolerance"
+   }
+  ],
+  "falsifier": "bp-ng45 does not improve on most seeds against R4, or a protected design (ariane133-ng45 16.71) falls more than its tolerance below R4",
+  "planner_request_if_overrides_are_reviewed": {
+   "options": [
+    {
+     "id": "X1",
+     "kind": "edit",
+     "parent": "R4",
+     "component": "decoder",
+     "question": "Can a decoder change of R4 raise bp-ng45 without losing ariane133-ng45?",
+     "decides": null,
+     "hypotheses": [
+      "the child's gain on ariane133-ng45/1003 (+13.16) is a real effect of its edit and its loss on ariane133-ng45/1001 (-141.96) can be repaired without losing it",
+      "the gain to protect is within what small label changes do to ariane133-ng45 here (median 28.94 points per cell over 46 pairs), so there is no measured gain for the repair to keep; its loss on ariane133-ng45/1001 (-141.96) is real, but R4's own value on that cell came from exchanged dies"
+     ],
+     "distinguishes": "nothing: it spends the slot on R4 instead. The test of the first explanation is the repair itself, which the measured sensitivity makes a poor bet",
+     "falsifier": "bp-ng45 does not improve on most seeds against R4, or a protected design (ariane133-ng45 16.71) falls more than its tolerance below R4"
+    },
+    {
+     "id": "X2",
+     "kind": "edit",
+     "parent": "R7",
+     "component": "loss",
+     "question": "The branching choice: a loss change of R7 (targeted_repair).",
+     "decides": null,
+     "hypotheses": [
+      "a loss change of R7 can raise bp_fe-ng45, whose mean is -12.92 against the start",
+      "the bp_fe-ng45 deficit comes from R7's decoder, which this edit keeps"
+     ],
+     "distinguishes": "bp_fe-ng45 improves on most seeds against R7 with every protected design inside its tolerance, or it does not",
+     "falsifier": "bp_fe-ng45 does not improve on most seeds against R7, or a protected design (bp-ng45 2.03, ariane133-ng45 16.71) falls more than its tolerance below R7"
+    }
+   ],
+   "triggers": [
+    "rolling_override"
+   ],
+   "lessons": [
+    {
+     "evidence": "R7-R4",
+     "finding": "paired_reading",
+     "reading": "no_gain",
+     "official_delta": -16.068,
+     "edit": {
+      "loss": "structural",
+      "decoder": "unchanged"
+     }
+    },
+    {
+     "evidence": "protect_gain:ariane133-ng45/1003",
+     "finding": "repair_declined",
+     "conclusion": "the gain to protect (+13.16 on ariane133-ng45/1003) is inside the 28.94-point cell sensitivity this run measured for ariane133-ng45; extend the best program instead",
+     "parent": "R4",
+     "component": "decoder"
+    }
+   ],
+   "anchor_review": {
+    "anchor": "R4",
+    "official_delta": 25.022,
+    "reading": "within_sensitivity",
+    "weak": {
+     "case": "bp-ng45",
+     "mean_delta": -0.2478,
+     "anchor_case_mean": -21.998,
+     "seeds": [
+      "1001",
+      "1002",
+      "1003"
+     ],
+     "cells": [
+      {
+       "seed": "1001",
+       "delta": 5.4519,
+       "evidence": "published_reference"
+      },
+      {
+       "seed": "1002",
+       "delta": -19.274,
+       "evidence": "orientation"
+      },
+      {
+       "seed": "1003",
+       "delta": 13.078,
+       "evidence": "published_reference"
+      }
+     ]
+    },
+    "protected": [
+     {
+      "case": "ariane133-ng45",
+      "mean_delta": 73.915,
+      "tolerance": 16.709,
+      "cell_tolerance": 28.941,
+      "seeds": [
+       "1001",
+       "1002",
+       "1003"
+      ],
+      "strength": "mixed_reference",
+      "evidence": "R4-S"
+     }
+    ],
+    "fragile": [
+     {
+      "cell": "bp_fe-ng45/1002",
+      "delta": 4.1269,
+      "reason": "orientation"
+     },
+     {
+      "cell": "bp_fe-ng45/1003",
+      "delta": 0.2667,
+      "reason": "published_reference"
+     },
+     {
+      "cell": "bp-ng45/1001",
+      "delta": 5.4519,
+      "reason": "published_reference"
+     },
+     {
+      "cell": "bp-ng45/1003",
+      "delta": 13.078,
+      "reason": "published_reference"
+     }
+    ],
+    "rows": [
+     {
+      "cell": "bp_fe-ng45/1001",
+      "anchor": 55.806,
+      "start": 56.002,
+      "start_measured_on": "published",
+      "delta": -0.196,
+      "wns_delta_ns": 0.035006,
+      "tns_delta_ns": -20.927,
+      "labels_vs_start": "local",
+      "evidence": "published_reference"
+     },
+     {
+      "cell": "bp_fe-ng45/1002",
+      "anchor": 54.056,
+      "start": 49.929,
+      "start_measured_on": "published",
+      "delta": 4.1269,
+      "wns_delta_ns": 0.069751,
+      "tns_delta_ns": 12.28,
+      "labels_vs_start": "exchange",
+      "evidence": "orientation"
+     },
+     {
+      "cell": "bp_fe-ng45/1003",
+      "anchor": 56.09,
+      "start": 55.824,
+      "start_measured_on": "published",
+      "delta": 0.2667,
+      "wns_delta_ns": 0.036531,
+      "tns_delta_ns": -16.207,
+      "labels_vs_start": "local",
+      "evidence": "published_reference"
+     },
+     {
+      "cell": "bp-ng45/1001",
+      "anchor": -15.372,
+      "start": -20.824,
+      "start_measured_on": "published",
+      "delta": 5.4519,
+      "wns_delta_ns": 0.56738,
+      "tns_delta_ns": 312.61,
+      "labels_vs_start": "local",
+      "evidence": "published_reference"
+     },
+     {
+      "cell": "bp-ng45/1002",
+      "anchor": -49.246,
+      "start": -29.973,
+      "start_measured_on": "published",
+      "delta": -19.274,
+      "wns_delta_ns": 0.016024,
+      "tns_delta_ns": -2135.6,
+      "labels_vs_start": "exchange",
+      "evidence": "orientation"
+     },
+     {
+      "cell": "bp-ng45/1003",
+      "anchor": -1.376,
+      "start": -14.454,
+      "start_measured_on": "published",
+      "delta": 13.078,
+      "wns_delta_ns": -0.060829,
+      "tns_delta_ns": 1474.6,
+      "labels_vs_start": "local",
+      "evidence": "published_reference"
+     },
+     {
+      "cell": "ariane133-ng45/1001",
+      "anchor": 82.974,
+      "start": -22.657,
+      "start_measured_on": "this_host",
+      "delta": 105.63,
+      "wns_delta_ns": 0.79099,
+      "tns_delta_ns": 73.644,
+      "labels_vs_start": "exchange",
+      "evidence": "orientation"
+     },
+     {
+      "cell": "ariane133-ng45/1002",
+      "anchor": 72.419,
+      "start": -24.344,
+      "start_measured_on": "this_host",
+      "delta": 96.763,
+      "wns_delta_ns": 0.30456,
+      "tns_delta_ns": 118.5,
+      "labels_vs_start": "local",
+      "evidence": "measured"
+     },
+     {
+      "cell": "ariane133-ng45/1003",
+      "anchor": 57.443,
+      "start": 38.091,
+      "start_measured_on": "published",
+      "delta": 19.352,
+      "wns_delta_ns": 0.12402,
+      "tns_delta_ns": 16.031,
+      "labels_vs_start": "local",
+      "evidence": "published_reference"
+     }
+    ]
+   },
+   "budget": {
+    "remaining": 3,
+    "total": 10,
+    "splices_used": 0,
+    "splice_cap": 3
+   },
+   "allowed_probes": [
+    "decoder_change_vs_parent",
+    "decoder_top_area_share",
+    "loss_ratio_vs_parent"
+   ]
+  },
+  "generation_request_sent": {
+   "effort": "low",
+   "fields": {
+    "search_intent": 14,
+    "decision": 1486,
+    "parent_id": 66,
+    "parent_program": 4132,
+    "training_cells": 363,
+    "evaluations_remaining": 1,
+    "parent_feedback": 893,
+    "incumbent_feedback": 4,
+    "last_trial": 7258,
+    "prior_trials": 2300,
+    "related_experiment": 931,
+    "previous_generation_issue": 4,
+    "experiment": 5722
+   },
+   "total_characters": 23439,
+   "search_intent": "decoder_only",
+   "parent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+   "decision": {
+    "reason": "extend_best",
+    "note": "the gain to protect (+13.16 on ariane133-ng45/1003) is inside the 28.94-point cell sensitivity this run measured for ariane133-ng45; extend the best program instead",
+    "incumbent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+    "component": "decoder",
+    "rolling_plan_override": true,
+    "experiment": {
+     "id": "X1",
+     "kind": "edit",
+     "question": "Can a decoder change of R4 raise bp-ng45 without losing ariane133-ng45?"
+    },
+    "evidence": {
+     "candidate_id": "a82eb476e8856c21f025a1c8d8a71bb272b614557592323a949e8f133fb48123",
+     "score": 18.687,
+     "parent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+     "complete": true,
+     "official_score_delta": -16.068,
+     "largest_regression": {
+      "case": "ariane133-ng45",
+      "seed": "1001",
+      "score_delta": -141.96
+     },
+     "largest_gain": {
+      "case": "ariane133-ng45",
+      "seed": "1003",
+      "score_delta": 13.155
+     },
+     "paired_case_deltas": [
+      {
+       "case": "bp_fe-ng45",
+       "scored_pairs": 3,
+       "expected_cells": 3,
+       "mean_paired_score_delta": -14.323
+      },
+      {
+       "case": "bp-ng45",
+       "scored_pairs": 3,
+       "expected_cells": 3,
+       "mean_paired_score_delta": 4.8905
+      },
+      {
+       "case": "ariane133-ng45",
+       "scored_pairs": 3,
+       "expected_cells": 3,
+       "mean_paired_score_delta": -38.771
+      }
+     ],
+     "gains_across_seeds": [
+      {
+       "case": "bp-ng45",
+       "improved_seeds": 2,
+       "total_seeds": 3,
+       "worst_seed_delta": -1.2511
+      },
+      {
+       "case": "ariane133-ng45",
+       "improved_seeds": 2,
+       "total_seeds": 3,
+       "worst_seed_delta": -141.96
+      }
+     ],
+     "timing_attribution_unconfirmed": [],
+     "failures": []
+    }
+   },
+   "experiment": {
+    "experiment": {
+     "id": "X1",
+     "kind": "edit",
+     "parent": "R4",
+     "component": "decoder",
+     "question": "Can a decoder change of R4 raise bp-ng45 without losing ariane133-ng45?",
+     "hypotheses": [
+      "the child's gain on ariane133-ng45/1003 (+13.16) is a real effect of its edit and its loss on ariane133-ng45/1001 (-141.96) can be repaired without losing it",
+      "the gain to protect is within what small label changes do to ariane133-ng45 here (median 28.94 points per cell over 46 pairs), so there is no measured gain for the repair to keep; its loss on ariane133-ng45/1001 (-141.96) is real, but R4's own value on that cell came from exchanged dies"
+     ],
+     "falsifier": "bp-ng45 does not improve on most seeds against R4, or a protected design (ariane133-ng45 16.71) falls more than its tolerance below R4"
+    },
+    "contract": {
+     "anchor": "R4",
+     "anchor_candidate": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+     "component": "decoder",
+     "kind": "edit",
+     "target": {
+      "case": "bp-ng45",
+      "seeds": [
+       "1001",
+       "1002",
+       "1003"
+      ],
+      "rule": "mean paired score delta over the case > 0 and most of its seeds improve"
+     },
+     "protect": [
+      {
+       "case": "ariane133-ng45",
+       "tolerance": 16.709,
+       "cell_tolerance": 28.941,
+       "strength": "mixed_reference",
+       "evidence": "R4-S",
+       "rule": "mean paired score delta over the case >= -tolerance"
+      }
+     ],
+     "fragile": [
+      "bp_fe-ng45/1002",
+      "bp_fe-ng45/1003",
+      "bp-ng45/1001",
+      "bp-ng45/1003"
+     ],
+     "tolerances": {
+      "bp_fe-ng45": {
+       "cell": 7.699,
+       "case_mean": 4.445,
+       "pairs": 34,
+       "source": "calibrated"
+      },
+      "bp-ng45": {
+       "cell": 3.516,
+       "case_mean": 2.03,
+       "pairs": 31,
+       "source": "calibrated"
+      },
+      "ariane133-ng45": {
+       "cell": 28.941,
+       "case_mean": 16.709,
+       "pairs": 46,
+       "source": "calibrated"
+      }
+     }
+    },
+    "anchor_review": {
+     "anchor": "R4",
+     "official_delta": 25.022,
+     "reading": "within_sensitivity",
+     "weak": {
+      "case": "bp-ng45",
+      "mean_delta": -0.2478,
+      "anchor_case_mean": -21.998,
+      "seeds": [
+       "1001",
+       "1002",
+       "1003"
+      ],
+      "cells": [
+       {
+        "seed": "1001",
+        "delta": 5.4519,
+        "evidence": "published_reference"
+       },
+       {
+        "seed": "1002",
+        "delta": -19.274,
+        "evidence": "orientation"
+       },
+       {
+        "seed": "1003",
+        "delta": 13.078,
+        "evidence": "published_reference"
+       }
+      ]
+     },
+     "protected": [
+      {
+       "case": "ariane133-ng45",
+       "mean_delta": 73.915,
+       "tolerance": 16.709,
+       "cell_tolerance": 28.941,
+       "seeds": [
+        "1001",
+        "1002",
+        "1003"
+       ],
+       "strength": "mixed_reference",
+       "evidence": "R4-S"
+      }
+     ],
+     "fragile": [
+      {
+       "cell": "bp_fe-ng45/1002",
+       "delta": 4.1269,
+       "reason": "orientation"
+      },
+      {
+       "cell": "bp_fe-ng45/1003",
+       "delta": 0.2667,
+       "reason": "published_reference"
+      },
+      {
+       "cell": "bp-ng45/1001",
+       "delta": 5.4519,
+       "reason": "published_reference"
+      },
+      {
+       "cell": "bp-ng45/1003",
+       "delta": 13.078,
+       "reason": "published_reference"
+      }
+     ],
+     "rows": [
+      {
+       "cell": "bp_fe-ng45/1001",
+       "anchor": 55.806,
+       "start": 56.002,
+       "start_measured_on": "published",
+       "delta": -0.196,
+       "wns_delta_ns": 0.035006,
+       "tns_delta_ns": -20.927,
+       "labels_vs_start": "local",
+       "evidence": "published_reference"
+      },
+      {
+       "cell": "bp_fe-ng45/1002",
+       "anchor": 54.056,
+       "start": 49.929,
+       "start_measured_on": "published",
+       "delta": 4.1269,
+       "wns_delta_ns": 0.069751,
+       "tns_delta_ns": 12.28,
+       "labels_vs_start": "exchange",
+       "evidence": "orientation"
+      },
+      {
+       "cell": "bp_fe-ng45/1003",
+       "anchor": 56.09,
+       "start": 55.824,
+       "start_measured_on": "published",
+       "delta": 0.2667,
+       "wns_delta_ns": 0.036531,
+       "tns_delta_ns": -16.207,
+       "labels_vs_start": "local",
+       "evidence": "published_reference"
+      },
+      {
+       "cell": "bp-ng45/1001",
+       "anchor": -15.372,
+       "start": -20.824,
+       "start_measured_on": "published",
+       "delta": 5.4519,
+       "wns_delta_ns": 0.56738,
+       "tns_delta_ns": 312.61,
+       "labels_vs_start": "local",
+       "evidence": "published_reference"
+      },
+      {
+       "cell": "bp-ng45/1002",
+       "anchor": -49.246,
+       "start": -29.973,
+       "start_measured_on": "published",
+       "delta": -19.274,
+       "wns_delta_ns": 0.016024,
+       "tns_delta_ns": -2135.6,
+       "labels_vs_start": "exchange",
+       "evidence": "orientation"
+      },
+      {
+       "cell": "bp-ng45/1003",
+       "anchor": -1.376,
+       "start": -14.454,
+       "start_measured_on": "published",
+       "delta": 13.078,
+       "wns_delta_ns": -0.060829,
+       "tns_delta_ns": 1474.6,
+       "labels_vs_start": "local",
+       "evidence": "published_reference"
+      },
+      {
+       "cell": "ariane133-ng45/1001",
+       "anchor": 82.974,
+       "start": -22.657,
+       "start_measured_on": "this_host",
+       "delta": 105.63,
+       "wns_delta_ns": 0.79099,
+       "tns_delta_ns": 73.644,
+       "labels_vs_start": "exchange",
+       "evidence": "orientation"
+      },
+      {
+       "cell": "ariane133-ng45/1002",
+       "anchor": 72.419,
+       "start": -24.344,
+       "start_measured_on": "this_host",
+       "delta": 96.763,
+       "wns_delta_ns": 0.30456,
+       "tns_delta_ns": 118.5,
+       "labels_vs_start": "local",
+       "evidence": "measured"
+      },
+      {
+       "cell": "ariane133-ng45/1003",
+       "anchor": 57.443,
+       "start": 38.091,
+       "start_measured_on": "published",
+       "delta": 19.352,
+       "wns_delta_ns": 0.12402,
+       "tns_delta_ns": 16.031,
+       "labels_vs_start": "local",
+       "evidence": "published_reference"
+      }
+     ]
+    },
+    "comparisons": [
+     {
+      "evidence": "R4-R6",
+      "varies": "decoder",
+      "official_delta": 0.0,
+      "reading": "no_gain",
+      "case_mean_deltas": {
+       "bp_fe-ng45": 0.0,
+       "bp-ng45": 0.0,
+       "ariane133-ng45": 0.0
+      }
+     },
+     {
+      "evidence": "R4-R2",
+      "varies": "decoder",
+      "official_delta": 5.3272,
+      "reading": "orientation_carried",
+      "case_mean_deltas": {
+       "bp_fe-ng45": 6.569,
+       "bp-ng45": -6.5038,
+       "ariane133-ng45": 15.916
+      }
+     },
+     {
+      "evidence": "R4-R7",
+      "varies": "loss",
+      "official_delta": 16.068,
+      "reading": "one_cell",
+      "case_mean_deltas": {
+       "bp_fe-ng45": 14.323,
+       "bp-ng45": -4.8905,
+       "ariane133-ng45": 38.771
+      }
+     }
+    ],
+    "lessons": [
+     {
+      "evidence": "R7-R4",
+      "finding": "paired_reading",
+      "reading": "no_gain",
+      "official_delta": -16.068,
+      "edit": {
+       "loss": "structural",
+       "decoder": "unchanged"
+      }
+     },
+     {
+      "evidence": "protect_gain:ariane133-ng45/1003",
+      "finding": "repair_declined",
+      "conclusion": "the gain to protect (+13.16 on ariane133-ng45/1003) is inside the 28.94-point cell sensitivity this run measured for ariane133-ng45; extend the best program instead",
+      "parent": "R4",
+      "component": "decoder"
+     }
+    ]
+   }
+  },
+  "checks_that_ran_on_the_generated_program": {
+   "parent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+   "policy_action": "extend_best",
+   "static": [
+    {
+     "check": "python38_syntax",
+     "status": "pass",
+     "detail": ""
+    },
+    {
+     "check": "program_bytes",
+     "status": "pass",
+     "detail": "2017 of 18000 bytes"
+    },
+    {
+     "check": "ast_nodes",
+     "status": "pass",
+     "detail": "173 of 3000 nodes"
+    },
+    {
+     "check": "manifest",
+     "status": "pass",
+     "detail": "changes ['decoder']"
+    },
+    {
+     "check": "identity_rules",
+     "status": "pass",
+     "detail": ""
+    }
+   ],
+   "probes": [
+    {
+     "probe": "decoder_contract",
+     "status": "skipped",
+     "reason": "the decoder calls reference_global_two_way, which no supported provider offers in the Agent runtime"
+    }
+   ],
+   "runtime": {
+    "event": "runtime_capabilities",
+    "python": "3.12.3",
+    "numpy": "2.5.5",
+    "torch": "2.15.0+cpu",
+    "reference_helper": null,
+    "decoder_probe": "custom decoders",
+    "loss_probe": "runs"
+   }
+  }
+ },
+ {
+  "after_round": 9,
+  "branching_choice": {
+   "parent": "R9",
+   "intent": "loss_only",
+   "reason": "targeted_repair"
+  },
+  "rolling_choice": {
+   "id": "X1",
+   "kind": "edit",
+   "parent": "R4",
+   "component": "decoder",
+   "question": "Can a decoder change of R4 raise bp-ng45 without losing ariane133-ng45?",
+   "donors": null,
+   "decides": null
+  },
+  "evidence_the_plan_uses": {
+   "lessons": [
+    {
+     "evidence": "R9-R4",
+     "finding": "paired_reading",
+     "reading": "no_gain",
+     "official_delta": -6.3431,
+     "edit": {
+      "loss": "structural",
+      "decoder": "unchanged"
+     }
+    },
+    {
+     "evidence": "protect_gain:ariane133-ng45/1002",
+     "finding": "repair_declined",
+     "conclusion": "the gain to protect (+15.12 on ariane133-ng45/1002) is inside the 21.08-point cell sensitivity this run measured for ariane133-ng45; extend the best program instead",
+     "parent": "R4",
+     "component": "decoder"
+    }
+   ],
+   "tolerances": {
+    "bp_fe-ng45": {
+     "cell": 6.797,
+     "case_mean": 3.924,
+     "pairs": 67,
+     "source": "calibrated"
+    },
+    "bp-ng45": {
+     "cell": 4.901,
+     "case_mean": 2.83,
+     "pairs": 67,
+     "source": "calibrated"
+    },
+    "ariane133-ng45": {
+     "cell": 21.083,
+     "case_mean": 12.172,
+     "pairs": 76,
+     "source": "calibrated"
+    }
+   },
+   "decision_override": {
+    "reason": "extend_best",
+    "note": "the gain to protect (+15.12 on ariane133-ng45/1002) is inside the 21.08-point cell sensitivity this run measured for ariane133-ng45; extend the best program instead",
+    "incumbent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd"
+   }
+  },
+  "competing_explanations": [
+   "the child's gain on ariane133-ng45/1002 (+15.12) is a real effect of its edit and its loss on ariane133-ng45/1001 (-64.65) can be repaired without losing it",
+   "the gain to protect is within what small label changes do to ariane133-ng45 here (median 21.08 points per cell over 76 pairs), so there is no measured gain for the repair to keep; its loss on ariane133-ng45/1001 (-64.65) is real, but R4's own value on that cell came from exchanged dies"
+  ],
+  "experiment_that_separates_them": "nothing: it spends the slot on R4 instead. The test of the first explanation is the repair itself, which the measured sensitivity makes a poor bet",
+  "gains_to_protect": [
+   {
+    "case": "ariane133-ng45",
+    "tolerance": 12.172,
+    "cell_tolerance": 21.083,
+    "strength": "mixed_reference",
+    "evidence": "R4-S",
+    "rule": "mean paired score delta over the case >= -tolerance"
+   }
+  ],
+  "falsifier": "bp-ng45 does not improve on most seeds against R4, or a protected design (ariane133-ng45 12.17) falls more than its tolerance below R4",
+  "planner_request_if_overrides_are_reviewed": {
+   "options": [
+    {
+     "id": "X1",
+     "kind": "edit",
+     "parent": "R4",
+     "component": "decoder",
+     "question": "Can a decoder change of R4 raise bp-ng45 without losing ariane133-ng45?",
+     "decides": null,
+     "hypotheses": [
+      "the child's gain on ariane133-ng45/1002 (+15.12) is a real effect of its edit and its loss on ariane133-ng45/1001 (-64.65) can be repaired without losing it",
+      "the gain to protect is within what small label changes do to ariane133-ng45 here (median 21.08 points per cell over 76 pairs), so there is no measured gain for the repair to keep; its loss on ariane133-ng45/1001 (-64.65) is real, but R4's own value on that cell came from exchanged dies"
+     ],
+     "distinguishes": "nothing: it spends the slot on R4 instead. The test of the first explanation is the repair itself, which the measured sensitivity makes a poor bet",
+     "falsifier": "bp-ng45 does not improve on most seeds against R4, or a protected design (ariane133-ng45 12.17) falls more than its tolerance below R4"
+    },
+    {
+     "id": "X2",
+     "kind": "edit",
+     "parent": "R9",
+     "component": "loss",
+     "question": "The branching choice: a loss change of R9 (targeted_repair).",
+     "decides": null,
+     "hypotheses": [
+      "a loss change of R9 can raise bp_fe-ng45, whose mean is -3.92 against the start",
+      "the bp_fe-ng45 deficit comes from R9's decoder, which this edit keeps"
+     ],
+     "distinguishes": "bp_fe-ng45 improves on most seeds against R9 with every protected design inside its tolerance, or it does not",
+     "falsifier": "bp_fe-ng45 does not improve on most seeds against R9, or a protected design (ariane133-ng45 12.17) falls more than its tolerance below R9"
+    }
+   ],
+   "triggers": [
+    "rolling_override"
+   ],
+   "lessons": [
+    {
+     "evidence": "R9-R4",
+     "finding": "paired_reading",
+     "reading": "no_gain",
+     "official_delta": -6.3431,
+     "edit": {
+      "loss": "structural",
+      "decoder": "unchanged"
+     }
+    },
+    {
+     "evidence": "protect_gain:ariane133-ng45/1002",
+     "finding": "repair_declined",
+     "conclusion": "the gain to protect (+15.12 on ariane133-ng45/1002) is inside the 21.08-point cell sensitivity this run measured for ariane133-ng45; extend the best program instead",
+     "parent": "R4",
+     "component": "decoder"
+    }
+   ],
+   "anchor_review": {
+    "anchor": "R4",
+    "official_delta": 25.022,
+    "reading": "within_sensitivity",
+    "weak": {
+     "case": "bp-ng45",
+     "mean_delta": -0.2478,
+     "anchor_case_mean": -21.998,
+     "seeds": [
+      "1001",
+      "1002",
+      "1003"
+     ],
+     "cells": [
+      {
+       "seed": "1001",
+       "delta": 5.4519,
+       "evidence": "published_reference"
+      },
+      {
+       "seed": "1002",
+       "delta": -19.274,
+       "evidence": "orientation"
+      },
+      {
+       "seed": "1003",
+       "delta": 13.078,
+       "evidence": "published_reference"
+      }
+     ]
+    },
+    "protected": [
+     {
+      "case": "ariane133-ng45",
+      "mean_delta": 73.915,
+      "tolerance": 12.172,
+      "cell_tolerance": 21.083,
+      "seeds": [
+       "1001",
+       "1002",
+       "1003"
+      ],
+      "strength": "mixed_reference",
+      "evidence": "R4-S"
+     }
+    ],
+    "fragile": [
+     {
+      "cell": "bp_fe-ng45/1002",
+      "delta": 4.1269,
+      "reason": "orientation"
+     },
+     {
+      "cell": "bp_fe-ng45/1003",
+      "delta": 0.2667,
+      "reason": "published_reference"
+     },
+     {
+      "cell": "bp-ng45/1001",
+      "delta": 5.4519,
+      "reason": "published_reference"
+     },
+     {
+      "cell": "bp-ng45/1003",
+      "delta": 13.078,
+      "reason": "published_reference"
+     }
+    ],
+    "rows": [
+     {
+      "cell": "bp_fe-ng45/1001",
+      "anchor": 55.806,
+      "start": 56.002,
+      "start_measured_on": "published",
+      "delta": -0.196,
+      "wns_delta_ns": 0.035006,
+      "tns_delta_ns": -20.927,
+      "labels_vs_start": "local",
+      "evidence": "published_reference"
+     },
+     {
+      "cell": "bp_fe-ng45/1002",
+      "anchor": 54.056,
+      "start": 49.929,
+      "start_measured_on": "published",
+      "delta": 4.1269,
+      "wns_delta_ns": 0.069751,
+      "tns_delta_ns": 12.28,
+      "labels_vs_start": "exchange",
+      "evidence": "orientation"
+     },
+     {
+      "cell": "bp_fe-ng45/1003",
+      "anchor": 56.09,
+      "start": 55.824,
+      "start_measured_on": "published",
+      "delta": 0.2667,
+      "wns_delta_ns": 0.036531,
+      "tns_delta_ns": -16.207,
+      "labels_vs_start": "local",
+      "evidence": "published_reference"
+     },
+     {
+      "cell": "bp-ng45/1001",
+      "anchor": -15.372,
+      "start": -20.824,
+      "start_measured_on": "published",
+      "delta": 5.4519,
+      "wns_delta_ns": 0.56738,
+      "tns_delta_ns": 312.61,
+      "labels_vs_start": "local",
+      "evidence": "published_reference"
+     },
+     {
+      "cell": "bp-ng45/1002",
+      "anchor": -49.246,
+      "start": -29.973,
+      "start_measured_on": "published",
+      "delta": -19.274,
+      "wns_delta_ns": 0.016024,
+      "tns_delta_ns": -2135.6,
+      "labels_vs_start": "exchange",
+      "evidence": "orientation"
+     },
+     {
+      "cell": "bp-ng45/1003",
+      "anchor": -1.376,
+      "start": -14.454,
+      "start_measured_on": "published",
+      "delta": 13.078,
+      "wns_delta_ns": -0.060829,
+      "tns_delta_ns": 1474.6,
+      "labels_vs_start": "local",
+      "evidence": "published_reference"
+     },
+     {
+      "cell": "ariane133-ng45/1001",
+      "anchor": 82.974,
+      "start": -22.657,
+      "start_measured_on": "this_host",
+      "delta": 105.63,
+      "wns_delta_ns": 0.79099,
+      "tns_delta_ns": 73.644,
+      "labels_vs_start": "exchange",
+      "evidence": "orientation"
+     },
+     {
+      "cell": "ariane133-ng45/1002",
+      "anchor": 72.419,
+      "start": -24.344,
+      "start_measured_on": "this_host",
+      "delta": 96.763,
+      "wns_delta_ns": 0.30456,
+      "tns_delta_ns": 118.5,
+      "labels_vs_start": "local",
+      "evidence": "measured"
+     },
+     {
+      "cell": "ariane133-ng45/1003",
+      "anchor": 57.443,
+      "start": 38.091,
+      "start_measured_on": "published",
+      "delta": 19.352,
+      "wns_delta_ns": 0.12402,
+      "tns_delta_ns": 16.031,
+      "labels_vs_start": "local",
+      "evidence": "published_reference"
+     }
+    ]
+   },
+   "budget": {
+    "remaining": 1,
+    "total": 10,
+    "splices_used": 0,
+    "splice_cap": 3
+   },
+   "allowed_probes": [
+    "decoder_change_vs_parent",
+    "decoder_top_area_share",
+    "loss_ratio_vs_parent"
+   ]
+  },
+  "generation_request_sent": {
+   "effort": "low",
+   "fields": {
+    "search_intent": 14,
+    "decision": 1486,
+    "parent_id": 66,
+    "parent_program": 4132,
+    "training_cells": 363,
+    "evaluations_remaining": 1,
+    "parent_feedback": 893,
+    "incumbent_feedback": 4,
+    "last_trial": 7239,
+    "prior_trials": 2942,
+    "related_experiment": 671,
+    "previous_generation_issue": 4,
+    "experiment": 5718
+   },
+   "total_characters": 23798,
+   "search_intent": "decoder_only",
+   "parent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+   "decision": {
+    "reason": "extend_best",
+    "note": "the gain to protect (+15.12 on ariane133-ng45/1002) is inside the 21.08-point cell sensitivity this run measured for ariane133-ng45; extend the best program instead",
+    "incumbent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+    "component": "decoder",
+    "rolling_plan_override": true,
+    "experiment": {
+     "id": "X1",
+     "kind": "edit",
+     "question": "Can a decoder change of R4 raise bp-ng45 without losing ariane133-ng45?"
+    },
+    "evidence": {
+     "candidate_id": "eb8d17076588920895968ad74ae866ab95b2e2fae3edd3243320fd1bbd67f9c6",
+     "score": 28.412,
+     "parent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+     "complete": true,
+     "official_score_delta": -6.3431,
+     "largest_regression": {
+      "case": "ariane133-ng45",
+      "seed": "1001",
+      "score_delta": -64.646
+     },
+     "largest_gain": {
+      "case": "ariane133-ng45",
+      "seed": "1002",
+      "score_delta": 15.117
+     },
+     "paired_case_deltas": [
+      {
+       "case": "bp_fe-ng45",
+       "scored_pairs": 3,
+       "expected_cells": 3,
+       "mean_paired_score_delta": -5.3175
+      },
+      {
+       "case": "bp-ng45",
+       "scored_pairs": 3,
+       "expected_cells": 3,
+       "mean_paired_score_delta": 2.2986
+      },
+      {
+       "case": "ariane133-ng45",
+       "scored_pairs": 3,
+       "expected_cells": 3,
+       "mean_paired_score_delta": -16.011
+      }
+     ],
+     "gains_across_seeds": [
+      {
+       "case": "bp-ng45",
+       "improved_seeds": 2,
+       "total_seeds": 3,
+       "worst_seed_delta": -11.735
+      },
+      {
+       "case": "ariane133-ng45",
+       "improved_seeds": 2,
+       "total_seeds": 3,
+       "worst_seed_delta": -64.646
+      }
+     ],
+     "timing_attribution_unconfirmed": [],
+     "failures": []
+    }
+   },
+   "experiment": {
+    "experiment": {
+     "id": "X1",
+     "kind": "edit",
+     "parent": "R4",
+     "component": "decoder",
+     "question": "Can a decoder change of R4 raise bp-ng45 without losing ariane133-ng45?",
+     "hypotheses": [
+      "the child's gain on ariane133-ng45/1002 (+15.12) is a real effect of its edit and its loss on ariane133-ng45/1001 (-64.65) can be repaired without losing it",
+      "the gain to protect is within what small label changes do to ariane133-ng45 here (median 21.08 points per cell over 76 pairs), so there is no measured gain for the repair to keep; its loss on ariane133-ng45/1001 (-64.65) is real, but R4's own value on that cell came from exchanged dies"
+     ],
+     "falsifier": "bp-ng45 does not improve on most seeds against R4, or a protected design (ariane133-ng45 12.17) falls more than its tolerance below R4"
+    },
+    "contract": {
+     "anchor": "R4",
+     "anchor_candidate": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+     "component": "decoder",
+     "kind": "edit",
+     "target": {
+      "case": "bp-ng45",
+      "seeds": [
+       "1001",
+       "1002",
+       "1003"
+      ],
+      "rule": "mean paired score delta over the case > 0 and most of its seeds improve"
+     },
+     "protect": [
+      {
+       "case": "ariane133-ng45",
+       "tolerance": 12.172,
+       "cell_tolerance": 21.083,
+       "strength": "mixed_reference",
+       "evidence": "R4-S",
+       "rule": "mean paired score delta over the case >= -tolerance"
+      }
+     ],
+     "fragile": [
+      "bp_fe-ng45/1002",
+      "bp_fe-ng45/1003",
+      "bp-ng45/1001",
+      "bp-ng45/1003"
+     ],
+     "tolerances": {
+      "bp_fe-ng45": {
+       "cell": 6.797,
+       "case_mean": 3.924,
+       "pairs": 67,
+       "source": "calibrated"
+      },
+      "bp-ng45": {
+       "cell": 4.901,
+       "case_mean": 2.83,
+       "pairs": 67,
+       "source": "calibrated"
+      },
+      "ariane133-ng45": {
+       "cell": 21.083,
+       "case_mean": 12.172,
+       "pairs": 76,
+       "source": "calibrated"
+      }
+     }
+    },
+    "anchor_review": {
+     "anchor": "R4",
+     "official_delta": 25.022,
+     "reading": "within_sensitivity",
+     "weak": {
+      "case": "bp-ng45",
+      "mean_delta": -0.2478,
+      "anchor_case_mean": -21.998,
+      "seeds": [
+       "1001",
+       "1002",
+       "1003"
+      ],
+      "cells": [
+       {
+        "seed": "1001",
+        "delta": 5.4519,
+        "evidence": "published_reference"
+       },
+       {
+        "seed": "1002",
+        "delta": -19.274,
+        "evidence": "orientation"
+       },
+       {
+        "seed": "1003",
+        "delta": 13.078,
+        "evidence": "published_reference"
+       }
+      ]
+     },
+     "protected": [
+      {
+       "case": "ariane133-ng45",
+       "mean_delta": 73.915,
+       "tolerance": 12.172,
+       "cell_tolerance": 21.083,
+       "seeds": [
+        "1001",
+        "1002",
+        "1003"
+       ],
+       "strength": "mixed_reference",
+       "evidence": "R4-S"
+      }
+     ],
+     "fragile": [
+      {
+       "cell": "bp_fe-ng45/1002",
+       "delta": 4.1269,
+       "reason": "orientation"
+      },
+      {
+       "cell": "bp_fe-ng45/1003",
+       "delta": 0.2667,
+       "reason": "published_reference"
+      },
+      {
+       "cell": "bp-ng45/1001",
+       "delta": 5.4519,
+       "reason": "published_reference"
+      },
+      {
+       "cell": "bp-ng45/1003",
+       "delta": 13.078,
+       "reason": "published_reference"
+      }
+     ],
+     "rows": [
+      {
+       "cell": "bp_fe-ng45/1001",
+       "anchor": 55.806,
+       "start": 56.002,
+       "start_measured_on": "published",
+       "delta": -0.196,
+       "wns_delta_ns": 0.035006,
+       "tns_delta_ns": -20.927,
+       "labels_vs_start": "local",
+       "evidence": "published_reference"
+      },
+      {
+       "cell": "bp_fe-ng45/1002",
+       "anchor": 54.056,
+       "start": 49.929,
+       "start_measured_on": "published",
+       "delta": 4.1269,
+       "wns_delta_ns": 0.069751,
+       "tns_delta_ns": 12.28,
+       "labels_vs_start": "exchange",
+       "evidence": "orientation"
+      },
+      {
+       "cell": "bp_fe-ng45/1003",
+       "anchor": 56.09,
+       "start": 55.824,
+       "start_measured_on": "published",
+       "delta": 0.2667,
+       "wns_delta_ns": 0.036531,
+       "tns_delta_ns": -16.207,
+       "labels_vs_start": "local",
+       "evidence": "published_reference"
+      },
+      {
+       "cell": "bp-ng45/1001",
+       "anchor": -15.372,
+       "start": -20.824,
+       "start_measured_on": "published",
+       "delta": 5.4519,
+       "wns_delta_ns": 0.56738,
+       "tns_delta_ns": 312.61,
+       "labels_vs_start": "local",
+       "evidence": "published_reference"
+      },
+      {
+       "cell": "bp-ng45/1002",
+       "anchor": -49.246,
+       "start": -29.973,
+       "start_measured_on": "published",
+       "delta": -19.274,
+       "wns_delta_ns": 0.016024,
+       "tns_delta_ns": -2135.6,
+       "labels_vs_start": "exchange",
+       "evidence": "orientation"
+      },
+      {
+       "cell": "bp-ng45/1003",
+       "anchor": -1.376,
+       "start": -14.454,
+       "start_measured_on": "published",
+       "delta": 13.078,
+       "wns_delta_ns": -0.060829,
+       "tns_delta_ns": 1474.6,
+       "labels_vs_start": "local",
+       "evidence": "published_reference"
+      },
+      {
+       "cell": "ariane133-ng45/1001",
+       "anchor": 82.974,
+       "start": -22.657,
+       "start_measured_on": "this_host",
+       "delta": 105.63,
+       "wns_delta_ns": 0.79099,
+       "tns_delta_ns": 73.644,
+       "labels_vs_start": "exchange",
+       "evidence": "orientation"
+      },
+      {
+       "cell": "ariane133-ng45/1002",
+       "anchor": 72.419,
+       "start": -24.344,
+       "start_measured_on": "this_host",
+       "delta": 96.763,
+       "wns_delta_ns": 0.30456,
+       "tns_delta_ns": 118.5,
+       "labels_vs_start": "local",
+       "evidence": "measured"
+      },
+      {
+       "cell": "ariane133-ng45/1003",
+       "anchor": 57.443,
+       "start": 38.091,
+       "start_measured_on": "published",
+       "delta": 19.352,
+       "wns_delta_ns": 0.12402,
+       "tns_delta_ns": 16.031,
+       "labels_vs_start": "local",
+       "evidence": "published_reference"
+      }
+     ]
+    },
+    "comparisons": [
+     {
+      "evidence": "R4-R6",
+      "varies": "decoder",
+      "official_delta": 0.0,
+      "reading": "no_gain",
+      "case_mean_deltas": {
+       "bp_fe-ng45": 0.0,
+       "bp-ng45": 0.0,
+       "ariane133-ng45": 0.0
+      }
+     },
+     {
+      "evidence": "R4-R2",
+      "varies": "decoder",
+      "official_delta": 5.3272,
+      "reading": "orientation_carried",
+      "case_mean_deltas": {
+       "bp_fe-ng45": 6.569,
+       "bp-ng45": -6.5038,
+       "ariane133-ng45": 15.916
+      }
+     },
+     {
+      "evidence": "R4-R9",
+      "varies": "loss",
+      "official_delta": 6.3431,
+      "reading": "one_cell",
+      "case_mean_deltas": {
+       "bp_fe-ng45": 5.3174,
+       "bp-ng45": -2.2986,
+       "ariane133-ng45": 16.011
+      }
+     }
+    ],
+    "lessons": [
+     {
+      "evidence": "R9-R4",
+      "finding": "paired_reading",
+      "reading": "no_gain",
+      "official_delta": -6.3431,
+      "edit": {
+       "loss": "structural",
+       "decoder": "unchanged"
+      }
+     },
+     {
+      "evidence": "protect_gain:ariane133-ng45/1002",
+      "finding": "repair_declined",
+      "conclusion": "the gain to protect (+15.12 on ariane133-ng45/1002) is inside the 21.08-point cell sensitivity this run measured for ariane133-ng45; extend the best program instead",
+      "parent": "R4",
+      "component": "decoder"
+     }
+    ]
+   }
+  },
+  "checks_that_ran_on_the_generated_program": {
+   "parent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+   "policy_action": "extend_best",
+   "static": [
+    {
+     "check": "python38_syntax",
+     "status": "pass",
+     "detail": ""
+    },
+    {
+     "check": "program_bytes",
+     "status": "pass",
+     "detail": "2017 of 18000 bytes"
+    },
+    {
+     "check": "ast_nodes",
+     "status": "pass",
+     "detail": "173 of 3000 nodes"
+    },
+    {
+     "check": "manifest",
+     "status": "pass",
+     "detail": "changes ['decoder']"
+    },
+    {
+     "check": "identity_rules",
+     "status": "pass",
+     "detail": ""
+    }
+   ],
+   "probes": [
+    {
+     "probe": "decoder_contract",
+     "status": "skipped",
+     "reason": "the decoder calls reference_global_two_way, which no supported provider offers in the Agent runtime"
+    }
+   ],
+   "runtime": {
+    "event": "runtime_capabilities",
+    "python": "3.12.3",
+    "numpy": "2.5.5",
+    "torch": "2.15.0+cpu",
+    "reference_helper": null,
+    "decoder_probe": "custom decoders",
+    "loss_probe": "runs"
+   }
+  }
+ }
+]

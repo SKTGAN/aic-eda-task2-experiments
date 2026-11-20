@@ -1,0 +1,73 @@
+{
+  "round": 14,
+  "memory_rounds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
+  ],
+  "history_sha256": "7866e25afdc63fe17db2619b45353f3754a7dba12d64d53efe46ccdedb3066fc",
+  "generator_plan": {
+    "parent_round": 4,
+    "component": "loss",
+    "protect_cell": "bp_fe-ng45/1001",
+    "target_cell": "bp-ng45/1002",
+    "hypothesis": "R13's capped-linear blend produced an identical C matrix, so capping the R4 star margin is inert on layout C. Change only R4's loss by scaling the existing normalized timing-star margin with the sampled pair-count ratio min(2.0, (len(positive_scores)+len(negative_scores))/max(1,source_batch_size)), preserving the contrastive term and reference decoder. This couples graph attraction to the actual sampled batch size using a legal numerical rule, without case-specific logic, and should change embeddings enough to move feasible labels on weak bp cells while limiting over-weighting from small batches.",
+    "prediction": "Nine-cell C mean should exceed R4 control 2.5568, with a threshold of >3.0568 for a useful gain. Protect bp_fe-ng45/1001 should remain at or above R4's 28.7175 and not regress by more than 1.0. Diagnostic target bp-ng45/1002 should improve above R4's -29.849, with WNS no worse than R4's -7.8203 ns and TNS no worse than -10347.1651. Any aggregate gain must be accompanied by changed feasible cut or assignment counts on at least some cells; ariane133-ng45/1003 must not fall below -100.",
+    "falsifier": "Reject if the nine-cell C mean is <=2.5568, or protect bp_fe-ng45/1001 falls below 28.7175, or target bp-ng45/1002 does not improve above -29.849, or the full C matrix remains identical to R4/R13 so the loss change is inert, or any timing gain occurs with unchanged feasible labels/cuts and no assignment change.",
+    "parent_mean_on_C": 2.5568
+  },
+  "applied": {
+    "parent_round": 4,
+    "component": "loss",
+    "evidence": [
+      {
+        "round": 2,
+        "cell": "ariane133-ng45/1002"
+      },
+      {
+        "round": 4,
+        "cell": "bp_fe-ng45/1001"
+      },
+      {
+        "round": 6,
+        "cell": "ariane133-ng45/1002"
+      },
+      {
+        "round": 13,
+        "cell": "ariane133-ng45/1002"
+      },
+      {
+        "round": 13,
+        "cell": "bp_fe-ng45/1001"
+      }
+    ],
+    "correction": "Reject the proposal's pair-count batch multiplier: it is essentially the R2 development loss rule already carried through R4/R6, R6 added no independent matrix, and R4's marginal development gain was attributed to a decoder child rather than that loss. On layout C, R13's capped/linear blend was a zero-delta repeat of R4, so another loss-shape or batch-normalization variant is not justified. Keep parent R4's contrastive term and reference decoder unchanged; change only the graph-margin coefficient from 4.0 to 2.0 and keep the normalized margin exactly: graph_margin_penalty = (graph_weights * F.softplus(0.5 - graph_scores)).sum() / graph_weights.sum().clamp(min=1.0); return contrastive_loss + 2.0 * graph_margin_penalty. No batch-ratio multiplier and no conditioning on case names, seeds, sizes, labels, or cells. This is one reversible scalar intervention and must change the fixed nine-cell C matrix before any score gain is interpreted.",
+    "protect_cell": "bp_fe-ng45/1001",
+    "target_cell": "bp-ng45/1002",
+    "prediction": "The nine-cell C mean should exceed the parent R4/R13 control of 2.5568, with a useful threshold above 3.0568. Protect bp_fe-ng45/1001 should remain at or above R4's 28.7175 within 1.0. Diagnostic target bp-ng45/1002 should improve above R4's -29.849, with WNS no worse than -7.8203 ns and TNS no worse than -10347.1651 ns. At least one feasible cut or assignment count must differ from R4/R13 on the fixed nine C cells; otherwise the coefficient change is inert and must be rejected.",
+    "falsifier": "Reject if the fixed nine-cell C mean is <= 2.5568, or if bp_fe-ng45/1001 falls below 28.7175, or if bp-ng45/1002 remains <= -29.849, or if the C matrix and feasible labels/cuts are identical to R4/R13, or if any apparent timing gain is only a die swap with unchanged feasible partition.",
+    "parent_mean_on_C": 2.5568
+  },
+  "checks": [
+    {
+      "verdict": "accept",
+      "finding": "The executable body matches the applied correction: it preserves the parent contrastive term, keeps the normalized graph-margin expression exactly unchanged, and alters only the coefficient from 4.0 to 2.0. The decoder remains the unchanged reference decoder. There is no pair-count batch multiplier, no case/seed/size/label/cell conditioning, and no other executable intervention. The promised physical matrix effect remains pending, but no corrective edit is warranted before the fixed nine-cell C matrix is run.",
+      "required_change": ""
+    }
+  ],
+  "parent_id": "d5fd4448ad8d57fe652cc16b641a1d5002fa11145f699750b888cf1728df62ca",
+  "parent_source_sha256": "d14f9ca79b710310562f4979a9e5766b16ea9feb517ccf8a5bef4968cb361a40",
+  "source": "def compute_tp_gnn_loss(\n    positive_scores,\n    negative_scores,\n    embeddings,\n    positive_sources,\n    positive_targets,\n    negative_sources,\n    negative_targets,\n    source_batch_size,\n    epoch,\n    max_epochs,\n    graph_scores,\n    graph_sources,\n    graph_targets,\n    graph_net_ids,\n    graph_weights,\n    net_weights,\n    node_features,\n    node_areas,\n):\n    \"\"\"Reduce the timing-weighted graph-margin coefficient from 4.0 to 2.0.\n\n    Change relative to the parent: the sampled random-walk log-sigmoid\n    contrastive term and the area-normalized timing-star margin are preserved\n    exactly, but the normalized margin contribution is scaled by 2.0 instead\n    of 4.0.  This is a single reversible scalar intervention intended to soften\n    graph dominance while retaining the parent contrastive geometry.\n\n    Expected measurable effect: the unchanged area-balanced two-center decoder\n    should still receive timing-aware embeddings, but fewer supernodes may be\n    pulled across the partition boundary by high-margin graph edges.  If the\n    parent graph term was over-dominant, the official mean should improve while\n    preserving useful timing-weighted cut movement.\n\n    Invalidation: reject if the official mean score does not exceed the parent,\n    or if the loss change leaves feasible labels, cuts, and timing behavior\n    unchanged, since the coefficient reduction would then be inert.\n    \"\"\"\n    contrastive_loss = -(\n        F.logsigmoid(positive_scores).sum()\n        + F.logsigmoid(-negative_scores).sum()\n    ) / max(1, source_batch_size)\n\n    graph_margin_penalty = (\n        graph_weights * F.softplus(0.5 - graph_scores)\n    ).sum() / graph_weights.sum().clamp(min=1.0)\n\n    return contrastive_loss + 2.0 * graph_margin_penalty\n\n\ndef decode_tp_gnn_embeddings(embeddings, node_areas, seed, max_iterations, balance_target):\n    \"\"\"Keep the parent frozen area-balanced global two-way decoder.\n\n    No change relative to the parent: this delegates exactly once to the\n    trusted reference helper with unchanged arguments.  The hypothesis is\n    isolated to the timing-star margin coefficient, so decoder behavior should\n    remain unchanged.  If decoder-side behavior changes, the comparison does\n    not test the intended loss-only hypothesis.\n    \"\"\"\n    return reference_global_two_way(embeddings, node_areas, seed, max_iterations, balance_target)\n",
+  "source_sha256": "ea7ee5fb89d7bd69e36a757afb8ab23cce40c3ada131d25834b6e617cde6b940",
+  "diff": "--- parent\n+++ candidate\n@@ -1,4 +1,4 @@\n contrastive_loss = -(F.logsigmoid(positive_scores).sum() + F.logsigmoid(-negative_scores).sum()) / max(1, source_batch_size)\n graph_margin_penalty = (graph_weights * F.softplus(0.5 - graph_scores)).sum() / graph_weights.sum().clamp(min=1.0)\n-return contrastive_loss + 4.0 * graph_margin_penalty\n+return contrastive_loss + 2.0 * graph_margin_penalty\n return reference_global_two_way(embeddings, node_areas, seed, max_iterations, balance_target)"
+}

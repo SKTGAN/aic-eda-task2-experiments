@@ -1,0 +1,18 @@
+-------------------------------------------------------------------------------->8
+[2026-11-13T03:34:25.658545600Z][inference.model-manager] Successfully initialized store
+[2026-11-13T03:34:25.663424600Z][inference] 3 backends available
+[2026-11-13T03:34:31.470403200Z][inference] Reconciling service state on initialization
+[2026-11-13T03:34:31.470403200Z][inference] Reconciling service state on settings change
+[2026-11-13T03:34:31.470403200Z][inference] downloadLatestLlamaCpp
+[2026-11-13T03:34:34.006736600Z][inference][W] failed to read current llama.cpp version: open C:\Users\A\.docker\bin\inference\.llamacpp_version: The system cannot find the path specified.[2026-11-13T03:34:34.006792300Z][inference][W] proceeding to update llama.cpp binary
+[2026-11-13T03:34:34.007344800Z][inference] Extracting image
+[2026-11-13T03:41:44.011625000Z][inference] Failed to ensure latest llama.cpp: could not extract image: fetching image: after 10 attempts, last error: failed to do request: Head "https://registry-1.docker.io/v2/docker/docker-model-backend-llamacpp/manifests/sha256:d29b95b2e3dd19dde850137abeb98b4919f7cbf5a03ce8f191fd07b2f6d4f8fa": dial tcp 154.85.102.32:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.[2026-11-13T03:41:44.115343200Z][inference] installed llama-server
+[2026-11-13T03:41:44.115343200Z][inference][W] Backend installation failed for: not implemented-------------------------------------------------------------------------------->8
+[2026-11-14T06:09:54.303561700Z][inference.model-manager] Successfully initialized store
+[2026-11-14T06:09:54.316096900Z][inference] 3 backends available
+[2026-11-14T06:09:56.825458700Z][inference] Reconciling service state on initialization
+[2026-11-14T06:09:56.825458700Z][inference] Reconciling service state on settings change
+[2026-11-14T06:09:56.826515900Z][inference] downloadLatestLlamaCpp
+[2026-11-14T06:09:57.456043200Z][inference][W] failed to read current llama.cpp version: open C:\Users\A\.docker\bin\inference\.llamacpp_version: The system cannot find the path specified.[2026-11-14T06:09:57.457060800Z][inference][W] proceeding to update llama.cpp binary
+[2026-11-14T06:09:57.457641000Z][inference] Extracting image
+[2026-11-14T06:16:44.495312100Z][inference] Failed to ensure latest llama.cpp: could not extract image: fetching image: after 10 attempts, last error: failed to do request: Head "https://registry-1.docker.io/v2/docker/docker-model-backend-llamacpp/manifests/sha256:d29b95b2e3dd19dde850137abeb98b4919f7cbf5a03ce8f191fd07b2f6d4f8fa": context canceled[2026-11-14T06:16:44.495312100Z][inference][W] Backend installation failed for: could not extract image: fetching image: after 10 attempts, last error: failed to do request: Head "https://registry-1.docker.io/v2/docker/docker-model-backend-llamacpp/manifests/sha256:d29b95b2e3dd19dde850137abeb98b4919f7cbf5a03ce8f191fd07b2f6d4f8fa": context canceled[2026-11-14T06:16:44.495312100Z][inference][W] Backend installation failed for: not implemented

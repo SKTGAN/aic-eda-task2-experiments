@@ -1,0 +1,436 @@
+[
+ {
+  "event": "submitted",
+  "request_id": "e-80bc93e58c8813456aeef8c0fe8d98831c4b75dd8b2cbafb132f8d1a39d5",
+  "decision": {
+   "reason": "opening_control"
+  },
+  "parent_id": "5f349d8a64df348e8bd59f3918e3a89dbde4f459ef3e0cfbfe097f4a3f43acea",
+  "search_intent": "decoder_only",
+  "changed_components": {
+   "decoder": {
+    "mechanism": "seeded area-weighted two-means with deterministic farthest anchors and a cumulative-area cut",
+    "decision": "each node's tier follows the nearer area-balanced center after ranking by squared-distance margin",
+    "prediction": "tighter embedding-coherent balanced groups reduce timing-weighted cut and improve combined timing",
+    "falsifier": "unchanged final weighted cut or nonpositive paired combined score across the training cells would disprove the mechanism."
+   }
+  }
+ },
+ {
+  "event": "submitted",
+  "request_id": "e-4cc3d17d4f0f5c98b69df5136f9e34e025a399830b1ff713a4a1492e4ee6",
+  "decision": {
+   "reason": "complementary_opening_with_first_receipt",
+   "evidence": {
+    "candidate_id": "3b05394850e5951fa299e7736ff9904839b57b6e530b81722a89d29d60761329",
+    "score": 4.551132504098089,
+    "parent_id": "5f349d8a64df348e8bd59f3918e3a89dbde4f459ef3e0cfbfe097f4a3f43acea",
+    "complete": true,
+    "official_score_delta": -15.873927812163867,
+    "largest_regression": {
+     "case": "ariane133-ng45",
+     "seed": "1002",
+     "score_delta": -98.49223961061062,
+     "raw_score_contribution_deltas": {
+      "wns": -10.059,
+      "tns": -211.657
+     },
+     "score_floor_delta_points": 123.2237
+    },
+    "largest_gain": {
+     "case": "ariane133-ng45",
+     "seed": "1001",
+     "score_delta": 15.81951185911403
+    },
+    "paired_case_deltas": [
+     {
+      "case": "bp_fe-ng45",
+      "scored_pairs": 3,
+      "expected_cells": 3,
+      "mean_paired_score_delta": -1.1944833844808638
+     },
+     {
+      "case": "bp-ng45",
+      "scored_pairs": 3,
+      "expected_cells": 3,
+      "mean_paired_score_delta": 0.3226618333799583
+     },
+     {
+      "case": "ariane133-ng45",
+      "scored_pairs": 3,
+      "expected_cells": 3,
+      "mean_paired_score_delta": -46.74996188539069
+     }
+    ],
+    "gains_across_seeds": [
+     {
+      "case": "bp-ng45",
+      "improved_seeds": 2,
+      "total_seeds": 3,
+      "worst_seed_delta": -10.20625
+     }
+    ],
+    "timing_attribution_unconfirmed": [
+     {
+      "case": "ariane133-ng45",
+      "seed": "1003",
+      "score_delta": -57.577157904675474,
+      "wns_slack_delta_ns": 0.07533929249259397,
+      "tns_slack_delta_ns": -101.68578444863935
+     },
+     {
+      "case": "bp-ng45",
+      "seed": "1003",
+      "score_delta": 10.896414077630595,
+      "wns_slack_delta_ns": -0.03912958956496926,
+      "tns_slack_delta_ns": 1222.6856033712584
+     },
+     {
+      "case": "bp-ng45",
+      "seed": "1001",
+      "score_delta": 0.2778218030327402,
+      "wns_slack_delta_ns": 0.5190967802532169,
+      "tns_slack_delta_ns": -233.88657361739206
+     }
+    ],
+    "failures": []
+   }
+  },
+  "parent_id": "5f349d8a64df348e8bd59f3918e3a89dbde4f459ef3e0cfbfe097f4a3f43acea",
+  "search_intent": "loss_only",
+  "changed_components": {
+   "loss": {
+    "mechanism": "add a timing-weighted margin on star-edge dot products to the maintained contrastive loss",
+    "decision": "high-weight star edges receive extra gradient so the unchanged two-means decoder tends to place timing-connected supernodes in one tier",
+    "prediction": "timing-weighted cut and combined timing improve versus the parent, especially on bp-ng45",
+    "falsifier": "no reduction in timing-weighted cut or nonpositive mean paired combined-score delta across seeds would disprove the hypothesis."
+   }
+  }
+ },
+ {
+  "event": "submitted",
+  "request_id": "e-6d742ccfcab5e92e227b37085729cde3fcac0bb845331171de7d423bb4db",
+  "decision": {
+   "reason": "published_start_still_ahead",
+   "evidence": {
+    "candidate_id": "7fb5beec1f62e2d35b7e6143215eaacb6c7d1ea0865a478ccf6a42e384deab37",
+    "score": 14.11487288013456,
+    "parent_id": "5f349d8a64df348e8bd59f3918e3a89dbde4f459ef3e0cfbfe097f4a3f43acea",
+    "complete": true,
+    "official_score_delta": -6.310187436127395,
+    "largest_regression": {
+     "case": "ariane133-ng45",
+     "seed": "1003",
+     "score_delta": -45.15039897002015,
+     "raw_score_contribution_deltas": {
+      "wns": -13.5355,
+      "tns": -31.6149
+     },
+     "score_floor_delta_points": 0.0
+    },
+    "largest_gain": {
+     "case": "bp-ng45",
+     "seed": "1003",
+     "score_delta": 11.928014112747784
+    },
+    "paired_case_deltas": [
+     {
+      "case": "bp_fe-ng45",
+      "scored_pairs": 3,
+      "expected_cells": 3,
+      "mean_paired_score_delta": -12.040558437106787
+     },
+     {
+      "case": "bp-ng45",
+      "scored_pairs": 3,
+      "expected_cells": 3,
+      "mean_paired_score_delta": 8.715644188753684
+     },
+     {
+      "case": "ariane133-ng45",
+      "scored_pairs": 3,
+      "expected_cells": 3,
+      "mean_paired_score_delta": -15.605648060029083
+     }
+    ],
+    "gains_across_seeds": [
+     {
+      "case": "bp-ng45",
+      "improved_seeds": 3,
+      "total_seeds": 3,
+      "worst_seed_delta": 5.481685
+     }
+    ],
+    "timing_attribution_unconfirmed": [
+     {
+      "case": "bp-ng45",
+      "seed": "1002",
+      "score_delta": 5.481684607966681,
+      "wns_slack_delta_ns": -0.03535216663915186,
+      "tns_slack_delta_ns": 623.0839238702301
+     }
+    ],
+    "failures": []
+   }
+  },
+  "parent_id": "5f349d8a64df348e8bd59f3918e3a89dbde4f459ef3e0cfbfe097f4a3f43acea",
+  "search_intent": "diversify",
+  "changed_components": {
+   "loss": {
+    "mechanism": "weight sampled positive pairs by timing-coverage and normalized slack severity of their endpoint supernodes while leaving negatives unchanged",
+    "decision": "high-severity connected groups receive stronger embedding attraction so the unchanged area-balanced two-means decoder can place them in one tier",
+    "prediction": "timing-weighted cut and TNS improve more than WNS versus the parent, with less collateral regression than the graph-margin trial on ariane133 seed 1003",
+    "falsifier": "a nonpositive mean paired combined-score delta across the training cells or no reduction in timing-weighted cut on high-severity pairs would disprove the hypothesis."
+   }
+  }
+ },
+ {
+  "event": "runtime_capabilities",
+  "python": "3.12.3",
+  "numpy": "2.5.5",
+  "torch": "2.15.0+cpu",
+  "reference_helper": null,
+  "decoder_probe": "custom decoders",
+  "loss_probe": "runs"
+ },
+ {
+  "event": "plan",
+  "choice": "X1",
+  "kind": "edit",
+  "parent": "R3",
+  "component": "decoder",
+  "hard": [],
+  "budget": {
+   "remaining": 1,
+   "total": 4,
+   "splices_used": 0,
+   "splice_cap": 1
+  },
+  "planned": null,
+  "options": [
+   {
+    "id": "X1",
+    "kind": "edit",
+    "parent": "R3",
+    "component": "decoder",
+    "question": "Can a decoder change of R3 raise bp_fe-ng45 without losing bp-ng45, ariane133-ng45?"
+   }
+  ],
+  "lessons": [
+   {
+    "evidence": "R3-S",
+    "finding": "paired_reading",
+    "reading": "one_cell",
+    "official_delta": 10.6111,
+    "edit": {
+     "loss": "structural",
+     "decoder": "unchanged"
+    }
+   }
+  ]
+ },
+ {
+  "event": "submitted",
+  "request_id": "e-6aa69db7a6685726e5a33592d2a421cc7093c93291b76908b3ea4e7e6b50",
+  "decision": {
+   "reason": "extend_best",
+   "component": "decoder",
+   "incumbent_id": "bd829199bc51a4e13005b84d9699f7851a81defca1674d458f910deae617800a",
+   "experiment": {
+    "id": "X1",
+    "kind": "edit",
+    "question": "Can a decoder change of R3 raise bp_fe-ng45 without losing bp-ng45, ariane133-ng45?"
+   },
+   "evidence": {
+    "candidate_id": "bd829199bc51a4e13005b84d9699f7851a81defca1674d458f910deae617800a",
+    "score": 26.48940508129844,
+    "parent_id": "5f349d8a64df348e8bd59f3918e3a89dbde4f459ef3e0cfbfe097f4a3f43acea",
+    "complete": true,
+    "official_score_delta": 6.064344765036484,
+    "largest_regression": {
+     "case": "bp_fe-ng45",
+     "seed": "1001",
+     "score_delta": -33.00992456232483
+    },
+    "largest_gain": {
+     "case": "ariane133-ng45",
+     "seed": "1002",
+     "score_delta": 42.00279086272267
+    },
+    "paired_case_deltas": [
+     {
+      "case": "bp_fe-ng45",
+      "scored_pairs": 3,
+      "expected_cells": 3,
+      "mean_paired_score_delta": -9.330351180450757
+     },
+     {
+      "case": "bp-ng45",
+      "scored_pairs": 3,
+      "expected_cells": 3,
+      "mean_paired_score_delta": 8.393191589377082
+     },
+     {
+      "case": "ariane133-ng45",
+      "scored_pairs": 3,
+      "expected_cells": 3,
+      "mean_paired_score_delta": 19.13019388618313
+     }
+    ],
+    "gains_across_seeds": [
+     {
+      "case": "bp-ng45",
+      "improved_seeds": 3,
+      "total_seeds": 3,
+      "worst_seed_delta": 5.481685
+     },
+     {
+      "case": "ariane133-ng45",
+      "improved_seeds": 2,
+      "total_seeds": 3,
+      "worst_seed_delta": -1.303223
+     }
+    ],
+    "timing_attribution_unconfirmed": [
+     {
+      "case": "bp-ng45",
+      "seed": "1002",
+      "score_delta": 5.481684607966681,
+      "wns_slack_delta_ns": -0.03535216663915186,
+      "tns_slack_delta_ns": 623.0839238702301
+     }
+    ],
+    "failures": []
+   }
+  },
+  "parent_id": "bd829199bc51a4e13005b84d9699f7851a81defca1674d458f910deae617800a",
+  "search_intent": "decoder_only",
+  "changed_components": {
+   "decoder": {
+    "mechanism": "exchange the two dies of the reference grouping",
+    "decision": "every group changes tier",
+    "prediction": "TNS changes where critical paths cross the boundary",
+    "falsifier": "paired TNS is unchanged on most cells"
+   }
+  },
+  "policy_action": "extend_best",
+  "mechanism_keys": {
+   "decoder": {
+    "shape": "1cde203c3a3d1a46",
+    "added_signal_families": []
+   }
+  },
+  "model_calls": {
+   "proposal": "01d1e0a4fafc43c89d3ef419cb271e75",
+   "accepted_code": "01d1e0a4fafc43c89d3ef419cb271e75"
+  },
+  "experiment": {
+   "id": "X1",
+   "kind": "edit",
+   "parent": "R3",
+   "parent_candidate": "bd829199bc51a4e13005b84d9699f7851a81defca1674d458f910deae617800a",
+   "component": "decoder",
+   "question": "Can a decoder change of R3 raise bp_fe-ng45 without losing bp-ng45, ariane133-ng45?",
+   "contract": {
+    "anchor": "R3",
+    "anchor_candidate": "bd829199bc51a4e13005b84d9699f7851a81defca1674d458f910deae617800a",
+    "component": "decoder",
+    "kind": "edit",
+    "target": {
+     "case": "bp_fe-ng45",
+     "seeds": [
+      "1001",
+      "1002",
+      "1003"
+     ],
+     "rule": "mean paired score delta over the case > 0 and most of its seeds improve"
+    },
+    "protect": [
+     {
+      "case": "bp-ng45",
+      "tolerance": 2.0,
+      "cell_tolerance": 1.032,
+      "strength": "supported",
+      "evidence": "R3-S",
+      "rule": "mean paired score delta over the case >= -tolerance"
+     },
+     {
+      "case": "ariane133-ng45",
+      "tolerance": 21.002,
+      "cell_tolerance": 36.376,
+      "strength": "mixed_reference",
+      "evidence": "R3-S",
+      "rule": "mean paired score delta over the case >= -tolerance"
+     }
+    ],
+    "fragile": [],
+    "tolerances": {
+     "bp_fe-ng45": {
+      "cell": 7.456,
+      "case_mean": 4.305,
+      "pairs": 8,
+      "source": "calibrated"
+     },
+     "bp-ng45": {
+      "cell": 1.032,
+      "case_mean": 2.0,
+      "pairs": 9,
+      "source": "calibrated"
+     },
+     "ariane133-ng45": {
+      "cell": 36.376,
+      "case_mean": 21.002,
+      "pairs": 7,
+      "source": "calibrated"
+     }
+    }
+   },
+   "factors": null,
+   "donors": null,
+   "planned": false
+  },
+  "preflight": {
+   "static": [
+    {
+     "check": "python38_syntax",
+     "status": "pass",
+     "detail": ""
+    },
+    {
+     "check": "program_bytes",
+     "status": "pass",
+     "detail": "2240 of 18000 bytes"
+    },
+    {
+     "check": "ast_nodes",
+     "status": "pass",
+     "detail": "231 of 3000 nodes"
+    },
+    {
+     "check": "manifest",
+     "status": "pass",
+     "detail": "changes ['decoder']"
+    },
+    {
+     "check": "identity_rules",
+     "status": "pass",
+     "detail": ""
+    }
+   ],
+   "probes": [
+    {
+     "probe": "decoder_contract",
+     "status": "skipped",
+     "reason": "the decoder calls reference_global_two_way, which no supported provider offers in the Agent runtime"
+    }
+   ]
+  }
+ },
+ {
+  "event": "official_receipt",
+  "request_id": "e-6aa69db7a6685726e5a33592d2a421cc7093c93291b76908b3ea4e7e6b50",
+  "candidate_id": "cand-6aa69db7a668",
+  "status": "succeeded",
+  "score": 25.48940508129844
+ }
+]

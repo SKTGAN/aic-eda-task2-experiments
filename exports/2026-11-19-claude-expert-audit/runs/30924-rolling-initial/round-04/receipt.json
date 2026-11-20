@@ -1,0 +1,785 @@
+{
+  "overview": {
+    "run": "30924-rolling-initial",
+    "round": 4,
+    "capture_port": "30924",
+    "scope": "official-runner",
+    "accepted_at": "2026-11-18T12:40:25.833127+00:00",
+    "completed_at": "2026-11-18T12:40:44.855239+00:00",
+    "status": "failed",
+    "score": null,
+    "seen_cells": 9,
+    "expected_cells": 9,
+    "parent_id": "5470526ceb6dbd551f20e0b2d93013d371e34dc40c5500053aea86b439caa67a",
+    "candidate_id": "1bbdb429eb9ff485f8608373baf5ec063a9d61abba7f4db16272eb915e51048b",
+    "request_id": "e-4d7e11385128997a8761e1bac2dba4be7587cf995ffa5615c22a3ec176ae",
+    "search_intent": "decoder_only",
+    "model_request_events": 1,
+    "model_response_events": 1,
+    "candidate_available": true
+  },
+  "ledger": {
+    "request_id": "e-4d7e11385128997a8761e1bac2dba4be7587cf995ffa5615c22a3ec176ae",
+    "candidate_id": "1bbdb429eb9ff485f8608373baf5ec063a9d61abba7f4db16272eb915e51048b",
+    "status": "failed",
+    "accepted_at": "2026-11-18T12:40:25.833127+00:00",
+    "completed_at": "2026-11-18T12:40:44.855239+00:00",
+    "reason": "Incomplete native matrix"
+  },
+  "official_receipt": {
+    "metric_fields": [
+      "evaluation_complete",
+      "matrix",
+      "runs_successfully",
+      "valid"
+    ],
+    "metrics": {
+      "evaluation_complete": 0.0,
+      "runs_successfully": 0.0,
+      "valid": false
+    },
+    "matrix": {
+      "all_valid": false,
+      "cases": [
+        {
+          "case": "bp_fe-ng45",
+          "complete": false,
+          "scores": {
+            "1001": null,
+            "1002": null,
+            "1003": null
+          }
+        },
+        {
+          "case": "bp-ng45",
+          "complete": false,
+          "scores": {
+            "1001": null,
+            "1002": null,
+            "1003": null
+          }
+        },
+        {
+          "case": "ariane133-ng45",
+          "complete": false,
+          "scores": {
+            "1001": null,
+            "1002": null,
+            "1003": null
+          }
+        }
+      ],
+      "cells": [
+        {
+          "case": "bp_fe-ng45",
+          "error_message": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp_fe-ng45/1001/evaluation_result.json'",
+          "error_type": "ValueError",
+          "score": null,
+          "seed": "1001",
+          "status": "failed"
+        },
+        {
+          "case": "bp_fe-ng45",
+          "error_message": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp_fe-ng45/1002/evaluation_result.json'",
+          "error_type": "ValueError",
+          "score": null,
+          "seed": "1002",
+          "status": "failed"
+        },
+        {
+          "case": "bp_fe-ng45",
+          "error_message": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp_fe-ng45/1003/evaluation_result.json'",
+          "error_type": "ValueError",
+          "score": null,
+          "seed": "1003",
+          "status": "failed"
+        },
+        {
+          "case": "bp-ng45",
+          "error_message": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp-ng45/1001/evaluation_result.json'",
+          "error_type": "ValueError",
+          "score": null,
+          "seed": "1001",
+          "status": "failed"
+        },
+        {
+          "case": "bp-ng45",
+          "error_message": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp-ng45/1002/evaluation_result.json'",
+          "error_type": "ValueError",
+          "score": null,
+          "seed": "1002",
+          "status": "failed"
+        },
+        {
+          "case": "bp-ng45",
+          "error_message": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp-ng45/1003/evaluation_result.json'",
+          "error_type": "ValueError",
+          "score": null,
+          "seed": "1003",
+          "status": "failed"
+        },
+        {
+          "case": "ariane133-ng45",
+          "error_message": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/ariane133-ng45/1001/evaluation_result.json'",
+          "error_type": "ValueError",
+          "score": null,
+          "seed": "1001",
+          "status": "failed"
+        },
+        {
+          "case": "ariane133-ng45",
+          "error_message": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/ariane133-ng45/1002/evaluation_result.json'",
+          "error_type": "ValueError",
+          "score": null,
+          "seed": "1002",
+          "status": "failed"
+        },
+        {
+          "case": "ariane133-ng45",
+          "error_message": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/ariane133-ng45/1003/evaluation_result.json'",
+          "error_type": "ValueError",
+          "score": null,
+          "seed": "1003",
+          "status": "failed"
+        }
+      ],
+      "complete": false,
+      "expected_cells": 9,
+      "matrix_sha256": "be7dd0495f66a49eba49a9161599de13e7178db34a2142894b2e12ec681ef12c",
+      "penalized_cells": 0,
+      "qualification": false,
+      "scored_cells": 0,
+      "succeeded_cells": 0
+    },
+    "planned": 9
+  },
+  "logged_feedback": {
+    "event": "evaluated",
+    "parent_id": "5470526ceb6dbd551f20e0b2d93013d371e34dc40c5500053aea86b439caa67a",
+    "request_id": "e-4d7e11385128997a8761e1bac2dba4be7587cf995ffa5615c22a3ec176ae",
+    "candidate_id": "1bbdb429eb9ff485f8608373baf5ec063a9d61abba7f4db16272eb915e51048b",
+    "status": "failed",
+    "reason": "Incomplete native matrix",
+    "score": null,
+    "case_scores": {},
+    "cells": [
+      {
+        "case": "bp_fe-ng45",
+        "seed": "1001",
+        "score": null,
+        "status": "failed",
+        "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp_fe-ng45/1001/evaluation_result.json'",
+        "failure": {
+          "kind": "unclassified",
+          "stage": null,
+          "component": null,
+          "error_type": "ValueError",
+          "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp_fe-ng45/1001/evaluation_result.json'",
+          "diagnostics": []
+        }
+      },
+      {
+        "case": "bp_fe-ng45",
+        "seed": "1002",
+        "score": null,
+        "status": "failed",
+        "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp_fe-ng45/1002/evaluation_result.json'",
+        "failure": {
+          "kind": "unclassified",
+          "stage": null,
+          "component": null,
+          "error_type": "ValueError",
+          "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp_fe-ng45/1002/evaluation_result.json'",
+          "diagnostics": []
+        }
+      },
+      {
+        "case": "bp_fe-ng45",
+        "seed": "1003",
+        "score": null,
+        "status": "failed",
+        "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp_fe-ng45/1003/evaluation_result.json'",
+        "failure": {
+          "kind": "unclassified",
+          "stage": null,
+          "component": null,
+          "error_type": "ValueError",
+          "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp_fe-ng45/1003/evaluation_result.json'",
+          "diagnostics": []
+        }
+      },
+      {
+        "case": "bp-ng45",
+        "seed": "1001",
+        "score": null,
+        "status": "failed",
+        "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp-ng45/1001/evaluation_result.json'",
+        "failure": {
+          "kind": "unclassified",
+          "stage": null,
+          "component": null,
+          "error_type": "ValueError",
+          "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp-ng45/1001/evaluation_result.json'",
+          "diagnostics": []
+        }
+      },
+      {
+        "case": "bp-ng45",
+        "seed": "1002",
+        "score": null,
+        "status": "failed",
+        "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp-ng45/1002/evaluation_result.json'",
+        "failure": {
+          "kind": "unclassified",
+          "stage": null,
+          "component": null,
+          "error_type": "ValueError",
+          "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp-ng45/1002/evaluation_result.json'",
+          "diagnostics": []
+        }
+      },
+      {
+        "case": "bp-ng45",
+        "seed": "1003",
+        "score": null,
+        "status": "failed",
+        "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp-ng45/1003/evaluation_result.json'",
+        "failure": {
+          "kind": "unclassified",
+          "stage": null,
+          "component": null,
+          "error_type": "ValueError",
+          "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp-ng45/1003/evaluation_result.json'",
+          "diagnostics": []
+        }
+      },
+      {
+        "case": "ariane133-ng45",
+        "seed": "1001",
+        "score": null,
+        "status": "failed",
+        "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/ariane133-ng45/1001/evaluation_result.json'",
+        "failure": {
+          "kind": "unclassified",
+          "stage": null,
+          "component": null,
+          "error_type": "ValueError",
+          "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/ariane133-ng45/1001/evaluation_result.json'",
+          "diagnostics": []
+        }
+      },
+      {
+        "case": "ariane133-ng45",
+        "seed": "1002",
+        "score": null,
+        "status": "failed",
+        "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/ariane133-ng45/1002/evaluation_result.json'",
+        "failure": {
+          "kind": "unclassified",
+          "stage": null,
+          "component": null,
+          "error_type": "ValueError",
+          "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/ariane133-ng45/1002/evaluation_result.json'",
+          "diagnostics": []
+        }
+      },
+      {
+        "case": "ariane133-ng45",
+        "seed": "1003",
+        "score": null,
+        "status": "failed",
+        "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/ariane133-ng45/1003/evaluation_result.json'",
+        "failure": {
+          "kind": "unclassified",
+          "stage": null,
+          "component": null,
+          "error_type": "ValueError",
+          "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/ariane133-ng45/1003/evaluation_result.json'",
+          "diagnostics": []
+        }
+      }
+    ],
+    "attempt": {
+      "parent_id": "5470526ceb6dbd551f20e0b2d93013d371e34dc40c5500053aea86b439caa67a",
+      "search_intent": "decoder_only",
+      "changed_components": {
+        "decoder": {
+          "mechanism": "area-weighted spectral bisection of centered embeddings by bounded power iteration on the weighted covariance",
+          "decision": "assign each node to the top tier when its rank on the leading projection is at or above the area-cumulative balance split",
+          "prediction": "timing-critical cross-tier edges fall and bp-ng45 mean paired score rises on most seeds versus the parent",
+          "falsifier": "bp-ng45 mean paired score does not exceed the parent or another case mean falls by more than its tolerance."
+        }
+      },
+      "policy_action": "no_complete_candidate",
+      "mechanism_keys": {
+        "decoder": {
+          "shape": "7a5ec5b7677b4a5a",
+          "added_signal_families": []
+        }
+      },
+      "model_calls": {
+        "proposal": "dd058872d82844a89f3c1121581c100a",
+        "accepted_code": "dd058872d82844a89f3c1121581c100a"
+      },
+      "experiment": {
+        "id": "X1",
+        "kind": "edit",
+        "parent": "S",
+        "parent_candidate": "5470526ceb6dbd551f20e0b2d93013d371e34dc40c5500053aea86b439caa67a",
+        "component": "decoder",
+        "question": "Can a decoder change of S raise bp-ng45 without losing its other designs?",
+        "contract": {
+          "anchor": "S",
+          "anchor_candidate": "5470526ceb6dbd551f20e0b2d93013d371e34dc40c5500053aea86b439caa67a",
+          "component": "decoder",
+          "kind": "edit",
+          "target": {
+            "case": "bp-ng45",
+            "seeds": [
+              "1001",
+              "1002",
+              "1003"
+            ],
+            "rule": "mean paired score delta over the case > 0 and most of its seeds improve"
+          },
+          "protect": [],
+          "fragile": [],
+          "tolerances": {
+            "bp_fe-ng45": {
+              "cell": 8.66,
+              "case_mean": 5.0,
+              "pairs": 0,
+              "source": "default"
+            },
+            "bp-ng45": {
+              "cell": 8.66,
+              "case_mean": 5.0,
+              "pairs": 0,
+              "source": "default"
+            },
+            "ariane133-ng45": {
+              "cell": 8.66,
+              "case_mean": 5.0,
+              "pairs": 0,
+              "source": "default"
+            }
+          }
+        },
+        "factors": null,
+        "donors": null,
+        "planned": false
+      },
+      "preflight": {
+        "static": [
+          {
+            "check": "python38_syntax",
+            "status": "pass",
+            "detail": ""
+          },
+          {
+            "check": "program_bytes",
+            "status": "pass",
+            "detail": "2525 of 18000 bytes"
+          },
+          {
+            "check": "ast_nodes",
+            "status": "pass",
+            "detail": "477 of 3000 nodes"
+          },
+          {
+            "check": "manifest",
+            "status": "pass",
+            "detail": "changes ['decoder']"
+          },
+          {
+            "check": "identity_rules",
+            "status": "pass",
+            "detail": ""
+          }
+        ],
+        "probes": [
+          {
+            "probe": "decoder_contract",
+            "status": "pass",
+            "top_area_share": 0.5579,
+            "change_vs_parent": null,
+            "note": "the parent decoder calls reference_global_two_way; no comparison"
+          }
+        ]
+      }
+    },
+    "parent_comparison": {
+      "parent_id": "5470526ceb6dbd551f20e0b2d93013d371e34dc40c5500053aea86b439caa67a",
+      "candidate_id": "1bbdb429eb9ff485f8608373baf5ec063a9d61abba7f4db16272eb915e51048b",
+      "parent_source": "published_initial_reference",
+      "complete": false,
+      "expected_cells": 9,
+      "scored_pairs": 0,
+      "parent_unscored": [],
+      "candidate_unscored": [
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1001",
+          "status": "failed",
+          "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp_fe-ng45/1001/evaluation_result.json'"
+        },
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1002",
+          "status": "failed",
+          "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp_fe-ng45/1002/evaluation_result.json'"
+        },
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1003",
+          "status": "failed",
+          "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp_fe-ng45/1003/evaluation_result.json'"
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1001",
+          "status": "failed",
+          "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp-ng45/1001/evaluation_result.json'"
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1002",
+          "status": "failed",
+          "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp-ng45/1002/evaluation_result.json'"
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1003",
+          "status": "failed",
+          "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp-ng45/1003/evaluation_result.json'"
+        },
+        {
+          "case": "ariane133-ng45",
+          "seed": "1001",
+          "status": "failed",
+          "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/ariane133-ng45/1001/evaluation_result.json'"
+        },
+        {
+          "case": "ariane133-ng45",
+          "seed": "1002",
+          "status": "failed",
+          "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/ariane133-ng45/1002/evaluation_result.json'"
+        },
+        {
+          "case": "ariane133-ng45",
+          "seed": "1003",
+          "status": "failed",
+          "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/ariane133-ng45/1003/evaluation_result.json'"
+        }
+      ],
+      "official_score_delta": null,
+      "improved_pairs": 0,
+      "regressed_pairs": 0,
+      "median_paired_score_delta": null,
+      "largest_gain": null,
+      "largest_regression": null,
+      "candidate_invalid_cells": 0,
+      "failure_counts": {
+        "unclassified": 9
+      },
+      "assignment_pairs_verified": 0,
+      "unchanged_assignment_and_timing_pairs": 0,
+      "timing_changes_with_identical_assignment": [],
+      "cases": [
+        {
+          "case": "bp_fe-ng45",
+          "scored_pairs": 0,
+          "expected_cells": 3,
+          "mean_paired_score_delta": null
+        },
+        {
+          "case": "bp-ng45",
+          "scored_pairs": 0,
+          "expected_cells": 3,
+          "mean_paired_score_delta": null
+        },
+        {
+          "case": "ariane133-ng45",
+          "scored_pairs": 0,
+          "expected_cells": 3,
+          "mean_paired_score_delta": null
+        }
+      ],
+      "cells": [
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1001",
+          "candidate_status": "failed",
+          "parent_status": "published_reference",
+          "candidate_valid": null,
+          "parent_valid": null,
+          "candidate_score": null,
+          "parent_score": 56.00243,
+          "score_delta": null,
+          "wns_slack_delta_ns": null,
+          "tns_slack_delta_ns": null,
+          "score_delta_terms": null,
+          "wns_deficit_improvement_delta": null,
+          "tns_deficit_improvement_delta": null,
+          "cut_nets_delta": null,
+          "timing_weighted_cut_delta": null,
+          "wns_improved_tns_regressed": false,
+          "fewer_cuts_lower_score": false,
+          "assignment": null,
+          "observation": null,
+          "failure": {
+            "kind": "unclassified",
+            "stage": null,
+            "component": null,
+            "error_type": "ValueError",
+            "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp_fe-ng45/1001/evaluation_result.json'",
+            "diagnostics": []
+          }
+        },
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1002",
+          "candidate_status": "failed",
+          "parent_status": "published_reference",
+          "candidate_valid": null,
+          "parent_valid": null,
+          "candidate_score": null,
+          "parent_score": 49.929336,
+          "score_delta": null,
+          "wns_slack_delta_ns": null,
+          "tns_slack_delta_ns": null,
+          "score_delta_terms": null,
+          "wns_deficit_improvement_delta": null,
+          "tns_deficit_improvement_delta": null,
+          "cut_nets_delta": null,
+          "timing_weighted_cut_delta": null,
+          "wns_improved_tns_regressed": false,
+          "fewer_cuts_lower_score": false,
+          "assignment": null,
+          "observation": null,
+          "failure": {
+            "kind": "unclassified",
+            "stage": null,
+            "component": null,
+            "error_type": "ValueError",
+            "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp_fe-ng45/1002/evaluation_result.json'",
+            "diagnostics": []
+          }
+        },
+        {
+          "case": "bp_fe-ng45",
+          "seed": "1003",
+          "candidate_status": "failed",
+          "parent_status": "published_reference",
+          "candidate_valid": null,
+          "parent_valid": null,
+          "candidate_score": null,
+          "parent_score": 55.823518,
+          "score_delta": null,
+          "wns_slack_delta_ns": null,
+          "tns_slack_delta_ns": null,
+          "score_delta_terms": null,
+          "wns_deficit_improvement_delta": null,
+          "tns_deficit_improvement_delta": null,
+          "cut_nets_delta": null,
+          "timing_weighted_cut_delta": null,
+          "wns_improved_tns_regressed": false,
+          "fewer_cuts_lower_score": false,
+          "assignment": null,
+          "observation": null,
+          "failure": {
+            "kind": "unclassified",
+            "stage": null,
+            "component": null,
+            "error_type": "ValueError",
+            "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp_fe-ng45/1003/evaluation_result.json'",
+            "diagnostics": []
+          }
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1001",
+          "candidate_status": "failed",
+          "parent_status": "published_reference",
+          "candidate_valid": null,
+          "parent_valid": null,
+          "candidate_score": null,
+          "parent_score": -20.8236,
+          "score_delta": null,
+          "wns_slack_delta_ns": null,
+          "tns_slack_delta_ns": null,
+          "score_delta_terms": null,
+          "wns_deficit_improvement_delta": null,
+          "tns_deficit_improvement_delta": null,
+          "cut_nets_delta": null,
+          "timing_weighted_cut_delta": null,
+          "wns_improved_tns_regressed": false,
+          "fewer_cuts_lower_score": false,
+          "assignment": null,
+          "observation": null,
+          "failure": {
+            "kind": "unclassified",
+            "stage": null,
+            "component": null,
+            "error_type": "ValueError",
+            "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp-ng45/1001/evaluation_result.json'",
+            "diagnostics": []
+          }
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1002",
+          "candidate_status": "failed",
+          "parent_status": "published_reference",
+          "candidate_valid": null,
+          "parent_valid": null,
+          "candidate_score": null,
+          "parent_score": -29.972606,
+          "score_delta": null,
+          "wns_slack_delta_ns": null,
+          "tns_slack_delta_ns": null,
+          "score_delta_terms": null,
+          "wns_deficit_improvement_delta": null,
+          "tns_deficit_improvement_delta": null,
+          "cut_nets_delta": null,
+          "timing_weighted_cut_delta": null,
+          "wns_improved_tns_regressed": false,
+          "fewer_cuts_lower_score": false,
+          "assignment": null,
+          "observation": null,
+          "failure": {
+            "kind": "unclassified",
+            "stage": null,
+            "component": null,
+            "error_type": "ValueError",
+            "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp-ng45/1002/evaluation_result.json'",
+            "diagnostics": []
+          }
+        },
+        {
+          "case": "bp-ng45",
+          "seed": "1003",
+          "candidate_status": "failed",
+          "parent_status": "published_reference",
+          "candidate_valid": null,
+          "parent_valid": null,
+          "candidate_score": null,
+          "parent_score": -14.454241,
+          "score_delta": null,
+          "wns_slack_delta_ns": null,
+          "tns_slack_delta_ns": null,
+          "score_delta_terms": null,
+          "wns_deficit_improvement_delta": null,
+          "tns_deficit_improvement_delta": null,
+          "cut_nets_delta": null,
+          "timing_weighted_cut_delta": null,
+          "wns_improved_tns_regressed": false,
+          "fewer_cuts_lower_score": false,
+          "assignment": null,
+          "observation": null,
+          "failure": {
+            "kind": "unclassified",
+            "stage": null,
+            "component": null,
+            "error_type": "ValueError",
+            "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/bp-ng45/1003/evaluation_result.json'",
+            "diagnostics": []
+          }
+        },
+        {
+          "case": "ariane133-ng45",
+          "seed": "1001",
+          "candidate_status": "failed",
+          "parent_status": "published_reference",
+          "candidate_valid": null,
+          "parent_valid": null,
+          "candidate_score": null,
+          "parent_score": 50.737702,
+          "score_delta": null,
+          "wns_slack_delta_ns": null,
+          "tns_slack_delta_ns": null,
+          "score_delta_terms": null,
+          "wns_deficit_improvement_delta": null,
+          "tns_deficit_improvement_delta": null,
+          "cut_nets_delta": null,
+          "timing_weighted_cut_delta": null,
+          "wns_improved_tns_regressed": false,
+          "fewer_cuts_lower_score": false,
+          "assignment": null,
+          "observation": null,
+          "failure": {
+            "kind": "unclassified",
+            "stage": null,
+            "component": null,
+            "error_type": "ValueError",
+            "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/ariane133-ng45/1001/evaluation_result.json'",
+            "diagnostics": []
+          }
+        },
+        {
+          "case": "ariane133-ng45",
+          "seed": "1002",
+          "candidate_status": "failed",
+          "parent_status": "published_reference",
+          "candidate_valid": null,
+          "parent_valid": null,
+          "candidate_score": null,
+          "parent_score": -1.50776,
+          "score_delta": null,
+          "wns_slack_delta_ns": null,
+          "tns_slack_delta_ns": null,
+          "score_delta_terms": null,
+          "wns_deficit_improvement_delta": null,
+          "tns_deficit_improvement_delta": null,
+          "cut_nets_delta": null,
+          "timing_weighted_cut_delta": null,
+          "wns_improved_tns_regressed": false,
+          "fewer_cuts_lower_score": false,
+          "assignment": null,
+          "observation": null,
+          "failure": {
+            "kind": "unclassified",
+            "stage": null,
+            "component": null,
+            "error_type": "ValueError",
+            "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/ariane133-ng45/1002/evaluation_result.json'",
+            "diagnostics": []
+          }
+        },
+        {
+          "case": "ariane133-ng45",
+          "seed": "1003",
+          "candidate_status": "failed",
+          "parent_status": "published_reference",
+          "candidate_valid": null,
+          "parent_valid": null,
+          "candidate_score": null,
+          "parent_score": 38.090764,
+          "score_delta": null,
+          "wns_slack_delta_ns": null,
+          "tns_slack_delta_ns": null,
+          "score_delta_terms": null,
+          "wns_deficit_improvement_delta": null,
+          "tns_deficit_improvement_delta": null,
+          "cut_nets_delta": null,
+          "timing_weighted_cut_delta": null,
+          "wns_improved_tns_regressed": false,
+          "fewer_cuts_lower_score": false,
+          "assignment": null,
+          "observation": null,
+          "failure": {
+            "kind": "unclassified",
+            "stage": null,
+            "component": null,
+            "error_type": "ValueError",
+            "reason": "[Errno 13] Permission denied: '/root/rolling-3090/official/contest-data/task2/loss_decoder/train/references/ariane133-ng45/1003/evaluation_result.json'",
+            "diagnostics": []
+          }
+        }
+      ]
+    },
+    "initial_comparison": {
+      "same_as": "parent_comparison"
+    }
+  }
+}

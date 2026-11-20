@@ -1,0 +1,72 @@
+{
+  "round": 13,
+  "memory_rounds": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "history_sha256": "f82bd6a6f46d3f09aa4f5d423e29af2dd29cb2b6690a20d79394eb64b98966f4",
+  "generator_plan": {
+    "parent_round": 4,
+    "component": "loss",
+    "protect_cell": "bp_fe-ng45/1001",
+    "target_cell": "ariane133-ng45/1002",
+    "hypothesis": "Round 12's hard tanh cap at 1.5 on every timing-star margin improved the C aggregate but over-suppressed high-loss critical-net attraction and collapsed ariane133-ng45/1002. Change only the round-4 loss: keep the unchanged contrastive term and area-balanced decoder, but replace the uniform capped margin with a gentler capped/linear blend that clips only very large edge penalties while retaining linear attraction for ordinary critical edges. This is a legal numerical loss rule and should preserve round-12's bp_fe gain without losing the large ariane partition movement.",
+    "prediction": "Nine-cell C mean should exceed round 12's 16.3423 while remaining above parent R4's 2.5568. Target ariane133-ng45/1002 should recover from round 12's -91.0911 score and less-negative TNS, while protect bp_fe-ng45/1001 should stay above R4's 28.7175 and ideally near round 12's 50.5564. No new non-bp WNS regression beyond round 12's range, and feasible cut/label changes must accompany any timing gain.",
+    "falsifier": "Reject if the nine-cell mean is <= 16.3423, or if ariane133-ng45/1002 remains at or below -91.0911 with no WNS/TNS recovery, or if bp_fe-ng45/1001 drops below R4's 28.7175, or if feasible labels/cut counts are unchanged so any timing change is confounded.",
+    "parent_mean_on_C": 2.5568
+  },
+  "applied": {
+    "parent_round": 4,
+    "component": "loss",
+    "evidence": [
+      {
+        "round": 2,
+        "cell": "ariane133-ng45/1002"
+      },
+      {
+        "round": 4,
+        "cell": "ariane133-ng45/1002"
+      },
+      {
+        "round": 6,
+        "cell": "ariane133-ng45/1002"
+      },
+      {
+        "round": 12,
+        "cell": "ariane133-ng45/1002"
+      },
+      {
+        "round": 12,
+        "cell": "bp_fe-ng45/1001"
+      }
+    ],
+    "correction": "Keep parent R4's contrastive loss and frozen area-balanced decoder, but make the current 'gentler capped/linear blend' exactly reversible and non-case-specific: for each edge let x = F.softplus(0.5 - graph_scores), cap = 1.5, beta = 0.5, and use g(x) = x if x <= cap else cap + beta * (x - cap); return contrastive_loss + 4.0 * (graph_weights * g(x)).sum() / graph_weights.sum().clamp(min=1.0). This interpolates between R4's linear attraction (beta = 1) and R12's saturating cap (beta = 0), so it is one reversible scalar intervention, not a new mechanism. Do not condition executable code on cell names, seeds, or benchmark labels. R2's decoder caused massive assignment churn, R4's loss produced the usable C baseline, and R6 on host 15332 repeated the full matrix rather than providing independent confirmation, so do not treat R6 as a fresh replication. Use the fixed nine C cells for selection and the target only as a diagnostic.",
+    "protect_cell": "bp_fe-ng45/1001",
+    "target_cell": "ariane133-ng45/1002",
+    "prediction": "Nine-cell C mean should exceed R12's 16.3423 and parent R4's 2.5568. Diagnostic target ariane133-ng45/1002 should improve above R12's -91.0911 with less-negative WNS/TNS, and protect bp_fe-ng45/1001 should stay at or above R4's 28.7175, ideally retaining part of R12's 50.5564. Any timing gain must coincide with changed feasible cuts or labels; otherwise the result is confounded.",
+    "falsifier": "Reject if the nine-cell C mean is <= 16.3423, or if ariane133-ng45/1002 remains at or below -91.0911 with no WNS/TNS recovery, or if bp_fe-ng45/1001 falls below 28.7175, or if feasible cut/label counts are unchanged so any timing change is not attributable to the loss rule. Also reject if the result is only a repeat of R4/R6-like unchanged partitions.",
+    "parent_mean_on_C": 2.5568
+  },
+  "checks": [
+    {
+      "verdict": "accept",
+      "finding": "The executable body implements the requested single reversible capped-linear loss intervention with the specified cap and half-slope above the cap, preserves the parent contrastive term and frozen area-balanced decoder unchanged, and contains no conditioning on cell names, seeds, or benchmark labels. Whether the predicted timing and protection outcomes occur remains unverified until the matrix runs, but the requested correction is present and not a repeat of a failed edit.",
+      "required_change": ""
+    }
+  ],
+  "parent_id": "d5fd4448ad8d57fe652cc16b641a1d5002fa11145f699750b888cf1728df62ca",
+  "parent_source_sha256": "d14f9ca79b710310562f4979a9e5766b16ea9feb517ccf8a5bef4968cb361a40",
+  "source": "def compute_tp_gnn_loss(\n    positive_scores,\n    negative_scores,\n    embeddings,\n    positive_sources,\n    positive_targets,\n    negative_sources,\n    negative_targets,\n    source_batch_size,\n    epoch,\n    max_epochs,\n    graph_scores,\n    graph_sources,\n    graph_targets,\n    graph_net_ids,\n    graph_weights,\n    net_weights,\n    node_features,\n    node_areas,\n):\n    \"\"\"Use the reviewer's reversible capped-linear star-edge penalty.\n\n    Change relative to the parent: keep the parent's sampled log-sigmoid\n    contrastive term and frozen reference decoder, but replace the graph\n    penalty's softplus with a reversible capped-linear map.  For each edge,\n    let x = softplus(0.5 - score), cap = 1.5, and beta = 0.5; use x below the\n    cap and cap + beta * (x - cap) above it.  This interpolates between the\n    parent's linear attraction and the prior tanh saturation.\n\n    Expected measurable effect: the timing-weighted graph term retains useful\n    attraction while damping only large per-edge penalties, so the unchanged\n    area-balanced two-center decoder should produce changed feasible labels\n    with improved nine-cell mean timing versus the saturated trial.\n\n    Invalidation: reject if the nine-cell mean does not exceed the saturated\n    trial, if the target cell does not recover WNS/TNS, if the protected cell\n    falls below the parent control, or if timing changes without changed\n    feasible cuts or labels.\n    \"\"\"\n    contrastive_loss = -(\n        F.logsigmoid(positive_scores).sum()\n        + F.logsigmoid(-negative_scores).sum()\n    ) / max(1, source_batch_size)\n\n    cap = 1.5\n    beta = 0.5\n    edge_base = F.softplus(0.5 - graph_scores)\n    edge_penalized = torch.where(\n        edge_base <= cap,\n        edge_base,\n        cap + beta * (edge_base - cap),\n    )\n    graph_penalty = (\n        graph_weights * edge_penalized\n    ).sum() / graph_weights.sum().clamp(min=1.0)\n\n    return contrastive_loss + 4.0 * graph_penalty\n\n\ndef decode_tp_gnn_embeddings(embeddings, node_areas, seed, max_iterations, balance_target):\n    \"\"\"Keep the parent frozen area-balanced global two-way decoder.\n\n    No change relative to the parent: this delegates exactly once to the\n    trusted reference helper with unchanged arguments.  The hypothesis is\n    isolated to the loss geometry, so decoder behavior should remain\n    unchanged and protected closure alone enforces legal labels.\n\n    Invalidation: if decoder-side behavior changes, the comparison does not\n    test the intended loss-only hypothesis.\n    \"\"\"\n    return reference_global_two_way(embeddings, node_areas, seed, max_iterations, balance_target)\n",
+  "source_sha256": "c2635932bcb2ce074dbc176544ffa3e16541ba96048bbfb96bd7ece4d0bd3d94",
+  "diff": "--- parent\n+++ candidate\n@@ -1,4 +1,8 @@\n contrastive_loss = -(F.logsigmoid(positive_scores).sum() + F.logsigmoid(-negative_scores).sum()) / max(1, source_batch_size)\n-graph_margin_penalty = (graph_weights * F.softplus(0.5 - graph_scores)).sum() / graph_weights.sum().clamp(min=1.0)\n-return contrastive_loss + 4.0 * graph_margin_penalty\n+cap = 1.5\n+beta = 0.5\n+edge_base = F.softplus(0.5 - graph_scores)\n+edge_penalized = torch.where(edge_base <= cap, edge_base, cap + beta * (edge_base - cap))\n+graph_penalty = (graph_weights * edge_penalized).sum() / graph_weights.sum().clamp(min=1.0)\n+return contrastive_loss + 4.0 * graph_penalty\n return reference_global_two_way(embeddings, node_areas, seed, max_iterations, balance_target)"
+}

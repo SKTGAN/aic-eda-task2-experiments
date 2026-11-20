@@ -1,0 +1,28 @@
+Traceback (most recent call last):
+  File "/root/aic-group-c-v1/three_gpu.py", line 361, in <module>
+    main()
+  File "/root/aic-group-c-v1/three_gpu.py", line 357, in main
+    diagnostics(args)
+  File "/root/aic-group-c-v1/three_gpu.py", line 314, in diagnostics
+    winner = Agent().run(context)
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/root/aic-group-c-v1/run-c/participant-agent/loss_decoder/agent.py", line 117, in run
+    else:raise ValueError("The independent reviewer did not accept the revised program")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: The independent reviewer did not accept the revised program
+Dispatched three cases for c13-c2635932bcb2ce074dbc176544ffa3e16541 c2635932bcb2
+Development score c13-c2635932bcb2ce074dbc176544ffa3e16541 2.5567655369479656
+Dispatched three cases for c14-ea7ee5fb89d7bd69e36a757afb8ab23cce40 ea7ee5fb89d7
+Development score c14-ea7ee5fb89d7bd69e36a757afb8ab23cce40 -7.419915822914644
+Traceback (most recent call last):
+  File "/root/aic-group-c-v1/three_gpu.py", line 361, in <module>
+    main()
+  File "/root/aic-group-c-v1/three_gpu.py", line 357, in main
+    diagnostics(args)
+  File "/root/aic-group-c-v1/three_gpu.py", line 314, in diagnostics
+    winner = Agent().run(context)
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/root/aic-group-c-v1/run-c/participant-agent/loss_decoder/agent.py", line 125, in run
+    else:raise ValueError("The independent reviewer did not accept the revised program")
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: The independent reviewer did not accept the revised program

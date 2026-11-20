@@ -1,0 +1,50 @@
+{
+  "scope": "local same-host negative control on one public validation development cell",
+  "case": "swerv_wrapper-ng45",
+  "seed": "1002",
+  "status": "exact_match",
+  "parent": {
+    "candidate_source": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261119-171338-220524/candidate/program.py",
+    "candidate_source_sha256": "15e57d5748faff2ac87be85121661b31f9f03d8bb7b42d7e0eef26c2b56478b8",
+    "cell_receipt": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261119-171338-220524/validate/15e57d5748faff2ac87be85121661b31f9f03d8bb7b42d7e0eef26c2b56478b8/cells/swerv_wrapper-ng45/1002/cell.json",
+    "cell_receipt_sha256": "ff64fd4ca70e0d320b2757088cc11e140fffab8d845b1d5830d83a48620d9f96",
+    "native_timing_result": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261119-171338-220524/validate/15e57d5748faff2ac87be85121661b31f9f03d8bb7b42d7e0eef26c2b56478b8/cells/swerv_wrapper-ng45/1002/result/evaluation_result.json",
+    "native_timing_result_sha256": "f96fc6bddfb5e75b4ca362a8fd0e3ab25ebe1f242edc1a701c3039453da2056c",
+    "status": "succeeded",
+    "timing_boundary": "post-opt-pre-cts",
+    "exit_codes": {
+      "frontend": 0,
+      "backend": 0
+    },
+    "wns_ns": -1.8471187324716596,
+    "tns_ns": -6294.62392293098,
+    "raw_score": -120.62182699615789,
+    "clipped_score": -100.0
+  },
+  "control": {
+    "candidate_source": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261119-191052-621679/candidate/program.py",
+    "candidate_source_sha256": "40a13c16dbc21c20d4542a4a7590d3088e96e3ad6e10fde6cc016b9222e7b263",
+    "cell_receipt": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261119-191052-621679/evaluation/cells/swerv_wrapper-ng45/1002/cell.json",
+    "cell_receipt_sha256": "53c9a90de30ca8b1b8c5925000d83df769c72349a8b3346153bbcf7e78cdb61a",
+    "native_timing_result": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261119-191052-621679/evaluation/cells/swerv_wrapper-ng45/1002/result/evaluation_result.json",
+    "native_timing_result_sha256": "d0cb4e0c59c1c2a30de1a69ed92bf5dd3a3aa2aa9a6ba00e381401779e6a48a3",
+    "status": "succeeded",
+    "timing_boundary": "post-opt-pre-cts",
+    "exit_codes": {
+      "frontend": 0,
+      "backend": 0
+    },
+    "wns_ns": -1.8471187324716596,
+    "tns_ns": -6294.62392293098,
+    "raw_score": -120.62182699615789,
+    "clipped_score": -100.0
+  },
+  "control_minus_parent": {
+    "wns_ns": 0.0,
+    "tns_ns": 0.0,
+    "raw_score": 0.0,
+    "clipped_score": 0.0
+  },
+  "parent_public_validation_export": "exports/2026-11-19-coarse-majority-validation/public-validation.json",
+  "parent_public_validation_export_sha256": "0dd9362865146eaf7b5b733ca6f804a5bcc0807a3bbb61076834a0202f7d4b6c"
+}

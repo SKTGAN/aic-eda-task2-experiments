@@ -1,0 +1,30 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 9
+    },
+    "auditLog": "log\\host\\electron-errd-audit-log.json",
+    "files": [
+        {
+            "date": 1781239367104,
+            "name": "log\\host\\electron-errd-2026-06-12.log",
+            "hash": "f33e02a559257a7a7292fee10f83ff9c"
+        },
+        {
+            "date": 1781325392131,
+            "name": "log\\host\\electron-errd-2026-06-13.log",
+            "hash": "dbda5d775cd74980713bab2ad0ae5867"
+        },
+        {
+            "date": 1785034954785,
+            "name": "log\\host\\electron-errd-2026-07-26.log",
+            "hash": "b35b1e53044ad19e2bdc9eadc5a60014"
+        },
+        {
+            "date": 1786524635985,
+            "name": "log\\host\\electron-errd-2026-08-12.log",
+            "hash": "79860f61b24b76c861bd50f09c362d32"
+        }
+    ],
+    "hashType": "md5"
+}

@@ -1,0 +1,1267 @@
+[
+ {
+  "setting": "default (median, x1, local 0.10, /sqrt(seeds))",
+  "parameters": {},
+  "claude-original": {
+   "after R1": {
+    "branching": "complementary_opening_with_first_receipt S loss_only",
+    "rolling": "edit S loss",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R2": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R3": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R4": {
+    "branching": "extend_best R4 loss_only",
+    "rolling": "removal R4 loss",
+    "changed": true,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R5": {
+    "branching": "extend_best R4 decoder_only",
+    "rolling": "edit R4 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R6": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "duplicate_outcome",
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R7": {
+    "branching": "targeted_repair R7 loss_only",
+    "rolling": "edit R4 decoder",
+    "changed": true,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": "+13.16 vs 28.94 (ariane133-ng45)"
+   },
+   "after R8": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R9": {
+    "branching": "targeted_repair R9 loss_only",
+    "rolling": "edit R4 decoder",
+    "changed": true,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": "+15.12 vs 21.08 (ariane133-ng45)"
+   },
+   "after R10": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   }
+  },
+  "ours-new": {
+   "after R1": {
+    "branching": "complementary_opening_with_first_receipt S loss_only",
+    "rolling": "edit S loss",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R2": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R3": {
+    "branching": "extend_best R3 decoder_only",
+    "rolling": "edit R3 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R4": {
+    "branching": "extend_best R3 decoder_only",
+    "rolling": "edit R3 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   }
+  }
+ },
+ {
+  "setting": "25th percentile",
+  "parameters": {
+   "SENSITIVITY_QUANTILE": 0.25
+  },
+  "claude-original": {
+   "after R1": {
+    "branching": "complementary_opening_with_first_receipt S loss_only",
+    "rolling": "edit S loss",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R2": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R3": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R4": {
+    "branching": "extend_best R4 loss_only",
+    "rolling": "removal R4 loss",
+    "changed": true,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R5": {
+    "branching": "extend_best R4 decoder_only",
+    "rolling": "edit R4 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R6": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "duplicate_outcome",
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R7": {
+    "branching": "targeted_repair R7 loss_only",
+    "rolling": "edit R7 loss",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": "+13.16 vs 12.49 (ariane133-ng45)"
+   },
+   "after R8": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R9": {
+    "branching": "targeted_repair R9 loss_only",
+    "rolling": "edit R9 loss",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": "+15.12 vs 6.17 (ariane133-ng45)"
+   },
+   "after R10": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   }
+  },
+  "ours-new": {
+   "after R1": {
+    "branching": "complementary_opening_with_first_receipt S loss_only",
+    "rolling": "edit S loss",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R2": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R3": {
+    "branching": "extend_best R3 decoder_only",
+    "rolling": "edit R3 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R4": {
+    "branching": "extend_best R3 decoder_only",
+    "rolling": "edit R3 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   }
+  }
+ },
+ {
+  "setting": "75th percentile",
+  "parameters": {
+   "SENSITIVITY_QUANTILE": 0.75
+  },
+  "claude-original": {
+   "after R1": {
+    "branching": "complementary_opening_with_first_receipt S loss_only",
+    "rolling": "edit S loss",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R2": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R3": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R4": {
+    "branching": "extend_best R4 loss_only",
+    "rolling": "removal R4 loss",
+    "changed": true,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R5": {
+    "branching": "extend_best R4 decoder_only",
+    "rolling": "edit R4 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R6": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "duplicate_outcome",
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R7": {
+    "branching": "targeted_repair R7 loss_only",
+    "rolling": "edit R4 decoder",
+    "changed": true,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": "+13.16 vs 94.93 (ariane133-ng45)"
+   },
+   "after R8": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R9": {
+    "branching": "targeted_repair R9 loss_only",
+    "rolling": "edit R4 decoder",
+    "changed": true,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": "+15.12 vs 62.36 (ariane133-ng45)"
+   },
+   "after R10": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   }
+  },
+  "ours-new": {
+   "after R1": {
+    "branching": "complementary_opening_with_first_receipt S loss_only",
+    "rolling": "edit S loss",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R2": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R3": {
+    "branching": "extend_best R3 decoder_only",
+    "rolling": "edit R3 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R4": {
+    "branching": "extend_best R3 decoder_only",
+    "rolling": "edit R3 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   }
+  }
+ },
+ {
+  "setting": "half the median",
+  "parameters": {
+   "TOLERANCE_SCALE": 0.5
+  },
+  "claude-original": {
+   "after R1": {
+    "branching": "complementary_opening_with_first_receipt S loss_only",
+    "rolling": "edit S loss",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R2": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R3": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R4": {
+    "branching": "extend_best R4 loss_only",
+    "rolling": "removal R4 loss",
+    "changed": true,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R5": {
+    "branching": "extend_best R4 decoder_only",
+    "rolling": "edit R4 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R6": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "duplicate_outcome",
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R7": {
+    "branching": "targeted_repair R7 loss_only",
+    "rolling": "edit R4 decoder",
+    "changed": true,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": "+13.16 vs 14.47 (ariane133-ng45)"
+   },
+   "after R8": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R9": {
+    "branching": "targeted_repair R9 loss_only",
+    "rolling": "edit R9 loss",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": "+15.12 vs 10.54 (ariane133-ng45)"
+   },
+   "after R10": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   }
+  },
+  "ours-new": {
+   "after R1": {
+    "branching": "complementary_opening_with_first_receipt S loss_only",
+    "rolling": "edit S loss",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R2": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R3": {
+    "branching": "extend_best R3 decoder_only",
+    "rolling": "edit R3 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R4": {
+    "branching": "extend_best R3 decoder_only",
+    "rolling": "edit R3 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   }
+  }
+ },
+ {
+  "setting": "twice the median",
+  "parameters": {
+   "TOLERANCE_SCALE": 2.0
+  },
+  "claude-original": {
+   "after R1": {
+    "branching": "complementary_opening_with_first_receipt S loss_only",
+    "rolling": "edit S loss",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R2": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R3": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R4": {
+    "branching": "extend_best R4 loss_only",
+    "rolling": "removal R4 loss",
+    "changed": true,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R5": {
+    "branching": "extend_best R4 decoder_only",
+    "rolling": "edit R4 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R6": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "duplicate_outcome",
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R7": {
+    "branching": "targeted_repair R7 loss_only",
+    "rolling": "edit R4 decoder",
+    "changed": true,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": "+13.16 vs 57.88 (ariane133-ng45)"
+   },
+   "after R8": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R9": {
+    "branching": "targeted_repair R9 loss_only",
+    "rolling": "edit R4 decoder",
+    "changed": true,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": "+15.12 vs 42.17 (ariane133-ng45)"
+   },
+   "after R10": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   }
+  },
+  "ours-new": {
+   "after R1": {
+    "branching": "complementary_opening_with_first_receipt S loss_only",
+    "rolling": "edit S loss",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R2": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R3": {
+    "branching": "extend_best R3 decoder_only",
+    "rolling": "edit R3 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R4": {
+    "branching": "extend_best R3 decoder_only",
+    "rolling": "edit R3 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   }
+  }
+ },
+ {
+  "setting": "local pairs within 0.05",
+  "parameters": {
+   "LOCAL_FRACTION": 0.05
+  },
+  "claude-original": {
+   "after R1": {
+    "branching": "complementary_opening_with_first_receipt S loss_only",
+    "rolling": "edit S loss",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R2": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R3": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R4": {
+    "branching": "extend_best R4 loss_only",
+    "rolling": "removal R4 loss",
+    "changed": true,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R5": {
+    "branching": "extend_best R4 decoder_only",
+    "rolling": "edit R4 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R6": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "duplicate_outcome",
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R7": {
+    "branching": "targeted_repair R7 loss_only",
+    "rolling": "edit R4 decoder",
+    "changed": true,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": "+13.16 vs 19.30 (ariane133-ng45)"
+   },
+   "after R8": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R9": {
+    "branching": "targeted_repair R9 loss_only",
+    "rolling": "edit R9 loss",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": "+15.12 vs 13.15 (ariane133-ng45)"
+   },
+   "after R10": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   }
+  },
+  "ours-new": {
+   "after R1": {
+    "branching": "complementary_opening_with_first_receipt S loss_only",
+    "rolling": "edit S loss",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R2": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R3": {
+    "branching": "extend_best R3 decoder_only",
+    "rolling": "edit R3 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R4": {
+    "branching": "extend_best R3 decoder_only",
+    "rolling": "edit R3 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   }
+  }
+ },
+ {
+  "setting": "local pairs within 0.20",
+  "parameters": {
+   "LOCAL_FRACTION": 0.2
+  },
+  "claude-original": {
+   "after R1": {
+    "branching": "complementary_opening_with_first_receipt S loss_only",
+    "rolling": "edit S loss",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R2": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R3": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R4": {
+    "branching": "extend_best R4 loss_only",
+    "rolling": "removal R4 loss",
+    "changed": true,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R5": {
+    "branching": "extend_best R4 decoder_only",
+    "rolling": "edit R4 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R6": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "duplicate_outcome",
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R7": {
+    "branching": "targeted_repair R7 loss_only",
+    "rolling": "edit R4 decoder",
+    "changed": true,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": "+13.16 vs 28.94 (ariane133-ng45)"
+   },
+   "after R8": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R9": {
+    "branching": "targeted_repair R9 loss_only",
+    "rolling": "edit R4 decoder",
+    "changed": true,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": "+15.12 vs 21.08 (ariane133-ng45)"
+   },
+   "after R10": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   }
+  },
+  "ours-new": {
+   "after R1": {
+    "branching": "complementary_opening_with_first_receipt S loss_only",
+    "rolling": "edit S loss",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R2": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R3": {
+    "branching": "extend_best R3 decoder_only",
+    "rolling": "edit R3 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R4": {
+    "branching": "extend_best R3 decoder_only",
+    "rolling": "edit R3 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   }
+  }
+ },
+ {
+  "setting": "no sqrt(seeds) division",
+  "parameters": {
+   "ROOT_SEEDS": false
+  },
+  "claude-original": {
+   "after R1": {
+    "branching": "complementary_opening_with_first_receipt S loss_only",
+    "rolling": "edit S loss",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R2": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R3": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R4": {
+    "branching": "extend_best R4 loss_only",
+    "rolling": "removal R4 loss",
+    "changed": true,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R5": {
+    "branching": "extend_best R4 decoder_only",
+    "rolling": "edit R4 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R6": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "duplicate_outcome",
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R7": {
+    "branching": "targeted_repair R7 loss_only",
+    "rolling": "edit R4 decoder",
+    "changed": true,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": "+13.16 vs 28.94 (ariane133-ng45)"
+   },
+   "after R8": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R9": {
+    "branching": "targeted_repair R9 loss_only",
+    "rolling": "edit R4 decoder",
+    "changed": true,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": "+15.12 vs 21.08 (ariane133-ng45)"
+   },
+   "after R10": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   }
+  },
+  "ours-new": {
+   "after R1": {
+    "branching": "complementary_opening_with_first_receipt S loss_only",
+    "rolling": "edit S loss",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R2": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R3": {
+    "branching": "extend_best R3 decoder_only",
+    "rolling": "edit R3 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R4": {
+    "branching": "extend_best R3 decoder_only",
+    "rolling": "edit R3 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   }
+  }
+ },
+ {
+  "setting": "default tolerance 2",
+  "parameters": {
+   "DEFAULT_TOLERANCE": 2.0
+  },
+  "claude-original": {
+   "after R1": {
+    "branching": "complementary_opening_with_first_receipt S loss_only",
+    "rolling": "edit S loss",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R2": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R3": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R4": {
+    "branching": "extend_best R4 loss_only",
+    "rolling": "removal R4 loss",
+    "changed": true,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R5": {
+    "branching": "extend_best R4 decoder_only",
+    "rolling": "edit R4 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R6": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "duplicate_outcome",
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R7": {
+    "branching": "targeted_repair R7 loss_only",
+    "rolling": "edit R4 decoder",
+    "changed": true,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": "+13.16 vs 28.94 (ariane133-ng45)"
+   },
+   "after R8": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R9": {
+    "branching": "targeted_repair R9 loss_only",
+    "rolling": "edit R4 decoder",
+    "changed": true,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": "+15.12 vs 21.08 (ariane133-ng45)"
+   },
+   "after R10": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   }
+  },
+  "ours-new": {
+   "after R1": {
+    "branching": "complementary_opening_with_first_receipt S loss_only",
+    "rolling": "edit S loss",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R2": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R3": {
+    "branching": "extend_best R3 decoder_only",
+    "rolling": "edit R3 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R4": {
+    "branching": "extend_best R3 decoder_only",
+    "rolling": "edit R3 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   }
+  }
+ },
+ {
+  "setting": "default tolerance 10",
+  "parameters": {
+   "DEFAULT_TOLERANCE": 10.0
+  },
+  "claude-original": {
+   "after R1": {
+    "branching": "complementary_opening_with_first_receipt S loss_only",
+    "rolling": "edit S loss",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R2": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R3": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R4": {
+    "branching": "extend_best R4 loss_only",
+    "rolling": "removal R4 loss",
+    "changed": true,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R5": {
+    "branching": "extend_best R4 decoder_only",
+    "rolling": "edit R4 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R6": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "duplicate_outcome",
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R7": {
+    "branching": "targeted_repair R7 loss_only",
+    "rolling": "edit R4 decoder",
+    "changed": true,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": "+13.16 vs 28.94 (ariane133-ng45)"
+   },
+   "after R8": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R9": {
+    "branching": "targeted_repair R9 loss_only",
+    "rolling": "edit R4 decoder",
+    "changed": true,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": "+15.12 vs 21.08 (ariane133-ng45)"
+   },
+   "after R10": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   }
+  },
+  "ours-new": {
+   "after R1": {
+    "branching": "complementary_opening_with_first_receipt S loss_only",
+    "rolling": "edit S loss",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R2": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R3": {
+    "branching": "extend_best R3 decoder_only",
+    "rolling": "edit R3 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R4": {
+    "branching": "extend_best R3 decoder_only",
+    "rolling": "edit R3 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   }
+  }
+ },
+ {
+  "setting": "zero tolerance (every decrease counts)",
+  "parameters": {
+   "TOLERANCE_SCALE": 0.0,
+   "MIN_TOLERANCE": 0.0,
+   "DEFAULT_TOLERANCE": 0.0
+  },
+  "claude-original": {
+   "after R1": {
+    "branching": "complementary_opening_with_first_receipt S loss_only",
+    "rolling": "edit S loss",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R2": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R3": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R4": {
+    "branching": "extend_best R4 loss_only",
+    "rolling": "transplant R4 loss",
+    "changed": true,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R5": {
+    "branching": "extend_best R4 decoder_only",
+    "rolling": "transplant R4 loss",
+    "changed": true,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R6": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "duplicate_outcome",
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R7": {
+    "branching": "targeted_repair R7 loss_only",
+    "rolling": "edit R7 loss",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": "+13.16 vs 0.00 (ariane133-ng45)"
+   },
+   "after R8": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R9": {
+    "branching": "targeted_repair R9 loss_only",
+    "rolling": "edit R9 loss",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": "+15.12 vs 0.00 (ariane133-ng45)"
+   },
+   "after R10": {
+    "branching": "switch_branch R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [
+     "stalled_branch"
+    ],
+    "protected_gain_vs_cell_tolerance": null
+   }
+  },
+  "ours-new": {
+   "after R1": {
+    "branching": "complementary_opening_with_first_receipt S loss_only",
+    "rolling": "edit S loss",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R2": {
+    "branching": "extend_best R2 decoder_only",
+    "rolling": "edit R2 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R3": {
+    "branching": "extend_best R3 decoder_only",
+    "rolling": "edit R3 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   },
+   "after R4": {
+    "branching": "extend_best R3 decoder_only",
+    "rolling": "edit R3 decoder",
+    "changed": false,
+    "planning_call": [],
+    "protected_gain_vs_cell_tolerance": null
+   }
+  }
+ }
+]

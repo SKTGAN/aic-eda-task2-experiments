@@ -1,0 +1,72 @@
+{
+  "scope": "local native training cells, common scoring",
+  "candidate_sha256": "2314359a8e3fa3b43739288b54efa34f1597249ba2e99277dc87b05e9e379646",
+  "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+  "benchmark": 34.75499580780448,
+  "cells": [
+    {
+      "case": "bp-ng45",
+      "seed": 1001,
+      "score": -14.26434576992596,
+      "wns_ns": -7.8645820970537015,
+      "tns_ns": -8604.365818941049,
+      "receipt": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-144430-520437/evaluation/evaluation_result.json"
+    },
+    {
+      "case": "bp-ng45",
+      "seed": 1002,
+      "score": -29.82307256120162,
+      "wns_ns": -7.819817015256352,
+      "tns_ns": -10344.54846528871,
+      "receipt": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-140932-230351/evaluation/evaluation_result.json"
+    },
+    {
+      "case": "bp-ng45",
+      "seed": 1003,
+      "score": -18.382923615841314,
+      "wns_ns": -7.909525702718459,
+      "tns_ns": -9036.068405283373,
+      "receipt": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-142725-520857/evaluation/evaluation_result.json"
+    },
+    {
+      "case": "bp_fe-ng45",
+      "seed": 1001,
+      "score": 22.797664797312873,
+      "wns_ns": -1.085100262578855,
+      "tns_ns": -346.37990167642573,
+      "receipt": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-152345-722601/evaluation/evaluation_result.json"
+    },
+    {
+      "case": "bp_fe-ng45",
+      "seed": 1002,
+      "score": 48.46993798540935,
+      "wns_ns": -0.6812550716376978,
+      "tns_ns": -254.03381450770655,
+      "receipt": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-153510-343177/evaluation/evaluation_result.json"
+    },
+    {
+      "case": "bp_fe-ng45",
+      "seed": 1003,
+      "score": 61.19134329989512,
+      "wns_ns": -0.6001650457595086,
+      "tns_ns": -145.08119205537704,
+      "receipt": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-154402-009290/evaluation/evaluation_result.json"
+    },
+    {
+      "case": "ariane133-ng45",
+      "seed": 1001,
+      "score": -100.0,
+      "wns_ns": -0.9624541436244497,
+      "tns_ns": -438.5687883658394,
+      "receipt": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-180520-410055/evaluation/evaluation_result.json"
+    }
+  ],
+  "case_means": {
+    "bp_fe-ng45": 44.15298202753911,
+    "bp-ng45": -20.8234473156563
+  },
+  "cells_remaining": 2,
+  "required_remaining_mean_to_tie": 171.4031790672959,
+  "maximum_possible_score": 18.887622681738716,
+  "full_score": null
+}

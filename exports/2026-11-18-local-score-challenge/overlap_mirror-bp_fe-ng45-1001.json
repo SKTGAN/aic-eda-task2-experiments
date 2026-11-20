@@ -1,0 +1,22 @@
+{
+  "scope": "local native training cells, common scoring",
+  "candidate_sha256": "b7ae5c705c3af0cf61c2da77faf35e538aa2983ad8fe4a70a2ef34cf410cedf8",
+  "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+  "benchmark": 34.75499580780448,
+  "cells": [
+    {
+      "case": "bp_fe-ng45",
+      "seed": 1001,
+      "score": 53.920084041666136,
+      "wns_ns": -0.7269002272515573,
+      "tns_ns": -164.67874285890653,
+      "receipt": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261119-135313-972763/evaluation/evaluation_result.json"
+    }
+  ],
+  "three_design_seed_1002_score": null,
+  "case_means": {},
+  "cells_remaining": 8,
+  "required_remaining_mean_to_tie": 32.359359778571765,
+  "maximum_possible_score": 94.8800093379629,
+  "full_score": null
+}

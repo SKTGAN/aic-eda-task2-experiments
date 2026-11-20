@@ -1,0 +1,24 @@
+{
+  "source_mount_at_capture": "/root/aic-eda-fourth/arm/work",
+  "capture_port": "22120",
+  "capture_utc": "2026-11-19T04:26:28.486090+00:00",
+  "scope": "official runner / see ledger status",
+  "session": {
+    "baseline": "loss_decoder",
+    "endpoint": "post-opt-pre-cts",
+    "error_type": "RuntimeError",
+    "evaluation_mode": "formal",
+    "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+    "matrix_cells": 9,
+    "message": "DeepSeek startup check failed; check network access or HTTPS_PROXY; no model request was dispatched",
+    "retain_physical_files": false,
+    "status": "failed",
+    "work_root": "/root/aic-eda-fourth/arm/work"
+  },
+  "diagnostic": null,
+  "read_errors": {},
+  "other_record_names": [
+    "codex/loss_decoder"
+  ],
+  "transaction_note": "ledger is a read transaction; receipts and event log are sequential read-only snapshots"
+}

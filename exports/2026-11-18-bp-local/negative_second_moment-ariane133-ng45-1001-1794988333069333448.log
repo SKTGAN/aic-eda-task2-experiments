@@ -1,0 +1,45 @@
+Running loss_decoder / ariane133-ng45 / seed 1001 with 6 GiB
+Artifacts: /home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-155213-220672
+Traceback (most recent call last):
+  File "/mnt/e/ide/aic-eda-task2/trial_baseline.py", line 122, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/mnt/e/ide/aic-eda-task2/trial_baseline.py", line 106, in main
+    result = LocalEvaluationMatrix(matrix_path, spec).evaluate(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sktgan/aic-eda-task2-local/official/contest-source/AgenticBench/local_bench/matrix.py", line 260, in evaluate
+    rows = list(pool.map(one, self.cells))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 619, in result_iterator
+    yield _result_or_cancel(fs.pop())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 317, in _result_or_cancel
+    return fut.result(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 456, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/usr/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sktgan/aic-eda-task2-local/official/contest-source/AgenticBench/local_bench/matrix.py", line 209, in one
+    result = execute(self.spec.root, candidate_dir, source, folder / "result",
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sktgan/aic-eda-task2-local/official/contest-source/AgenticBench/local_bench/matrix_docker.py", line 128, in evaluate_cell
+    self.run_phased(request, run, image, resources, claim, mounts)
+  File "/mnt/e/ide/aic-eda-task2/trial_baseline.py", line 66, in run_phased
+    return super().run_phased(
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/sktgan/aic-eda-task2-local/official/contest-source/AgenticBench/local_bench/matrix_docker.py", line 150, in run_phased
+    run_container(command, run / "execution/frontend", name + "-frontend",
+  File "/home/sktgan/aic-eda-task2-local/official/contest-source/AgenticBench/contest2/execution_policy.py", line 39, in run_container
+    return install_runtime()(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sktgan/aic-eda-task2-local/official/contest-source/AgenticBench/grt_bench/runtime.py", line 40, in run_container
+    def docker_command(image, name, resources, gpus, mounts, arguments):
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/sktgan/aic-eda-task2-local/official/contest-source/AgenticBench/grt_bench/runtime.py", line 30, in stop_and_confirm
+    raise UncertainExecution("Container termination unconfirmed; retain lease: " + name)
+grt_bench.runtime.UncertainExecution: Container termination unconfirmed; retain lease: grt-89fe2ec80cd44fb85e1a029118225de9-frontend

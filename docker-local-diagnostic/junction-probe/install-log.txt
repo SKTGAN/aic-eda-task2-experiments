@@ -1,0 +1,15 @@
+-------------------------------------------------------------------------------->8
+Version: 4.69.0 (224084)
+Sha1: 
+Started on: 2026/04/15 08:10:50.491
+Resources: C:\Users\A\AppData\Local\Temp\DockerDesktopInstallers\1776240647601538400\resources
+OS: Windows 10 Home China
+Edition: CoreCountrySpecific
+Id: 2009
+Build: 22631
+BuildLabName: 22621.1.amd64fre.ni_release.220506-1250
+File: C:\Users\A\AppData\Local\Docker\install-log.txt
+CommandLine: "C:\Users\A\AppData\Local\Temp\DockerDesktopInstallers\1776240647601538400\Docker Desktop Installer.exe" install -package C:\Users\A\AppData\Local\Temp\DockerDesktopInstallers\1776240647643811300\DockerDesktop.d4w
+You can send feedback, including this log file, at https://dockr.ly/desktop-feedback
+[2026-04-15T08:10:50.605636000Z][Installer][I] No installation found
+[2026-04-15T08:10:50.988995900Z][ProcessEnvironmentDetector][I] Not run as admin, relaunching with UAC prompt

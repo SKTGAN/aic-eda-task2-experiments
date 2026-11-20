@@ -1,0 +1,315 @@
+{
+  "purpose": "development only",
+  "ledger": "26016, independent from the completed 15332 ledger",
+  "selected_new": "1c0f75e74aa385d57850e3fd1caf21799e294af8d25b98ea656b26c42a6e98c6",
+  "rounds": [
+    {
+      "round": 11,
+      "host": "26016",
+      "candidate_id": "81b03cd93e8d90de31a2aba0d5f528cd59527efcd59e23b726100eddc69fa06c",
+      "parent_id": "d5fd4448ad8d57fe652cc16b641a1d5002fa11145f699750b888cf1728df62ca",
+      "score": 11.415874569442412,
+      "changes": {
+        "loss": "Stabilize the parent round-4 timing-star attraction with a warmup ramp.\n\nChange relative to the parent: the sampled random-walk log-sigmoid\ncontrastive term and the graph_weights-normalized softplus margin on\ntiming star edges are kept unchanged, but the graph term coefficient is\nmultiplied by a linear ramp over the first 10% of the effective epoch\nbudget.  The loss interface exposes no gradient-norm or detach primitive,\nso this uses the legal warmup ramp as the per-step stabilizer instead of\nan exact gradient-norm cap; the existing graph-weight normalization still\nlimits early graph dominance.\n\nExpected measurable effect: the round-4 timing-star attraction remains\nactive after warmup, but early batches cannot let the graph margin\noverwhelm the contrastive objective.  The unchanged area-balanced\ntwo-center decoder should preserve the ariane133-ng45 partition gains\nwhile reducing sensitivity to early graph-margin dominance.\n\nInvalidation: in same-host paired reruns, reject if the mean score delta\nversus round 4 is <= 0, or if ariane133-ng45/1002 fails to match round 4\nwhile labels_changed rises."
+      },
+      "status": "succeeded",
+      "cells": {
+        "bp_fe-ng45/1001": [
+          47.402745499837515,
+          -0.7835550208227885,
+          -212.47389871146402,
+          4
+        ],
+        "bp_fe-ng45/1002": [
+          58.924068359124384,
+          -0.7083553943906424,
+          -114.73340646742678,
+          1
+        ],
+        "bp_fe-ng45/1003": [
+          53.126825914136866,
+          -0.663550788652499,
+          -207.78956032835512,
+          0
+        ],
+        "bp-ng45/1001": [
+          -36.11293901900813,
+          -7.847649863181662,
+          -11024.637699688883,
+          480
+        ],
+        "bp-ng45/1002": [
+          -28.919153236023277,
+          -7.886722609326163,
+          -10210.676298369783,
+          453
+        ],
+        "bp-ng45/1003": [
+          -27.77668944627503,
+          -8.328665992613242,
+          -9859.339394633114,
+          412
+        ],
+        "ariane133-ng45/1001": [
+          43.90074204194483,
+          -0.678707331768733,
+          -7.686131060277451,
+          2279
+        ],
+        "ariane133-ng45/1002": [
+          -100.0,
+          -0.5330274150709893,
+          -479.5949870764485,
+          6820
+        ],
+        "ariane133-ng45/1003": [
+          92.19727101124455,
+          -0.09924550351335637,
+          -0.48026739500259735,
+          3152
+        ]
+      },
+      "request_id": "e-df039775cca1ecf4717556de3bf1aa34b37cd0ca7a6f7ea9afa841ac553e",
+      "case_means": {
+        "bp_fe-ng45": 53.15121325769959,
+        "bp-ng45": -30.936260567102146,
+        "ariane133-ng45": 12.032671017729795
+      },
+      "plan": {
+        "parent_round": 4,
+        "component": "loss",
+        "evidence": [
+          {
+            "round": 1,
+            "cell": "ariane133-ng45/1002",
+            "score": 7.493
+          },
+          {
+            "round": 4,
+            "cell": "ariane133-ng45/1002",
+            "score": 68.472,
+            "WNS_ns": -0.381,
+            "TNS_ns": -4.341
+          },
+          {
+            "round": 4,
+            "cell": "ariane133-ng45/1003",
+            "score": 70.275,
+            "WNS_ns": -0.254,
+            "TNS_ns": -16.9
+          },
+          {
+            "round": 7,
+            "cell": "ariane133-ng45/1002",
+            "score": 21.66,
+            "paired_mean_delta_case": -15.604,
+            "worst_paired_delta": -46.811
+          },
+          {
+            "round": 10,
+            "cell": "ariane133-ng45/1003",
+            "score": 26.381,
+            "WNS_ns": -0.586,
+            "TNS_ns": -47.054
+          }
+        ],
+        "experiment": "With round 4 unchanged, test one stabilizer: keep its unnormalized timing-star attraction, but linearly ramp it over the first 10% of training and cap its per-step gradient norm at 1.0× the random-walk contrastive gradient norm. This tests whether the round-4 gain is a robust timing signal rather than early dominance. Benefit at risk: the strong cut/timing gain on ariane133-ng45/1002-1003 could be attenuated. Falsifier: in same-host paired reruns, reject if mean score delta versus round 4 is ≤0, or if ariane133-ng45/1002 score/WNS/TNS fail to match round 4 while labels_changed rises. Do not repeat round-7 decoder or round-10 weight-normalized margin."
+      },
+      "parent_round": 4,
+      "parent_host": "15332",
+      "parent_score": 29.665496497232258,
+      "score_change_vs_parent": -18.249621927789846,
+      "gpu_by_cell": {
+        "bp_fe-ng45/1001": [
+          "1"
+        ],
+        "bp_fe-ng45/1002": [
+          "0"
+        ],
+        "bp_fe-ng45/1003": [
+          "0"
+        ],
+        "bp-ng45/1001": [
+          "1"
+        ],
+        "bp-ng45/1002": [
+          "0"
+        ],
+        "bp-ng45/1003": [
+          "0"
+        ],
+        "ariane133-ng45/1001": [
+          "0"
+        ],
+        "ariane133-ng45/1002": [
+          "0"
+        ],
+        "ariane133-ng45/1003": [
+          "0"
+        ]
+      },
+      "identical_memory_sha256_both_roles": "14ec307e1099a4dbdec20b3ea1de1d17950e9a6836d6ce62b5dfd890010b96aa",
+      "memory_rounds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "source_sha256": "df039775cca1ecf4717556de3bf1aa34b37cd0ca7a6f7ea9afa841ac553eef6c"
+    },
+    {
+      "round": 12,
+      "host": "26016",
+      "candidate_id": "1c0f75e74aa385d57850e3fd1caf21799e294af8d25b98ea656b26c42a6e98c6",
+      "parent_id": "d5fd4448ad8d57fe652cc16b641a1d5002fa11145f699750b888cf1728df62ca",
+      "score": 16.34225542795715,
+      "changes": {
+        "loss": "Keep the parent timing-star attraction but saturate each net's contribution.\n\nChange relative to the parent: the sampled random-walk log-sigmoid\ncontrastive objective is unchanged, and the timing-weighted star-edge\nmargin attraction is retained.  Each edge penalty is passed through a\nsmooth saturating map ``cap * tanh(softplus(0.5 - score) / cap)`` before\nweighting.  Because ``graph_weights`` sum to each represented net's fixed\ntiming weight, this bounds every net's total graph contribution by\n``net_weight * cap`` while keeping non-zero gradients.  The intent is to\npreserve the parent's timing-driven partition movement but stop a few\nhigh-loss critical nets from dominating the embedding geometry.\n\nExpected measurable effect: the unchanged area-balanced two-center decoder\nshould still move boundary supernodes, retaining the parent's ariane gains\nwhile reducing the bp/bp_fe regressions caused by aggressive critical-net\nattraction.\n\nInvalidation: if the official nine-cell mean score does not exceed the\nparent round-4 mean, or if label changes and timing gains disappear, the\nsaturating per-net contribution cap is not useful."
+      },
+      "status": "succeeded",
+      "cells": {
+        "bp_fe-ng45/1001": [
+          50.556444119417066,
+          -0.6562306439549076,
+          -242.38844506488644,
+          1
+        ],
+        "bp_fe-ng45/1002": [
+          58.924068359124384,
+          -0.7083553943906424,
+          -114.73340646742678,
+          1
+        ],
+        "bp_fe-ng45/1003": [
+          53.126825914136866,
+          -0.663550788652499,
+          -207.78956032835512,
+          0
+        ],
+        "bp-ng45/1001": [
+          -25.362346624448374,
+          -7.866748364280616,
+          -9828.25650282624,
+          8
+        ],
+        "bp-ng45/1002": [
+          -29.849037711906657,
+          -7.8203064015794475,
+          -10347.165081619713,
+          0
+        ],
+        "bp-ng45/1003": [
+          -2.4928290291365056,
+          -7.849878302899714,
+          -7312.522236491056,
+          10
+        ],
+        "ariane133-ng45/1001": [
+          68.64835706602254,
+          -0.3785571963048668,
+          -4.386037435167137,
+          41
+        ],
+        "ariane133-ng45/1002": [
+          -91.09114685690672,
+          -0.49294258958861686,
+          -247.20166169305242,
+          1179
+        ],
+        "ariane133-ng45/1003": [
+          64.61996361531173,
+          -0.4100715438839533,
+          -7.0306775724617605,
+          58
+        ]
+      },
+      "request_id": "e-39b5dfaa09964531c6d89bec77361f4010824b52dd7175ee7edcd359c36a",
+      "case_means": {
+        "bp_fe-ng45": 54.202446130892774,
+        "bp-ng45": -19.234737788497178,
+        "ariane133-ng45": 14.059057941475851
+      },
+      "plan": {
+        "parent_round": 4,
+        "component": "loss",
+        "evidence": [
+          {
+            "round": 4,
+            "cell": "ariane133-ng45/1002",
+            "score": 68.472
+          },
+          {
+            "round": 4,
+            "cell": "ariane133-ng45/1003",
+            "score": 70.275
+          },
+          {
+            "round": 7,
+            "cell": "ariane133-ng45/1002",
+            "score": 21.66
+          },
+          {
+            "round": 11,
+            "cell": "ariane133-ng45/1002",
+            "score": -100.0
+          }
+        ],
+        "experiment": "Retain round 4's contrastive loss and timing-star attraction, but replace the round-11 warmup idea with a per-net contribution cap and no decoder change. Test on host 15332 against parent 4. Benefit at risk: timing-star attraction's cut/TNS gain on ariane/bp may weaken if capping dilutes critical nets. Falsifier: reject if mean nine-cell score does not exceed parent 4, or if ariane133-ng45/1002 remains below its round-4 68.472, or WNS/TNS improvement disappears despite label changes."
+      },
+      "parent_round": 4,
+      "parent_host": "15332",
+      "parent_score": 29.665496497232258,
+      "score_change_vs_parent": -13.32324106927511,
+      "gpu_by_cell": {
+        "bp_fe-ng45/1001": [
+          "1"
+        ],
+        "bp_fe-ng45/1002": [
+          "0"
+        ],
+        "bp_fe-ng45/1003": [
+          "0"
+        ],
+        "bp-ng45/1001": [
+          "1"
+        ],
+        "bp-ng45/1002": [
+          "0"
+        ],
+        "bp-ng45/1003": [
+          "0"
+        ],
+        "ariane133-ng45/1001": [
+          "0"
+        ],
+        "ariane133-ng45/1002": [
+          "0"
+        ],
+        "ariane133-ng45/1003": [
+          "0"
+        ]
+      },
+      "identical_memory_sha256_both_roles": "7aa3e3015a6d0e35c65279fc87b31613b5170954acbb1c9f0e029c921ab70f0d",
+      "memory_rounds": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "source_sha256": "39b5dfaa09964531c6d89bec77361f4010824b52dd7175ee7edcd359c36a5124"
+    }
+  ]
+}

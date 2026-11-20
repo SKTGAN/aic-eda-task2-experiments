@@ -1,0 +1,32 @@
+{
+  "association": "chronological context before submit",
+  "associated_call_ids": {},
+  "sequence_at_submission": 14,
+  "recorded_reason": {
+    "reason": "runtime_environment_failure",
+    "candidate_id": "c70ae3e4f0382868c7e0486a39992aee5be8ab796c42617c58df9df367284a9c"
+  },
+  "candidate_explanation": {
+    "decoder": "Diversify vs parent (decoder): replace the frozen reference two-way call with one custom bounded loop that alternates area-weighted center updates with a margin-sorted cumulative-area reassignment (ba"
+  },
+  "generation_events": [
+    {
+      "sequence": 14,
+      "event": {
+        "event": "submitted",
+        "request_id": "e-df68ececea6d0a45c2aea078e7587adfa7ac25bab16e1705898f2fa3d1dc",
+        "decision": {
+          "reason": "runtime_environment_failure",
+          "candidate_id": "c70ae3e4f0382868c7e0486a39992aee5be8ab796c42617c58df9df367284a9c"
+        },
+        "parent_id": "2f5e1997129df8af708f6db7a3df3d1b60c043cae483118bff18deee84bd6bbe",
+        "search_intent": "diversify",
+        "changed_components": {
+          "decoder": "Diversify vs parent (decoder): replace the frozen reference two-way call with one custom bounded loop that alternates area-weighted center updates with a margin-sorted cumulative-area reassignment (ba"
+        }
+      }
+    }
+  ],
+  "evaluation_event_sequence": null,
+  "verified_source_sha256": "ca2e7132e7b182b0459f733f562bcff8d45bd1d9c2536ca16c481634792a7f2e"
+}

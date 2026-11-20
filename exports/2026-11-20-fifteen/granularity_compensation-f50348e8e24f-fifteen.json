@@ -1,0 +1,16 @@
+{
+  "scope": "local development on all five published designs",
+  "candidate_sha256": "f50348e8e24f50aa6d0f6d7a71faff310f5a34dbbb874b143548fffe560c7cef",
+  "status": "stopped",
+  "candidate_source": "/mnt/e/ide/aic-eda-task2/exports/2026-11-20-fifteen/sources/f50348e8e24f50aa6d0f6d7a71faff310f5a34dbbb874b143548fffe560c7cef/granularity_compensation.py",
+  "official_root": "/home/sktgan/aic-eda-task2-local/official",
+  "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+  "complete": false,
+  "score_fifteen": null,
+  "case_means": {},
+  "splits": {},
+  "cells": [],
+  "active_split": "validation",
+  "active_panel": "/mnt/e/ide/aic-eda-task2/exports/2026-11-20-fifteen/panels/granularity_compensation-f50348e8e24f-a6b37146e917.json",
+  "panel_exit_code": -9
+}

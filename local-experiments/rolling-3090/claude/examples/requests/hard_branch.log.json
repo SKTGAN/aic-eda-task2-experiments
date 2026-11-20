@@ -1,0 +1,356 @@
+[
+ {
+  "event": "submitted",
+  "request_id": "e-e88082bdac994604231e76658d158481bde9037354580e62135a29fa880f",
+  "decision": {
+   "reason": "opening_control"
+  },
+  "parent_id": "c936085bfae4a448ff978d007b0f1a66c623b4d761a4a6a32683bb214d6e96b7",
+  "search_intent": "decoder_only",
+  "changed_components": {
+   "decoder": "Replace the frozen two-means decoder with an area-balanced principal-axis split. Relative to the parent, this keeps the same legal area-balanced top-die fill but ranks groups by a power-iteration proj"
+  }
+ },
+ {
+  "event": "submitted",
+  "request_id": "e-b6617f1892d2d253855621797dc6771e30361e8405fcdf7aa3265b3bf4d4",
+  "decision": {
+   "reason": "opening_control"
+  },
+  "parent_id": "c936085bfae4a448ff978d007b0f1a66c623b4d761a4a6a32683bb214d6e96b7",
+  "search_intent": "loss_only",
+  "changed_components": {
+   "loss": "Relative to the parent (random-walk contrastive loss only), add a timing-weighted star-edge attraction term sum_e w_e * softplus(-graph_scores_e) / sum_e w_e rescaled by (P+Q)/source_batch_size so its"
+  }
+ },
+ {
+  "event": "submitted",
+  "request_id": "e-a83b78148bfc57361789831465ca5ce5d76f43e9e4859959f69b6c7ad6ef",
+  "decision": {
+   "reason": "refine_incumbent",
+   "candidate_id": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9"
+  },
+  "parent_id": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9",
+  "search_intent": "refine",
+  "changed_components": {
+   "loss": "Relative to the parent loss, keep the timing-weighted star-edge attraction sum_e w_e * softplus(-graph_scores_e) but focus each edge by the endpoint timing criticality read from published node_feature"
+  }
+ },
+ {
+  "event": "submitted",
+  "request_id": "e-785401a4543c65fd9c9deeea8b8fb40283e10e2b78b1e255f73d6be7d0af",
+  "decision": {
+   "reason": "explore_from_incumbent",
+   "candidate_id": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9"
+  },
+  "parent_id": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9",
+  "search_intent": "diversify",
+  "changed_components": {
+   "decoder": "Relative to the parent, keep the timing-weighted star-edge loss unchanged and replace the frozen two-means helper with a custom seeded area-balanced two-means decoder. Initial centers are an embedding"
+  }
+ },
+ {
+  "event": "submitted",
+  "request_id": "e-613cfc9f92dc25cd0381fb70f5e08501f163772f9600ffd8955deaa8c8b5",
+  "decision": {
+   "reason": "assignment_unchanged",
+   "candidate_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd"
+  },
+  "parent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+  "search_intent": "diversify",
+  "changed_components": {
+   "loss": "Relative to the parent timing-weighted star-edge attraction, this substitutes an area-mobility-weighted edge mean read from the published graph endpoints and node_areas. Small movable standard-cell su"
+  }
+ },
+ {
+  "event": "submitted",
+  "request_id": "e-a113cc644507c5acc4fc984d95eebae0fc332a3e6ccab6ee3c91f5334369",
+  "decision": {
+   "reason": "explore_from_incumbent",
+   "candidate_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd"
+  },
+  "parent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+  "search_intent": "diversify",
+  "changed_components": {
+   "decoder": "Relative to the parent, keep the timing-weighted star-edge loss unchanged and change the custom seeded area-balanced two-means decoder's initialization and area-fill selection. The bottom initial cent"
+  }
+ },
+ {
+  "event": "runtime_capabilities",
+  "python": "3.12.3",
+  "numpy": "2.5.5",
+  "torch": "2.15.0+cpu",
+  "reference_helper": null,
+  "decoder_probe": "custom decoders",
+  "loss_probe": "runs"
+ },
+ {
+  "event": "plan",
+  "choice": "X1",
+  "kind": "edit",
+  "parent": "R2",
+  "component": "decoder",
+  "hard": [
+   "duplicate_outcome",
+   "stalled_branch"
+  ],
+  "budget": {
+   "remaining": 1,
+   "total": 7,
+   "splices_used": 0,
+   "splice_cap": 2
+  },
+  "planned": {
+   "choice": "X1",
+   "explanations": [
+    "round 6 reproduced round 4's labels",
+    "the decoder rewrite changed no boundary group"
+   ],
+   "discriminating_prediction": "a grouping change moves bp_fe seeds by more than 4 points",
+   "falsifier": "all nine cells repeat round 2",
+   "edit_brief": "exchange the dies of R2",
+   "probe": {
+    "kind": "decoder_change_vs_parent",
+    "min_fraction": 0.0,
+    "max_fraction": 0.2
+   },
+   "expect_footprint": [
+    "structural"
+   ]
+  },
+  "options": [
+   {
+    "id": "X1",
+    "kind": "edit",
+    "parent": "R2",
+    "component": "decoder",
+    "question": "Can a decoder change of R2 raise bp_fe-ng45 without losing bp-ng45, ariane133-ng45?"
+   },
+   {
+    "id": "X2",
+    "kind": "edit",
+    "parent": "R4",
+    "component": "loss",
+    "question": "Is a loss change of R4 more promising than the edit above?"
+   }
+  ],
+  "lessons": [
+   {
+    "evidence": "R6-R4",
+    "finding": "paired_reading",
+    "reading": "no_gain",
+    "official_delta": 0.0,
+    "edit": {
+     "loss": "unchanged",
+     "decoder": "structural"
+    }
+   },
+   {
+    "evidence": "R6=R4",
+    "finding": "duplicate_outcome",
+    "same_as": "R4",
+    "basis": "timing_only"
+   }
+  ]
+ },
+ {
+  "event": "submitted",
+  "request_id": "e-b292522f931fe1d49f8b8e0fdad9b0ba8d873de220156a6c3cfebf65c930",
+  "decision": {
+   "reason": "switch_branch",
+   "component": "decoder",
+   "incumbent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+   "stalled_children": [
+    "bd957b3c95d402b1aff7b856d29978a1006355a27d455cc756788d1936957c44",
+    "487da828935e797d8a78b1f6e23d33010a854e2df195c4567cbcdbbf9ef02aab"
+   ],
+   "trigger": "same_measured_timing",
+   "experiment": {
+    "id": "X1",
+    "kind": "edit",
+    "question": "Can a decoder change of R2 raise bp_fe-ng45 without losing bp-ng45, ariane133-ng45?"
+   },
+   "evidence": {
+    "candidate_id": "487da828935e797d8a78b1f6e23d33010a854e2df195c4567cbcdbbf9ef02aab",
+    "score": 34.75499580780448,
+    "parent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+    "complete": true,
+    "official_score_delta": 0.0,
+    "largest_regression": null,
+    "largest_gain": null,
+    "paired_case_deltas": [
+     {
+      "case": "bp_fe-ng45",
+      "scored_pairs": 3,
+      "expected_cells": 3,
+      "mean_paired_score_delta": 0.0
+     },
+     {
+      "case": "bp-ng45",
+      "scored_pairs": 3,
+      "expected_cells": 3,
+      "mean_paired_score_delta": 0.0
+     },
+     {
+      "case": "ariane133-ng45",
+      "scored_pairs": 3,
+      "expected_cells": 3,
+      "mean_paired_score_delta": 0.0
+     }
+    ],
+    "gains_across_seeds": [],
+    "timing_attribution_unconfirmed": [],
+    "failures": []
+   }
+  },
+  "parent_id": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9",
+  "search_intent": "decoder_only",
+  "changed_components": {
+   "decoder": {
+    "mechanism": "exchange the two dies of the reference grouping",
+    "decision": "every group changes tier",
+    "prediction": "TNS changes where critical paths cross the boundary",
+    "falsifier": "paired TNS is unchanged on most cells"
+   }
+  },
+  "policy_action": "switch_branch",
+  "mechanism_keys": {
+   "decoder": {
+    "shape": "1cde203c3a3d1a46",
+    "added_signal_families": []
+   }
+  },
+  "model_calls": {
+   "proposal": "b9c14e70fafb4cf18f4aec2ca4e63d67",
+   "accepted_code": "b9c14e70fafb4cf18f4aec2ca4e63d67"
+  },
+  "experiment": {
+   "id": "X1",
+   "kind": "edit",
+   "parent": "R2",
+   "parent_candidate": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9",
+   "component": "decoder",
+   "question": "Can a decoder change of R2 raise bp_fe-ng45 without losing bp-ng45, ariane133-ng45?",
+   "contract": {
+    "anchor": "R2",
+    "anchor_candidate": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9",
+    "component": "decoder",
+    "kind": "edit",
+    "target": {
+     "case": "bp_fe-ng45",
+     "seeds": [
+      "1001",
+      "1002",
+      "1003"
+     ],
+     "rule": "mean paired score delta over the case > 0 and most of its seeds improve"
+    },
+    "protect": [
+     {
+      "case": "bp-ng45",
+      "tolerance": 2.0,
+      "cell_tolerance": 2.264,
+      "strength": "mixed_reference",
+      "evidence": "R2-S",
+      "rule": "mean paired score delta over the case >= -tolerance"
+     },
+     {
+      "case": "ariane133-ng45",
+      "tolerance": 25.775,
+      "cell_tolerance": 44.644,
+      "strength": "supported",
+      "evidence": "R2-S",
+      "rule": "mean paired score delta over the case >= -tolerance"
+     }
+    ],
+    "fragile": [
+     "bp_fe-ng45/1003"
+    ],
+    "tolerances": {
+     "bp_fe-ng45": {
+      "cell": 7.699,
+      "case_mean": 4.445,
+      "pairs": 21,
+      "source": "calibrated"
+     },
+     "bp-ng45": {
+      "cell": 2.264,
+      "case_mean": 2.0,
+      "pairs": 17,
+      "source": "calibrated"
+     },
+     "ariane133-ng45": {
+      "cell": 44.644,
+      "case_mean": 25.775,
+      "pairs": 31,
+      "source": "calibrated"
+     }
+    }
+   },
+   "factors": null,
+   "donors": null,
+   "planned": true,
+   "expect_footprint": [
+    "structural"
+   ]
+  },
+  "preflight": {
+   "static": [
+    {
+     "check": "python38_syntax",
+     "status": "pass",
+     "detail": ""
+    },
+    {
+     "check": "program_bytes",
+     "status": "pass",
+     "detail": "2017 of 18000 bytes"
+    },
+    {
+     "check": "ast_nodes",
+     "status": "pass",
+     "detail": "173 of 3000 nodes"
+    },
+    {
+     "check": "manifest",
+     "status": "pass",
+     "detail": "changes ['decoder']"
+    },
+    {
+     "check": "intervention_shape",
+     "status": "pass",
+     "detail": "the decoder edit is structural; the plan allows ['structural']"
+    },
+    {
+     "check": "identity_rules",
+     "status": "pass",
+     "detail": ""
+    }
+   ],
+   "probes": [
+    {
+     "probe": "decoder_contract",
+     "status": "skipped",
+     "reason": "the decoder calls reference_global_two_way, which no supported provider offers in the Agent runtime"
+    },
+    {
+     "probe": "planner_spec",
+     "status": "skipped",
+     "spec": {
+      "kind": "decoder_change_vs_parent",
+      "max_fraction": 0.2,
+      "min_fraction": 0.0
+     },
+     "reason": "the probe it needs did not run"
+    }
+   ]
+  }
+ },
+ {
+  "event": "official_receipt",
+  "request_id": "e-b292522f931fe1d49f8b8e0fdad9b0ba8d873de220156a6c3cfebf65c930",
+  "candidate_id": "cand-b292522f931f",
+  "status": "succeeded",
+  "score": 28.427746177483954
+ }
+]

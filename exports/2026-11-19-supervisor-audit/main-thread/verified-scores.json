@@ -1,0 +1,46 @@
+[
+  {
+    "version": "capacity_quantum",
+    "sha256": "a9aa8da67ed97235197702a6e291dd1d604d21921aabfea0425e172e69f4ad13",
+    "mean": 33.91279563427039,
+    "n": 9,
+    "case_means": {
+      "bp_fe-ng45": 48.9852500107845,
+      "bp-ng45": -2.434257461743341,
+      "ariane133-ng45": 55.18739435377
+    }
+  },
+  {
+    "version": "variance_guard",
+    "sha256": "52f19e612c20e000b165d59aa6c76241b16a5e68261e6b2334d4f15106de39a6",
+    "mean": 34.394355838689,
+    "n": 9,
+    "case_means": {
+      "bp_fe-ng45": 48.9852500107845,
+      "bp-ng45": -2.434257461743341,
+      "ariane133-ng45": 56.632074967025865
+    }
+  },
+  {
+    "version": "three_radius_guard",
+    "sha256": "9d0da5bc9726e99d1db300b0dd2d1faa3293c10e4595dd8ff46112ab8e8d83d4",
+    "mean": 39.68092703127543,
+    "n": 9,
+    "case_means": {
+      "bp_fe-ng45": 48.9852500107845,
+      "bp-ng45": -2.434257461743341,
+      "ariane133-ng45": 72.49178854478514
+    }
+  },
+  {
+    "version": "coarse_majority",
+    "sha256": "15e57d5748faff2ac87be85121661b31f9f03d8bb7b42d7e0eef26c2b56478b8",
+    "mean": 41.7327927348226,
+    "n": 9,
+    "case_means": {
+      "bp_fe-ng45": 55.140847121426035,
+      "bp-ng45": -2.434257461743341,
+      "ariane133-ng45": 72.49178854478514
+    }
+  }
+]

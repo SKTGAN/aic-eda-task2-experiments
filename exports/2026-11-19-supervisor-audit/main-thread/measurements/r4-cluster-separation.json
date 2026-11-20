@@ -1,0 +1,47 @@
+{
+  "definition": "Within is area-weighted mean squared Euclidean distance to own cluster center; between is the area-weighted variance of the two centers around the overall center.",
+  "cells": [
+    {
+      "case": "bp-ng45",
+      "seed": 1002,
+      "r4_trial": "20261118-185108-011766",
+      "top_area_fraction": 0.4880236032741108,
+      "top_rms_radius": 0.3155457668491483,
+      "bottom_rms_radius": 0.035058887355495436,
+      "center_distance": 0.3664345572101378,
+      "rms_radius_sum_over_distance": 0.9568001906642879,
+      "rms_balls_disjoint": true,
+      "between_variance": 0.03354931167114788,
+      "within_variance": 0.04922136936088882,
+      "between_over_within": 0.6816005346207633
+    },
+    {
+      "case": "ariane133-ng45",
+      "seed": 1001,
+      "r4_trial": "20261118-183031-273756",
+      "top_area_fraction": 0.4984037514580741,
+      "top_rms_radius": 0.15484261610889727,
+      "bottom_rms_radius": 0.053304806486693675,
+      "center_distance": 0.3853947803491651,
+      "rms_radius_sum_over_distance": 0.540088847095985,
+      "rms_balls_disjoint": true,
+      "between_variance": 0.03713190572645764,
+      "within_variance": 0.0133750826320667,
+      "between_over_within": 2.7762000989387583
+    },
+    {
+      "case": "bp_fe-ng45",
+      "seed": 1001,
+      "r4_trial": "20261118-182349-190494",
+      "top_area_fraction": 0.4967038317472912,
+      "top_rms_radius": 0.14052575877501935,
+      "bottom_rms_radius": 0.025507369562372678,
+      "center_distance": 0.12082209268602363,
+      "rms_radius_sum_over_distance": 1.3741951049371146,
+      "rms_balls_disjoint": false,
+      "between_variance": 0.0036493359172379233,
+      "within_variance": 0.010136110917171075,
+      "between_over_within": 0.3600331475315416
+    }
+  ]
+}

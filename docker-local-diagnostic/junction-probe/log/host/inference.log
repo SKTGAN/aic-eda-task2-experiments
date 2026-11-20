@@ -1,0 +1,347 @@
+-------------------------------------------------------------------------------->8
+[2026-04-15T08:15:46.351009700Z][inference.model-manager] Successfully initialized store
+[2026-04-15T08:15:46.371492400Z][inference] 3 backends available
+[2026-04-15T08:15:48.296213600Z][inference] Reconciling service state on initialization
+[2026-04-15T08:15:48.296736100Z][inference] Reconciling service state on settings change
+[2026-04-15T08:19:04.465452400Z][inference] Reconciling service state on feature flag change
+[2026-04-15T08:19:04.465719900Z][inference][W] Backend installation failed for: not implemented[2026-04-15T08:19:04.466238400Z][inference] downloadLatestLlamaCpp
+[2026-04-15T08:19:04.473533400Z][inference.model-manager] Listing available models
+[2026-04-15T08:19:04.482521800Z][inference.model-manager] successfully listed models
+[2026-04-15T08:19:04.485700300Z][inference.model-manager] Listing available models
+[2026-04-15T08:19:04.486344000Z][inference.model-manager] successfully listed models
+[2026-04-15T08:19:04.901753500Z][inference][W] failed to read current llama.cpp version: open C:\Users\A\.docker\bin\inference\.llamacpp_version: The system cannot find the path specified.[2026-04-15T08:19:04.901753500Z][inference][W] proceeding to update llama.cpp binary
+[2026-04-15T08:19:04.903001800Z][inference] Extracting image
+[2026-04-15T08:19:21.704925100Z][inference.model-manager] Listing available models
+[2026-04-15T08:19:21.705529600Z][inference.model-manager] successfully listed models
+[2026-04-15T08:26:21.696427700Z][inference] Failed to ensure latest llama.cpp: could not extract image: fetching image: after 10 attempts, last error: failed to do request: Head "https://registry-1.docker.io/v2/docker/docker-model-backend-llamacpp/manifests/sha256:ecec389744e8bf7e6e8cfdcdd55e1be68832c70eb5b5d7d648b70061f25aa86b": dial tcp [2a03:2880:f10c:83:face:b00c:0:25de]:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.[2026-04-15T08:26:22.100658800Z][inference] installed llama-server
+[2026-04-15T08:27:09.778612100Z][inference.model-manager] Listing available models
+[2026-04-15T08:27:09.798750600Z][inference.model-manager] successfully listed models
+[2026-04-15T08:27:09.801859900Z][inference.model-manager] Listing available models
+[2026-04-15T08:27:09.803016500Z][inference.model-manager] successfully listed models
+[2026-04-15T08:27:11.335670200Z][inference.model-manager] Listing available models
+[2026-04-15T08:27:11.336176300Z][inference.model-manager] successfully listed models
+-------------------------------------------------------------------------------->8
+[2026-05-15T06:15:04.343794700Z][inference.model-manager] Successfully initialized store
+[2026-05-15T06:15:04.351567500Z][inference] 3 backends available
+[2026-05-15T06:15:05.144753600Z][inference] Reconciling service state on initialization
+[2026-05-15T06:15:05.144753600Z][inference] Reconciling service state on settings change
+[2026-05-15T06:15:05.145278100Z][inference] downloadLatestLlamaCpp
+[2026-05-15T06:15:05.890019200Z][inference][W] failed to read current llama.cpp version: open C:\Users\A\.docker\bin\inference\.llamacpp_version: The system cannot find the path specified.[2026-05-15T06:15:05.890019200Z][inference][W] proceeding to update llama.cpp binary
+[2026-05-15T06:15:05.891027000Z][inference] Extracting image
+[2026-05-15T06:22:22.533156300Z][inference] Failed to ensure latest llama.cpp: could not extract image: fetching image: after 10 attempts, last error: failed to do request: Head "https://registry-1.docker.io/v2/docker/docker-model-backend-llamacpp/manifests/sha256:763ff42c4bb975fa16de48eb6ed040e058b1513ae36b7a7edde632b009c40d84": dial tcp [2a03:2880:f10d:83:face:b00c:0:25de]:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.[2026-05-15T06:22:22.535069100Z][inference.model-manager] Listing available models
+[2026-05-15T06:22:22.535610700Z][inference.model-manager] successfully listed models
+[2026-05-15T06:22:22.538267700Z][inference.model-manager] Listing available models
+[2026-05-15T06:22:22.539272200Z][inference.model-manager] successfully listed models
+[2026-05-15T06:22:22.769656700Z][inference] installed llama-server
+[2026-05-15T06:22:22.769656700Z][inference][W] Backend installation failed for: not implemented-------------------------------------------------------------------------------->8
+[2026-06-08T03:11:07.713290300Z][inference.model-manager] Successfully initialized store
+[2026-06-08T03:11:07.729028200Z][inference] 3 backends available
+[2026-06-08T03:11:08.930986300Z][inference] Reconciling service state on initialization
+[2026-06-08T03:11:08.930986300Z][inference] Reconciling service state on settings change
+[2026-06-08T03:11:08.932051800Z][inference] downloadLatestLlamaCpp
+[2026-06-08T03:11:09.297122700Z][inference][W] failed to read current llama.cpp version: open C:\Users\A\.docker\bin\inference\.llamacpp_version: The system cannot find the path specified.[2026-06-08T03:11:09.297629600Z][inference][W] proceeding to update llama.cpp binary
+[2026-06-08T03:11:09.298158000Z][inference] Extracting image
+[2026-06-08T03:18:25.311691000Z][inference] Failed to ensure latest llama.cpp: could not extract image: fetching image: after 10 attempts, last error: failed to do request: Head "https://registry-1.docker.io/v2/docker/docker-model-backend-llamacpp/manifests/sha256:763ff42c4bb975fa16de48eb6ed040e058b1513ae36b7a7edde632b009c40d84": dial tcp [2a03:2880:f129:83:face:b00c:0:25de]:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.[2026-06-08T03:18:25.314825600Z][inference.model-manager] Listing available models
+[2026-06-08T03:18:25.314825600Z][inference.model-manager] successfully listed models
+[2026-06-08T03:18:25.318375400Z][inference.model-manager] Listing available models
+[2026-06-08T03:18:25.318433000Z][inference.model-manager] successfully listed models
+[2026-06-08T03:18:25.517603000Z][inference] installed llama-server
+[2026-06-08T03:18:25.518106800Z][inference][W] Backend installation failed for: not implemented[2026-06-08T03:18:39.956186200Z][inference.model-manager] Listing available models
+[2026-06-08T03:18:39.956933800Z][inference.model-manager] successfully listed models
+[2026-06-08T03:23:38.185980500Z][inference.model-manager] Listing available models
+[2026-06-08T03:23:38.186491000Z][inference.model-manager] successfully listed models
+[2026-06-08T03:24:36.065858800Z][inference.model-manager] Listing available models
+[2026-06-08T03:24:36.066827200Z][inference.model-manager] successfully listed models
+[2026-06-08T03:25:28.072639000Z][inference.model-manager] Listing available models
+[2026-06-08T03:25:28.073148300Z][inference.model-manager] successfully listed models
+[2026-06-08T03:26:12.395709100Z][inference.model-manager] Listing available models
+[2026-06-08T03:26:12.396241800Z][inference.model-manager] successfully listed models
+[2026-06-08T03:37:07.438566500Z][inference.model-manager] Listing available models
+[2026-06-08T03:37:07.462764700Z][inference.model-manager] successfully listed models
+[2026-06-08T03:37:14.212628200Z][inference.model-manager] Listing available models
+[2026-06-08T03:37:14.214206200Z][inference.model-manager] successfully listed models
+-------------------------------------------------------------------------------->8
+[2026-06-08T04:31:22.242457400Z][inference.model-manager] Successfully initialized store
+[2026-06-08T04:31:22.266428000Z][inference] 3 backends available
+[2026-06-08T04:31:24.286920100Z][inference] Reconciling service state on initialization
+[2026-06-08T04:31:24.287480200Z][inference] Reconciling service state on settings change
+[2026-06-08T04:31:24.287480200Z][inference] downloadLatestLlamaCpp
+[2026-06-08T04:31:24.615777000Z][inference][W] failed to read current llama.cpp version: open C:\Users\A\.docker\bin\inference\.llamacpp_version: The system cannot find the path specified.[2026-06-08T04:31:24.617445300Z][inference][W] proceeding to update llama.cpp binary
+[2026-06-08T04:31:24.617966400Z][inference] Extracting image
+[2026-06-08T04:31:24.712885400Z][inference.model-manager] Listing available models
+[2026-06-08T04:31:24.713428400Z][inference.model-manager] successfully listed models
+[2026-06-08T04:31:24.751423700Z][inference.model-manager] Listing available models
+[2026-06-08T04:31:24.751960800Z][inference.model-manager] successfully listed models
+[2026-06-08T04:31:25.606259400Z][inference.model-manager] Listing available models
+[2026-06-08T04:31:25.606822900Z][inference.model-manager] successfully listed models
+[2026-06-08T04:38:40.976056600Z][inference] Failed to ensure latest llama.cpp: could not extract image: fetching image: after 10 attempts, last error: failed to do request: Head "https://registry-1.docker.io/v2/docker/docker-model-backend-llamacpp/manifests/sha256:763ff42c4bb975fa16de48eb6ed040e058b1513ae36b7a7edde632b009c40d84": dial tcp 66.220.146.94:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.[2026-06-08T04:38:41.096559600Z][inference] installed llama-server
+[2026-06-08T04:38:41.096559600Z][inference][W] Backend installation failed for: not implemented[2026-06-08T04:56:37.771767700Z][inference.model-manager] Listing available models
+[2026-06-08T04:56:37.772273400Z][inference.model-manager] successfully listed models
+[2026-06-10T07:53:52.655081500Z][inference.model-manager] Listing available models
+[2026-06-10T07:53:52.671976400Z][inference.model-manager] successfully listed models
+[2026-06-10T07:55:22.868336700Z][inference.model-manager] Listing available models
+[2026-06-10T07:55:22.868840200Z][inference.model-manager] successfully listed models
+[2026-06-10T07:57:28.338182800Z][inference.model-manager] Listing available models
+[2026-06-10T07:57:28.338182800Z][inference.model-manager] successfully listed models
+[2026-06-10T07:57:35.515262000Z][inference.model-manager] Listing available models
+[2026-06-10T07:57:35.515262000Z][inference.model-manager] successfully listed models
+[2026-06-10T07:57:48.096297500Z][inference.model-manager] Listing available models
+[2026-06-10T07:57:48.096830600Z][inference.model-manager] successfully listed models
+[2026-06-10T08:01:31.296395900Z][inference.model-manager] Listing available models
+[2026-06-10T08:01:31.297303000Z][inference.model-manager] successfully listed models
+[2026-06-10T08:13:55.130890900Z][inference.model-manager] Listing available models
+[2026-06-10T08:13:55.130890900Z][inference.model-manager] successfully listed models
+[2026-06-10T08:34:52.192915500Z][inference.model-manager] Listing available models
+[2026-06-10T08:34:52.193924600Z][inference.model-manager] successfully listed models
+[2026-06-10T08:35:54.678762800Z][inference.model-manager] Listing available models
+[2026-06-10T08:35:54.679330300Z][inference.model-manager] successfully listed models
+[2026-06-10T09:07:47.793960100Z][inference.model-manager] Listing available models
+[2026-06-10T09:07:47.794498300Z][inference.model-manager] successfully listed models
+[2026-06-10T09:07:49.526166000Z][inference.model-manager] Listing available models
+[2026-06-10T09:07:49.526166000Z][inference.model-manager] successfully listed models
+[2026-06-10T09:45:49.012808000Z][inference.model-manager] Listing available models
+[2026-06-10T09:45:49.013319000Z][inference.model-manager] successfully listed models
+[2026-06-10T09:46:35.714415700Z][inference.model-manager] Listing available models
+[2026-06-10T09:46:35.714415700Z][inference.model-manager] successfully listed models
+[2026-06-10T11:40:36.980831200Z][inference.model-manager] Listing available models
+[2026-06-10T11:40:36.993002200Z][inference.model-manager] successfully listed models
+[2026-06-11T05:43:32.195933400Z][inference.model-manager] Listing available models
+[2026-06-11T05:43:32.212191400Z][inference.model-manager] successfully listed models
+[2026-06-11T06:09:06.793850100Z][inference.model-manager] Listing available models
+[2026-06-11T06:09:06.794215100Z][inference.model-manager] successfully listed models
+[2026-06-11T06:09:37.727818700Z][inference.model-manager] Listing available models
+[2026-06-11T06:09:37.728429000Z][inference.model-manager] successfully listed models
+[2026-06-11T06:10:29.814222800Z][inference.model-manager] Listing available models
+[2026-06-11T06:10:29.814766900Z][inference.model-manager] successfully listed models
+[2026-06-11T07:21:03.935428600Z][inference.model-manager] Listing available models
+[2026-06-11T07:21:03.935942100Z][inference.model-manager] successfully listed models
+[2026-06-11T17:29:15.701079200Z][inference.model-manager] Listing available models
+[2026-06-11T17:29:15.729228100Z][inference.model-manager] successfully listed models
+[2026-06-11T17:29:24.817598200Z][inference.model-manager] Listing available models
+[2026-06-11T17:29:24.817598200Z][inference.model-manager] successfully listed models
+[2026-06-11T17:29:26.907442900Z][inference.model-manager] Listing available models
+[2026-06-11T17:29:26.907950100Z][inference.model-manager] successfully listed models
+[2026-06-11T17:29:33.913896200Z][inference.model-manager] Listing available models
+[2026-06-11T17:29:33.914408400Z][inference.model-manager] successfully listed models
+[2026-06-11T17:29:36.476607400Z][inference.model-manager] Listing available models
+[2026-06-11T17:29:36.476607400Z][inference.model-manager] successfully listed models
+[2026-06-11T17:29:45.357333900Z][inference.model-manager] Listing available models
+[2026-06-11T17:29:45.357876700Z][inference.model-manager] successfully listed models
+[2026-06-12T07:44:38.537687200Z][inference.model-manager] Listing available models
+[2026-06-12T07:44:38.564497400Z][inference.model-manager] successfully listed models
+[2026-06-12T09:37:42.148903500Z][inference.model-manager] Listing available models
+[2026-06-12T09:37:42.149533900Z][inference.model-manager] successfully listed models
+[2026-06-12T09:37:57.348446100Z][inference.model-manager] Listing available models
+[2026-06-12T09:37:57.348949000Z][inference.model-manager] successfully listed models
+[2026-06-12T14:53:57.945694400Z][inference.model-manager] Listing available models
+[2026-06-12T14:53:57.972038200Z][inference.model-manager] successfully listed models
+[2026-06-13T04:36:49.624003000Z][inference.model-manager] Listing available models
+[2026-06-13T04:36:49.748418400Z][inference.model-manager] successfully listed models
+[2026-06-13T09:19:04.337263500Z][inference.model-manager] Listing available models
+[2026-06-13T09:19:04.362265500Z][inference.model-manager] successfully listed models
+[2026-06-13T09:23:48.780840700Z][inference.model-manager] Listing available models
+[2026-06-13T09:23:48.780840700Z][inference.model-manager] successfully listed models
+[2026-06-13T09:29:23.783999300Z][inference.model-manager] Listing available models
+[2026-06-13T09:29:23.785005000Z][inference.model-manager] successfully listed models
+[2026-06-13T09:29:26.098895700Z][inference.model-manager] Listing available models
+[2026-06-13T09:29:26.098895700Z][inference.model-manager] successfully listed models
+-------------------------------------------------------------------------------->8
+[2026-07-08T11:35:59.831672500Z][inference.model-manager] Successfully initialized store
+[2026-07-08T11:35:59.840930300Z][inference] 3 backends available
+[2026-07-08T11:36:01.473246700Z][inference] Reconciling service state on initialization
+[2026-07-08T11:36:01.473246700Z][inference] Reconciling service state on settings change
+[2026-07-08T11:36:01.474841200Z][inference] downloadLatestLlamaCpp
+[2026-07-08T11:36:01.786394500Z][inference][W] failed to read current llama.cpp version: open C:\Users\A\.docker\bin\inference\.llamacpp_version: The system cannot find the path specified.[2026-07-08T11:36:01.786900500Z][inference][W] proceeding to update llama.cpp binary
+[2026-07-08T11:36:01.786900500Z][inference] Extracting image
+[2026-07-08T11:36:02.929044400Z][inference.model-manager] Listing available models
+[2026-07-08T11:36:02.930238500Z][inference.model-manager] successfully listed models
+[2026-07-08T11:36:03.399437500Z][inference.model-manager] Listing available models
+[2026-07-08T11:36:03.399437500Z][inference.model-manager] successfully listed models
+[2026-07-08T11:36:04.516913500Z][inference.model-manager] Listing available models
+[2026-07-08T11:36:04.518430700Z][inference.model-manager] successfully listed models
+[2026-07-08T11:43:17.748193100Z][inference] Failed to ensure latest llama.cpp: could not extract image: fetching image: after 10 attempts, last error: failed to do request: Head "https://registry-1.docker.io/v2/docker/docker-model-backend-llamacpp/manifests/sha256:d29b95b2e3dd19dde850137abeb98b4919f7cbf5a03ce8f191fd07b2f6d4f8fa": dial tcp [2a03:2880:f117:83:face:b00c:0:25de]:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.[2026-07-08T11:43:17.908322300Z][inference] installed llama-server
+[2026-07-08T11:43:17.908838500Z][inference][W] Backend installation failed for: not implemented-------------------------------------------------------------------------------->8
+[2026-07-17T03:45:29.038063300Z][inference.model-manager] Successfully initialized store
+[2026-07-17T03:45:29.059314400Z][inference] 3 backends available
+[2026-07-17T03:45:30.245360200Z][inference] Reconciling service state on initialization
+[2026-07-17T03:45:30.245360200Z][inference] Reconciling service state on settings change
+[2026-07-17T03:45:30.247008600Z][inference] downloadLatestLlamaCpp
+[2026-07-17T03:45:30.554321200Z][inference][W] failed to read current llama.cpp version: open C:\Users\A\.docker\bin\inference\.llamacpp_version: The system cannot find the path specified.[2026-07-17T03:45:30.554875200Z][inference][W] proceeding to update llama.cpp binary
+[2026-07-17T03:45:30.555403100Z][inference] Extracting image
+[2026-07-17T03:45:31.397640500Z][inference.model-manager] Listing available models
+[2026-07-17T03:45:31.398167900Z][inference.model-manager] successfully listed models
+[2026-07-17T03:45:31.426641900Z][inference.model-manager] Listing available models
+[2026-07-17T03:45:31.426641900Z][inference.model-manager] successfully listed models
+[2026-07-17T03:45:32.060441600Z][inference.model-manager] Listing available models
+[2026-07-17T03:45:32.060947400Z][inference.model-manager] successfully listed models
+[2026-07-17T03:45:47.955261000Z][inference] Failed to ensure latest llama.cpp: could not extract image: fetching image: context canceled[2026-07-17T03:45:47.955261000Z][inference][W] Backend installation failed for: could not extract image: fetching image: context canceled[2026-07-17T03:45:47.955261000Z][inference][W] Backend installation failed for: not implemented-------------------------------------------------------------------------------->8
+[2026-07-17T03:49:10.269578300Z][inference.model-manager] Successfully initialized store
+[2026-07-17T03:49:10.270644000Z][inference] 3 backends available
+[2026-07-17T03:49:12.999130700Z][inference] Reconciling service state on initialization
+[2026-07-17T03:49:12.999664400Z][inference] Reconciling service state on settings change
+[2026-07-17T03:49:12.999664400Z][inference] downloadLatestLlamaCpp
+[2026-07-17T03:49:13.300065700Z][inference][W] failed to read current llama.cpp version: open C:\Users\A\.docker\bin\inference\.llamacpp_version: The system cannot find the path specified.[2026-07-17T03:49:13.300065700Z][inference][W] proceeding to update llama.cpp binary
+[2026-07-17T03:49:13.300607300Z][inference] Extracting image
+[2026-07-17T03:56:29.530733400Z][inference] Failed to ensure latest llama.cpp: could not extract image: fetching image: after 10 attempts, last error: failed to do request: Head "https://registry-1.docker.io/v2/docker/docker-model-backend-llamacpp/manifests/sha256:d29b95b2e3dd19dde850137abeb98b4919f7cbf5a03ce8f191fd07b2f6d4f8fa": dial tcp [2a03:2880:f11a:83:face:b00c:0:25de]:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.[2026-07-17T03:56:29.531798300Z][inference.model-manager] Listing available models
+[2026-07-17T03:56:29.532323400Z][inference.model-manager] successfully listed models
+[2026-07-17T03:56:29.538921400Z][inference.model-manager] Listing available models
+[2026-07-17T03:56:29.540015400Z][inference.model-manager] successfully listed models
+[2026-07-17T03:56:29.784221400Z][inference] installed llama-server
+[2026-07-17T03:56:29.784221400Z][inference][W] Backend installation failed for: not implemented[2026-07-17T03:56:38.565778600Z][inference.model-manager] Listing available models
+[2026-07-17T03:56:38.566315600Z][inference.model-manager] successfully listed models
+[2026-07-17T03:57:01.381537800Z][inference.model-manager] Listing available models
+[2026-07-17T03:57:01.382072100Z][inference.model-manager] successfully listed models
+[2026-07-17T03:58:06.714376800Z][inference.model-manager] Listing available models
+[2026-07-17T03:58:06.716312500Z][inference.model-manager] successfully listed models
+[2026-07-17T03:59:11.441214700Z][inference.model-manager] Listing available models
+[2026-07-17T03:59:11.442199800Z][inference.model-manager] successfully listed models
+[2026-07-17T04:01:20.850865800Z][inference.model-manager] Listing available models
+[2026-07-17T04:01:20.851389700Z][inference.model-manager] successfully listed models
+-------------------------------------------------------------------------------->8
+[2026-07-19T10:17:24.303109500Z][inference.model-manager] Successfully initialized store
+[2026-07-19T10:17:24.311838100Z][inference] 3 backends available
+[2026-07-19T10:17:26.645678800Z][inference] Reconciling service state on initialization
+[2026-07-19T10:17:26.646198700Z][inference] Reconciling service state on settings change
+[2026-07-19T10:17:26.647812900Z][inference] downloadLatestLlamaCpp
+[2026-07-19T10:17:26.925325500Z][inference][W] failed to read current llama.cpp version: open C:\Users\A\.docker\bin\inference\.llamacpp_version: The system cannot find the path specified.[2026-07-19T10:17:26.925325500Z][inference][W] proceeding to update llama.cpp binary
+[2026-07-19T10:17:26.925839900Z][inference] Extracting image
+[2026-07-19T10:17:27.391170900Z][inference.model-manager] Listing available models
+[2026-07-19T10:17:27.391170900Z][inference.model-manager] successfully listed models
+[2026-07-19T10:17:27.467911300Z][inference.model-manager] Listing available models
+[2026-07-19T10:17:27.467911300Z][inference.model-manager] successfully listed models
+[2026-07-19T10:17:28.305668700Z][inference.model-manager] Listing available models
+[2026-07-19T10:17:28.305668700Z][inference.model-manager] successfully listed models
+[2026-07-19T10:24:43.055209400Z][inference] Failed to ensure latest llama.cpp: could not extract image: fetching image: after 10 attempts, last error: failed to do request: Head "https://registry-1.docker.io/v2/docker/docker-model-backend-llamacpp/manifests/sha256:d29b95b2e3dd19dde850137abeb98b4919f7cbf5a03ce8f191fd07b2f6d4f8fa": dial tcp [2a03:2880:f102:183:face:b00c:0:25de]:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.[2026-07-19T10:24:43.189806000Z][inference] installed llama-server
+[2026-07-19T10:24:43.189806000Z][inference][W] Backend installation failed for: not implemented[2026-07-19T12:35:57.231718000Z][inference.model-manager] Listing available models
+[2026-07-19T12:35:57.232245000Z][inference.model-manager] successfully listed models
+[2026-07-19T12:39:23.299700400Z][inference.model-manager] Listing available models
+[2026-07-19T12:39:23.300234700Z][inference.model-manager] successfully listed models
+-------------------------------------------------------------------------------->8
+[2026-07-22T03:37:38.458747000Z][inference.model-manager] Successfully initialized store
+[2026-07-22T03:37:38.488025000Z][inference] 3 backends available
+[2026-07-22T03:37:44.882449100Z][inference] Reconciling service state on initialization
+[2026-07-22T03:37:44.882449100Z][inference] Reconciling service state on settings change
+[2026-07-22T03:37:44.882992800Z][inference][W] Backend installation failed for: not implemented[2026-07-22T03:37:44.883531600Z][inference] downloadLatestLlamaCpp
+[2026-07-22T03:37:45.874177200Z][inference.model-manager] Listing available models
+[2026-07-22T03:37:45.874177200Z][inference.model-manager] successfully listed models
+[2026-07-22T03:37:46.003776100Z][inference.model-manager] Listing available models
+[2026-07-22T03:37:46.004331500Z][inference.model-manager] successfully listed models
+[2026-07-22T03:37:46.064270500Z][inference][W] failed to read current llama.cpp version: open C:\Users\A\.docker\bin\inference\.llamacpp_version: The system cannot find the path specified.[2026-07-22T03:37:46.064606900Z][inference][W] proceeding to update llama.cpp binary
+[2026-07-22T03:37:46.065127100Z][inference] Extracting image
+[2026-07-22T03:37:46.877026700Z][inference.model-manager] Listing available models
+[2026-07-22T03:37:46.877535900Z][inference.model-manager] successfully listed models
+[2026-07-22T03:45:02.314915900Z][inference] Failed to ensure latest llama.cpp: could not extract image: fetching image: after 10 attempts, last error: failed to do request: Head "https://registry-1.docker.io/v2/docker/docker-model-backend-llamacpp/manifests/sha256:d29b95b2e3dd19dde850137abeb98b4919f7cbf5a03ce8f191fd07b2f6d4f8fa": dial tcp [2a03:2880:f117:83:face:b00c:0:25de]:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.[2026-07-22T03:45:02.520060200Z][inference] installed llama-server
+[2026-07-22T04:41:43.440287000Z][inference.model-manager] Listing available models
+[2026-07-22T04:41:43.453263000Z][inference.model-manager] successfully listed models
+[2026-07-22T04:41:44.598033300Z][inference.model-manager] Listing available models
+[2026-07-22T04:41:44.598033300Z][inference.model-manager] successfully listed models
+-------------------------------------------------------------------------------->8
+[2026-07-25T18:16:44.827188500Z][inference.model-manager] Successfully initialized store
+[2026-07-25T18:16:44.856764500Z][inference] 3 backends available
+[2026-07-25T18:16:47.252635500Z][inference] Reconciling service state on initialization
+[2026-07-25T18:16:47.252635500Z][inference] Reconciling service state on settings change
+[2026-07-25T18:16:47.253663600Z][inference] downloadLatestLlamaCpp
+[2026-07-25T18:16:47.707381600Z][inference][W] failed to read current llama.cpp version: open C:\Users\A\.docker\bin\inference\.llamacpp_version: The system cannot find the path specified.[2026-07-25T18:16:47.707381600Z][inference][W] proceeding to update llama.cpp binary
+[2026-07-25T18:16:47.707381600Z][inference] Extracting image
+[2026-07-25T18:24:03.882541600Z][inference] Failed to ensure latest llama.cpp: could not extract image: fetching image: after 10 attempts, last error: failed to do request: Head "https://registry-1.docker.io/v2/docker/docker-model-backend-llamacpp/manifests/sha256:d29b95b2e3dd19dde850137abeb98b4919f7cbf5a03ce8f191fd07b2f6d4f8fa": dial tcp 104.244.43.228:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.[2026-07-25T18:24:03.885020700Z][inference.model-manager] Listing available models
+[2026-07-25T18:24:03.898044900Z][inference.model-manager] successfully listed models
+[2026-07-25T18:24:03.902314600Z][inference.model-manager] Listing available models
+[2026-07-25T18:24:03.902314600Z][inference.model-manager] successfully listed models
+[2026-07-25T18:24:04.021479200Z][inference] installed llama-server
+[2026-07-25T18:24:04.021479200Z][inference][W] Backend installation failed for: not implemented-------------------------------------------------------------------------------->8
+[2026-07-30T10:14:15.274161000Z][inference.model-manager] Successfully initialized store
+[2026-07-30T10:14:15.300801100Z][inference] 3 backends available
+[2026-07-30T10:14:17.744396400Z][inference] Reconciling service state on initialization
+[2026-07-30T10:14:17.744396400Z][inference] Reconciling service state on settings change
+[2026-07-30T10:14:17.747553600Z][inference] downloadLatestLlamaCpp
+[2026-07-30T10:14:18.814136100Z][inference][W] failed to read current llama.cpp version: open C:\Users\A\.docker\bin\inference\.llamacpp_version: The system cannot find the path specified.[2026-07-30T10:14:18.814136100Z][inference][W] proceeding to update llama.cpp binary
+[2026-07-30T10:14:18.815177800Z][inference] Extracting image
+[2026-07-30T10:21:35.844101900Z][inference] Failed to ensure latest llama.cpp: could not extract image: fetching image: after 10 attempts, last error: failed to do request: Head "https://registry-1.docker.io/v2/docker/docker-model-backend-llamacpp/manifests/sha256:d29b95b2e3dd19dde850137abeb98b4919f7cbf5a03ce8f191fd07b2f6d4f8fa": dial tcp [2a03:2880:f129:83:face:b00c:0:25de]:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.[2026-07-30T10:21:35.857855000Z][inference.model-manager] Listing available models
+[2026-07-30T10:21:35.874722800Z][inference.model-manager] successfully listed models
+[2026-07-30T10:21:35.894725300Z][inference.model-manager] Listing available models
+[2026-07-30T10:21:35.894725300Z][inference.model-manager] successfully listed models
+[2026-07-30T10:21:35.994627800Z][inference] installed llama-server
+[2026-07-30T10:21:35.994627800Z][inference][W] Backend installation failed for: not implemented[2026-07-31T09:09:52.510352500Z][inference.model-manager] Listing available models
+[2026-07-31T09:09:52.521985800Z][inference.model-manager] successfully listed models
+[2026-07-31T09:33:27.997578200Z][inference.model-manager] Listing available models
+[2026-07-31T09:33:27.998081400Z][inference.model-manager] successfully listed models
+[2026-07-31T09:33:35.159486000Z][inference.model-manager] Listing available models
+[2026-07-31T09:33:35.160021000Z][inference.model-manager] successfully listed models
+[2026-07-31T09:41:42.148111700Z][inference.model-manager] Listing available models
+[2026-07-31T09:41:42.148860900Z][inference.model-manager] successfully listed models
+[2026-08-01T14:53:27.372280000Z][inference.model-manager] Listing available models
+[2026-08-01T14:53:27.388218200Z][inference.model-manager] successfully listed models
+[2026-08-01T14:53:27.393389100Z][inference.model-manager] Listing available models
+[2026-08-01T14:53:27.393935500Z][inference.model-manager] successfully listed models
+[2026-08-01T14:53:38.986423100Z][inference.model-manager] Listing available models
+[2026-08-01T14:53:38.988009100Z][inference.model-manager] successfully listed models
+-------------------------------------------------------------------------------->8
+[2026-08-02T08:34:05.715856600Z][inference.model-manager] Successfully initialized store
+[2026-08-02T08:34:05.738984600Z][inference] 3 backends available
+[2026-08-02T08:34:09.509395200Z][inference] Reconciling service state on initialization
+[2026-08-02T08:34:09.509395200Z][inference] Reconciling service state on settings change
+[2026-08-02T08:34:09.510436600Z][inference] downloadLatestLlamaCpp
+[2026-08-02T08:34:10.271530000Z][inference.model-manager] Listing available models
+[2026-08-02T08:34:10.272070900Z][inference.model-manager] successfully listed models
+[2026-08-02T08:34:10.374236500Z][inference.model-manager] Listing available models
+[2026-08-02T08:34:10.375301700Z][inference.model-manager] successfully listed models
+[2026-08-02T08:34:11.169749300Z][inference.model-manager] Listing available models
+[2026-08-02T08:34:11.170299700Z][inference.model-manager] successfully listed models
+[2026-08-02T08:34:12.663926800Z][inference][W] failed to read current llama.cpp version: open C:\Users\A\.docker\bin\inference\.llamacpp_version: The system cannot find the path specified.[2026-08-02T08:34:12.664549400Z][inference][W] proceeding to update llama.cpp binary
+[2026-08-02T08:34:12.665053700Z][inference] Extracting image
+[2026-08-02T08:41:28.862928900Z][inference] Failed to ensure latest llama.cpp: could not extract image: fetching image: after 10 attempts, last error: failed to do request: Head "https://registry-1.docker.io/v2/docker/docker-model-backend-llamacpp/manifests/sha256:d29b95b2e3dd19dde850137abeb98b4919f7cbf5a03ce8f191fd07b2f6d4f8fa": dial tcp 104.244.46.21:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.[2026-08-02T08:41:29.207234100Z][inference] installed llama-server
+[2026-08-02T08:41:29.207544000Z][inference][W] Backend installation failed for: not implemented-------------------------------------------------------------------------------->8
+[2026-08-11T05:57:02.953619300Z][inference.model-manager] Successfully initialized store
+[2026-08-11T05:57:02.972773800Z][inference] 3 backends available
+[2026-08-11T05:57:05.775576500Z][inference] Reconciling service state on initialization
+[2026-08-11T05:57:05.775576500Z][inference] Reconciling service state on settings change
+[2026-08-11T05:57:05.776793900Z][inference] downloadLatestLlamaCpp
+[2026-08-11T05:57:10.009022100Z][inference][W] failed to read current llama.cpp version: open C:\Users\A\.docker\bin\inference\.llamacpp_version: The system cannot find the path specified.[2026-08-11T05:57:10.009022100Z][inference][W] proceeding to update llama.cpp binary
+[2026-08-11T05:57:10.010738400Z][inference] Extracting image
+[2026-08-11T06:04:26.358039100Z][inference] Failed to ensure latest llama.cpp: could not extract image: fetching image: after 10 attempts, last error: failed to do request: Head "https://registry-1.docker.io/v2/docker/docker-model-backend-llamacpp/manifests/sha256:d29b95b2e3dd19dde850137abeb98b4919f7cbf5a03ce8f191fd07b2f6d4f8fa": dial tcp [2a03:2880:f126:83:face:b00c:0:25de]:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.[2026-08-11T06:04:26.360330500Z][inference.model-manager] Listing available models
+[2026-08-11T06:04:26.360997000Z][inference.model-manager] successfully listed models
+[2026-08-11T06:04:26.368317100Z][inference.model-manager] Listing available models
+[2026-08-11T06:04:26.368317100Z][inference.model-manager] successfully listed models
+[2026-08-11T06:04:26.589649900Z][inference] installed llama-server
+[2026-08-11T06:04:26.589649900Z][inference][W] Backend installation failed for: not implemented-------------------------------------------------------------------------------->8
+[2026-08-12T08:46:10.641602000Z][inference.model-manager] Successfully initialized store
+[2026-08-12T08:46:10.673131500Z][inference] 3 backends available
+[2026-08-12T08:46:13.334217800Z][inference] Reconciling service state on initialization
+[2026-08-12T08:46:13.334217800Z][inference] Reconciling service state on settings change
+[2026-08-12T08:46:13.334823200Z][inference][W] Backend installation failed for: not implemented[2026-08-12T08:46:13.335364400Z][inference] downloadLatestLlamaCpp
+[2026-08-12T08:46:13.961451100Z][inference][W] failed to read current llama.cpp version: open C:\Users\A\.docker\bin\inference\.llamacpp_version: The system cannot find the path specified.[2026-08-12T08:46:13.961970000Z][inference][W] proceeding to update llama.cpp binary
+[2026-08-12T08:46:13.962586600Z][inference] Extracting image
+[2026-08-12T08:46:14.165298200Z][inference.model-manager] Listing available models
+[2026-08-12T08:46:14.165925900Z][inference.model-manager] successfully listed models
+[2026-08-12T08:46:14.237421600Z][inference.model-manager] Listing available models
+[2026-08-12T08:46:14.238062700Z][inference.model-manager] successfully listed models
+[2026-08-12T08:53:30.110694500Z][inference] Failed to ensure latest llama.cpp: could not extract image: fetching image: after 10 attempts, last error: failed to do request: Head "https://registry-1.docker.io/v2/docker/docker-model-backend-llamacpp/manifests/sha256:d29b95b2e3dd19dde850137abeb98b4919f7cbf5a03ce8f191fd07b2f6d4f8fa": dial tcp 210.209.84.142:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.[2026-08-12T08:53:30.263107000Z][inference] installed llama-server
+[2026-08-12T12:41:36.515794800Z][inference.model-manager] Listing available models
+[2026-08-12T12:41:36.537351300Z][inference.model-manager] successfully listed models
+-------------------------------------------------------------------------------->8
+[2026-08-27T06:45:22.187870800Z][inference.model-manager] Successfully initialized store
+[2026-08-27T06:45:22.227643900Z][inference] 3 backends available
+[2026-08-27T06:45:25.408108800Z][inference] Reconciling service state on initialization
+[2026-08-27T06:45:25.408663400Z][inference] Reconciling service state on settings change
+[2026-08-27T06:45:25.410328900Z][inference] downloadLatestLlamaCpp
+[2026-08-27T06:45:25.788691400Z][inference][W] failed to read current llama.cpp version: open C:\Users\A\.docker\bin\inference\.llamacpp_version: The system cannot find the path specified.[2026-08-27T06:45:25.788691400Z][inference][W] proceeding to update llama.cpp binary
+[2026-08-27T06:45:25.789201500Z][inference] Extracting image
+[2026-08-27T06:45:27.634743600Z][inference.model-manager] Listing available models
+[2026-08-27T06:45:27.635350900Z][inference.model-manager] successfully listed models
+[2026-08-27T06:45:28.135887600Z][inference.model-manager] Listing available models
+[2026-08-27T06:45:28.136982800Z][inference.model-manager] successfully listed models
+[2026-08-27T06:45:31.723202600Z][inference.model-manager] Listing available models
+[2026-08-27T06:45:31.723716500Z][inference.model-manager] successfully listed models
+[2026-08-27T06:52:43.523190800Z][inference] Failed to ensure latest llama.cpp: could not extract image: fetching image: after 10 attempts, last error: failed to do request: Head "https://registry-1.docker.io/v2/docker/docker-model-backend-llamacpp/manifests/sha256:d29b95b2e3dd19dde850137abeb98b4919f7cbf5a03ce8f191fd07b2f6d4f8fa": dial tcp [2a03:2880:f10e:83:face:b00c:0:25de]:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.[2026-08-27T06:52:43.880843600Z][inference] installed llama-server
+[2026-08-27T06:52:43.880843600Z][inference][W] Backend installation failed for: not implemented[2026-08-27T08:57:19.266657100Z][inference.model-manager] Listing available models
+[2026-08-27T08:57:19.285562900Z][inference.model-manager] successfully listed models
+[2026-08-27T11:23:52.639353800Z][inference.model-manager] Listing available models
+[2026-08-27T11:23:52.665465000Z][inference.model-manager] successfully listed models
+[2026-08-27T11:24:00.379519200Z][inference.model-manager] Listing available models
+[2026-08-27T11:24:00.380064700Z][inference.model-manager] successfully listed models
+[2026-08-27T11:24:01.501690700Z][inference.model-manager] Listing available models
+[2026-08-27T11:24:01.501690700Z][inference.model-manager] successfully listed models
+[2026-08-27T12:04:12.454543800Z][inference.model-manager] Listing available models
+[2026-08-27T12:04:12.455185400Z][inference.model-manager] successfully listed models
+[2026-08-27T12:39:53.140694500Z][inference.model-manager] Listing available models
+[2026-08-27T12:39:53.141198900Z][inference.model-manager] successfully listed models

@@ -1,0 +1,48 @@
+{
+  "formal_evaluation": false,
+  "baseline": "loss_decoder",
+  "case": "ariane133-ng45",
+  "seed": 1001,
+  "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+  "memory_limit_gib": 6,
+  "candidate_sha256": "bd23dada9d3127da0f2c34a259a9e00f395a24e0d2d05b45b72a6e3250b830db",
+  "initial": {
+    "final_global_wns_setup_ns": -0.7320841917670521,
+    "final_global_tns_setup_ns": -11.186100362609952,
+    "cut_net_count": 10853,
+    "timing_weighted_cut": 19356.19122464571,
+    "tp_gnn_positive_pair_cosine_median": 0.9994902610778809,
+    "tp_gnn_negative_pair_cosine_median": 0.9631675481796265,
+    "tp_gnn_embedding_total_variance": 0.07466287910938263,
+    "tp_gnn_repair_moved_area_fraction": 0.00928313644441313,
+    "common_reference_score": 37.6871143131262
+  },
+  "candidate": {
+    "final_global_wns_setup_ns": -0.9497416455437478,
+    "final_global_tns_setup_ns": -74.90065668583541,
+    "cut_net_count": 10893,
+    "timing_weighted_cut": 19311.438624189446,
+    "tp_gnn_positive_pair_cosine_median": 0.9994078874588013,
+    "tp_gnn_negative_pair_cosine_median": 0.9530336856842041,
+    "tp_gnn_embedding_total_variance": 0.09557753801345825,
+    "tp_gnn_repair_moved_area_fraction": 0.009286659307796489,
+    "common_reference_score": -18.415906115879
+  },
+  "change": {
+    "final_global_wns_setup_ns": -0.21765745377669576,
+    "final_global_tns_setup_ns": -63.714556323225466,
+    "cut_net_count": 40,
+    "timing_weighted_cut": -44.75260045626419,
+    "tp_gnn_positive_pair_cosine_median": -8.237361907958984e-05,
+    "tp_gnn_negative_pair_cosine_median": -0.010133862495422363,
+    "tp_gnn_embedding_total_variance": 0.020914658904075623,
+    "tp_gnn_repair_moved_area_fraction": 3.522863383358457e-06,
+    "common_reference_score": -56.1030204290052
+  },
+  "container_wall_seconds": {
+    "initial": 1228.87,
+    "candidate": 1307.87
+  },
+  "initial_result": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261115-224056-146875/baseline/qualification/evaluation_result.json",
+  "candidate_result": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261116-170401-210988/evaluation/evaluation_result.json"
+}

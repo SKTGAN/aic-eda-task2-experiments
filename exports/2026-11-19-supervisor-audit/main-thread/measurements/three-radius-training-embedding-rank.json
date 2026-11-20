@@ -1,0 +1,113 @@
+{
+  "scope": "PCA of up to 4096 deterministically spaced supernodes, unweighted, fixed trained embeddings",
+  "cells": [
+    {
+      "case": "ariane133-ng45",
+      "seed": 1001,
+      "shape": [
+        47385,
+        128
+      ],
+      "sample": 4096,
+      "first_pc_variance": 0.9933946171218535,
+      "first_two_pc_variance": 0.9994734182265755,
+      "effective_rank": 1.013304745522681
+    },
+    {
+      "case": "ariane133-ng45",
+      "seed": 1003,
+      "shape": [
+        47385,
+        128
+      ],
+      "sample": 4096,
+      "first_pc_variance": 0.9931299871883174,
+      "first_two_pc_variance": 0.9995060647098545,
+      "effective_rank": 1.0138410389046721
+    },
+    {
+      "case": "bp-ng45",
+      "seed": 1002,
+      "shape": [
+        46942,
+        128
+      ],
+      "sample": 4096,
+      "first_pc_variance": 0.9954221088229902,
+      "first_two_pc_variance": 0.9997044890559579,
+      "effective_rank": 1.009200286607128
+    },
+    {
+      "case": "bp_fe-ng45",
+      "seed": 1001,
+      "shape": [
+        9173,
+        128
+      ],
+      "sample": 4096,
+      "first_pc_variance": 0.9939195325722413,
+      "first_two_pc_variance": 0.9992860429770515,
+      "effective_rank": 1.0122429881765473
+    },
+    {
+      "case": "bp_fe-ng45",
+      "seed": 1002,
+      "shape": [
+        9173,
+        128
+      ],
+      "sample": 4096,
+      "first_pc_variance": 0.9940316084513808,
+      "first_two_pc_variance": 0.9991891556930923,
+      "effective_rank": 1.0120169380481143
+    },
+    {
+      "case": "ariane133-ng45",
+      "seed": 1002,
+      "shape": [
+        47385,
+        128
+      ],
+      "sample": 4096,
+      "first_pc_variance": 0.9911321950718155,
+      "first_two_pc_variance": 0.9979430080067513,
+      "effective_rank": 1.0179235107326625
+    },
+    {
+      "case": "bp-ng45",
+      "seed": 1001,
+      "shape": [
+        46942,
+        128
+      ],
+      "sample": 4096,
+      "first_pc_variance": 0.9952875234186506,
+      "first_two_pc_variance": 0.9997612964375202,
+      "effective_rank": 1.0094715563168362
+    },
+    {
+      "case": "bp-ng45",
+      "seed": 1003,
+      "shape": [
+        46942,
+        128
+      ],
+      "sample": 4096,
+      "first_pc_variance": 0.995477688610421,
+      "first_two_pc_variance": 0.9996908720679779,
+      "effective_rank": 1.009088200384219
+    },
+    {
+      "case": "bp_fe-ng45",
+      "seed": 1003,
+      "shape": [
+        9173,
+        128
+      ],
+      "sample": 4096,
+      "first_pc_variance": 0.9933022541246915,
+      "first_two_pc_variance": 0.9990559937153155,
+      "effective_rank": 1.0134967995329363
+    }
+  ]
+}

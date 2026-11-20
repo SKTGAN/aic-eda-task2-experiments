@@ -1,0 +1,298 @@
+{
+  "artifacts": {
+    "matrix_result": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-223231-154400/evaluation/evaluation_result.json"
+  },
+  "metrics": {
+    "combined_score": 4.430800523914463,
+    "evaluation_complete": 1.0,
+    "matrix": {
+      "all_valid": true,
+      "cases": [
+        {
+          "case": "bp-ng45",
+          "complete": true,
+          "max": 4.430800523914463,
+          "mean": 4.430800523914463,
+          "min": 4.430800523914463,
+          "scores": {
+            "1001": 4.430800523914463
+          },
+          "stddev": 0.0
+        }
+      ],
+      "cells": [
+        {
+          "artifacts": {
+            "base_config": "/home/sktgan/aic-eda-task2-local/official/contest-data/task2/loss_decoder/train/configs/bp-ng45/1001.yaml",
+            "candidate": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-223231-154400/candidate",
+            "cascade": [
+              {
+                "name": "policy",
+                "status": "passed"
+              },
+              {
+                "name": "frozen_inputs",
+                "status": "passed"
+              },
+              {
+                "name": "interface",
+                "status": "passed"
+              },
+              {
+                "name": "source_validation",
+                "status": "passed"
+              },
+              {
+                "name": "stage",
+                "status": "passed"
+              },
+              {
+                "name": "metrics",
+                "status": "passed"
+              }
+            ],
+            "command": [
+              "python3",
+              "-m",
+              "open3dbench",
+              "--repo",
+              "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-223231-154400/evaluation/cells/bp-ng45/1001/result/workspace/Open3DBench-V2.0",
+              "run",
+              "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-223231-154400/evaluation/cells/bp-ng45/1001/result/resolved_config.yaml",
+              "--from",
+              "partition",
+              "--to",
+              "opt",
+              "--resume",
+              "--run-dir",
+              "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-223231-154400/evaluation/cells/bp-ng45/1001/result/run"
+            ],
+            "evaluation_boundary": "open3dbench-stage",
+            "evaluation_result": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-223231-154400/evaluation/cells/bp-ng45/1001/result/evaluation_result.json",
+            "executed_seed_evidence": {
+              "partition": {
+                "seed": 1001,
+                "sha256": "63de893ae8815fb9a4ff53545930dfbb7a693aca32f1457bd94a2f14473b7272"
+              },
+              "placement": {
+                "seed": 1001,
+                "sha256": "31104fe9e6f6212b37b7c8d49d6b733eeafa081a2afb9ced12fab073091343b0"
+              }
+            },
+            "execution_mode": "gpu-frontend-cpu-backend",
+            "exit_code": 0,
+            "frozen_inputs": {
+              "tp_gnn_timing": {
+                "adopted_path": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-223231-154400/evaluation/cells/bp-ng45/1001/result/harness_inputs/frozen/tp_gnn_timing",
+                "files": {
+                  "openroad_full_partition_last.connections.tsv": {
+                    "bytes": 25367909,
+                    "sha256": "433d2118745c419cadf799e1cec08dc6375eb4427ef963320e0a99be10a5e7a3"
+                  },
+                  "timing_features.csv": {
+                    "bytes": 20772796,
+                    "sha256": "ccfad8e6ce4c92df44aa89149860d605c23d66fb09aedbb71ad62f4d2e382629"
+                  },
+                  "timing_manifest.json": {
+                    "bytes": 4004,
+                    "sha256": "022c79a0c6a3112d656bbcf2b7a04dd65316d6c025c577cddfdfcf0c0217f679"
+                  },
+                  "timing_net_weights.csv": {
+                    "bytes": 24092583,
+                    "sha256": "fae83fda725b0079c06d6b8661f072b44e67c02bb07054c24ef11bac11307dcd"
+                  }
+                },
+                "inject_as": "partition.timing_input",
+                "source": "baseline_run",
+                "source_path": "/home/sktgan/aic-eda-task2-local/official/contest-data/task2/inputs/bp-ng45/20_partition/timing_input"
+              }
+            },
+            "matrix_cell_contract": {
+              "base_config_sha256": "f448ac0c186b4d178b96b7d80913f69c25bb0d3fae0ba67e65fdf775fbdd5b73",
+              "initial_candidate_sha256": "5d971f90afd62b93f440e9583e01deae06c64b0f41099a825c3ab42b284cc8b7",
+              "schema_version": 1,
+              "seed_contract_sha256": "dee3067d58d9706a086db3aba96c44b7e5ea72a15e54177a1cd756c18e93053c",
+              "seeds": {
+                "io": 1,
+                "partition": 1001,
+                "placement": 1001,
+                "routing": -1
+              },
+              "task": "tp_gnn_loss_decoder_timing",
+              "upstream": {
+                "floorplan": "adfab0e79ef8aea90bad0980572d9d227eef337f61751aef910d92db50599e33",
+                "input": "8f67febe06355c7f672290343fc01be3881882ac15eaf0ac9bdf6e63653b6c60"
+              }
+            },
+            "matrix_reference": false,
+            "native_flow_execution": [
+              {
+                "command": [
+                  "python3",
+                  "-m",
+                  "contest2.native_entry",
+                  "--flow",
+                  "--repo",
+                  "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-223231-154400/evaluation/cells/bp-ng45/1001/result/workspace/Open3DBench-V2.0",
+                  "run",
+                  "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-223231-154400/evaluation/cells/bp-ng45/1001/result/resolved_config.yaml",
+                  "--from",
+                  "partition",
+                  "--to",
+                  "placement",
+                  "--resume",
+                  "--run-dir",
+                  "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-223231-154400/evaluation/cells/bp-ng45/1001/result/run"
+                ],
+                "completed_at_utc": "2026-11-18T14:41:00.657057+00:00",
+                "cwd": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-223231-154400/evaluation/cells/bp-ng45/1001/result/workspace/Open3DBench-V2.0",
+                "invocation": "stage",
+                "process_started": true,
+                "returncode": 0,
+                "schema_version": 1,
+                "started_at_utc": "2026-11-18T14:33:13.170050+00:00",
+                "status": "completed",
+                "timeout_seconds": null,
+                "wall_seconds": 467.28671540199866
+              },
+              {
+                "command": [
+                  "python3",
+                  "-m",
+                  "contest2.native_entry",
+                  "--flow",
+                  "--repo",
+                  "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-223231-154400/evaluation/cells/bp-ng45/1001/result/workspace/Open3DBench-V2.0",
+                  "run",
+                  "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-223231-154400/evaluation/cells/bp-ng45/1001/result/resolved_config.yaml",
+                  "--from",
+                  "pdn",
+                  "--to",
+                  "opt",
+                  "--resume",
+                  "--run-dir",
+                  "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-223231-154400/evaluation/cells/bp-ng45/1001/result/run"
+                ],
+                "completed_at_utc": "2026-11-18T14:52:54.614899+00:00",
+                "cwd": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-223231-154400/evaluation/cells/bp-ng45/1001/result/workspace/Open3DBench-V2.0",
+                "invocation": "stage",
+                "process_started": true,
+                "returncode": 0,
+                "schema_version": 1,
+                "started_at_utc": "2026-11-18T14:41:04.953119+00:00",
+                "status": "completed",
+                "timeout_seconds": null,
+                "wall_seconds": 709.103549124
+              }
+            ],
+            "output_dir": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-223231-154400/evaluation/cells/bp-ng45/1001/result",
+            "patch": {
+              "added_lines": 0,
+              "deleted_lines": 0,
+              "paths": [],
+              "present": false
+            },
+            "plan_log": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-223231-154400/evaluation/cells/bp-ng45/1001/result/plan.log",
+            "reference_admission": {
+              "mode": "ADOPT_PACKED",
+              "producer_receipt_sha256": "0cd10d2b00f299b58327050e4e4b8bd7db5832856b11286fb3fc5615e61379f3",
+              "reference_receipt_sha256": "84b56fe82f2f19067a048d4b870ee767573517b0ee87a7a24ad1572e431895c7",
+              "task_id": "tp_gnn_loss_decoder_timing"
+            },
+            "replay_start_stage": "partition",
+            "resolved_config": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-223231-154400/evaluation/cells/bp-ng45/1001/result/resolved_config.yaml",
+            "run_dir": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-223231-154400/evaluation/cells/bp-ng45/1001/result/run",
+            "runtime_seconds": 1176.4037347130034,
+            "source_validation": {
+              "checks": [],
+              "status": "skipped"
+            },
+            "stage_log": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-223231-154400/evaluation/cells/bp-ng45/1001/result/stage.log",
+            "task": "tp_gnn_loss_decoder_timing",
+            "upstream_materialization": "copy",
+            "workspace": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-223231-154400/evaluation/cells/bp-ng45/1001/result/workspace/Open3DBench-V2.0"
+          },
+          "case": "bp-ng45",
+          "metrics": {
+            "area_balance_error": 3.7282063040240394e-06,
+            "bottom_count": 80389,
+            "combined_score": 4.430800523914463,
+            "cut_net_count": 7419,
+            "cut_net_ratio": 0.049664618227095635,
+            "cut_pin_count": 83952,
+            "final_global_tns_setup_ns": -6458.891858390161,
+            "final_global_wns_setup_ns": -8.025299763000683,
+            "instance_count": 144224,
+            "macro_area_error": 0.003887862368295081,
+            "macro_count_error": 0.041666666666666685,
+            "native_paired_combined_score": 18.972782839266962,
+            "opt_passes": 1.0,
+            "partition_assignment_changed_count": 10201,
+            "partition_assignment_changed_fraction": 0.07073025293987131,
+            "partition_assignment_identical": 0,
+            "partition_complete": 1.0,
+            "partition_constraints_passed": 1.0,
+            "partition_decoder": "global-2way",
+            "partition_method": "tp-gnn-flat",
+            "raw_score": 4.430800523914463,
+            "reference_tns_deficit_ns": 6622.78575944895,
+            "reference_wns_deficit_ns": 8.663351750761597,
+            "runs_successfully": 1.0,
+            "scoring_reference": "common-five-case",
+            "sta_graph_complete": 1.0,
+            "sta_tns_weight": 0.6,
+            "sta_wns_weight": 0.4,
+            "timing_evaluation_boundary": "post-opt-pre-cts",
+            "timing_total_net_weight": 171438.82800355964,
+            "timing_weight_mode": "paper_delay_slack_hyperedge_v1",
+            "timing_weighted_cut": 9452.75992506623,
+            "timing_weighted_cut_ratio": 0.055137800667127514,
+            "tns_deficit_improvement": 0.024746973103418814,
+            "top_count": 63835,
+            "tp_gnn_area_balance_cut_delta": 3030,
+            "tp_gnn_area_balance_weighted_cut_delta": 2792.6721183357877,
+            "tp_gnn_area_balance_weighted_cut_relative_change": 0.4193146095631975,
+            "tp_gnn_balanced_cut_net_count": 7419,
+            "tp_gnn_balanced_timing_weighted_cut": 9452.75992506623,
+            "tp_gnn_embedding_pair_cosine_median": 0.9237643182277679,
+            "tp_gnn_embedding_total_variance": 0.13297539949417114,
+            "tp_gnn_epochs_completed": 20,
+            "tp_gnn_feasibility_cut_delta": 0,
+            "tp_gnn_feasibility_weighted_cut_delta": 0.0,
+            "tp_gnn_feasibility_weighted_cut_relative_change": 0.0,
+            "tp_gnn_feasible_cut_net_count": 7419,
+            "tp_gnn_feasible_timing_weighted_cut": 9452.75992506623,
+            "tp_gnn_final_loss": 53.99455960591634,
+            "tp_gnn_negative_pair_cosine_median": 0.9209557771682739,
+            "tp_gnn_negative_pair_sample_count": 4096,
+            "tp_gnn_optimizer_steps_completed": 120,
+            "tp_gnn_positive_pair_cosine_median": 0.9999570846557617,
+            "tp_gnn_positive_pair_sample_count": 4096,
+            "tp_gnn_raw_cut_net_count": 4389,
+            "tp_gnn_raw_timing_weighted_cut": 6660.087806730442,
+            "tp_gnn_repair_moved_area_fraction": 0.0,
+            "tp_gnn_repair_moved_supernodes": 0,
+            "tp_gnn_training_runtime_seconds": 212.40625935500066,
+            "valid": true,
+            "wns_deficit_improvement": 0.07364955344273336
+          },
+          "raw_score": 4.430800523914463,
+          "result_dir": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-223231-154400/evaluation/cells/bp-ng45/1001/result",
+          "score": 4.430800523914463,
+          "seed": "1001",
+          "status": "succeeded",
+          "valid": true
+        }
+      ],
+      "complete": true,
+      "expected_cells": 1,
+      "matrix_sha256": "b82028757ecd6e26b302c112061da245b1a206306d633011ec6709e166862d11",
+      "penalized_cells": 0,
+      "qualification": false,
+      "scored_cells": 1,
+      "succeeded_cells": 1
+    },
+    "runs_successfully": 1.0,
+    "valid": true
+  }
+}

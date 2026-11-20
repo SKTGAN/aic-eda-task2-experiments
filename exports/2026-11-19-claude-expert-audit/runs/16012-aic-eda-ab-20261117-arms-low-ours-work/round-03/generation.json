@@ -1,0 +1,40 @@
+{
+  "association": "chronological context before submit",
+  "associated_call_ids": {},
+  "sequence_at_submission": 10,
+  "recorded_reason": {
+    "reason": "runtime_environment_failure",
+    "candidate_id": "1b9ff6333e127beafb870e7594794acbf6c4f63252d5d605ea4fc56ea397b73e"
+  },
+  "candidate_explanation": {
+    "decoder": "Change vs parent (decoder): replace the frozen reference two-way k-means call with one custom bounded loop that assigns supernodes by a physical-area capacity sweep over the current two-center distanc"
+  },
+  "generation_events": [
+    {
+      "sequence": 9,
+      "event": {
+        "event": "invalid_proposal",
+        "parent_id": "2f5e1997129df8af708f6db7a3df3d1b60c043cae483118bff18deee84bd6bbe",
+        "reason": "Unsupported loss tensor operation: unsqueeze"
+      }
+    },
+    {
+      "sequence": 10,
+      "event": {
+        "event": "submitted",
+        "request_id": "e-8e81ba41700f423138b19cc03ff08a042095056bcb70e34b90b37592ca4a",
+        "decision": {
+          "reason": "runtime_environment_failure",
+          "candidate_id": "1b9ff6333e127beafb870e7594794acbf6c4f63252d5d605ea4fc56ea397b73e"
+        },
+        "parent_id": "2f5e1997129df8af708f6db7a3df3d1b60c043cae483118bff18deee84bd6bbe",
+        "search_intent": "diversify",
+        "changed_components": {
+          "decoder": "Change vs parent (decoder): replace the frozen reference two-way k-means call with one custom bounded loop that assigns supernodes by a physical-area capacity sweep over the current two-center distanc"
+        }
+      }
+    }
+  ],
+  "evaluation_event_sequence": 11,
+  "verified_source_sha256": "2109ff8ac1664448a7f604a1dc1f5dabde0fdddd9d50fe7187ba678d0907fb75"
+}

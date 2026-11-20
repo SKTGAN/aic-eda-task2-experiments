@@ -1,0 +1,32 @@
+{
+  "association": "chronological context before submit",
+  "associated_call_ids": {},
+  "sequence_at_submission": 12,
+  "recorded_reason": {
+    "reason": "runtime_environment_failure",
+    "candidate_id": "6bc564c56f0461cbe67dc5f077f5ec9a9111e9e903131a19fbd2b4b77f9868a4"
+  },
+  "candidate_explanation": {
+    "loss": "Diversify vs parent: retain the maintained random-walk contrastive term (positives attracted, sampled negatives pushed apart) and add one timing- weighted star-edge cohesion term over the supplied ``g"
+  },
+  "generation_events": [
+    {
+      "sequence": 12,
+      "event": {
+        "event": "submitted",
+        "request_id": "e-e4b425ed1b0f94604b37693bd663b3457b5718331f24e5c3868207c12945",
+        "decision": {
+          "reason": "runtime_environment_failure",
+          "candidate_id": "6bc564c56f0461cbe67dc5f077f5ec9a9111e9e903131a19fbd2b4b77f9868a4"
+        },
+        "parent_id": "2f5e1997129df8af708f6db7a3df3d1b60c043cae483118bff18deee84bd6bbe",
+        "search_intent": "diversify",
+        "changed_components": {
+          "loss": "Diversify vs parent: retain the maintained random-walk contrastive term (positives attracted, sampled negatives pushed apart) and add one timing- weighted star-edge cohesion term over the supplied ``g"
+        }
+      }
+    }
+  ],
+  "evaluation_event_sequence": 13,
+  "verified_source_sha256": "71b151227a5ffc103f8b1eba569a50b5d9d243a1be6d13ce6ff79f77161ff4e7"
+}

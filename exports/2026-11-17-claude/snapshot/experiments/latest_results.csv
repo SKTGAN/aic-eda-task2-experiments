@@ -1,0 +1,5 @@
+variant,objective_multiplier,case,seed,score,wns_ns,tns_ns,cut_nets,weighted_cut,raw_clustering_cut_nets,raw_clustering_changed_instances,decoder_changed_instances,final_partition_changed_instances,embedding_bytes_equal,cross_die_net_file_bytes_equal,memory_limit_gib,container_wall_seconds
+official_initial,0,bp_fe-ng45,1003,55.911859106275884,-0.6649138094983801,-173.78854047745585,3102,5576.034057190449,1377,0,0,0,True,True,6,397.91
+all_edges_4x,4,bp_fe-ng45,1003,43.09410081084027,-0.7263401197197931,-294.331991110666,3103,5576.883031830861,1367,10,6,6,False,False,6,408.44
+excess_weight_1x,1,bp_fe-ng45,1003,55.911859106275884,-0.6649138094983801,-173.78854047745585,3102,5576.034057190449,1377,0,0,0,False,True,6,544.04
+excess_weight_4x,4,bp_fe-ng45,1003,55.911859106275884,-0.6649138094983801,-173.78854047745585,3102,5576.034057190449,1367,10,0,0,False,True,6,524.93

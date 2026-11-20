@@ -1,0 +1,35 @@
+-------------------------------------------------------------------------------->8
+[2026-11-13T03:34:23.419764900Z][docker-desktop.exe.ipc] 5831a10c-docker-desktop-cli -> \\.\pipe\dockerBackendApiServer BackendAPI
+[2026-11-13T03:34:23.421362100Z][docker-desktop.exe.ipc] ea7fb288-docker-desktop-cli -> \\.\pipe\dockerAPIProxyControl proxyControl
+-------------------------------------------------------------------------------->8
+[2026-11-13T03:34:23.457243200Z][docker-desktop.exe.ipc] 1d9c4d9a-docker-desktop-cli -> \\.\pipe\dockerBackendApiServer BackendAPI
+[2026-11-13T03:34:23.458873800Z][docker-desktop.exe.ipc] 64cf84c4-docker-desktop-cli -> \\.\pipe\dockerAPIProxyControl proxyControl
+[2026-11-13T03:34:25.366098400Z][docker-desktop.exe.shell] Executing com.docker.backend.exe 
+-------------------------------------------------------------------------------->8
+[2026-11-13T03:34:33.714231500Z][docker-desktop.exe.ipc] 825628eb-docker-desktop-cli -> \\.\pipe\dockerBackendApiServer BackendAPI
+[2026-11-13T03:34:33.736476700Z][docker-desktop.exe.ipc] 390992c1-docker-desktop-cli -> \\.\pipe\dockerAPIProxyControl proxyControl
+-------------------------------------------------------------------------------->8
+[2026-11-13T03:48:18.114292500Z][docker-desktop.exe.ipc] 09fe70cc-docker-desktop-cli -> \\.\pipe\dockerBackendApiServer BackendAPI
+[2026-11-13T03:48:18.116378400Z][docker-desktop.exe.ipc] ec95d2b5-docker-desktop-cli -> \\.\pipe\dockerAPIProxyControl proxyControl
+-------------------------------------------------------------------------------->8
+[2026-11-13T03:48:18.152503000Z][docker-desktop.exe.ipc] 0d55cdcb-docker-desktop-cli -> \\.\pipe\dockerBackendApiServer BackendAPI
+[2026-11-13T03:48:18.154280600Z][docker-desktop.exe.ipc] ec2ee106-docker-desktop-cli -> \\.\pipe\dockerAPIProxyControl proxyControl
+-------------------------------------------------------------------------------->8
+[2026-11-13T03:50:19.725425000Z][docker-desktop.exe.ipc] 6098b64a-docker-desktop-cli -> \\.\pipe\dockerBackendApiServer BackendAPI
+[2026-11-13T03:50:19.726974000Z][docker-desktop.exe.ipc] aeaa4984-docker-desktop-cli -> \\.\pipe\dockerAPIProxyControl proxyControl
+-------------------------------------------------------------------------------->8
+[2026-11-13T03:50:19.767631100Z][docker-desktop.exe.ipc] 58000498-docker-desktop-cli -> \\.\pipe\dockerBackendApiServer BackendAPI
+[2026-11-13T03:50:19.769412800Z][docker-desktop.exe.ipc] df28b28d-docker-desktop-cli -> \\.\pipe\dockerAPIProxyControl proxyControl
+-------------------------------------------------------------------------------->8
+[2026-11-14T06:09:51.421936200Z][docker-desktop.exe.ipc] abbcae53-docker-desktop-cli -> \\.\pipe\dockerBackendApiServer BackendAPI
+[2026-11-14T06:09:51.423513300Z][docker-desktop.exe.ipc] abb14278-docker-desktop-cli -> \\.\pipe\dockerAPIProxyControl proxyControl
+-------------------------------------------------------------------------------->8
+[2026-11-14T06:09:51.458325500Z][docker-desktop.exe.ipc] ccf62bc1-docker-desktop-cli -> \\.\pipe\dockerBackendApiServer BackendAPI
+[2026-11-14T06:09:51.459454800Z][docker-desktop.exe.ipc] f10fec84-docker-desktop-cli -> \\.\pipe\dockerAPIProxyControl proxyControl
+[2026-11-14T06:09:53.685412900Z][docker-desktop.exe.shell] Executing com.docker.backend.exe 
+-------------------------------------------------------------------------------->8
+[2026-11-14T06:10:04.574973200Z][docker-desktop.exe.ipc] 7f89a7d7-docker-desktop-cli -> \\.\pipe\dockerBackendApiServer BackendAPI
+[2026-11-14T06:10:04.595256600Z][docker-desktop.exe.ipc] 2cbd0919-docker-desktop-cli -> \\.\pipe\dockerAPIProxyControl proxyControl
+-------------------------------------------------------------------------------->8
+[2026-11-14T06:16:41.408788600Z][docker-desktop.exe.ipc] aabf4304-docker-desktop-cli -> \\.\pipe\dockerBackendApiServer BackendAPI
+[2026-11-14T06:16:41.419042500Z][docker-desktop.exe.ipc] cdb25d6c-docker-desktop-cli -> \\.\pipe\dockerAPIProxyControl proxyControl

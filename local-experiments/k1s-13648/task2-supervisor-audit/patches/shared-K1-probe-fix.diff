@@ -1,0 +1,11 @@
+--- a/AgenticBench/agent/loss_decoder/decoder_probe.py
++++ b/AgenticBench/agent/loss_decoder/decoder_probe.py
+@@ -28,7 +28,7 @@
+ AREA_WINDOW = (0.47, 0.53)
+ PROBE_SECONDS = 20
+ SAFE_BUILTINS = {name: getattr(builtins, name)
+-                 for name in ("abs", "bool", "float", "int", "len", "max", "min", "range", "round", "sum")}
++                 for name in ("__import__", "abs", "bool", "float", "int", "len", "max", "min", "range", "round", "sum")}
+ 
+ 
+ def _area_constrained_labels(preference, weights, target_area):

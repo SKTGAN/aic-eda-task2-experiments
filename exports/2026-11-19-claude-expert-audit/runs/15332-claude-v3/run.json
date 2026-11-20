@@ -1,0 +1,422 @@
+{
+  "source_mount_at_capture": "/root/aic-eda-single-20261117/arms/claude-three-server-live-20261118/work",
+  "capture_port": "13624",
+  "capture_utc": "2026-11-19T03:47:47.755783+00:00",
+  "scope": "official runner / see ledger status",
+  "session": {
+    "baseline": "loss_decoder",
+    "budget": {
+      "allowed_model": "deepseek-flash",
+      "audit_event_count": 68,
+      "budget_exhausted": true,
+      "dispatch_allowed": false,
+      "evaluation_dispatch_allowed": false,
+      "evaluation_limit": 10,
+      "evaluation_mode": "formal",
+      "evaluations": [
+        {
+          "accepted_at": "2026-11-18T05:16:24.410690+00:00",
+          "candidate_id": "999dbc2774c0f53d2d5abe037e9ca01e1de9326650161fbf54cd0c446cfbf3eb",
+          "completed_at": "2026-11-18T07:08:21.036391+00:00",
+          "payload_digest": "0bd323a37890be8c1e628c40eb7e0ea530616996cd8cbbe138c8cd9f9edeb304",
+          "reason": null,
+          "request_id": "e-e1c20a7a9a95f56e1571441379699bd6513e53e1093d52555f05c2c44d4c",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        },
+        {
+          "accepted_at": "2026-11-18T07:10:52.826689+00:00",
+          "candidate_id": "e8b9aeca79584d264933a52656a5762dc26b628870d352c39e3ec1c89ae7efe0",
+          "completed_at": "2026-11-18T09:02:05.474533+00:00",
+          "payload_digest": "306aa9b89fe44b0a2b3a0e20aa617d0587f737f7f6b0446a99157a4f9595d3bc",
+          "reason": null,
+          "request_id": "e-32c33600d1e5e9f134cdae92bcd1fe39e83cddbe19fdfdc3478919bffa78",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        },
+        {
+          "accepted_at": "2026-11-18T09:03:15.315993+00:00",
+          "candidate_id": "c2dbfe1748424d91f05dab0c38ab867ecd532072632e44c6e235b773f12e15c5",
+          "completed_at": "2026-11-18T10:55:40.754720+00:00",
+          "payload_digest": "d3c20aec4d96cd8d7d05175bde2e75d57720f4db99bf06e43a7b4c0ba38bc6d8",
+          "reason": null,
+          "request_id": "e-52c8335e554526fa7c85806a52bcfb9a3fe8359651ca66f6b35f47e4b23b",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        },
+        {
+          "accepted_at": "2026-11-18T10:56:51.309083+00:00",
+          "candidate_id": "d5fd4448ad8d57fe652cc16b641a1d5002fa11145f699750b888cf1728df62ca",
+          "completed_at": "2026-11-18T12:49:42.005991+00:00",
+          "payload_digest": "0f1a065905473446fbdec2b5ea324fa11cba766ec7e38931440824ce966e65ba",
+          "reason": null,
+          "request_id": "e-39efea53d9c78527b0a4e6d503783b305933934b424faec9b838db4510e4",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        },
+        {
+          "accepted_at": "2026-11-18T12:53:24.717090+00:00",
+          "candidate_id": "d85fd880eceadd2bf3e2db0b31aaa8d61fdb2ee24659c11e4006f7aa37d0284a",
+          "completed_at": "2026-11-18T14:44:54.679192+00:00",
+          "payload_digest": "ec5a70d81a3b5273eaf40d645da00434c805a3bae83834f7a58d2d7a0782f915",
+          "reason": null,
+          "request_id": "e-a1e075ab0b58192151907357606ecd3251fdea897cb79e136a74bae414c4",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        },
+        {
+          "accepted_at": "2026-11-18T14:46:02.651294+00:00",
+          "candidate_id": "505eb144a47a0e993a23886878d7f6367ae8fda3172647066983daeb8fff751c",
+          "completed_at": "2026-11-18T16:38:32.319288+00:00",
+          "payload_digest": "91bf8ac9e66419e3f973ece814fa1f2a4ec82018382b056a9d816ecf2fabdcf7",
+          "reason": null,
+          "request_id": "e-8874fd6c259c6967bf56a3010d60ca578557c37821721b159b69ae16e646",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        },
+        {
+          "accepted_at": "2026-11-18T16:41:26.502653+00:00",
+          "candidate_id": "036d42dfd580f2c7d346388b33711c65ba11773bfc30de875403dd98b858b018",
+          "completed_at": "2026-11-18T18:34:27.206354+00:00",
+          "payload_digest": "a809f93c542e21001c018a38f7bde7e4312056152464c4c3795a9ca20a9c0149",
+          "reason": null,
+          "request_id": "e-bbbbad133d90c72b518135bd163698179b7496540a62306e7a2f5f89d5fe",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        },
+        {
+          "accepted_at": "2026-11-18T18:35:36.668116+00:00",
+          "candidate_id": "3c10a34e6a7fd1bace5543a0f807181b16f2495ded9d557bbc720b45114096c8",
+          "completed_at": "2026-11-18T20:26:07.540387+00:00",
+          "payload_digest": "c6fdb1d5ff539a6c163549ac6b06ea867d51cefd90ec529a8d1c7182cef1f9a6",
+          "reason": null,
+          "request_id": "e-7d1480cc5b0f65ff309fe38bc27ffa390b90fdcb13d8aae999192e5359f9",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        },
+        {
+          "accepted_at": "2026-11-18T20:27:34.494835+00:00",
+          "candidate_id": "5a8e17d5fdf84831a6be305e9b8d31be549f49f506d85a928c03bd88ec0a1270",
+          "completed_at": "2026-11-18T22:19:03.226691+00:00",
+          "payload_digest": "32f4098673668636310a4ac198d4ab8b8255d349f672814f438b517388446a50",
+          "reason": null,
+          "request_id": "e-5639a5a46bb99a72889d11f2b64bde9eacffe612a1f7837959af6d56561e",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        },
+        {
+          "accepted_at": "2026-11-18T22:20:33.952101+00:00",
+          "candidate_id": "368ac3f7f372cbbeef1c9203c1c21453177908b5e051230e51f611f13927e0bb",
+          "completed_at": "2026-11-19T00:12:09.026276+00:00",
+          "payload_digest": "2b968468e93ab5c0765f6a202ddab7a0b2054ffc186617ff21ab36a0ff1e1239",
+          "reason": null,
+          "request_id": "e-b99191eafdc80c0f8121202ba8249373b0176cb83d85e3194708bd58eba8",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        }
+      ],
+      "evaluations_accepted": 10,
+      "evaluations_remaining": 0,
+      "exhaustion_reasons": [
+        "evaluation_limit_reached"
+      ],
+      "frozen_candidate": null,
+      "model_calls": [
+        {
+          "cost_rmb": "0.00705",
+          "input_tokens": 3970,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 770,
+          "recorded_at": "2026-11-18T05:16:01.600427+00:00",
+          "request_id": "ac6ee0d52c4540afa8de88b6fb82605e",
+          "reserved_at": "2026-11-18T05:15:51.858246+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.00920236",
+          "input_tokens": 4783,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 2077,
+          "recorded_at": "2026-11-18T05:16:24.376853+00:00",
+          "request_id": "317ce46979f240d19b0911632ee9327e",
+          "reserved_at": "2026-11-18T05:16:01.634049+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.03251888",
+          "input_tokens": 8830,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 2610,
+          "recorded_at": "2026-11-18T07:09:04.985402+00:00",
+          "request_id": "2c3aaf480a124a89af60ded1a51a728c",
+          "reserved_at": "2026-11-18T07:08:48.852913+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.05956472",
+          "input_tokens": 5223,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 7112,
+          "recorded_at": "2026-11-18T07:09:42.645698+00:00",
+          "request_id": "9901bfdd8e7c4bb394b664b163b821b0",
+          "reserved_at": "2026-11-18T07:09:05.017377+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.05999632",
+          "input_tokens": 5230,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 7321,
+          "recorded_at": "2026-11-18T07:10:52.780143+00:00",
+          "request_id": "34658028d4f34b77aaf52ef9ea3ab02c",
+          "reserved_at": "2026-11-18T07:09:42.693551+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.03800488",
+          "input_tokens": 13929,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 2021,
+          "recorded_at": "2026-11-18T09:02:43.383195+00:00",
+          "request_id": "9bc438a6742640b1a19a9d5eccbe7a1c",
+          "reserved_at": "2026-11-18T09:02:30.564424+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.03902272",
+          "input_tokens": 5384,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 4504,
+          "recorded_at": "2026-11-18T09:03:15.274198+00:00",
+          "request_id": "ca4e715e0b7f4651bba2f79f8aa6d6c9",
+          "reserved_at": "2026-11-18T09:02:43.418655+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.02303744",
+          "input_tokens": 18828,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 1805,
+          "recorded_at": "2026-11-18T10:56:21.282338+00:00",
+          "request_id": "701bf0ed01fd4ac887db1e597526c849",
+          "reserved_at": "2026-11-18T10:56:09.605173+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.02187736",
+          "input_tokens": 5618,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 5037,
+          "recorded_at": "2026-11-18T10:56:51.259796+00:00",
+          "request_id": "8b1d563646524508b5bd53ae8bc0a26c",
+          "reserved_at": "2026-11-18T10:56:21.328819+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.02320644",
+          "input_tokens": 19097,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 1780,
+          "recorded_at": "2026-11-18T12:50:22.193695+00:00",
+          "request_id": "c3aad038161a415d898a870786e1d9f0",
+          "reserved_at": "2026-11-18T12:50:10.837937+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.02624036",
+          "input_tokens": 5797,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 6083,
+          "recorded_at": "2026-11-18T12:50:58.993215+00:00",
+          "request_id": "9236c4f3ed8143bdb758a7092c92e684",
+          "reserved_at": "2026-11-18T12:50:22.235344+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.0669496",
+          "input_tokens": 5804,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 16384,
+          "recorded_at": "2026-11-18T12:52:42.907924+00:00",
+          "request_id": "bfbb63246e6a4e3ead3b624a7e9bb598",
+          "reserved_at": "2026-11-18T12:50:59.051132+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.02948604",
+          "input_tokens": 5459,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 7073,
+          "recorded_at": "2026-11-18T12:53:24.666098+00:00",
+          "request_id": "8953993e22ee4c99ba54a0ae6ad19e4e",
+          "reserved_at": "2026-11-18T12:52:42.965088+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.02562344",
+          "input_tokens": 19310,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 2331,
+          "recorded_at": "2026-11-18T14:45:33.733069+00:00",
+          "request_id": "b19afda8b9e94452b56a52b8c82d325b",
+          "reserved_at": "2026-11-18T14:45:19.156822+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.02029936",
+          "input_tokens": 5848,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 4585,
+          "recorded_at": "2026-11-18T14:46:02.612861+00:00",
+          "request_id": "e3231ce0710f4978835c2a5d50e1eff6",
+          "reserved_at": "2026-11-18T14:45:33.781922+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.024597",
+          "input_tokens": 19861,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 1184,
+          "recorded_at": "2026-11-18T16:39:08.393780+00:00",
+          "request_id": "5e71dc70bc324dd1bc7b744fc3c20e06",
+          "reserved_at": "2026-11-18T16:39:01.018344+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.059459",
+          "input_tokens": 6583,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 13219,
+          "recorded_at": "2026-11-18T16:40:21.809447+00:00",
+          "request_id": "86483b8d677e43bb8ea804d8770be01a",
+          "reserved_at": "2026-11-18T16:39:08.438244+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.04398428",
+          "input_tokens": 6591,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 10540,
+          "recorded_at": "2026-11-18T16:41:26.449399+00:00",
+          "request_id": "f112acb5841141e3af14a7e1c3a11817",
+          "reserved_at": "2026-11-18T16:40:21.878922+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.023907",
+          "input_tokens": 20111,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 1733,
+          "recorded_at": "2026-11-18T18:35:03.312674+00:00",
+          "request_id": "faca5bc989cc44bfabaa592e915e631c",
+          "reserved_at": "2026-11-18T18:34:54.250811+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.01741436",
+          "input_tokens": 6491,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 3703,
+          "recorded_at": "2026-11-18T18:35:36.633170+00:00",
+          "request_id": "017bd0846d684cc28666f9a4b42a034f",
+          "reserved_at": "2026-11-18T18:35:03.363140+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.019706",
+          "input_tokens": 20354,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 622,
+          "recorded_at": "2026-11-18T20:26:43.408398+00:00",
+          "request_id": "c726c95ba84141c79ed744034346d358",
+          "reserved_at": "2026-11-18T20:26:35.976440+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.02508636",
+          "input_tokens": 6683,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 5573,
+          "recorded_at": "2026-11-18T20:27:34.456021+00:00",
+          "request_id": "0f3497298f2b4c7a98d8609e7e9f98cc",
+          "reserved_at": "2026-11-18T20:26:43.454158+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.022329",
+          "input_tokens": 20397,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 1267,
+          "recorded_at": "2026-11-18T22:19:40.940357+00:00",
+          "request_id": "aade30a80bbc487798711033b652ed91",
+          "reserved_at": "2026-11-18T22:19:29.048500+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.02334736",
+          "input_tokens": 7000,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 5059,
+          "recorded_at": "2026-11-18T22:20:33.909369+00:00",
+          "request_id": "145a0d8b4f164efbb7a262da0a41ee39",
+          "reserved_at": "2026-11-18T22:19:40.987349+00:00",
+          "status": "settled"
+        }
+      ],
+      "model_cost_available_rmb": "14.25808972",
+      "model_cost_limit_rmb": "15",
+      "model_cost_overrun_rmb": "0",
+      "model_cost_reserved_rmb": "0",
+      "model_cost_spent_rmb": "0.74191028",
+      "model_dispatch_allowed": false,
+      "model_reservation_rmb": "2.228224",
+      "model_stop_reasons": [
+        "evaluation_limit_reached"
+      ],
+      "stop_reasons": [
+        "evaluation_limit_reached"
+      ],
+      "task_id": "loss_decoder",
+      "unresolved_model_calls": 0
+    },
+    "candidate_id": "d5fd4448ad8d57fe652cc16b641a1d5002fa11145f699750b888cf1728df62ca",
+    "endpoint": "post-opt-pre-cts",
+    "evaluation_mode": "formal",
+    "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+    "matrix_cells": 9,
+    "retain_physical_files": false,
+    "services_stopped": true,
+    "status": "succeeded",
+    "work_root": "/root/aic-eda-single-20261117/arms/claude-three-server-live-20261118/work"
+  },
+  "diagnostic": null,
+  "read_errors": {},
+  "other_record_names": [
+    "codex/loss_decoder"
+  ],
+  "transaction_note": "ledger is a read transaction; receipts and event log are sequential read-only snapshots"
+}

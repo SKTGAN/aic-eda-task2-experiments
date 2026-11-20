@@ -1,0 +1,67 @@
+--- R2
++++ R3
+@@ -18,23 +18,52 @@
+     node_features,
+     node_areas,
+ ):
+-    """Relative to the parent (random-walk contrastive loss only), add a
+-    timing-weighted star-edge attraction term
+-        sum_e w_e * softplus(-graph_scores_e) / sum_e w_e
+-    rescaled by (P+Q)/source_batch_size so its total gradient is comparable to
+-    the existing pair term and is strong enough to reorder groups at the
+-    area-balanced two-means boundary. Expected measurable effect: embeddings
+-    keep timing-heavy nets locally close, lowering the timing-weighted cut and
+-    shifting the official decoder's discrete top/bottom split, improving
+-    WNS/TNS. The hypothesis is invalidated if the final layer assignment is
+-    essentially unchanged or the timing-weighted cut does not fall.
++    """Relative to the parent loss, keep the timing-weighted star-edge
++    attraction sum_e w_e * softplus(-graph_scores_e) but focus each edge by the
++    endpoint timing criticality read from published node_features: coverage-
++    masked worst slack is standardized within the batch, and an exponential
++    endpoint-importance multiplier makes edges incident to poor-slack groups
++    dominate the graph term while damping edges whose timing is unknown. The
++    multiplier spans roughly a factor of twelve, so it can reorder groups at
++    the decoder's area-balanced boundary. Expected measurable effect: fewer
++    TNS regressions on the large bp-ng45 cells while preserving the ariane133
++    gains from the parent's timing-weighted attraction. Invalidated if the
++    final layer assignment stays essentially unchanged, or if bp-ng45 TNS does
++    not improve and the ariane133 gain is lost.
+     """
+     pair_term = -(
+         F.logsigmoid(positive_scores).sum()
+         + F.logsigmoid(-negative_scores).sum()
+     ) / max(1, source_batch_size)
+-    weight_total = graph_weights.sum()
+-    edge_mean = (graph_weights * F.softplus(-graph_scores)).sum() / (weight_total + 1e-6)
++
++    raw_slack = node_features[:, 0]
++    raw_coverage = node_features[:, 6]
++    slack_values = torch.where(
++        torch.isfinite(raw_slack), raw_slack, torch.zeros_like(raw_slack)
++    )
++    coverage = torch.clamp(raw_coverage, 0.0, 1.0)
++    coverage = torch.where(
++        torch.isfinite(coverage), coverage, torch.zeros_like(coverage)
++    )
++    coverage_total = coverage.sum() + 1e-6
++    slack_mean = (coverage * slack_values).sum() / coverage_total
++    slack_var = (
++        coverage * torch.square(slack_values - slack_mean)
++    ).sum() / coverage_total
++    slack_scale = torch.sqrt(slack_var) + 1e-6
++    slack_score = (slack_values - slack_mean) / slack_scale
++    node_importance = coverage * torch.sigmoid(-slack_score)
++
++    edge_importance = 0.5 * (
++        node_importance[graph_sources] + node_importance[graph_targets]
++    )
++    focus_multiplier = torch.exp(2.5 * edge_importance - 1.25)
++    focused_weights = graph_weights * focus_multiplier
++    focused_total = focused_weights.sum()
++    edge_mean = (
++        focused_weights * F.softplus(-graph_scores)
++    ).sum() / (focused_total + 1e-6)
++
+     pair_count = float(len(positive_scores)) + float(len(negative_scores))
+     batch_scale = pair_count / max(1.0, float(source_batch_size))
+     return pair_term + batch_scale * edge_mean

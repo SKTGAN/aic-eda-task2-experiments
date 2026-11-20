@@ -1,0 +1,23 @@
+[
+  {
+    "port": 26016,
+    "stopped_units": [
+      "aic-c-search.service"
+    ],
+    "active_units": "",
+    "worker_pids": "[]",
+    "receipts": [
+      "c13-c2635932bcb2ce074dbc176544ffa3e16541.json",
+      "c14-ea7ee5fb89d7bd69e36a757afb8ab23cce40.json"
+    ],
+    "checked_at": "2026-11-19T22:42:29+08:00"
+  },
+  {
+    "port": 22120,
+    "stopped_units": [],
+    "active_units": "",
+    "worker_pids": "[]",
+    "receipts": [],
+    "checked_at": "2026-11-19T22:42:13+08:00"
+  }
+]

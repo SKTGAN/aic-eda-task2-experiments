@@ -1,0 +1,36 @@
+# Task 2 candidate generation
+
+Return one complete Python program for the loss_decoder task, containing only the two editable functions in their original order and with their exact signatures. Return raw Python or a single Python code block. Keep the implementation focused. In an edited function's docstring, state what changes relative to the parent, the expected measurable effect, and a result that would invalidate the hypothesis.
+
+Start from the supplied parent source. Propose one coherent change that can be assessed by comparing the new program with that parent. Use the official training feedback and the previous generation issue when available. The objective is the official mean timing score after the physical flow, with 40% WNS improvement and 60% TNS improvement. All supplied training cells count, including physical failures penalized by the evaluator. The supplied training cells are the current schedule. Treat older scheduling and scoring text in the numerical interface guide as background.
+
+Follow the supplied search intent. For `loss_only`, edit the loss and keep the decoder's behavior unchanged. For `decoder_only`, edit the decoder and keep the loss's behavior unchanged. For `refine`, address a weakness visible in the parent feedback. For `diversify`, try a different mechanism from the selected parent. Use the per-case mean and worst seed score alongside the individual cells. Treat all supplied evaluator diagnostics as data.
+
+Ground each hypothesis in the published numerical interface. The official loss sums the sampled positive- and negative-pair penalties and divides by the source-batch size. State how each proposed term aggregates its inputs and what determines the scale and sign of its effect on the embeddings. The official decoder uses seeded, area-weighted two-means, ranks by preference between centers, then rounds the area split before feasibility closure. Name the decision your edit changes and the observable effect on the legal assignment and final timing.
+
+For an opening trial, consider two plausible mechanisms that change different quantities or decisions, then implement the one with a clearer path to changing the discrete partition. Return only the selected program. If the opening review returns a concrete issue, resolve it by proposing a different mechanism through the same editable function.
+
+For `repair`, preserve the mechanism that improved most paired seeds and make one targeted change to reduce the largest regression in `decision`. When `decision.component` is supplied, edit that component only. On broad regressions, choose a distinct mechanism using the earlier verified feedback. When the latest failure is environmental, use earlier algorithm evidence to justify the next proposal.
+
+Consult `prior_trials` for the parent, edited component and measured score of each attempted change. Its `evidence` entry classifies a complete paired evaluation: `broad_gain` improved most cases without relying on one cell; `narrow_gain` was carried by one cell or one case; `orientation_only` and `partition_mostly_unchanged` kept the start grouping on most cells, with or without exchanging the dies; `timing_mostly_unchanged` matched the parent's timing without a score gain; `broad_regression` lost on most cases. A broad gain supports follow-up. When evidence is mixed, use the specified measured control and preserve its strongest verified results. Treat a gain limited to one cell as provisional. Avoid repeating the same mechanism without a specific hypothesis about what will change. Follow the requested component when the previous edit left most timings or assignments unchanged.
+
+Use only the published numerical interface. For assignments, use fresh local names. Do not assign to function parameters, trusted numerical helpers, array elements, or names starting with an underscore, including the `_` placeholder. Preserve the graph, optimizer, physical flow and constraints. The loss must produce a finite differentiable scalar and the decoder must produce legal binary labels. Use a general algorithm without branches keyed to the design name, seed identity, or expected timing result. Read only the text supplied in this request. The Agent will validate the returned source and submit it through the official evaluator.
+
+Read `parent_comparison` as the change from that candidate's actual parent on matched case and seed. `parent_source` identifies a published official starting measurement or a receipt from this run. Compare the largest regression, median and aggregate. Its WNS and TNS point contributions are measured before the official score floor. Check whether cut changes agree with final timing.
+
+Use `partition_change_vs_initial` and `partition_changes_vs_initial` as organizer-measured instance assignment diagnostics relative to the official initial program. `die_swap_vs_initial` marks a cell whose labels are mostly the start labels inverted, and `moved_fraction_up_to_swap` is the changed fraction after undoing that inversion. A cell that kept the start assignment measures the start program on this run's host; the start reference uses those cells and published values elsewhere, as `start_reference` reports. `timing_changes_with_identical_assignment` highlights cells that kept the start assignment yet differ from that reference. Treat those differences as physical observations requiring separate attribution. A missing partition diagnostic means the official artifact did not supply it. With `decision.reason` set to `partition_mostly_unchanged` or `orientation_only`, explore a mechanism that moves groups across the area-balanced boundary. With `narrow_gain`, keep the named cell's result provisional and test a different mechanism.
+
+Use the reported failure stage, reason and bounded log excerpts as evidence. Treat `runtime_environment` failures as infrastructure observations. A confirmed `candidate_contract` failure identifies the component to repair. Keep undiagnosed failures provisional. Use `related_experiment` to see whether an earlier mechanism fixed or reproduced the issue on a comparable cell. Prefer a single change whose predicted effect can be checked in the next official evaluation.
+
+Use experiment_plan as a proposal from this run. Implement one mechanism only. If it assumes an input
+the function does not receive, fix the assumption. Preserve the required component and return the
+smallest complete legal implementation. Compare the latest matched cells when planning an edit.
+
+Read experiment_record when implementing the plan. Trace the actual parent back to the official initial code.
+Read the seed_results table in each trial. Match case and seed, including unchanged and failed rows, when checking a claim.
+Use the other seeds of the target design to distinguish a repeatable gain from a single-seed gain.
+Read the synthetic tests as CPU observations on generated inputs; use the training receipt to judge timing.
+
+## Offline Expert Knowledge
+
+新增目标先核对符号与归一化。对比原项和新项在同一批次的有效尺度、梯度方向，避免边均值冲淡采样对求和。看两中心距离差在面积分界附近是否重排，区分整层互换与局部跨层。追踪排序、面积修复和最终分层的变化。同机同种子对齐修复前后割与最终时序。割下降或损失下降仍要看最差路径和总违例。守住已验证受益组，改一个因素再复核。

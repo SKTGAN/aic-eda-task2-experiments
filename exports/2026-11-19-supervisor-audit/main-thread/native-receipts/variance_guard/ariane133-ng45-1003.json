@@ -1,0 +1,298 @@
+{
+  "artifacts": {
+    "matrix_result": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-214356-272671/evaluation/evaluation_result.json"
+  },
+  "metrics": {
+    "combined_score": 30.889413843638792,
+    "evaluation_complete": 1.0,
+    "matrix": {
+      "all_valid": true,
+      "cases": [
+        {
+          "case": "ariane133-ng45",
+          "complete": true,
+          "max": 30.889413843638792,
+          "mean": 30.889413843638792,
+          "min": 30.889413843638792,
+          "scores": {
+            "1003": 30.889413843638792
+          },
+          "stddev": 0.0
+        }
+      ],
+      "cells": [
+        {
+          "artifacts": {
+            "base_config": "/home/sktgan/aic-eda-task2-local/official/contest-data/task2/loss_decoder/train/configs/ariane133-ng45/1003.yaml",
+            "candidate": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-214356-272671/candidate",
+            "cascade": [
+              {
+                "name": "policy",
+                "status": "passed"
+              },
+              {
+                "name": "frozen_inputs",
+                "status": "passed"
+              },
+              {
+                "name": "interface",
+                "status": "passed"
+              },
+              {
+                "name": "source_validation",
+                "status": "passed"
+              },
+              {
+                "name": "stage",
+                "status": "passed"
+              },
+              {
+                "name": "metrics",
+                "status": "passed"
+              }
+            ],
+            "command": [
+              "python3",
+              "-m",
+              "open3dbench",
+              "--repo",
+              "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-214356-272671/evaluation/cells/ariane133-ng45/1003/result/workspace/Open3DBench-V2.0",
+              "run",
+              "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-214356-272671/evaluation/cells/ariane133-ng45/1003/result/resolved_config.yaml",
+              "--from",
+              "partition",
+              "--to",
+              "opt",
+              "--resume",
+              "--run-dir",
+              "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-214356-272671/evaluation/cells/ariane133-ng45/1003/result/run"
+            ],
+            "evaluation_boundary": "open3dbench-stage",
+            "evaluation_result": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-214356-272671/evaluation/cells/ariane133-ng45/1003/result/evaluation_result.json",
+            "executed_seed_evidence": {
+              "partition": {
+                "seed": 1003,
+                "sha256": "aaae3632f6021eb88210ceefd8efb47f2bcdb8de3d43b88842e53a654ff59ddb"
+              },
+              "placement": {
+                "seed": 1003,
+                "sha256": "0bf2e4813b88fdbe3d6679f19b84b68aec47082f370dfe80a848a44c97ddd805"
+              }
+            },
+            "execution_mode": "gpu-frontend-cpu-backend",
+            "exit_code": 0,
+            "frozen_inputs": {
+              "tp_gnn_timing": {
+                "adopted_path": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-214356-272671/evaluation/cells/ariane133-ng45/1003/result/harness_inputs/frozen/tp_gnn_timing",
+                "files": {
+                  "openroad_full_partition_last.connections.tsv": {
+                    "bytes": 20791889,
+                    "sha256": "9266ad2e905521829ff5a60b1ca5ef9ca3d0ed683821fa4e18a777fa89bfb510"
+                  },
+                  "timing_features.csv": {
+                    "bytes": 18464399,
+                    "sha256": "c0d45ad672e110acc4ddf3bc4642963bd4e3b126d90826ef61e733df1b74090d"
+                  },
+                  "timing_manifest.json": {
+                    "bytes": 4081,
+                    "sha256": "47db5cc3d0d5b6e8895780eff4ab3536dbea2371c97e9b9b1e8457469aebb187"
+                  },
+                  "timing_net_weights.csv": {
+                    "bytes": 23049661,
+                    "sha256": "4475456c8b28cb9d51d9d137db4e9cc9c9a09d304a48ba34b6474ad264ac8dcc"
+                  }
+                },
+                "inject_as": "partition.timing_input",
+                "source": "baseline_run",
+                "source_path": "/home/sktgan/aic-eda-task2-local/official/contest-data/task2/inputs/ariane133-ng45/20_partition/timing_input"
+              }
+            },
+            "matrix_cell_contract": {
+              "base_config_sha256": "8173497cd7fbff456baeab6004a7dbd05e5cb54992eb262188f485a4502a56b2",
+              "initial_candidate_sha256": "5d971f90afd62b93f440e9583e01deae06c64b0f41099a825c3ab42b284cc8b7",
+              "schema_version": 1,
+              "seed_contract_sha256": "dee3067d58d9706a086db3aba96c44b7e5ea72a15e54177a1cd756c18e93053c",
+              "seeds": {
+                "io": 1,
+                "partition": 1003,
+                "placement": 1003,
+                "routing": -1
+              },
+              "task": "tp_gnn_loss_decoder_timing",
+              "upstream": {
+                "floorplan": "619a0f1eea8c11d7c19a09032f36c5a37f7088ac3f61b44cdfd1119b17531c9a",
+                "input": "b53e66ffe3ba1044759f8357f3a44a4f3bb10e1fe8445d617e7877da258177fd"
+              }
+            },
+            "matrix_reference": false,
+            "native_flow_execution": [
+              {
+                "command": [
+                  "python3",
+                  "-m",
+                  "contest2.native_entry",
+                  "--flow",
+                  "--repo",
+                  "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-214356-272671/evaluation/cells/ariane133-ng45/1003/result/workspace/Open3DBench-V2.0",
+                  "run",
+                  "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-214356-272671/evaluation/cells/ariane133-ng45/1003/result/resolved_config.yaml",
+                  "--from",
+                  "partition",
+                  "--to",
+                  "placement",
+                  "--resume",
+                  "--run-dir",
+                  "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-214356-272671/evaluation/cells/ariane133-ng45/1003/result/run"
+                ],
+                "completed_at_utc": "2026-11-18T13:53:13.068700+00:00",
+                "cwd": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-214356-272671/evaluation/cells/ariane133-ng45/1003/result/workspace/Open3DBench-V2.0",
+                "invocation": "stage",
+                "process_started": true,
+                "returncode": 0,
+                "schema_version": 1,
+                "started_at_utc": "2026-11-18T13:45:01.728292+00:00",
+                "status": "completed",
+                "timeout_seconds": null,
+                "wall_seconds": 491.22848111500025
+              },
+              {
+                "command": [
+                  "python3",
+                  "-m",
+                  "contest2.native_entry",
+                  "--flow",
+                  "--repo",
+                  "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-214356-272671/evaluation/cells/ariane133-ng45/1003/result/workspace/Open3DBench-V2.0",
+                  "run",
+                  "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-214356-272671/evaluation/cells/ariane133-ng45/1003/result/resolved_config.yaml",
+                  "--from",
+                  "pdn",
+                  "--to",
+                  "opt",
+                  "--resume",
+                  "--run-dir",
+                  "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-214356-272671/evaluation/cells/ariane133-ng45/1003/result/run"
+                ],
+                "completed_at_utc": "2026-11-18T14:04:28.002142+00:00",
+                "cwd": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-214356-272671/evaluation/cells/ariane133-ng45/1003/result/workspace/Open3DBench-V2.0",
+                "invocation": "stage",
+                "process_started": true,
+                "returncode": 0,
+                "schema_version": 1,
+                "started_at_utc": "2026-11-18T13:53:17.369483+00:00",
+                "status": "completed",
+                "timeout_seconds": null,
+                "wall_seconds": 670.6150098870003
+              }
+            ],
+            "output_dir": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-214356-272671/evaluation/cells/ariane133-ng45/1003/result",
+            "patch": {
+              "added_lines": 0,
+              "deleted_lines": 0,
+              "paths": [],
+              "present": false
+            },
+            "plan_log": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-214356-272671/evaluation/cells/ariane133-ng45/1003/result/plan.log",
+            "reference_admission": {
+              "mode": "ADOPT_PACKED",
+              "producer_receipt_sha256": "e9b540add9adcdb7dbab1de60fa0df7a74a3027fc1c32e90df0615f9a442dad8",
+              "reference_receipt_sha256": "0875969fe95578096bd7967ec2381e087217de8eef2d2ef98e4c2a76f0cb616f",
+              "task_id": "tp_gnn_loss_decoder_timing"
+            },
+            "replay_start_stage": "partition",
+            "resolved_config": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-214356-272671/evaluation/cells/ariane133-ng45/1003/result/resolved_config.yaml",
+            "run_dir": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-214356-272671/evaluation/cells/ariane133-ng45/1003/result/run",
+            "runtime_seconds": 1161.84834658,
+            "source_validation": {
+              "checks": [],
+              "status": "skipped"
+            },
+            "stage_log": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-214356-272671/evaluation/cells/ariane133-ng45/1003/result/stage.log",
+            "task": "tp_gnn_loss_decoder_timing",
+            "upstream_materialization": "copy",
+            "workspace": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-214356-272671/evaluation/cells/ariane133-ng45/1003/result/workspace/Open3DBench-V2.0"
+          },
+          "case": "ariane133-ng45",
+          "metrics": {
+            "area_balance_error": 7.828585296351096e-07,
+            "bottom_count": 59569,
+            "combined_score": 30.889413843638792,
+            "cut_net_count": 11709,
+            "cut_net_ratio": 0.07645445641527913,
+            "cut_pin_count": 104000,
+            "final_global_tns_setup_ns": -35.660837070436656,
+            "final_global_wns_setup_ns": -0.6205689471277364,
+            "instance_count": 131550,
+            "macro_area_error": 0.048872180451127845,
+            "macro_count_error": 0.048872180451127845,
+            "native_paired_combined_score": -15.136740818538385,
+            "opt_passes": 1.0,
+            "partition_assignment_changed_count": 520,
+            "partition_assignment_changed_fraction": 0.00395286963131889,
+            "partition_assignment_identical": 0,
+            "partition_complete": 1.0,
+            "partition_constraints_passed": 1.0,
+            "partition_decoder": "global-2way",
+            "partition_method": "tp-gnn-flat",
+            "raw_score": 30.889413843638792,
+            "reference_tns_deficit_ns": 96.42498143235612,
+            "reference_wns_deficit_ns": 0.5290353246723486,
+            "runs_successfully": 1.0,
+            "scoring_reference": "common-five-case",
+            "sta_graph_complete": 1.0,
+            "sta_tns_weight": 0.6,
+            "sta_wns_weight": 0.4,
+            "timing_evaluation_boundary": "post-opt-pre-cts",
+            "timing_total_net_weight": 270078.0153773446,
+            "timing_weight_mode": "paper_delay_slack_hyperedge_v1",
+            "timing_weighted_cut": 21159.865926869323,
+            "timing_weighted_cut_ratio": 0.07834723569523204,
+            "tns_deficit_improvement": 0.6301701432480609,
+            "top_count": 71981,
+            "tp_gnn_area_balance_cut_delta": 3881,
+            "tp_gnn_area_balance_weighted_cut_delta": 8533.17447997565,
+            "tp_gnn_area_balance_weighted_cut_relative_change": 0.6083153078018945,
+            "tp_gnn_balanced_cut_net_count": 12407,
+            "tp_gnn_balanced_timing_weighted_cut": 22560.7262619778,
+            "tp_gnn_embedding_pair_cosine_median": 0.9606044590473175,
+            "tp_gnn_embedding_total_variance": 0.07111501693725586,
+            "tp_gnn_epochs_completed": 20,
+            "tp_gnn_feasibility_cut_delta": -698,
+            "tp_gnn_feasibility_weighted_cut_delta": -1400.8603351084785,
+            "tp_gnn_feasibility_weighted_cut_relative_change": -0.0620928740875415,
+            "tp_gnn_feasible_cut_net_count": 11709,
+            "tp_gnn_feasible_timing_weighted_cut": 21159.865926869323,
+            "tp_gnn_final_loss": 57.09914207458496,
+            "tp_gnn_negative_pair_cosine_median": 0.9635194540023804,
+            "tp_gnn_negative_pair_sample_count": 4096,
+            "tp_gnn_optimizer_steps_completed": 120,
+            "tp_gnn_positive_pair_cosine_median": 0.9994325041770935,
+            "tp_gnn_positive_pair_sample_count": 4096,
+            "tp_gnn_raw_cut_net_count": 8526,
+            "tp_gnn_raw_timing_weighted_cut": 14027.55178200215,
+            "tp_gnn_repair_moved_area_fraction": 0.016993510102789326,
+            "tp_gnn_repair_moved_supernodes": 835,
+            "tp_gnn_training_runtime_seconds": 227.03767884100125,
+            "valid": true,
+            "wns_deficit_improvement": -0.1730198687811215
+          },
+          "raw_score": 30.889413843638792,
+          "result_dir": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261118-214356-272671/evaluation/cells/ariane133-ng45/1003/result",
+          "score": 30.889413843638792,
+          "seed": "1003",
+          "status": "succeeded",
+          "valid": true
+        }
+      ],
+      "complete": true,
+      "expected_cells": 1,
+      "matrix_sha256": "d64525016de29f40eb6437fd54ef5fece515186b4aad31f92b35d3343c20135e",
+      "penalized_cells": 0,
+      "qualification": false,
+      "scored_cells": 1,
+      "succeeded_cells": 1
+    },
+    "runs_successfully": 1.0,
+    "valid": true
+  }
+}

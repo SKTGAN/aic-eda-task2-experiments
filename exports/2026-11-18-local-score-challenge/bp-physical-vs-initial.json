@@ -1,0 +1,43 @@
+{
+  "scope": "same laptop, fixed image, official initial vs one hand-written candidate",
+  "case": "bp-ng45",
+  "cells": [
+    {
+      "seed": "1001",
+      "instances": 144224,
+      "actual_changed": 10201,
+      "changed_excluding_global_flip": 10201,
+      "tns_delta_ns": 4865.057827633207,
+      "wns_delta_ns": -0.15127721725699583,
+      "base_score": -38.94636203516812,
+      "candidate_score": 4.430800523914463,
+      "initial_trial": "20261115-161128-780305",
+      "candidate_trial": "20261118-200440-077848"
+    },
+    {
+      "seed": "1002",
+      "instances": 144224,
+      "actual_changed": 134058,
+      "changed_excluding_global_flip": 10166,
+      "tns_delta_ns": 2336.090867760333,
+      "wns_delta_ns": -0.178461694917587,
+      "base_score": -29.693847162691327,
+      "candidate_score": -9.353708742784512,
+      "initial_trial": "20261115-205809-358941",
+      "candidate_trial": "20261118-192313-764895"
+    },
+    {
+      "seed": "1003",
+      "instances": 144224,
+      "actual_changed": 10186,
+      "changed_excluding_global_flip": 10186,
+      "tns_delta_ns": 1157.8331723324854,
+      "wns_delta_ns": -0.17571189445242652,
+      "base_score": -12.058118026902,
+      "candidate_score": -2.379864166359974,
+      "initial_trial": "20261115-213108-753693",
+      "candidate_trial": "20261118-202258-211379"
+    }
+  ],
+  "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821"
+}

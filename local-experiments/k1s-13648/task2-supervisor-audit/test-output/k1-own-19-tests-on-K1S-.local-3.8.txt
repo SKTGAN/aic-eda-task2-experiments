@@ -1,0 +1,32 @@
+test_every_module_imports_under_the_framework_stubs (test_k1.AgentImport) ... ok
+test_carry_over_ends_with_the_first_evaluation (test_k1.FirstProposalRejected) ... ok
+test_retry_shows_the_rejected_program_without_resending_the_section (test_k1.FirstProposalRejected) ... ok
+test_model_calls_keep_the_34_75_settings (test_k1.FullRun) ... ok
+test_official_submission_path (test_k1.FullRun) ... ok
+test_opening_alternative_and_review_do_not_receive_it (test_k1.FullRun) ... ok
+test_second_round_and_later_requests_do_not_receive_it (test_k1.FullRun) ... ok
+test_the_expert_section_is_sent_once_in_the_first_generation_request (test_k1.FullRun) ... ok
+test_the_section_sent_is_the_labelled_section_of_prompt_md (test_k1.FullRun) ... ok
+test_the_section_is_not_resent_and_the_loss_is_logged (test_k1.GatewayFailureOnTheExpertRequest) ... ok
+test_a_process_stopped_after_an_evaluation_resumes_without_it (test_k1.Resume) ... ok
+test_a_process_stopped_after_the_first_request_does_not_resend (test_k1.Resume) ... ok
+test_expert_section_is_at_most_200_units_title_included (test_k1.StaticChecks) ... ok
+test_expert_section_is_plain_general_text (test_k1.StaticChecks) ... ok
+test_only_expert_content_and_its_delivery_path_change (test_k1.StaticChecks) ... FAIL
+test_opening_starts_with_the_loss (test_k1.StaticChecks) ... ok
+test_ordinary_prompt_no_longer_carries_the_offline_judgments (test_k1.StaticChecks) ... ok
+test_start_program_is_still_read_from_the_official_framework (test_k1.StaticChecks) ... ok
+test_submission_entry_is_the_official_initial_program (test_k1.StaticChecks) ... ok
+
+======================================================================
+FAIL: test_only_expert_content_and_its_delivery_path_change (test_k1.StaticChecks)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/root/code/task2-k1-expert-audit/tests/test_k1.py", line 164, in test_only_expert_content_and_its_delivery_path_change
+    self.assertEqual((AGENT_DIR / name).read_bytes(), (K0_DIR / name).read_bytes(), name)
+AssertionError: b'"""[12964 chars]ed=(), excluded=frozenset()):\n    """Choose t[6417 chars]d)\n' != b'"""[12964 chars]ed=()):\n    """Choose the next action from ev[6096 chars]d)\n' : search_policy.py
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.576s
+
+FAILED (failures=1)

@@ -1,0 +1,95 @@
+-------------------------------------------------------------------------------->8
+[2026-04-15T08:15:48.867551300Z] (node:20944) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+[2026-04-15T08:15:48.868651500Z] (Use `Docker Desktop --trace-deprecation ...` to show where the warning was created)
+[2026-04-15T08:15:49.996155900Z] (node:20944) [DEP0044] DeprecationWarning: The `util.isArray` API is deprecated. Please use `Array.isArray()` instead.
+-------------------------------------------------------------------------------->8
+[2026-05-15T06:15:05.516864300Z] (node:12836) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+[2026-05-15T06:15:05.517396100Z] (Use `Docker Desktop --trace-deprecation ...` to show where the warning was created)
+[2026-05-15T06:15:06.197360200Z] (node:12836) [DEP0044] DeprecationWarning: The `util.isArray` API is deprecated. Please use `Array.isArray()` instead.
+-------------------------------------------------------------------------------->8
+[2026-06-08T03:11:08.829727200Z] (node:12516) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+[2026-06-08T03:11:08.829727200Z] (Use `Docker Desktop --trace-deprecation ...` to show where the warning was created)
+[2026-06-08T03:11:09.503403700Z] (node:12516) [DEP0044] DeprecationWarning: The `util.isArray` API is deprecated. Please use `Array.isArray()` instead.
+-------------------------------------------------------------------------------->8
+[2026-06-08T04:31:23.561058700Z] (node:22012) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+[2026-06-08T04:31:23.561058700Z] (Use `Docker Desktop --trace-deprecation ...` to show where the warning was created)
+[2026-06-08T04:31:24.657604700Z] (node:22012) [DEP0044] DeprecationWarning: The `util.isArray` API is deprecated. Please use `Array.isArray()` instead.
+[2026-06-15T12:41:06.019555000Z] [22012:0615/204106.016:ERROR:content\browser\gpu\gpu_process_host.cc:1004] GPU process exited unexpectedly: exit_code=1073807364
+-------------------------------------------------------------------------------->8
+[2026-07-08T11:36:01.464471800Z] (node:29592) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+[2026-07-08T11:36:01.464471800Z] (Use `Docker Desktop --trace-deprecation ...` to show where the warning was created)
+[2026-07-08T11:36:02.841009100Z] (node:29592) [DEP0044] DeprecationWarning: The `util.isArray` API is deprecated. Please use `Array.isArray()` instead.
+-------------------------------------------------------------------------------->8
+[2026-07-17T03:45:30.433637800Z] (node:27164) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+[2026-07-17T03:45:30.433637800Z] (Use `Docker Desktop --trace-deprecation ...` to show where the warning was created)
+[2026-07-17T03:45:31.324222400Z] (node:27164) [DEP0044] DeprecationWarning: The `util.isArray` API is deprecated. Please use `Array.isArray()` instead.
+-------------------------------------------------------------------------------->8
+[2026-07-17T03:49:12.744720900Z] (node:20224) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+[2026-07-17T03:49:12.745228900Z] (Use `Docker Desktop --trace-deprecation ...` to show where the warning was created)
+[2026-07-17T03:49:13.654845100Z] (node:20224) [DEP0044] DeprecationWarning: The `util.isArray` API is deprecated. Please use `Array.isArray()` instead.
+-------------------------------------------------------------------------------->8
+-------------------------------------------------------------------------------->8
+[2026-07-19T10:17:26.574690100Z] (node:32336) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+[2026-07-19T10:17:26.575203900Z] (Use `Docker Desktop --trace-deprecation ...` to show where the warning was created)
+[2026-07-19T10:17:27.321671300Z] (node:32336) [DEP0044] DeprecationWarning: The `util.isArray` API is deprecated. Please use `Array.isArray()` instead.
+-------------------------------------------------------------------------------->8
+[2026-07-22T03:37:44.885790700Z] (node:33184) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+[2026-07-22T03:37:44.885790700Z] (Use `Docker Desktop --trace-deprecation ...` to show where the warning was created)
+[2026-07-22T03:37:45.816331300Z] (node:33184) [DEP0044] DeprecationWarning: The `util.isArray` API is deprecated. Please use `Array.isArray()` instead.
+-------------------------------------------------------------------------------->8
+[2026-07-25T18:16:46.972799200Z] (node:11948) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+[2026-07-25T18:16:46.973303200Z] (Use `Docker Desktop --trace-deprecation ...` to show where the warning was created)
+[2026-07-25T18:16:47.492990400Z] (node:11948) [DEP0044] DeprecationWarning: The `util.isArray` API is deprecated. Please use `Array.isArray()` instead.
+-------------------------------------------------------------------------------->8
+[2026-07-30T10:14:17.643978500Z] (node:30316) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+[2026-07-30T10:14:17.643978500Z] (Use `Docker Desktop --trace-deprecation ...` to show where the warning was created)
+[2026-07-30T10:14:18.406524400Z] (node:30316) [DEP0044] DeprecationWarning: The `util.isArray` API is deprecated. Please use `Array.isArray()` instead.
+-------------------------------------------------------------------------------->8
+[2026-08-02T08:34:09.304224200Z] (node:32932) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+[2026-08-02T08:34:09.304224200Z] (Use `Docker Desktop --trace-deprecation ...` to show where the warning was created)
+[2026-08-02T08:34:10.125710500Z] (node:32932) [DEP0044] DeprecationWarning: The `util.isArray` API is deprecated. Please use `Array.isArray()` instead.
+-------------------------------------------------------------------------------->8
+[2026-08-11T05:57:05.839263400Z] (node:19772) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+[2026-08-11T05:57:05.839263400Z] (Use `Docker Desktop --trace-deprecation ...` to show where the warning was created)
+[2026-08-11T05:57:07.118257600Z] (node:19772) [DEP0044] DeprecationWarning: The `util.isArray` API is deprecated. Please use `Array.isArray()` instead.
+-------------------------------------------------------------------------------->8
+[2026-08-12T08:46:13.099745900Z] (node:45436) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+[2026-08-12T08:46:13.100602900Z] (Use `Docker Desktop --trace-deprecation ...` to show where the warning was created)
+[2026-08-12T08:46:13.961970000Z] (node:45436) [DEP0044] DeprecationWarning: The `util.isArray` API is deprecated. Please use `Array.isArray()` instead.
+-------------------------------------------------------------------------------->8
+[2026-08-27T06:45:25.721618800Z] (node:27376) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+[2026-08-27T06:45:25.721618800Z] (Use `Docker Desktop --trace-deprecation ...` to show where the warning was created)
+[2026-08-27T06:45:27.308785400Z] (node:27376) [DEP0044] DeprecationWarning: The `util.isArray` API is deprecated. Please use `Array.isArray()` instead.
+[2026-08-27T12:43:45.531499800Z] Error sending from webFrameMain:  Error: Render frame was disposed before WebFrameMain could be accessed
+[2026-08-27T12:43:45.532625500Z]     at s.send (node:electron/js2c/browser_init:2:103834)
+[2026-08-27T12:43:45.532625500Z]     at b.send (node:electron/js2c/browser_init:2:88255)
+[2026-08-27T12:43:45.532625500Z]     at Object.notificationUpdates$ (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:5:1800576)
+[2026-08-27T12:43:45.532625500Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:5:2173223
+[2026-08-27T12:43:45.532625500Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:8:245029
+[2026-08-27T12:43:45.532625500Z]     at Array.forEach (<anonymous>)
+[2026-08-27T12:43:45.532625500Z]     at X.forAllWindows (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:8:245016)
+[2026-08-27T12:43:45.532625500Z]     at Mg.onNotificationChange (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:5:2173164)
+[2026-08-27T12:43:45.532625500Z]     at Object.next (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:5:2172955)
+[2026-08-27T12:43:45.532625500Z]     at A.next (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:5:659656)
+[2026-08-27T12:43:46.478202300Z] [27376:0827/204346.477:ERROR:content\browser\network_service_instance_impl.cc:610] Network service crashed or was terminated, restarting service.
+[2026-08-27T12:43:46.573426800Z] [27376:0827/204346.573:ERROR:content\browser\network_service_instance_impl.cc:610] Network service crashed or was terminated, restarting service.
+[2026-08-27T12:43:46.717150300Z] [27376:0827/204346.717:ERROR:content\browser\network_service_instance_impl.cc:610] Network service crashed or was terminated, restarting service.
+[2026-08-27T12:43:46.834871500Z] [27376:0827/204346.833:ERROR:content\browser\network_service_instance_impl.cc:610] Network service crashed or was terminated, restarting service.
+[2026-08-27T12:43:46.894717500Z] [27376:0827/204346.894:ERROR:content\browser\network_service_instance_impl.cc:610] Network service crashed or was terminated, restarting service.
+[2026-08-27T12:43:47.034534800Z] [27376:0827/204347.034:ERROR:content\browser\network_service_instance_impl.cc:610] Network service crashed or was terminated, restarting service.
+[2026-08-27T12:43:47.118835700Z] [27376:0827/204347.118:ERROR:content\browser\network_service_instance_impl.cc:610] Network service crashed or was terminated, restarting service.
+[2026-08-27T12:43:47.179241700Z] [27376:0827/204347.178:ERROR:content\browser\network_service_instance_impl.cc:610] Network service crashed or was terminated, restarting service.
+[2026-08-27T12:43:47.256470000Z] [27376:0827/204347.256:ERROR:content\browser\network_service_instance_impl.cc:610] Network service crashed or was terminated, restarting service.
+[2026-08-27T12:43:47.314604200Z] [27376:0827/204347.313:ERROR:content\browser\network_service_instance_impl.cc:610] Network service crashed or was terminated, restarting service.
+[2026-08-27T12:43:47.323390400Z] [27376:0827/204347.323:ERROR:content\browser\gpu\gpu_process_host.cc:1004] GPU process exited unexpectedly: exit_code=1073807364
+[2026-08-27T12:43:47.369294000Z] [27376:0827/204347.368:ERROR:content\browser\network_service_instance_impl.cc:610] Network service crashed or was terminated, restarting service.
+[2026-08-27T12:43:47.393182500Z] [27376:0827/204347.392:ERROR:content\browser\gpu\gpu_process_host.cc:1004] GPU process exited unexpectedly: exit_code=-1073741205
+[2026-08-27T12:43:47.425759900Z] [27376:0827/204347.425:ERROR:content\browser\network_service_instance_impl.cc:610] Network service crashed or was terminated, restarting service.
+[2026-08-27T12:43:47.448031900Z] [27376:0827/204347.446:ERROR:content\browser\gpu\gpu_process_host.cc:1004] GPU process exited unexpectedly: exit_code=-1073741205
+[2026-08-27T12:43:47.546640000Z] [27376:0827/204347.546:ERROR:content\browser\network_service_instance_impl.cc:610] Network service crashed or was terminated, restarting service.
+[2026-08-27T12:43:47.550641600Z] [27376:0827/204347.550:ERROR:content\browser\gpu\gpu_process_host.cc:1004] GPU process exited unexpectedly: exit_code=-1073741205
+[2026-08-27T12:43:47.606042600Z] [27376:0827/204347.606:ERROR:content\browser\network_service_instance_impl.cc:610] Network service crashed or was terminated, restarting service.
+[2026-08-27T12:43:47.623725500Z] [27376:0827/204347.623:ERROR:content\browser\gpu\gpu_process_host.cc:1004] GPU process exited unexpectedly: exit_code=-1073741205
+[2026-08-27T12:43:47.662423700Z] [27376:0827/204347.662:ERROR:content\browser\network_service_instance_impl.cc:610] Network service crashed or was terminated, restarting service.
+[2026-08-27T12:43:47.691345900Z] [27376:0827/204347.690:ERROR:content\browser\gpu\gpu_process_host.cc:1004] GPU process exited unexpectedly: exit_code=-1073741205
+[2026-08-27T12:43:47.691345900Z] [27376:0827/204347.690:FATAL:content\browser\gpu\gpu_data_manager_impl_private.cc:415] GPU process isn't usable. Goodbye.

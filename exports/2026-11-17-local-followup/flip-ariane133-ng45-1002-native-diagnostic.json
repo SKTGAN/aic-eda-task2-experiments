@@ -1,0 +1,50 @@
+{
+  "formal_evaluation": false,
+  "case": "ariane133-ng45",
+  "seed": "1002",
+  "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+  "native_phases_exit_zero": true,
+  "matrix_status": "failed",
+  "matrix_error": "Stale result; reconcile first, never double count",
+  "initial": {
+    "final_global_wns_setup_ns": -0.44067595264632214,
+    "final_global_tns_setup_ns": -122.49666161478169,
+    "cut_net_count": 17975,
+    "timing_weighted_cut": 32585.120832148892,
+    "combined_score": -9.542190913480681,
+    "native_path": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261116-101511-641019/baseline/qualification/cells/ariane133-ng45/1002/result/evaluation_result.json",
+    "terminal_receipts": [
+      {
+        "container": "grt-52a9471094337ac9b5e382fdec8daa46-frontend",
+        "exit_code": 0,
+        "wall_seconds": 422.5161495640001
+      },
+      {
+        "container": "grt-52a9471094337ac9b5e382fdec8daa46-backend",
+        "exit_code": 0,
+        "wall_seconds": 946.2354404880002
+      }
+    ]
+  },
+  "candidate": {
+    "final_global_wns_setup_ns": -0.33576653519035166,
+    "final_global_tns_setup_ns": -42.188739029747204,
+    "cut_net_count": 17973,
+    "timing_weighted_cut": 32581.278162567203,
+    "combined_score": 48.361173034529294,
+    "native_path": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261117-171535-210194/evaluation/cells/ariane133-ng45/1002/result/evaluation_result.json",
+    "terminal_receipts": [
+      {
+        "container": "grt-45a3d23013099b658e01ce5dcaba69fb-frontend",
+        "exit_code": 0,
+        "wall_seconds": 409.63478790999943
+      },
+      {
+        "container": "grt-45a3d23013099b658e01ce5dcaba69fb-backend",
+        "exit_code": 0,
+        "wall_seconds": 1084.5458258310027
+      }
+    ]
+  },
+  "diagnostic_score_delta": 57.903363948009975
+}

@@ -1,0 +1,74 @@
+[
+  {
+    "request_id": "e11e7e0e1bac4db290dcea6b90ae357b",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 5058,
+    "output_tokens": 11499,
+    "cost_rmb": "0.102108",
+    "recorded_at": "2026-11-17T03:25:00.030206+00:00"
+  },
+  {
+    "request_id": "8c16162cf25947e489fa1258827181c8",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 4971,
+    "output_tokens": 7297,
+    "cost_rmb": "0.06003896",
+    "recorded_at": "2026-11-17T03:25:40.876568+00:00"
+  },
+  {
+    "request_id": "a65331e97f8e4d91b8ae7cf31121e277",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 4960,
+    "output_tokens": 11322,
+    "cost_rmb": "0.09121344",
+    "recorded_at": "2026-11-17T03:26:45.953790+00:00"
+  },
+  {
+    "request_id": "2c2c7543a8184b01a68f83da2f8df2a5",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 4653,
+    "output_tokens": 4524,
+    "cost_rmb": "0.045498",
+    "recorded_at": "2026-11-17T03:27:15.514130+00:00"
+  },
+  {
+    "request_id": "52bd1ed78a554af1a80057c6d6c5eb23",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 4667,
+    "output_tokens": 3365,
+    "cost_rmb": "0.036254",
+    "recorded_at": "2026-11-17T03:27:35.638877+00:00"
+  },
+  {
+    "request_id": "5c0350b2eabe4e6b8fa1b93f5c600a2d",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 8033,
+    "output_tokens": 4647,
+    "cost_rmb": "0.04496296",
+    "recorded_at": "2026-11-17T03:37:25.138496+00:00"
+  },
+  {
+    "request_id": "5f497d79cfd14090af2dae051ec23e57",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 4032,
+    "output_tokens": 10740,
+    "cost_rmb": "0.093984",
+    "recorded_at": "2026-11-17T03:38:23.675781+00:00"
+  },
+  {
+    "request_id": "7eaace37be65489aa1c3d23b62351183",
+    "model": "deepseek-flash",
+    "status": "settled",
+    "input_tokens": 4046,
+    "output_tokens": 5065,
+    "cost_rmb": "0.048612",
+    "recorded_at": "2026-11-17T03:38:54.913290+00:00"
+  }
+]

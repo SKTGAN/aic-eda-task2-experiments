@@ -1,0 +1,400 @@
+{
+  "source_mount_at_capture": "/root/aic-eda-single-20261117/arms/claude/work",
+  "capture_port": "13624",
+  "capture_utc": "2026-11-19T03:47:47.755783+00:00",
+  "scope": "official runner / see ledger status",
+  "session": {
+    "baseline": "loss_decoder",
+    "budget": {
+      "allowed_model": "deepseek-flash",
+      "audit_event_count": 64,
+      "budget_exhausted": true,
+      "dispatch_allowed": false,
+      "evaluation_dispatch_allowed": false,
+      "evaluation_limit": 10,
+      "evaluation_mode": "formal",
+      "evaluations": [
+        {
+          "accepted_at": "2026-11-17T04:01:18.671302+00:00",
+          "candidate_id": "2c6175c2467c571df6d2a1d20150c1df6a0e47b2f9466cc4c9c52ee71c49b1e2",
+          "completed_at": "2026-11-17T05:51:01.795893+00:00",
+          "payload_digest": "7080c568847b264eec5c4661e3260326b3217c0f9503a5fafbbef6b30f79452c",
+          "reason": null,
+          "request_id": "e-e88082bdac994604231e76658d158481bde9037354580e62135a29fa880f",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        },
+        {
+          "accepted_at": "2026-11-17T05:53:39.102093+00:00",
+          "candidate_id": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9",
+          "completed_at": "2026-11-17T07:44:50.407103+00:00",
+          "payload_digest": "ee4f9a37820260687bb0460e70ce03a89aad68bfa484522e09dc9bd61542b444",
+          "reason": null,
+          "request_id": "e-b6617f1892d2d253855621797dc6771e30361e8405fcdf7aa3265b3bf4d4",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        },
+        {
+          "accepted_at": "2026-11-17T07:46:05.978246+00:00",
+          "candidate_id": "6d3bf02a6b2289083dcaaa37bf2846486ee480d0990e54b25dd310f3b0e2a7fa",
+          "completed_at": "2026-11-17T09:41:28.637493+00:00",
+          "payload_digest": "2bcba6174742f4e855e5d3ed121c0a5796f9af2c543caf81775bf35ebb9b5fbf",
+          "reason": null,
+          "request_id": "e-a83b78148bfc57361789831465ca5ce5d76f43e9e4859959f69b6c7ad6ef",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        },
+        {
+          "accepted_at": "2026-11-17T09:44:08.360877+00:00",
+          "candidate_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+          "completed_at": "2026-11-17T11:37:56.024437+00:00",
+          "payload_digest": "62efe79fece0e2719a8c07b32c0550c94f86beef69944077cb03a66bd3590f83",
+          "reason": null,
+          "request_id": "e-785401a4543c65fd9c9deeea8b8fb40283e10e2b78b1e255f73d6be7d0af",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        },
+        {
+          "accepted_at": "2026-11-17T11:39:32.286953+00:00",
+          "candidate_id": "bd957b3c95d402b1aff7b856d29978a1006355a27d455cc756788d1936957c44",
+          "completed_at": "2026-11-17T13:35:55.187787+00:00",
+          "payload_digest": "f76ab2757c6e2335f82f76b33d5c75fa18913fc75763d237f69d55a66f6b7396",
+          "reason": null,
+          "request_id": "e-613cfc9f92dc25cd0381fb70f5e08501f163772f9600ffd8955deaa8c8b5",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        },
+        {
+          "accepted_at": "2026-11-17T13:37:03.698258+00:00",
+          "candidate_id": "487da828935e797d8a78b1f6e23d33010a854e2df195c4567cbcdbbf9ef02aab",
+          "completed_at": "2026-11-17T15:28:16.061328+00:00",
+          "payload_digest": "25deee456c1fef50022059966b5f0c85b0d57a5bf17d53c7b702814454d36985",
+          "reason": null,
+          "request_id": "e-a113cc644507c5acc4fc984d95eebae0fc332a3e6ccab6ee3c91f5334369",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        },
+        {
+          "accepted_at": "2026-11-17T15:29:34.702278+00:00",
+          "candidate_id": "a82eb476e8856c21f025a1c8d8a71bb272b614557592323a949e8f133fb48123",
+          "completed_at": "2026-11-17T17:19:47.609244+00:00",
+          "payload_digest": "ad238d2fa1528b3e5c54d714acf2602f186614c588493855c90b3243e6ecc82c",
+          "reason": null,
+          "request_id": "e-db768d0e9a69109181b3cdb82400c656471f15a10f5c43d823bab3e3dc22",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        },
+        {
+          "accepted_at": "2026-11-17T17:23:02.224221+00:00",
+          "candidate_id": "e9bd095328de9bf0168834f4bb2ef9f817a9ec51af9a312c76332a4be2d746c5",
+          "completed_at": "2026-11-17T19:10:57.299837+00:00",
+          "payload_digest": "56593c2f5fa38ca6ea8ac91493f38ae522299b9391fe842ec9a18bc9f6f75098",
+          "reason": null,
+          "request_id": "e-feeb6c17726c7f986bb3f5e87e15d3d1d005aa885cff333505b264adbe38",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        },
+        {
+          "accepted_at": "2026-11-17T19:14:50.897011+00:00",
+          "candidate_id": "eb8d17076588920895968ad74ae866ab95b2e2fae3edd3243320fd1bbd67f9c6",
+          "completed_at": "2026-11-17T21:07:35.402269+00:00",
+          "payload_digest": "2c7d2f090a0e057cf0c2bde14e8b2a08cb7532509066bf3cf1ba7f2fc249e430",
+          "reason": null,
+          "request_id": "e-5a4ceecb9a798200adafc98335d9a2e99f37324424f92362d7dec14b1f84",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        },
+        {
+          "accepted_at": "2026-11-17T21:13:16.785077+00:00",
+          "candidate_id": "44734b41501fe91605a5feb2ef63f765aab2cd81c9a16c1edaac96553bd9f632",
+          "completed_at": "2026-11-17T23:01:13.588819+00:00",
+          "payload_digest": "7d0981752e0d0a8b7a6d2507036def3a9574460ae3c4b3305fba79f1dc802180",
+          "reason": null,
+          "request_id": "e-d2f59cfa409feb6db60e80cfff68800915e2621ef64850aa0ed11c384cee",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        }
+      ],
+      "evaluations_accepted": 10,
+      "evaluations_remaining": 0,
+      "exhaustion_reasons": [
+        "evaluation_limit_reached"
+      ],
+      "frozen_candidate": null,
+      "model_calls": [
+        {
+          "cost_rmb": "0.11128808",
+          "input_tokens": 5061,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 13712,
+          "recorded_at": "2026-11-17T03:57:51.930657+00:00",
+          "request_id": "9cd60c2b817349fc9304498b4c6f6661",
+          "reserved_at": "2026-11-17T03:56:35.778464+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.08283896",
+          "input_tokens": 4963,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 10149,
+          "recorded_at": "2026-11-17T03:58:41.936480+00:00",
+          "request_id": "e20eeaa0e36a4e38835a459c6069e893",
+          "reserved_at": "2026-11-17T03:57:51.971179+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.08474544",
+          "input_tokens": 4974,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 10510,
+          "recorded_at": "2026-11-17T03:59:42.447246+00:00",
+          "request_id": "677910aa78fe4020b492214c1f18a3ae",
+          "reserved_at": "2026-11-17T03:58:42.019128+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.11178024",
+          "input_tokens": 4205,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 13768,
+          "recorded_at": "2026-11-17T04:00:57.908906+00:00",
+          "request_id": "10235e2e897d4f2c86eff027b30e7ad3",
+          "reserved_at": "2026-11-17T03:59:42.517876+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.01498668",
+          "input_tokens": 4219,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 3570,
+          "recorded_at": "2026-11-17T04:01:18.623198+00:00",
+          "request_id": "c4e0d002f5344fa8bf0c007ad9336bcf",
+          "reserved_at": "2026-11-17T04:00:57.947508+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.04265548",
+          "input_tokens": 10011,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 9196,
+          "recorded_at": "2026-11-17T05:52:29.134079+00:00",
+          "request_id": "cda6818a8d014a1b9c78d4701f1f4d65",
+          "reserved_at": "2026-11-17T05:51:30.082983+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.04374212",
+          "input_tokens": 3993,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 10784,
+          "recorded_at": "2026-11-17T05:53:23.034668+00:00",
+          "request_id": "c70c4d36a6024072884760ceb2e59571",
+          "reserved_at": "2026-11-17T05:52:29.170007+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.01040412",
+          "input_tokens": 4007,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 2446,
+          "recorded_at": "2026-11-17T05:53:39.065126+00:00",
+          "request_id": "3e3fda4ad15b4bdd96cb602c78d99e6e",
+          "reserved_at": "2026-11-17T05:53:23.075382+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.08536296",
+          "input_tokens": 15597,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 7806,
+          "recorded_at": "2026-11-17T07:46:05.934309+00:00",
+          "request_id": "3d92aecd78bc442d95fc5a3f3711de5e",
+          "reserved_at": "2026-11-17T07:45:18.683626+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.13111496",
+          "input_tokens": 20729,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 12242,
+          "recorded_at": "2026-11-17T09:43:09.942157+00:00",
+          "request_id": "328c0b10a908449393d8ff30383a5a79",
+          "reserved_at": "2026-11-17T09:41:52.933569+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.0793512",
+          "input_tokens": 20738,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 9752,
+          "recorded_at": "2026-11-17T09:44:08.212213+00:00",
+          "request_id": "ef142b211cf54e69b508bd9160f78074",
+          "reserved_at": "2026-11-17T09:43:09.989349+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.06048748",
+          "input_tokens": 21471,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 10789,
+          "recorded_at": "2026-11-17T11:39:32.213595+00:00",
+          "request_id": "5ec6d3c7c12b4712a7bad8dc7041122b",
+          "reserved_at": "2026-11-17T11:38:22.869250+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.05770748",
+          "input_tokens": 21691,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 10039,
+          "recorded_at": "2026-11-17T13:37:03.577769+00:00",
+          "request_id": "98950109fda2457cb5b1dc535d6a7201",
+          "reserved_at": "2026-11-17T13:36:22.641395+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.05308048",
+          "input_tokens": 21440,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 8945,
+          "recorded_at": "2026-11-17T15:29:34.640924+00:00",
+          "request_id": "4ba942ef003548f2b5937d4cc7d79557",
+          "reserved_at": "2026-11-17T15:28:42.837692+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.08231184",
+          "input_tokens": 21668,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 16384,
+          "recorded_at": "2026-11-17T17:21:59.234817+00:00",
+          "request_id": "c237dff2f9ec47c5a8e4b8bedc7f2d42",
+          "reserved_at": "2026-11-17T17:20:14.979247+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.04654808",
+          "input_tokens": 21674,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 11487,
+          "recorded_at": "2026-11-17T17:23:02.160362+00:00",
+          "request_id": "a15b12ffc89f4751b1f7d0d8a5a7e1df",
+          "reserved_at": "2026-11-17T17:21:59.323609+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.08246652",
+          "input_tokens": 22199,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 16384,
+          "recorded_at": "2026-11-17T19:13:27.193187+00:00",
+          "request_id": "6972b8c2d9a44593bb5b0984fe70c7e7",
+          "reserved_at": "2026-11-17T19:11:26.264178+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.06338132",
+          "input_tokens": 22205,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 15688,
+          "recorded_at": "2026-11-17T19:14:50.823251+00:00",
+          "request_id": "7046efeae4494cc8b2d2af959288aedd",
+          "reserved_at": "2026-11-17T19:13:27.299236+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.08249708",
+          "input_tokens": 22355,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 16384,
+          "recorded_at": "2026-11-17T21:09:44.251105+00:00",
+          "request_id": "c6df14269d8144d59a36e68478d9e2e7",
+          "reserved_at": "2026-11-17T21:07:59.949649+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.04503988",
+          "input_tokens": 22361,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 11095,
+          "recorded_at": "2026-11-17T21:10:45.233922+00:00",
+          "request_id": "20a088c6ea344bd28bbcd53193c62c79",
+          "reserved_at": "2026-11-17T21:09:44.354782+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.06619788",
+          "input_tokens": 22363,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 16384,
+          "recorded_at": "2026-11-17T21:12:33.111875+00:00",
+          "request_id": "1aaf1122898149d6b18eb80d36b87d27",
+          "reserved_at": "2026-11-17T21:10:45.329862+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.04833348",
+          "input_tokens": 22329,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 7536,
+          "recorded_at": "2026-11-17T21:13:16.674199+00:00",
+          "request_id": "f4923d0a803c47b8bf48941fa46e6ad2",
+          "reserved_at": "2026-11-17T21:12:33.208103+00:00",
+          "status": "settled"
+        }
+      ],
+      "model_cost_available_rmb": "13.51367824",
+      "model_cost_limit_rmb": "15",
+      "model_cost_overrun_rmb": "0",
+      "model_cost_reserved_rmb": "0",
+      "model_cost_spent_rmb": "1.48632176",
+      "model_dispatch_allowed": false,
+      "model_reservation_rmb": "2.228224",
+      "model_stop_reasons": [
+        "evaluation_limit_reached"
+      ],
+      "stop_reasons": [
+        "evaluation_limit_reached"
+      ],
+      "task_id": "loss_decoder",
+      "unresolved_model_calls": 0
+    },
+    "candidate_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+    "endpoint": "post-opt-pre-cts",
+    "evaluation_mode": "formal",
+    "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+    "matrix_cells": 9,
+    "retain_physical_files": false,
+    "services_stopped": true,
+    "status": "succeeded",
+    "work_root": "/root/aic-eda-single-20261117/arms/claude/work"
+  },
+  "diagnostic": null,
+  "read_errors": {},
+  "other_record_names": [
+    "codex/loss_decoder"
+  ],
+  "transaction_note": "ledger is a read transaction; receipts and event log are sequential read-only snapshots"
+}

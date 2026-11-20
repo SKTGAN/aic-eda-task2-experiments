@@ -1,0 +1,1803 @@
+{
+ "server-1-claude": [
+  {
+   "round": 1,
+   "request_id": "e-e88082bdac994604231e76658d158481bde9037354580e62135a29fa880f",
+   "candidate_id": "2c6175c2467c571df6d2a1d20150c1df6a0e47b2f9466cc4c9c52ee71c49b1e2",
+   "status": "succeeded",
+   "source": "def compute_tp_gnn_loss(\n    positive_scores,\n    negative_scores,\n    embeddings,\n    positive_sources,\n    positive_targets,\n    negative_sources,\n    negative_targets,\n    source_batch_size,\n    epoch,\n    max_epochs,\n    graph_scores,\n    graph_sources,\n    graph_targets,\n    graph_net_ids,\n    graph_weights,\n    net_weights,\n    node_features,\n    node_areas,\n):\n    \"\"\"Reproduce the maintained random-walk negative-sampling objective.\"\"\"\n    return -(\n        F.logsigmoid(positive_scores).sum()\n        + F.logsigmoid(-negative_scores).sum()\n    ) / max(1, source_batch_size)\n\n\ndef decode_tp_gnn_embeddings(embeddings, node_areas, seed, max_iterations, balance_target):\n    \"\"\"Replace the frozen two-means decoder with an area-balanced principal-axis split.\n\n    Relative to the parent, this keeps the same legal area-balanced top-die\n    fill but ranks groups by a power-iteration projection of the centered\n    embeddings instead of by distance to two area-weighted means.  The\n    expected measurable effect is a different discrete partition boundary\n    and therefore different final timing.  A result with unchanged labels on\n    most cases or no timing movement would invalidate the hypothesis.\n    \"\"\"\n    n_groups = len(node_areas)\n    n_dims = embeddings.shape[1]\n    total_area = np.sum(node_areas)\n    weighted_mean = np.sum(embeddings * node_areas[:, None], axis=0) / max(total_area, 1e-12)\n    centered = embeddings - weighted_mean[None, :]\n    weighted_variances = np.sum(node_areas[:, None] * centered * centered, axis=0) / max(total_area, 1e-12)\n    dim = int(np.argmax(weighted_variances))\n    vec = np.where(np.arange(n_dims) == dim, 1.0, 0.0)\n    for iteration in range(max_iterations):\n        projection = np.sum(centered * vec[None, :], axis=1)\n        next_vec = np.sum(centered * (node_areas * projection)[:, None], axis=0) / max(total_area, 1e-12)\n        vec = next_vec / np.sqrt(np.sum(next_vec * next_vec) + 1e-12)\n    scores = np.sum(centered * vec[None, :], axis=1)\n    order = np.argsort(-scores)\n    sorted_areas = node_areas[order]\n    cumulative = np.cumsum(sorted_areas)\n    target_area = total_area * balance_target\n    k_index = int(np.argmin(np.abs(cumulative - target_area)))\n    k = min(max(k_index + 1, 1), max(n_groups - 1, 1))\n    ranks = np.argsort(np.argsort(-scores))\n    labels = (ranks < k).astype(int)\n    return labels\n",
+   "score": 11.944750479243616,
+   "cells": [
+    {
+     "case": "bp_fe-ng45",
+     "seed": "1001",
+     "score": 38.468482637463,
+     "raw_score": 38.468482637463,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.9026843972249309,
+      "final_global_tns_setup_ns": -255.98004795941557,
+      "wns_deficit_improvement": -0.002704318146491916,
+      "tns_deficit_improvement": 0.642944256055378,
+      "area_balance_error": 0.007782512146489497,
+      "macro_count_error": 0.045454545454545414,
+      "macro_area_error": 0.039800386668208954,
+      "cut_net_count": 3502,
+      "timing_weighted_cut": 5968.175493179286,
+      "tp_gnn_final_loss": 42.84676551818848
+     }
+    },
+    {
+     "case": "bp_fe-ng45",
+     "seed": "1002",
+     "score": 46.61330945039598,
+     "raw_score": 46.61330945039598,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.715739709980872,
+      "final_global_tns_setup_ns": -257.90999577116037,
+      "wns_deficit_improvement": 0.20495435605949905,
+      "tns_deficit_improvement": 0.6402522534669337,
+      "area_balance_error": 0.009673397255898067,
+      "macro_count_error": 0.04545454545454547,
+      "macro_area_error": 0.03739445114595896,
+      "cut_net_count": 3738,
+      "timing_weighted_cut": 6152.494698931853,
+      "tp_gnn_final_loss": 42.90664291381836
+     }
+    },
+    {
+     "case": "bp_fe-ng45",
+     "seed": "1003",
+     "score": 49.71482839607314,
+     "raw_score": 49.71482839607314,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.6264930973546826,
+      "final_global_tns_setup_ns": -268.2323914459978,
+      "wns_deficit_improvement": 0.30408973951725554,
+      "tns_deficit_improvement": 0.625853980256382,
+      "area_balance_error": 0.009191659496416593,
+      "macro_count_error": 0.045454545454545414,
+      "macro_area_error": 0.039800386668208954,
+      "cut_net_count": 3103,
+      "timing_weighted_cut": 5578.150646603739,
+      "tp_gnn_final_loss": 42.8256778717041
+     }
+    },
+    {
+     "case": "bp-ng45",
+     "seed": "1001",
+     "score": -13.264467001342073,
+     "raw_score": -13.264467001342073,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -7.918001589617371,
+      "final_global_tns_setup_ns": -8466.774728081393,
+      "wns_deficit_improvement": 0.08603484916547481,
+      "tns_deficit_improvement": -0.27843101613268445,
+      "area_balance_error": 9.320515760060098e-07,
+      "macro_count_error": 0.04166666666666663,
+      "macro_area_error": 0.04762114990647903,
+      "cut_net_count": 5877,
+      "timing_weighted_cut": 8119.9769301143615,
+      "tp_gnn_final_loss": 40.73390197753906
+     }
+    },
+    {
+     "case": "bp-ng45",
+     "seed": "1002",
+     "score": -40.17885633392056,
+     "raw_score": -40.17885633392056,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -7.8937818516055875,
+      "final_global_tns_setup_ns": -11449.921981739273,
+      "wns_deficit_improvement": 0.08883050363138686,
+      "tns_deficit_improvement": -0.7288679413196006,
+      "area_balance_error": 9.320515760060098e-07,
+      "macro_count_error": 0.041666666666666685,
+      "macro_area_error": 0.04762114990647909,
+      "cut_net_count": 5861,
+      "timing_weighted_cut": 8104.05990847612,
+      "tp_gnn_final_loss": 40.8269837697347
+     }
+    },
+    {
+     "case": "bp-ng45",
+     "seed": "1003",
+     "score": -4.58849605689768,
+     "raw_score": -4.58849605689768,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -7.876209241074833,
+      "final_global_tns_setup_ns": -7530.422166535901,
+      "wns_deficit_improvement": 0.09085888837626456,
+      "tns_deficit_improvement": -0.13704752653247104,
+      "area_balance_error": 9.320515760060098e-07,
+      "macro_count_error": 0.04166666666666663,
+      "macro_area_error": 0.04762114990647903,
+      "cut_net_count": 5873,
+      "timing_weighted_cut": 8113.7416397428115,
+      "tp_gnn_final_loss": 40.92022196451823
+     }
+    },
+    {
+     "case": "ariane133-ng45",
+     "seed": "1001",
+     "score": -22.656477978748903,
+     "raw_score": -22.656477978748903,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -1.0084688924936598,
+      "final_global_tns_setup_ns": -74.57963346873984,
+      "wns_deficit_improvement": -0.9062411250482042,
+      "tns_deficit_improvement": 0.2265527837196545,
+      "area_balance_error": 5.480009707445768e-06,
+      "macro_count_error": 0.048872180451127845,
+      "macro_area_error": 0.048872180451127845,
+      "cut_net_count": 10853,
+      "timing_weighted_cut": 19356.19122464571,
+      "tp_gnn_final_loss": 42.821037928263344
+     }
+    },
+    {
+     "case": "ariane133-ng45",
+     "seed": "1002",
+     "score": -24.343899523373878,
+     "raw_score": -24.343899523373878,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.5544742599780464,
+      "final_global_tns_setup_ns": -132.4565525864367,
+      "wns_deficit_improvement": -0.04808551361188053,
+      "tns_deficit_improvement": -0.373674649648311,
+      "area_balance_error": 7.828585296351096e-07,
+      "macro_count_error": 0.048872180451127845,
+      "macro_area_error": 0.048872180451127845,
+      "cut_net_count": 17975,
+      "timing_weighted_cut": 32585.120832148892,
+      "tp_gnn_final_loss": 43.31236203511556
+     }
+    },
+    {
+     "case": "ariane133-ng45",
+     "seed": "1003",
+     "score": 77.73833072354351,
+     "raw_score": 77.73833072354351,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.2803726219438474,
+      "final_global_tns_setup_ns": -1.7081470055230266,
+      "wns_deficit_improvement": 0.47003043300087255,
+      "tns_deficit_improvement": 0.9822852233918102,
+      "area_balance_error": 3.914292648175548e-06,
+      "macro_count_error": 0.048872180451127845,
+      "macro_area_error": 0.048872180451127845,
+      "cut_net_count": 11847,
+      "timing_weighted_cut": 21369.65708706655,
+      "tp_gnn_final_loss": 42.85748418172201
+     }
+    }
+   ],
+   "partition": {
+    "bp_fe-ng45/1001": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 25596,
+     "partition_assignment_changed_fraction": 0.9902890083955584,
+     "tp_gnn_repair_moved_area_fraction": 0.0
+    },
+    "bp_fe-ng45/1002": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 1,
+     "partition_assignment_changed_fraction": 3.8689209579448294e-05,
+     "tp_gnn_repair_moved_area_fraction": 0.0
+    },
+    "bp_fe-ng45/1003": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 25825,
+     "partition_assignment_changed_fraction": 0.9991488373892521,
+     "tp_gnn_repair_moved_area_fraction": 0.0
+    },
+    "bp-ng45/1001": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 144223,
+     "partition_assignment_changed_fraction": 0.999993066341247,
+     "tp_gnn_repair_moved_area_fraction": 0.05478552561184526
+    },
+    "bp-ng45/1002": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 144223,
+     "partition_assignment_changed_fraction": 0.999993066341247,
+     "tp_gnn_repair_moved_area_fraction": 0.06708441218303256
+    },
+    "bp-ng45/1003": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 144223,
+     "partition_assignment_changed_fraction": 0.999993066341247,
+     "tp_gnn_repair_moved_area_fraction": 0.04234030694322501
+    },
+    "ariane133-ng45/1001": {
+     "partition_assignment_identical": 1,
+     "partition_assignment_changed_count": 0,
+     "partition_assignment_changed_fraction": 0.0,
+     "tp_gnn_repair_moved_area_fraction": 0.011450088854443114
+    },
+    "ariane133-ng45/1002": {
+     "partition_assignment_identical": 1,
+     "partition_assignment_changed_count": 0,
+     "partition_assignment_changed_fraction": 0.0,
+     "tp_gnn_repair_moved_area_fraction": 0.14626889624775907
+    },
+    "ariane133-ng45/1003": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 131548,
+     "partition_assignment_changed_fraction": 0.9999847966552642,
+     "tp_gnn_repair_moved_area_fraction": 0.01136749727956661
+    }
+   },
+   "attempt": {
+    "parent_id": "c936085bfae4a448ff978d007b0f1a66c623b4d761a4a6a32683bb214d6e96b7",
+    "search_intent": "decoder_only",
+    "changed_components": {
+     "decoder": "Replace the frozen two-means decoder with an area-balanced principal-axis split. Relative to the parent, this keeps the same legal area-balanced top-die fill but ranks groups by a power-iteration proj"
+    }
+   },
+   "decision": {
+    "reason": "opening_control"
+   }
+  },
+  {
+   "round": 2,
+   "request_id": "e-b6617f1892d2d253855621797dc6771e30361e8405fcdf7aa3265b3bf4d4",
+   "candidate_id": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9",
+   "status": "succeeded",
+   "source": "def compute_tp_gnn_loss(\n    positive_scores,\n    negative_scores,\n    embeddings,\n    positive_sources,\n    positive_targets,\n    negative_sources,\n    negative_targets,\n    source_batch_size,\n    epoch,\n    max_epochs,\n    graph_scores,\n    graph_sources,\n    graph_targets,\n    graph_net_ids,\n    graph_weights,\n    net_weights,\n    node_features,\n    node_areas,\n):\n    \"\"\"Relative to the parent (random-walk contrastive loss only), add a\n    timing-weighted star-edge attraction term\n        sum_e w_e * softplus(-graph_scores_e) / sum_e w_e\n    rescaled by (P+Q)/source_batch_size so its total gradient is comparable to\n    the existing pair term and is strong enough to reorder groups at the\n    area-balanced two-means boundary. Expected measurable effect: embeddings\n    keep timing-heavy nets locally close, lowering the timing-weighted cut and\n    shifting the official decoder's discrete top/bottom split, improving\n    WNS/TNS. The hypothesis is invalidated if the final layer assignment is\n    essentially unchanged or the timing-weighted cut does not fall.\n    \"\"\"\n    pair_term = -(\n        F.logsigmoid(positive_scores).sum()\n        + F.logsigmoid(-negative_scores).sum()\n    ) / max(1, source_batch_size)\n    weight_total = graph_weights.sum()\n    edge_mean = (graph_weights * F.softplus(-graph_scores)).sum() / (weight_total + 1e-6)\n    pair_count = float(len(positive_scores)) + float(len(negative_scores))\n    batch_scale = pair_count / max(1.0, float(source_batch_size))\n    return pair_term + batch_scale * edge_mean\n\n\ndef decode_tp_gnn_embeddings(embeddings, node_areas, seed, max_iterations, balance_target):\n    \"\"\"Reproduce the frozen area-balanced global two-way decoder.\"\"\"\n    return reference_global_two_way(embeddings, node_areas, seed, max_iterations, balance_target)\n",
+   "score": 29.427746177483954,
+   "cells": [
+    {
+     "case": "bp_fe-ng45",
+     "seed": "1001",
+     "score": 48.107054179900736,
+     "raw_score": 48.107054179900736,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.6844416338530991,
+      "final_global_tns_setup_ns": -256.6780283193477,
+      "wns_deficit_improvement": 0.23972034534598008,
+      "tns_deficit_improvement": 0.6419706727676923,
+      "area_balance_error": 0.000512651412496329,
+      "macro_count_error": 0.045454545454545414,
+      "macro_area_error": 0.03739445114595896,
+      "cut_net_count": 3431,
+      "timing_weighted_cut": 5923.398790677706,
+      "tp_gnn_final_loss": 56.6474666595459
+     }
+    },
+    {
+     "case": "bp_fe-ng45",
+     "seed": "1002",
+     "score": 42.04841185771901,
+     "raw_score": 42.04841185771901,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.770504792888444,
+      "final_global_tns_setup_ns": -283.3793724330949,
+      "wns_deficit_improvement": 0.14412115091727057,
+      "tns_deficit_improvement": 0.6047260970171364,
+      "area_balance_error": 0.009457001684794089,
+      "macro_count_error": 0.04545454545454547,
+      "macro_area_error": 0.03739445114595896,
+      "cut_net_count": 3727,
+      "timing_weighted_cut": 6132.409456802394,
+      "tp_gnn_final_loss": 56.717905044555664
+     }
+    },
+    {
+     "case": "bp_fe-ng45",
+     "seed": "1003",
+     "score": 56.090266820379185,
+     "raw_score": 56.090266820379185,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.6029357184181231,
+      "final_global_tns_setup_ns": -204.5612093171251,
+      "wns_deficit_improvement": 0.33025734101398946,
+      "tns_deficit_improvement": 0.7146662196636601,
+      "area_balance_error": 0.009057700333352224,
+      "macro_count_error": 0.04545454545454547,
+      "macro_area_error": 0.039800386668208954,
+      "cut_net_count": 3085,
+      "timing_weighted_cut": 5548.222987046081,
+      "tp_gnn_final_loss": 56.6342658996582
+     }
+    },
+    {
+     "case": "bp-ng45",
+     "seed": "1001",
+     "score": -15.3717471846955,
+     "raw_score": -15.3717471846955,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -7.825090130683246,
+      "final_global_tns_setup_ns": -8746.727209646417,
+      "wns_deficit_improvement": 0.09675950419589735,
+      "tns_deficit_improvement": -0.3207021225421899,
+      "area_balance_error": 9.320515760060098e-07,
+      "macro_count_error": 0.041666666666666685,
+      "macro_area_error": 0.04762114990647909,
+      "cut_net_count": 5882,
+      "timing_weighted_cut": 8123.116823005924,
+      "tp_gnn_final_loss": 53.99455960591634
+     }
+    },
+    {
+     "case": "bp-ng45",
+     "seed": "1002",
+     "score": -29.734817591286287,
+     "raw_score": -29.734817591286287,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -7.861230111602953,
+      "final_global_tns_setup_ns": -10313.701132616256,
+      "wns_deficit_improvement": 0.09258791080347512,
+      "tns_deficit_improvement": -0.5573055670570882,
+      "area_balance_error": 5.592309456036059e-06,
+      "macro_count_error": 0.04166666666666663,
+      "macro_area_error": 0.04762114990647903,
+      "cut_net_count": 5859,
+      "timing_weighted_cut": 8103.869183012889,
+      "tp_gnn_final_loss": 54.10145568847656
+     }
+    },
+    {
+     "case": "bp-ng45",
+     "seed": "1003",
+     "score": -1.3759845288207875,
+     "raw_score": -1.3759845288207875,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -7.93139532056525,
+      "final_global_tns_setup_ns": -7147.700873490194,
+      "wns_deficit_improvement": 0.08448882733313937,
+      "tns_deficit_improvement": -0.07925896036910604,
+      "area_balance_error": 4.660257880030049e-06,
+      "macro_count_error": 0.041666666666666685,
+      "macro_area_error": 0.04762114990647909,
+      "cut_net_count": 5863,
+      "timing_weighted_cut": 8100.1005186312,
+      "tp_gnn_final_loss": 54.17956797281901
+     }
+    },
+    {
+     "case": "ariane133-ng45",
+     "seed": "1001",
+     "score": 35.224536929727584,
+     "raw_score": 35.224536929727584,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.5317053614558754,
+      "final_global_tns_setup_ns": -39.49178873476649,
+      "wns_deficit_improvement": -0.005046991493773114,
+      "tns_deficit_improvement": 0.5904402764913085,
+      "area_balance_error": 2.348575588905329e-06,
+      "macro_count_error": 0.048872180451127845,
+      "macro_area_error": 0.048872180451127845,
+      "cut_net_count": 10634,
+      "timing_weighted_cut": 18940.548736835455,
+      "tp_gnn_final_loss": 57.07124137878418
+     }
+    },
+    {
+     "case": "ariane133-ng45",
+     "seed": "1002",
+     "score": 72.41912982225223,
+     "raw_score": 72.41912982225223,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.2499178712494306,
+      "final_global_tns_setup_ns": -13.957114969925723,
+      "wns_deficit_improvement": 0.5275970061087809,
+      "tns_deficit_improvement": 0.8552541596316833,
+      "area_balance_error": 8.611443825986206e-06,
+      "macro_count_error": 0.048872180451127845,
+      "macro_area_error": 0.048872180451127845,
+      "cut_net_count": 15797,
+      "timing_weighted_cut": 28247.439764340783,
+      "tp_gnn_final_loss": 57.479288736979164
+     }
+    },
+    {
+     "case": "ariane133-ng45",
+     "seed": "1003",
+     "score": 57.44286529217939,
+     "raw_score": 57.44286529217939,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.44980731523751166,
+      "final_global_tns_setup_ns": -13.736558945794359,
+      "wns_deficit_improvement": 0.14975939363577623,
+      "tns_deficit_improvement": 0.8575414924458056,
+      "area_balance_error": 7.828585296351096e-07,
+      "macro_count_error": 0.048872180451127845,
+      "macro_area_error": 0.048872180451127845,
+      "cut_net_count": 11709,
+      "timing_weighted_cut": 21159.865926869323,
+      "tp_gnn_final_loss": 57.09914207458496
+     }
+    }
+   ],
+   "partition": {
+    "bp_fe-ng45/1001": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 53,
+     "partition_assignment_changed_fraction": 0.0020505281077107594,
+     "tp_gnn_repair_moved_area_fraction": 0.0
+    },
+    "bp_fe-ng45/1002": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 21,
+     "partition_assignment_changed_fraction": 0.0008124734011684141,
+     "tp_gnn_repair_moved_area_fraction": 0.0
+    },
+    "bp_fe-ng45/1003": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 43,
+     "partition_assignment_changed_fraction": 0.0016636360119162766,
+     "tp_gnn_repair_moved_area_fraction": 0.0
+    },
+    "bp-ng45/1001": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 23,
+     "partition_assignment_changed_fraction": 0.00015947415132016863,
+     "tp_gnn_repair_moved_area_fraction": 0.0606238966839469
+    },
+    "bp-ng45/1002": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 23,
+     "partition_assignment_changed_fraction": 0.00015947415132016863,
+     "tp_gnn_repair_moved_area_fraction": 0.06708860641512458
+    },
+    "bp-ng45/1003": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 34,
+     "partition_assignment_changed_fraction": 0.00023574439760372753,
+     "tp_gnn_repair_moved_area_fraction": 0.04180204715808154
+    },
+    "ariane133-ng45/1001": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 352,
+     "partition_assignment_changed_fraction": 0.0026757886735081717,
+     "tp_gnn_repair_moved_area_fraction": 0.016975895785872535
+    },
+    "ariane133-ng45/1002": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 9970,
+     "partition_assignment_changed_fraction": 0.0757886735081718,
+     "tp_gnn_repair_moved_area_fraction": 0.1021383780736983
+    },
+    "ariane133-ng45/1003": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 520,
+     "partition_assignment_changed_fraction": 0.00395286963131889,
+     "tp_gnn_repair_moved_area_fraction": 0.018570970040004072
+    }
+   },
+   "attempt": {
+    "parent_id": "c936085bfae4a448ff978d007b0f1a66c623b4d761a4a6a32683bb214d6e96b7",
+    "search_intent": "loss_only",
+    "changed_components": {
+     "loss": "Relative to the parent (random-walk contrastive loss only), add a timing-weighted star-edge attraction term sum_e w_e * softplus(-graph_scores_e) / sum_e w_e rescaled by (P+Q)/source_batch_size so its"
+    }
+   },
+   "decision": {
+    "reason": "opening_control"
+   }
+  },
+  {
+   "round": 3,
+   "request_id": "e-a83b78148bfc57361789831465ca5ce5d76f43e9e4859959f69b6c7ad6ef",
+   "candidate_id": "6d3bf02a6b2289083dcaaa37bf2846486ee480d0990e54b25dd310f3b0e2a7fa",
+   "status": "succeeded",
+   "source": "def compute_tp_gnn_loss(\n    positive_scores,\n    negative_scores,\n    embeddings,\n    positive_sources,\n    positive_targets,\n    negative_sources,\n    negative_targets,\n    source_batch_size,\n    epoch,\n    max_epochs,\n    graph_scores,\n    graph_sources,\n    graph_targets,\n    graph_net_ids,\n    graph_weights,\n    net_weights,\n    node_features,\n    node_areas,\n):\n    \"\"\"Relative to the parent loss, keep the timing-weighted star-edge\n    attraction sum_e w_e * softplus(-graph_scores_e) but focus each edge by the\n    endpoint timing criticality read from published node_features: coverage-\n    masked worst slack is standardized within the batch, and an exponential\n    endpoint-importance multiplier makes edges incident to poor-slack groups\n    dominate the graph term while damping edges whose timing is unknown. The\n    multiplier spans roughly a factor of twelve, so it can reorder groups at\n    the decoder's area-balanced boundary. Expected measurable effect: fewer\n    TNS regressions on the large bp-ng45 cells while preserving the ariane133\n    gains from the parent's timing-weighted attraction. Invalidated if the\n    final layer assignment stays essentially unchanged, or if bp-ng45 TNS does\n    not improve and the ariane133 gain is lost.\n    \"\"\"\n    pair_term = -(\n        F.logsigmoid(positive_scores).sum()\n        + F.logsigmoid(-negative_scores).sum()\n    ) / max(1, source_batch_size)\n\n    raw_slack = node_features[:, 0]\n    raw_coverage = node_features[:, 6]\n    slack_values = torch.where(\n        torch.isfinite(raw_slack), raw_slack, torch.zeros_like(raw_slack)\n    )\n    coverage = torch.clamp(raw_coverage, 0.0, 1.0)\n    coverage = torch.where(\n        torch.isfinite(coverage), coverage, torch.zeros_like(coverage)\n    )\n    coverage_total = coverage.sum() + 1e-6\n    slack_mean = (coverage * slack_values).sum() / coverage_total\n    slack_var = (\n        coverage * torch.square(slack_values - slack_mean)\n    ).sum() / coverage_total\n    slack_scale = torch.sqrt(slack_var) + 1e-6\n    slack_score = (slack_values - slack_mean) / slack_scale\n    node_importance = coverage * torch.sigmoid(-slack_score)\n\n    edge_importance = 0.5 * (\n        node_importance[graph_sources] + node_importance[graph_targets]\n    )\n    focus_multiplier = torch.exp(2.5 * edge_importance - 1.25)\n    focused_weights = graph_weights * focus_multiplier\n    focused_total = focused_weights.sum()\n    edge_mean = (\n        focused_weights * F.softplus(-graph_scores)\n    ).sum() / (focused_total + 1e-6)\n\n    pair_count = float(len(positive_scores)) + float(len(negative_scores))\n    batch_scale = pair_count / max(1.0, float(source_batch_size))\n    return pair_term + batch_scale * edge_mean\n\n\ndef decode_tp_gnn_embeddings(embeddings, node_areas, seed, max_iterations, balance_target):\n    \"\"\"Reproduce the frozen area-balanced global two-way decoder.\"\"\"\n    return reference_global_two_way(embeddings, node_areas, seed, max_iterations, balance_target)\n",
+   "score": 24.868531980654797,
+   "cells": [
+    {
+     "case": "bp_fe-ng45",
+     "seed": "1001",
+     "score": 25.474359874948206,
+     "raw_score": 25.474359874948206,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.8917611346213179,
+      "final_global_tns_setup_ns": -417.0414744916816,
+      "wns_deficit_improvement": 0.009429272081235937,
+      "tns_deficit_improvement": 0.4182864831949794,
+      "area_balance_error": 0.0008011788406349664,
+      "macro_count_error": 0.045454545454545414,
+      "macro_area_error": 0.03739445114595896,
+      "cut_net_count": 3432,
+      "timing_weighted_cut": 5928.178955887435,
+      "tp_gnn_final_loss": 56.62932014465332
+     }
+    },
+    {
+     "case": "bp_fe-ng45",
+     "seed": "1002",
+     "score": 51.88122941112312,
+     "raw_score": 51.88122941112312,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.6527134573134223,
+      "final_global_tns_setup_ns": -228.42633675574393,
+      "wns_deficit_improvement": 0.2749640913562711,
+      "tns_deficit_improvement": 0.6813777626145379,
+      "area_balance_error": 0.009508524439818845,
+      "macro_count_error": 0.04545454545454547,
+      "macro_area_error": 0.03739445114595896,
+      "cut_net_count": 3725,
+      "timing_weighted_cut": 6126.926348679274,
+      "tp_gnn_final_loss": 56.69741630554199
+     }
+    },
+    {
+     "case": "bp_fe-ng45",
+     "seed": "1003",
+     "score": 54.16080305455176,
+     "raw_score": 54.16080305455176,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.6314053902883682,
+      "final_global_tns_setup_ns": -212.5010414447377,
+      "wns_deficit_improvement": 0.29863315097783977,
+      "tns_deficit_improvement": 0.7035912835906362,
+      "area_balance_error": 0.009080885573113366,
+      "macro_count_error": 0.04545454545454547,
+      "macro_area_error": 0.039800386668208954,
+      "cut_net_count": 3085,
+      "timing_weighted_cut": 5546.421799773972,
+      "tp_gnn_final_loss": 56.6135196685791
+     }
+    },
+    {
+     "case": "bp-ng45",
+     "seed": "1001",
+     "score": -13.107338335886817,
+     "raw_score": -13.107338335886817,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -7.834658477069286,
+      "final_global_tns_setup_ns": -8491.905886391542,
+      "wns_deficit_improvement": 0.0956550417821209,
+      "tns_deficit_improvement": -0.28222566678619426,
+      "area_balance_error": 0.0,
+      "macro_count_error": 0.041666666666666685,
+      "macro_area_error": 0.04762114990647909,
+      "cut_net_count": 5890,
+      "timing_weighted_cut": 8129.319370130705,
+      "tp_gnn_final_loss": 54.050424575805664
+     }
+    },
+    {
+     "case": "bp-ng45",
+     "seed": "1002",
+     "score": -28.65859682937049,
+     "raw_score": -28.65859682937049,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -7.825109670609032,
+      "final_global_tns_setup_ns": -10213.3165615637,
+      "wns_deficit_improvement": 0.09675724872638071,
+      "tns_deficit_improvement": -0.542148112973762,
+      "area_balance_error": 0.0,
+      "macro_count_error": 0.04166666666666663,
+      "macro_area_error": 0.04762114990647903,
+      "cut_net_count": 5855,
+      "timing_weighted_cut": 8095.828215970959,
+      "tp_gnn_final_loss": 54.157386779785156
+     }
+    },
+    {
+     "case": "bp-ng45",
+     "seed": "1003",
+     "score": 0.2926944403616922,
+     "raw_score": 0.2926944403616922,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -7.9494191257459725,
+      "final_global_tns_setup_ns": -6954.326833014347,
+      "wns_deficit_improvement": 0.08240836174669496,
+      "tns_deficit_improvement": -0.0500606671584351,
+      "area_balance_error": 4.660257880030049e-06,
+      "macro_count_error": 0.041666666666666685,
+      "macro_area_error": 0.04762114990647909,
+      "cut_net_count": 5856,
+      "timing_weighted_cut": 8090.9826849275005,
+      "tp_gnn_final_loss": 54.23302968343099
+     }
+    },
+    {
+     "case": "ariane133-ng45",
+     "seed": "1001",
+     "score": 5.986151790365714,
+     "raw_score": 5.986151790365714,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.6193019605762013,
+      "final_global_tns_setup_ns": -75.83639886273191,
+      "wns_deficit_improvement": -0.17062496905997396,
+      "tns_deficit_improvement": 0.21351917587941122,
+      "area_balance_error": 1.5657170592702192e-06,
+      "macro_count_error": 0.048872180451127845,
+      "macro_area_error": 0.048872180451127845,
+      "cut_net_count": 10837,
+      "timing_weighted_cut": 19352.385345544106,
+      "tp_gnn_final_loss": 57.05881373087565
+     }
+    },
+    {
+     "case": "ariane133-ng45",
+     "seed": "1002",
+     "score": 70.58432102212625,
+     "raw_score": 70.58432102212625,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.32311354506545265,
+      "final_global_tns_setup_ns": -8.011765699858524,
+      "wns_deficit_improvement": 0.3892401319976715,
+      "tns_deficit_improvement": 0.9169119290369899,
+      "area_balance_error": 1.1742877944526644e-05,
+      "macro_count_error": 0.048872180451127845,
+      "macro_area_error": 0.048872180451127845,
+      "cut_net_count": 15943,
+      "timing_weighted_cut": 28522.838231769154,
+      "tp_gnn_final_loss": 57.49362055460612
+     }
+    },
+    {
+     "case": "ariane133-ng45",
+     "seed": "1003",
+     "score": 57.20316339767374,
+     "raw_score": 57.20316339767374,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.43483751163930096,
+      "final_global_tns_setup_ns": -15.940767379514986,
+      "wns_deficit_improvement": 0.17805580958395903,
+      "tns_deficit_improvement": 0.834682183571923,
+      "area_balance_error": 5.480009707445768e-06,
+      "macro_count_error": 0.048872180451127845,
+      "macro_area_error": 0.048872180451127845,
+      "cut_net_count": 11938,
+      "timing_weighted_cut": 21523.438525188187,
+      "tp_gnn_final_loss": 57.07663663228353
+     }
+    }
+   ],
+   "partition": {
+    "bp_fe-ng45/1001": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 56,
+     "partition_assignment_changed_fraction": 0.0021665957364491043,
+     "tp_gnn_repair_moved_area_fraction": 0.0
+    },
+    "bp_fe-ng45/1002": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 24,
+     "partition_assignment_changed_fraction": 0.000928541029906759,
+     "tp_gnn_repair_moved_area_fraction": 0.0
+    },
+    "bp_fe-ng45/1003": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 30,
+     "partition_assignment_changed_fraction": 0.0011606762873834487,
+     "tp_gnn_repair_moved_area_fraction": 0.0
+    },
+    "bp-ng45/1001": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 42,
+     "partition_assignment_changed_fraction": 0.000291213667628134,
+     "tp_gnn_repair_moved_area_fraction": 0.0606238966839469
+    },
+    "bp-ng45/1002": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 30,
+     "partition_assignment_changed_fraction": 0.0002080097625915243,
+     "tp_gnn_repair_moved_area_fraction": 0.06699400318015998
+    },
+    "bp-ng45/1003": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 24,
+     "partition_assignment_changed_fraction": 0.00016640781007321945,
+     "tp_gnn_repair_moved_area_fraction": 0.04184445550478981
+    },
+    "ariane133-ng45/1001": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 550,
+     "partition_assignment_changed_fraction": 0.004180919802356519,
+     "tp_gnn_repair_moved_area_fraction": 0.016734383929480103
+    },
+    "ariane133-ng45/1002": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 9606,
+     "partition_assignment_changed_fraction": 0.07302166476624858,
+     "tp_gnn_repair_moved_area_fraction": 0.10213563806884458
+    },
+    "ariane133-ng45/1003": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 650,
+     "partition_assignment_changed_fraction": 0.0049410870391486126,
+     "tp_gnn_repair_moved_area_fraction": 0.018568621464415166
+    }
+   },
+   "attempt": {
+    "parent_id": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9",
+    "search_intent": "refine",
+    "changed_components": {
+     "loss": "Relative to the parent loss, keep the timing-weighted star-edge attraction sum_e w_e * softplus(-graph_scores_e) but focus each edge by the endpoint timing criticality read from published node_feature"
+    }
+   },
+   "decision": {
+    "reason": "refine_incumbent",
+    "candidate_id": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9"
+   }
+  },
+  {
+   "round": 4,
+   "request_id": "e-785401a4543c65fd9c9deeea8b8fb40283e10e2b78b1e255f73d6be7d0af",
+   "candidate_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+   "status": "succeeded",
+   "source": "def compute_tp_gnn_loss(\n    positive_scores,\n    negative_scores,\n    embeddings,\n    positive_sources,\n    positive_targets,\n    negative_sources,\n    negative_targets,\n    source_batch_size,\n    epoch,\n    max_epochs,\n    graph_scores,\n    graph_sources,\n    graph_targets,\n    graph_net_ids,\n    graph_weights,\n    net_weights,\n    node_features,\n    node_areas,\n):\n    \"\"\"Relative to the parent (random-walk contrastive loss only), add a\n    timing-weighted star-edge attraction term\n        sum_e w_e * softplus(-graph_scores_e) / sum_e w_e\n    rescaled by (P+Q)/source_batch_size so its total gradient is comparable to\n    the existing pair term and is strong enough to reorder groups at the\n    area-balanced two-means boundary. Expected measurable effect: embeddings\n    keep timing-heavy nets locally close, lowering the timing-weighted cut and\n    shifting the official decoder's discrete top/bottom split, improving\n    WNS/TNS. The hypothesis is invalidated if the final layer assignment is\n    essentially unchanged or the timing-weighted cut does not fall.\n    \"\"\"\n    pair_term = -(\n        F.logsigmoid(positive_scores).sum()\n        + F.logsigmoid(-negative_scores).sum()\n    ) / max(1, source_batch_size)\n    weight_total = graph_weights.sum()\n    edge_mean = (graph_weights * F.softplus(-graph_scores)).sum() / (weight_total + 1e-6)\n    pair_count = float(len(positive_scores)) + float(len(negative_scores))\n    batch_scale = pair_count / max(1.0, float(source_batch_size))\n    return pair_term + batch_scale * edge_mean\n\n\ndef decode_tp_gnn_embeddings(embeddings, node_areas, seed, max_iterations, balance_target):\n    \"\"\"Relative to the parent, keep the timing-weighted star-edge loss\n    unchanged and replace the frozen two-means helper with a custom seeded\n    area-balanced two-means decoder. Initial centers are an embedding anchor\n    and its farthest group; each bounded iteration re-ranks groups by the\n    squared-distance margin and re-estimates physical-area-weighted centers.\n    Because this directly decides the discrete top-die fill order, it is strong\n    enough to change the partition. Expected measurable effect: a different\n    legal split that improves measured WNS/TNS and timing-weighted cut.\n    Invalidated if final layer assignments match the parent's or official\n    timing does not improve.\n    \"\"\"\n    n_nodes = int(embeddings.shape[0])\n    total_area = node_areas.sum()\n    mean_all = (node_areas[:, None] * embeddings).sum(axis=0) / max(float(total_area), 1e-12)\n\n    anchor_index = int(seed) % max(1, n_nodes)\n    anchor = embeddings[anchor_index]\n    anchor_dist = ((embeddings - anchor) ** 2).sum(axis=1)\n    far_index = int(np.argmax(anchor_dist))\n\n    center_top = embeddings[far_index]\n    center_bottom = embeddings[anchor_index]\n    labels = np.where(np.arange(n_nodes) < max(1, n_nodes // 2), 1, 0)\n\n    for iteration in range(max_iterations):\n        dist_top = ((embeddings - center_top) ** 2).sum(axis=1)\n        dist_bottom = ((embeddings - center_bottom) ** 2).sum(axis=1)\n        score = dist_bottom - dist_top\n        score_tie = score - (np.arange(n_nodes) * 1e-12)\n        order = np.argsort(-score_tie)\n        sorted_areas = node_areas[order]\n        cumulative = np.cumsum(sorted_areas)\n        target_area = balance_target * total_area\n        errors = np.abs(cumulative - target_area)\n        count = int(np.argmin(errors)) + 1\n        count = max(1, min(n_nodes - 1, count))\n        threshold = score_tie[order[count - 1]]\n        labels = np.where(score_tie >= threshold, 1, 0)\n\n        top_mask = labels == 1\n        bottom_mask = labels == 0\n        top_area = node_areas[top_mask].sum()\n        bottom_area = node_areas[bottom_mask].sum()\n        center_top = (\n            node_areas[top_mask, None] * embeddings[top_mask]\n        ).sum(axis=0) / max(float(top_area), 1e-12)\n        center_bottom = (\n            node_areas[bottom_mask, None] * embeddings[bottom_mask]\n        ).sum(axis=0) / max(float(bottom_area), 1e-12)\n\n    return labels\n",
+   "score": 34.75499580780448,
+   "cells": [
+    {
+     "case": "bp_fe-ng45",
+     "seed": "1001",
+     "score": 55.806399562499244,
+     "raw_score": 55.806399562499244,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.6261135120918279,
+      "final_global_tns_setup_ns": -195.64786255971472,
+      "wns_deficit_improvement": 0.3045113838741751,
+      "tns_deficit_improvement": 0.7270990701255373,
+      "area_balance_error": 0.006592336505417617,
+      "macro_count_error": 0.04545454545454547,
+      "macro_area_error": 0.039800386668208954,
+      "cut_net_count": 3483,
+      "timing_weighted_cut": 5958.099666866877,
+      "tp_gnn_final_loss": 56.6474666595459
+     }
+    },
+    {
+     "case": "bp_fe-ng45",
+     "seed": "1002",
+     "score": 54.05621423546373,
+     "raw_score": 54.05621423546373,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.6583063169804508,
+      "final_global_tns_setup_ns": -199.4689341270244,
+      "wns_deficit_improvement": 0.2687515274123754,
+      "tns_deficit_improvement": 0.7217692189828119,
+      "area_balance_error": 0.009457001684794089,
+      "macro_count_error": 0.045454545454545414,
+      "macro_area_error": 0.03739445114595896,
+      "cut_net_count": 3727,
+      "timing_weighted_cut": 6132.409456802394,
+      "tp_gnn_final_loss": 56.717905044555664
+     }
+    },
+    {
+     "case": "bp_fe-ng45",
+     "seed": "1003",
+     "score": 56.090266820379185,
+     "raw_score": 56.090266820379185,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.6029357184181231,
+      "final_global_tns_setup_ns": -204.5612093171251,
+      "wns_deficit_improvement": 0.33025734101398946,
+      "tns_deficit_improvement": 0.7146662196636601,
+      "area_balance_error": 0.009057700333352224,
+      "macro_count_error": 0.04545454545454547,
+      "macro_area_error": 0.039800386668208954,
+      "cut_net_count": 3085,
+      "timing_weighted_cut": 5548.222987046081,
+      "tp_gnn_final_loss": 56.6342658996582
+     }
+    },
+    {
+     "case": "bp-ng45",
+     "seed": "1001",
+     "score": -15.3717471846955,
+     "raw_score": -15.3717471846955,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -7.825090130683246,
+      "final_global_tns_setup_ns": -8746.727209646417,
+      "wns_deficit_improvement": 0.09675950419589735,
+      "tns_deficit_improvement": -0.3207021225421899,
+      "area_balance_error": 9.320515760060098e-07,
+      "macro_count_error": 0.041666666666666685,
+      "macro_area_error": 0.04762114990647909,
+      "cut_net_count": 5882,
+      "timing_weighted_cut": 8123.116823005924,
+      "tp_gnn_final_loss": 53.99455960591634
+     }
+    },
+    {
+     "case": "bp-ng45",
+     "seed": "1002",
+     "score": -49.246347534797756,
+     "raw_score": -49.246347534797756,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -7.8255883987907895,
+      "final_global_tns_setup_ns": -12485.543619054048,
+      "wns_deficit_improvement": 0.09670198972322229,
+      "tns_deficit_improvement": -0.8852404520621108,
+      "area_balance_error": 9.320515760060098e-07,
+      "macro_count_error": 0.041666666666666685,
+      "macro_area_error": 0.04762114990647909,
+      "cut_net_count": 5862,
+      "timing_weighted_cut": 8107.43087948337,
+      "tp_gnn_final_loss": 54.10145568847656
+     }
+    },
+    {
+     "case": "bp-ng45",
+     "seed": "1003",
+     "score": -1.3759845288207875,
+     "raw_score": -1.3759845288207875,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -7.93139532056525,
+      "final_global_tns_setup_ns": -7147.700873490194,
+      "wns_deficit_improvement": 0.08448882733313937,
+      "tns_deficit_improvement": -0.07925896036910604,
+      "area_balance_error": 4.660257880030049e-06,
+      "macro_count_error": 0.041666666666666685,
+      "macro_area_error": 0.04762114990647909,
+      "cut_net_count": 5863,
+      "timing_weighted_cut": 8100.1005186312,
+      "tp_gnn_final_loss": 54.17956797281901
+     }
+    },
+    {
+     "case": "ariane133-ng45",
+     "seed": "1001",
+     "score": 82.97416578578058,
+     "raw_score": 82.97416578578058,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.21748203853384387,
+      "final_global_tns_setup_ns": -0.9355885220255487,
+      "wns_deficit_improvement": 0.5889082857207341,
+      "tns_deficit_improvement": 0.9902972392825206,
+      "area_balance_error": 9.394302355621316e-06,
+      "macro_count_error": 0.048872180451127845,
+      "macro_area_error": 0.048872180451127845,
+      "cut_net_count": 10633,
+      "timing_weighted_cut": 18939.04737291236,
+      "tp_gnn_final_loss": 57.07124137878418
+     }
+    },
+    {
+     "case": "ariane133-ng45",
+     "seed": "1002",
+     "score": 72.41912982225223,
+     "raw_score": 72.41912982225223,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.2499178712494306,
+      "final_global_tns_setup_ns": -13.957114969925723,
+      "wns_deficit_improvement": 0.5275970061087809,
+      "tns_deficit_improvement": 0.8552541596316833,
+      "area_balance_error": 8.611443825986206e-06,
+      "macro_count_error": 0.048872180451127845,
+      "macro_area_error": 0.048872180451127845,
+      "cut_net_count": 15797,
+      "timing_weighted_cut": 28247.439764340783,
+      "tp_gnn_final_loss": 57.479288736979164
+     }
+    },
+    {
+     "case": "ariane133-ng45",
+     "seed": "1003",
+     "score": 57.44286529217939,
+     "raw_score": 57.44286529217939,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.44980731523751166,
+      "final_global_tns_setup_ns": -13.736558945794359,
+      "wns_deficit_improvement": 0.14975939363577623,
+      "tns_deficit_improvement": 0.8575414924458056,
+      "area_balance_error": 7.828585296351096e-07,
+      "macro_count_error": 0.048872180451127845,
+      "macro_area_error": 0.048872180451127845,
+      "cut_net_count": 11709,
+      "timing_weighted_cut": 21159.865926869323,
+      "tp_gnn_final_loss": 57.09914207458496
+     }
+    }
+   ],
+   "partition": {
+    "bp_fe-ng45/1001": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 197,
+     "partition_assignment_changed_fraction": 0.007621774287151314,
+     "tp_gnn_repair_moved_area_fraction": 0.0
+    },
+    "bp_fe-ng45/1002": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 25826,
+     "partition_assignment_changed_fraction": 0.9991875265988316,
+     "tp_gnn_repair_moved_area_fraction": 0.0
+    },
+    "bp_fe-ng45/1003": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 43,
+     "partition_assignment_changed_fraction": 0.0016636360119162766,
+     "tp_gnn_repair_moved_area_fraction": 0.0
+    },
+    "bp-ng45/1001": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 23,
+     "partition_assignment_changed_fraction": 0.00015947415132016863,
+     "tp_gnn_repair_moved_area_fraction": 0.055053024414158984
+    },
+    "bp-ng45/1002": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 144200,
+     "partition_assignment_changed_fraction": 0.9998335921899267,
+     "tp_gnn_repair_moved_area_fraction": 0.06708534423460856
+    },
+    "bp-ng45/1003": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 34,
+     "partition_assignment_changed_fraction": 0.00023574439760372753,
+     "tp_gnn_repair_moved_area_fraction": 0.04180204715808154
+    },
+    "ariane133-ng45/1001": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 131201,
+     "partition_assignment_changed_fraction": 0.9973470163435956,
+     "tp_gnn_repair_moved_area_fraction": 0.016970024346900273
+    },
+    "ariane133-ng45/1002": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 9970,
+     "partition_assignment_changed_fraction": 0.0757886735081718,
+     "tp_gnn_repair_moved_area_fraction": 0.1021383780736983
+    },
+    "ariane133-ng45/1003": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 520,
+     "partition_assignment_changed_fraction": 0.00395286963131889,
+     "tp_gnn_repair_moved_area_fraction": 0.016993510102789326
+    }
+   },
+   "attempt": {
+    "parent_id": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9",
+    "search_intent": "diversify",
+    "changed_components": {
+     "decoder": "Relative to the parent, keep the timing-weighted star-edge loss unchanged and replace the frozen two-means helper with a custom seeded area-balanced two-means decoder. Initial centers are an embedding"
+    }
+   },
+   "decision": {
+    "reason": "explore_from_incumbent",
+    "candidate_id": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9"
+   }
+  }
+ ],
+ "server-2-local-harness": [
+  {
+   "round": 1,
+   "request_id": "e-add2a2f638cecd950b2f2da8baa8f121012cc542c840c7361961f181b59c",
+   "candidate_id": "a8cd13efbc3cb709ae662ecade4f0eb69a221036995aab9079a3151ab3f5aae3",
+   "status": "succeeded",
+   "source": "def compute_tp_gnn_loss(\n    positive_scores,\n    negative_scores,\n    embeddings,\n    positive_sources,\n    positive_targets,\n    negative_sources,\n    negative_targets,\n    source_batch_size,\n    epoch,\n    max_epochs,\n    graph_scores,\n    graph_sources,\n    graph_targets,\n    graph_net_ids,\n    graph_weights,\n    net_weights,\n    node_features,\n    node_areas,\n):\n    \"\"\"Reproduce the maintained random-walk negative-sampling objective.\"\"\"\n    return -(\n        F.logsigmoid(positive_scores).sum()\n        + F.logsigmoid(-negative_scores).sum()\n    ) / max(1, source_batch_size)\n\n\ndef decode_tp_gnn_embeddings(embeddings, node_areas, seed, max_iterations, balance_target):\n    \"\"\"Parent delegates to reference_global_two_way. This version changes the\n    decoder to a deterministic area-balanced embedding sweep refined by bounded\n    capacity-constrained Lloyd updates: each step ranks nodes by distance\n    preference and cuts at the cumulative physical-area target, rather than\n    returning the frozen seeded two-means assignment directly. Expected\n    measurable effect: a different legal discrete die boundary with a potentially\n    lower timing-weighted cut. The hypothesis is invalidated if the final layer\n    assignment and official timing are unchanged, or if closure repairs the\n    sweep back to the parent partition without timing benefit.\n    \"\"\"\n    local_embeddings = embeddings * 1.0\n    local_areas = node_areas * 1.0\n    local_n = int(local_embeddings.shape[0])\n    total_area = float(np.sum(local_areas))\n    target_area = float(balance_target) * total_area\n    safe_total = max(total_area, 1e-12)\n\n    area_mean = np.sum(local_embeddings * local_areas[:, None], axis=0) / safe_total\n    deviation = np.sum((local_embeddings - area_mean) ** 2, axis=1)\n    weighted_deviation = deviation * local_areas\n    top_index = int(np.argmax(weighted_deviation))\n    top_anchor = local_embeddings[top_index]\n\n    distance_to_top = np.sum((local_embeddings - top_anchor) ** 2, axis=1)\n    bottom_index = int(np.argmax(distance_to_top * local_areas))\n    bottom_anchor = local_embeddings[bottom_index]\n\n    dist_top_init = np.sum((local_embeddings - top_anchor) ** 2, axis=1)\n    dist_bottom_init = np.sum((local_embeddings - bottom_anchor) ** 2, axis=1)\n    score_init = dist_bottom_init - dist_top_init\n    order_init = np.argsort(-score_init, kind=\"mergesort\")\n    rank_init = np.argsort(order_init, kind=\"mergesort\")\n    cum_init = np.cumsum(local_areas[order_init])\n    cut_init = int(np.argmin(np.abs(cum_init - target_area))) + 1\n    cut_init = min(max(cut_init, 1), local_n - 1)\n    labels = np.where(rank_init < cut_init, 1, 0)\n\n    for iteration in range(max_iterations):\n        top_mask = labels > 0\n        top_area = float(np.sum(local_areas * top_mask))\n        bottom_area = safe_total - top_area\n        top_center = np.sum(\n            local_embeddings * (local_areas * top_mask)[:, None], axis=0\n        ) / max(top_area, 1e-12)\n        bottom_center = np.sum(\n            local_embeddings * (local_areas * (1 - top_mask))[:, None], axis=0\n        ) / max(bottom_area, 1e-12)\n\n        dist_top = np.sum((local_embeddings - top_center) ** 2, axis=1)\n        dist_bottom = np.sum((local_embeddings - bottom_center) ** 2, axis=1)\n        score = dist_bottom - dist_top\n\n        order = np.argsort(-score, kind=\"mergesort\")\n        rank = np.argsort(order, kind=\"mergesort\")\n        cum = np.cumsum(local_areas[order])\n        cut = int(np.argmin(np.abs(cum - target_area))) + 1\n        cut = min(max(cut, 1), local_n - 1)\n        labels = np.where(rank < cut, 1, 0)\n\n    return labels.astype(np.int64)\n",
+   "score": 5.4823532063599085,
+   "cells": [
+    {
+     "case": "bp_fe-ng45",
+     "seed": "1001",
+     "score": 45.639046933614715,
+     "raw_score": 45.639046933614715,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.6311568113461243,
+      "final_global_tns_setup_ns": -314.4564946327932,
+      "wns_deficit_improvement": 0.298909273152494,
+      "tns_deficit_improvement": 0.5613779334585826,
+      "area_balance_error": 0.007674314360937508,
+      "macro_count_error": 0.045454545454545414,
+      "macro_area_error": 0.039800386668208954,
+      "cut_net_count": 3503,
+      "timing_weighted_cut": 5969.778054870636,
+      "tp_gnn_final_loss": 42.84676551818848
+     }
+    },
+    {
+     "case": "bp_fe-ng45",
+     "seed": "1002",
+     "score": 49.92933618986978,
+     "raw_score": 49.92933618986978,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.7280568576313236,
+      "final_global_tns_setup_ns": -211.7487329856929,
+      "wns_deficit_improvement": 0.19127243447724507,
+      "tns_deficit_improvement": 0.7046406468463329,
+      "area_balance_error": 0.009665668842644354,
+      "macro_count_error": 0.04545454545454547,
+      "macro_area_error": 0.03739445114595896,
+      "cut_net_count": 3738,
+      "timing_weighted_cut": 6152.378811821003,
+      "tp_gnn_final_loss": 42.90664291381836
+     }
+    },
+    {
+     "case": "bp_fe-ng45",
+     "seed": "1003",
+     "score": 62.60345162179455,
+     "raw_score": 62.60345162179455,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.6030157655004624,
+      "final_global_tns_setup_ns": -126.69494612031998,
+      "wns_deficit_improvement": 0.33016842449414774,
+      "tns_deficit_improvement": 0.8232785773671439,
+      "area_balance_error": 0.00889797979277548,
+      "macro_count_error": 0.045454545454545414,
+      "macro_area_error": 0.039800386668208954,
+      "cut_net_count": 3102,
+      "timing_weighted_cut": 5576.034057190449,
+      "tp_gnn_final_loss": 42.8256778717041
+     }
+    },
+    {
+     "case": "bp-ng45",
+     "seed": "1001",
+     "score": -13.264467001342073,
+     "raw_score": -13.264467001342073,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -7.918001589617371,
+      "final_global_tns_setup_ns": -8466.774728081393,
+      "wns_deficit_improvement": 0.08603484916547481,
+      "tns_deficit_improvement": -0.27843101613268445,
+      "area_balance_error": 9.320515760060098e-07,
+      "macro_count_error": 0.04166666666666663,
+      "macro_area_error": 0.04762114990647903,
+      "cut_net_count": 5877,
+      "timing_weighted_cut": 8119.9769301143615,
+      "tp_gnn_final_loss": 40.73390197753906
+     }
+    },
+    {
+     "case": "bp-ng45",
+     "seed": "1002",
+     "score": -24.490921345430415,
+     "raw_score": -24.490921345430415,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -7.87696419275293,
+      "final_global_tns_setup_ns": -9726.862392626164,
+      "wns_deficit_improvement": 0.09077174523584775,
+      "tns_deficit_improvement": -0.46869651924773875,
+      "area_balance_error": 1.8641031520120197e-06,
+      "macro_count_error": 0.04166666666666663,
+      "macro_area_error": 0.04762114990647903,
+      "cut_net_count": 5859,
+      "timing_weighted_cut": 8101.98917739199,
+      "tp_gnn_final_loss": 40.8269837697347
+     }
+    },
+    {
+     "case": "bp-ng45",
+     "seed": "1003",
+     "score": -4.58849605689768,
+     "raw_score": -4.58849605689768,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -7.876209241074833,
+      "final_global_tns_setup_ns": -7530.422166535901,
+      "wns_deficit_improvement": 0.09085888837626456,
+      "tns_deficit_improvement": -0.13704752653247104,
+      "area_balance_error": 9.320515760060098e-07,
+      "macro_count_error": 0.04166666666666663,
+      "macro_area_error": 0.04762114990647903,
+      "cut_net_count": 5873,
+      "timing_weighted_cut": 8113.7416397428115,
+      "tp_gnn_final_loss": 40.92022196451823
+     }
+    },
+    {
+     "case": "ariane133-ng45",
+     "seed": "1001",
+     "score": -22.656477978748903,
+     "raw_score": -22.656477978748903,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -1.0084688924936598,
+      "final_global_tns_setup_ns": -74.57963346873984,
+      "wns_deficit_improvement": -0.9062411250482042,
+      "tns_deficit_improvement": 0.2265527837196545,
+      "area_balance_error": 5.480009707445768e-06,
+      "macro_count_error": 0.048872180451127845,
+      "macro_area_error": 0.048872180451127845,
+      "cut_net_count": 10853,
+      "timing_weighted_cut": 19356.19122464571,
+      "tp_gnn_final_loss": 42.821037928263344
+     }
+    },
+    {
+     "case": "ariane133-ng45",
+     "seed": "1002",
+     "score": -24.343899523373878,
+     "raw_score": -24.343899523373878,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.5544742599780464,
+      "final_global_tns_setup_ns": -132.4565525864367,
+      "wns_deficit_improvement": -0.04808551361188053,
+      "tns_deficit_improvement": -0.373674649648311,
+      "area_balance_error": 7.828585296351096e-07,
+      "macro_count_error": 0.048872180451127845,
+      "macro_area_error": 0.048872180451127845,
+      "cut_net_count": 17975,
+      "timing_weighted_cut": 32585.120832148892,
+      "tp_gnn_final_loss": 43.31236203511556
+     }
+    },
+    {
+     "case": "ariane133-ng45",
+     "seed": "1003",
+     "score": -19.48639398224692,
+     "raw_score": -19.48639398224692,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.49848437899506826,
+      "final_global_tns_setup_ns": -131.45349358885042,
+      "wns_deficit_improvement": 0.05774840403370358,
+      "tns_deficit_improvement": -0.3632721690599177,
+      "area_balance_error": 3.1314341185404385e-06,
+      "macro_count_error": 0.048872180451127845,
+      "macro_area_error": 0.048872180451127845,
+      "cut_net_count": 11851,
+      "timing_weighted_cut": 21373.657087066553,
+      "tp_gnn_final_loss": 42.85748418172201
+     }
+    }
+   ],
+   "partition": {
+    "bp_fe-ng45/1001": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 25599,
+     "partition_assignment_changed_fraction": 0.9904050760242968,
+     "tp_gnn_repair_moved_area_fraction": 0.0
+    },
+    "bp_fe-ng45/1002": {
+     "partition_assignment_identical": 1,
+     "partition_assignment_changed_count": 0,
+     "partition_assignment_changed_fraction": 0.0,
+     "tp_gnn_repair_moved_area_fraction": 0.0
+    },
+    "bp_fe-ng45/1003": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 25847,
+     "partition_assignment_changed_fraction": 1.0,
+     "tp_gnn_repair_moved_area_fraction": 0.0
+    },
+    "bp-ng45/1001": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 144223,
+     "partition_assignment_changed_fraction": 0.999993066341247,
+     "tp_gnn_repair_moved_area_fraction": 0.05478552561184526
+    },
+    "bp-ng45/1002": {
+     "partition_assignment_identical": 1,
+     "partition_assignment_changed_count": 0,
+     "partition_assignment_changed_fraction": 0.0,
+     "tp_gnn_repair_moved_area_fraction": 0.06708581026039658
+    },
+    "bp-ng45/1003": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 144223,
+     "partition_assignment_changed_fraction": 0.999993066341247,
+     "tp_gnn_repair_moved_area_fraction": 0.042330054375888944
+    },
+    "ariane133-ng45/1001": {
+     "partition_assignment_identical": 1,
+     "partition_assignment_changed_count": 0,
+     "partition_assignment_changed_fraction": 0.0,
+     "tp_gnn_repair_moved_area_fraction": 0.011450088854443114
+    },
+    "ariane133-ng45/1002": {
+     "partition_assignment_identical": 1,
+     "partition_assignment_changed_count": 0,
+     "partition_assignment_changed_fraction": 0.0,
+     "tp_gnn_repair_moved_area_fraction": 0.14150520209492942
+    },
+    "ariane133-ng45/1003": {
+     "partition_assignment_identical": 1,
+     "partition_assignment_changed_count": 0,
+     "partition_assignment_changed_fraction": 0.0,
+     "tp_gnn_repair_moved_area_fraction": 0.011390200176926027
+    }
+   },
+   "attempt": {
+    "parent_id": "ce56a2d8d7961bd45378b9d44dd3dcce30148d115c8f26bc614ecf9cb4ac4570",
+    "search_intent": "decoder_only",
+    "changed_components": {
+     "decoder": "Parent delegates to reference_global_two_way. This version changes the decoder to a deterministic area-balanced embedding sweep refined by bounded capacity-constrained Lloyd updates: each step ranks n"
+    }
+   },
+   "decision": {
+    "reason": "opening_control"
+   }
+  },
+  {
+   "round": 2,
+   "request_id": "e-68ae1bb97120071e48ff11a3056c767ba59d175a11fc2a6be148762a4fee",
+   "candidate_id": "57e8cc549349c019fd93e27bf502aa1eb5cae0c814cdf2a34e1e6c19833399f2",
+   "status": "succeeded",
+   "source": "def compute_tp_gnn_loss(\n    positive_scores,\n    negative_scores,\n    embeddings,\n    positive_sources,\n    positive_targets,\n    negative_sources,\n    negative_targets,\n    source_batch_size,\n    epoch,\n    max_epochs,\n    graph_scores,\n    graph_sources,\n    graph_targets,\n    graph_net_ids,\n    graph_weights,\n    net_weights,\n    node_features,\n    node_areas,\n):\n    \"\"\"Parent random-walk pair objective with timing/area pair reweighting.\n\n    Mechanism: keep the parent logistic positive/negative pair geometry, but\n    weight each sampled pair by endpoint timing-criticality and physical area.\n    Criticality uses timing coverage, bounded worst-slack pressure, and a\n    clamped normalized area share, so the loss emphasizes well-covered,\n    timing-suspect nodes without inferring macro identity from area.\n\n    Hypothesis: upweighting pairs at timing-critical, well-covered nodes should\n    move the two-means handoff split toward a timing-weighted cut and reduce\n    TNS deficit on large cases relative to the parent, with the decoder\n    unchanged.\n\n    Invalidating result: if coverage is zero or slack saturates so weights are\n    nearly uniform, or if the frozen two-means assignment is insensitive to the\n    shifted embedding geometry, final labels and TNS deficit should remain\n    unchanged or worsen.\n    \"\"\"\n    coverage = torch.clamp(node_features[:, 6], 0.0, 1.0)\n    slack_gate = 0.5 + 0.5 * torch.tanh(-node_features[:, 0])\n    area_total = node_areas.sum()\n    area_share = node_areas / (area_total + 1.0e-8)\n    area_scale = torch.sqrt(\n        torch.clamp(\n            area_share * max(1, int(node_features.shape[0])),\n            0.0,\n            4.0,\n        )\n    )\n    importance = 1.0 + 0.75 * coverage * slack_gate + 0.25 * area_scale\n    positive_weight = 0.5 * (\n        importance[positive_sources] + importance[positive_targets]\n    )\n    negative_weight = 0.5 * (\n        importance[negative_sources] + importance[negative_targets]\n    )\n    positive_term = -(positive_weight * F.logsigmoid(positive_scores)).sum()\n    negative_term = -(negative_weight * F.logsigmoid(-negative_scores)).sum()\n    return (positive_term + negative_term) / max(1, source_batch_size)\n\n\ndef decode_tp_gnn_embeddings(embeddings, node_areas, seed, max_iterations, balance_target):\n    \"\"\"Frozen parent area-balanced global two-way decoder; unchanged.\"\"\"\n    return reference_global_two_way(embeddings, node_areas, seed, max_iterations, balance_target)\n",
+   "score": 18.21658448381325,
+   "cells": [
+    {
+     "case": "bp_fe-ng45",
+     "seed": "1001",
+     "score": 46.75956597373219,
+     "raw_score": 46.75956597373219,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.6050491390275712,
+      "final_global_tns_setup_ns": -314.9284655529427,
+      "wns_deficit_improvement": 0.32790974757195357,
+      "tns_deficit_improvement": 0.5607196011809008,
+      "area_balance_error": 5.152275502475668e-06,
+      "macro_count_error": 0.04545454545454547,
+      "macro_area_error": 0.039800386668208954,
+      "cut_net_count": 3502,
+      "timing_weighted_cut": 6068.84707734179,
+      "tp_gnn_final_loss": 76.4864273071289
+     }
+    },
+    {
+     "case": "bp_fe-ng45",
+     "seed": "1002",
+     "score": 35.39969891520651,
+     "raw_score": 35.39969891520651,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.8814509371892416,
+      "final_global_tns_setup_ns": -303.9207940226479,
+      "wns_deficit_improvement": 0.020881867825515453,
+      "tns_deficit_improvement": 0.5760737367030981,
+      "area_balance_error": 0.011971312130002215,
+      "macro_count_error": 0.04545454545454547,
+      "macro_area_error": 0.03739445114595896,
+      "cut_net_count": 3811,
+      "timing_weighted_cut": 6239.637747688843,
+      "tp_gnn_final_loss": 76.6657485961914
+     }
+    },
+    {
+     "case": "bp_fe-ng45",
+     "seed": "1003",
+     "score": 53.706323397863265,
+     "raw_score": 53.706323397863265,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.6377845099236733,
+      "final_global_tns_setup_ns": -214.5447613625501,
+      "wns_deficit_improvement": 0.29154720729258554,
+      "tns_deficit_improvement": 0.700740585102664,
+      "area_balance_error": 0.01245304988948369,
+      "macro_count_error": 0.04545454545454547,
+      "macro_area_error": 0.039800386668208954,
+      "cut_net_count": 3183,
+      "timing_weighted_cut": 5813.438478256602,
+      "tp_gnn_final_loss": 76.47926330566406
+     }
+    },
+    {
+     "case": "bp-ng45",
+     "seed": "1001",
+     "score": -27.267971148527426,
+     "raw_score": -27.267971148527426,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -7.912072998498202,
+      "final_global_tns_setup_ns": -10015.49963934404,
+      "wns_deficit_improvement": 0.08671917912110062,
+      "tns_deficit_improvement": -0.5122789718895242,
+      "area_balance_error": 3.7282063040240394e-06,
+      "macro_count_error": 0.041666666666666685,
+      "macro_area_error": 0.04762114990647909,
+      "cut_net_count": 5885,
+      "timing_weighted_cut": 8135.554077889543,
+      "tp_gnn_final_loss": 73.20773061116536
+     }
+    },
+    {
+     "case": "bp-ng45",
+     "seed": "1002",
+     "score": -28.801149317681002,
+     "raw_score": -28.801149317681002,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -7.8822550717487205,
+      "final_global_tns_setup_ns": -10199.927889680244,
+      "wns_deficit_improvement": 0.09016102560353854,
+      "tns_deficit_improvement": -0.5401265056970425,
+      "area_balance_error": 0.0,
+      "macro_count_error": 0.04166666666666663,
+      "macro_area_error": 0.04762114990647903,
+      "cut_net_count": 5866,
+      "timing_weighted_cut": 8113.675037159801,
+      "tp_gnn_final_loss": 73.33822250366211
+     }
+    },
+    {
+     "case": "bp-ng45",
+     "seed": "1003",
+     "score": -5.5423666673500325,
+     "raw_score": -5.5423666673500325,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -7.875673669472607,
+      "final_global_tns_setup_ns": -7635.983126829995,
+      "wns_deficit_improvement": 0.09092070874528964,
+      "tns_deficit_improvement": -0.1529865836193603,
+      "area_balance_error": 1.8641031520120197e-06,
+      "macro_count_error": 0.041666666666666685,
+      "macro_area_error": 0.04762114990647909,
+      "cut_net_count": 5856,
+      "timing_weighted_cut": 8105.43401231634,
+      "tp_gnn_final_loss": 73.38114802042644
+     }
+    },
+    {
+     "case": "ariane133-ng45",
+     "seed": "1001",
+     "score": 24.553858278718643,
+     "raw_score": 24.553858278718643,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.769128338343585,
+      "final_global_tns_setup_ns": -27.791082222120327,
+      "wns_deficit_improvement": -0.4538317244126089,
+      "tns_deficit_improvement": 0.7117854542537166,
+      "area_balance_error": 1.5657170592702192e-06,
+      "macro_count_error": 0.048872180451127845,
+      "macro_area_error": 0.048872180451127845,
+      "cut_net_count": 10088,
+      "timing_weighted_cut": 17892.753619655068,
+      "tp_gnn_final_loss": 65.63648986816406
+     }
+    },
+    {
+     "case": "ariane133-ng45",
+     "seed": "1002",
+     "score": -5.32949870231022,
+     "raw_score": -5.32949870231022,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.27126524017066794,
+      "final_global_tns_setup_ns": -136.31168757346208,
+      "wns_deficit_improvement": 0.48724550607528394,
+      "tns_deficit_improvement": -0.41365531575535963,
+      "area_balance_error": 3.914292648175548e-06,
+      "macro_count_error": 0.048872180451127845,
+      "macro_area_error": 0.048872180451127845,
+      "cut_net_count": 10448,
+      "timing_weighted_cut": 18573.84409969401,
+      "tp_gnn_final_loss": 66.44365564982097
+     }
+    },
+    {
+     "case": "ariane133-ng45",
+     "seed": "1003",
+     "score": 70.47079962466732,
+     "raw_score": 70.47079962466732,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.36771076113673073,
+      "final_global_tns_setup_ns": -2.775176167418972,
+      "wns_deficit_improvement": 0.304941004904601,
+      "tns_deficit_improvement": 0.9712193238080548,
+      "area_balance_error": 5.480009707445768e-06,
+      "macro_count_error": 0.048872180451127845,
+      "macro_area_error": 0.048872180451127845,
+      "cut_net_count": 10239,
+      "timing_weighted_cut": 18344.27315150327,
+      "tp_gnn_final_loss": 65.75530242919922
+     }
+    }
+   ],
+   "partition": {
+    "bp_fe-ng45/1001": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 301,
+     "partition_assignment_changed_fraction": 0.011645452083413936,
+     "tp_gnn_repair_moved_area_fraction": 0.0
+    },
+    "bp_fe-ng45/1002": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 157,
+     "partition_assignment_changed_fraction": 0.0060742059039733814,
+     "tp_gnn_repair_moved_area_fraction": 0.0
+    },
+    "bp_fe-ng45/1003": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 334,
+     "partition_assignment_changed_fraction": 0.01292219599953573,
+     "tp_gnn_repair_moved_area_fraction": 0.0
+    },
+    "bp-ng45/1001": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 50,
+     "partition_assignment_changed_fraction": 0.0003466829376525405,
+     "tp_gnn_repair_moved_area_fraction": 0.06062948899340294
+    },
+    "bp-ng45/1002": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 83,
+     "partition_assignment_changed_fraction": 0.0005754936765032172,
+     "tp_gnn_repair_moved_area_fraction": 0.06677264093085855
+    },
+    "bp-ng45/1003": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 128,
+     "partition_assignment_changed_fraction": 0.0008875083203905037,
+     "tp_gnn_repair_moved_area_fraction": 0.0410675905161888
+    },
+    "ariane133-ng45/1001": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 1763,
+     "partition_assignment_changed_fraction": 0.013401748384644621,
+     "tp_gnn_repair_moved_area_fraction": 0.01763114837517712
+    },
+    "ariane133-ng45/1002": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 28417,
+     "partition_assignment_changed_fraction": 0.21601672367920943,
+     "tp_gnn_repair_moved_area_fraction": 0.06499996085707352
+    },
+    "ariane133-ng45/1003": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 3106,
+     "partition_assignment_changed_fraction": 0.023610794374762448,
+     "tp_gnn_repair_moved_area_fraction": 0.01857057861073925
+    }
+   },
+   "attempt": {
+    "parent_id": "ce56a2d8d7961bd45378b9d44dd3dcce30148d115c8f26bc614ecf9cb4ac4570",
+    "search_intent": "loss_only",
+    "changed_components": {
+     "loss": "Parent random-walk pair objective with timing/area pair reweighting. Mechanism: keep the parent logistic positive/negative pair geometry, but weight each sampled pair by endpoint timing-criticality an"
+    }
+   },
+   "decision": {
+    "reason": "opening_control"
+   }
+  },
+  {
+   "round": 3,
+   "request_id": "e-a9b6429809e5078b5bcf2de1c18794e131ec25b131f6fbdf7538fb8698ac",
+   "candidate_id": "809506cbfa75f4730e29bde73caaf06342de2cb6934da57e8e8d048eea1dda89",
+   "status": "succeeded",
+   "source": "def compute_tp_gnn_loss(\n    positive_scores,\n    negative_scores,\n    embeddings,\n    positive_sources,\n    positive_targets,\n    negative_sources,\n    negative_targets,\n    source_batch_size,\n    epoch,\n    max_epochs,\n    graph_scores,\n    graph_sources,\n    graph_targets,\n    graph_net_ids,\n    graph_weights,\n    net_weights,\n    node_features,\n    node_areas,\n):\n    \"\"\"Parent random-walk logistic pair objective plus timing-weighted graph-star attraction.\n    Change vs parent: add a normalized -logsigmoid(graph_scores) term weighted by graph_weights.\n    Expected measurable effect: endpoints of timing-critical nets become more similar, reducing\n    timing-weighted cut and improving WNS/TNS. Invalidated if final timing or partition assignment\n    does not improve, or if pair separation collapses.\n    \"\"\"\n    pair_loss = -(\n        F.logsigmoid(positive_scores).sum()\n        + F.logsigmoid(-negative_scores).sum()\n    ) / max(1, source_batch_size)\n    weight_total = graph_weights.sum()\n    safe_total = torch.clamp(weight_total, min=1e-12)\n    edge_term = -(F.logsigmoid(graph_scores) * graph_weights).sum() / safe_total\n    graph_penalty = torch.where(weight_total > 0.0, edge_term, torch.zeros_like(edge_term))\n    graph_coeff = 0.5\n    return pair_loss + graph_coeff * graph_penalty\n\n\ndef decode_tp_gnn_embeddings(embeddings, node_areas, seed, max_iterations, balance_target):\n    \"\"\"Reproduce the frozen area-balanced global two-way decoder.\"\"\"\n    return reference_global_two_way(embeddings, node_areas, seed, max_iterations, balance_target)\n",
+   "score": 9.961169857508184,
+   "cells": [
+    {
+     "case": "bp_fe-ng45",
+     "seed": "1001",
+     "score": 28.717505032431024,
+     "raw_score": 28.717505032431024,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.9933631975933916,
+      "final_global_tns_setup_ns": -324.34935300086073,
+      "wns_deficit_improvement": -0.10343057969850461,
+      "tns_deficit_improvement": 0.5475788036728535,
+      "area_balance_error": 0.0006182730602970802,
+      "macro_count_error": 0.045454545454545414,
+      "macro_area_error": 0.03739445114595896,
+      "cut_net_count": 3431,
+      "timing_weighted_cut": 5917.4237634883075,
+      "tp_gnn_final_loss": 43.0040283203125
+     }
+    },
+    {
+     "case": "bp_fe-ng45",
+     "seed": "1002",
+     "score": 49.92933618986978,
+     "raw_score": 49.92933618986978,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.7280568576313236,
+      "final_global_tns_setup_ns": -211.7487329856929,
+      "wns_deficit_improvement": 0.19127243447724507,
+      "tns_deficit_improvement": 0.7046406468463329,
+      "area_balance_error": 0.009665668842644354,
+      "macro_count_error": 0.04545454545454547,
+      "macro_area_error": 0.03739445114595896,
+      "cut_net_count": 3738,
+      "timing_weighted_cut": 6152.378811821003,
+      "tp_gnn_final_loss": 43.063838958740234
+     }
+    },
+    {
+     "case": "bp_fe-ng45",
+     "seed": "1003",
+     "score": 55.82351841019526,
+     "raw_score": 55.82351841019526,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.639466275808939,
+      "final_global_tns_setup_ns": -188.35428327940795,
+      "wns_deficit_improvement": 0.2896790971087256,
+      "tns_deficit_improvement": 0.7372725754307706,
+      "area_balance_error": 0.00889797979277548,
+      "macro_count_error": 0.04545454545454547,
+      "macro_area_error": 0.039800386668208954,
+      "cut_net_count": 3102,
+      "timing_weighted_cut": 5576.034057190449,
+      "tp_gnn_final_loss": 42.98294258117676
+     }
+    },
+    {
+     "case": "bp-ng45",
+     "seed": "1001",
+     "score": -20.545778074470416,
+     "raw_score": -20.545778074470416,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -7.873377728192749,
+      "final_global_tns_setup_ns": -9293.226220493185,
+      "wns_deficit_improvement": 0.09118572641349824,
+      "tns_deficit_improvement": -0.40322011885017245,
+      "area_balance_error": 9.320515760060098e-07,
+      "macro_count_error": 0.041666666666666685,
+      "macro_area_error": 0.04762114990647909,
+      "cut_net_count": 5877,
+      "timing_weighted_cut": 8119.975314274833,
+      "tp_gnn_final_loss": 40.88929430643717
+     }
+    },
+    {
+     "case": "bp-ng45",
+     "seed": "1002",
+     "score": -24.490921345430415,
+     "raw_score": -24.490921345430415,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -7.87696419275293,
+      "final_global_tns_setup_ns": -9726.862392626164,
+      "wns_deficit_improvement": 0.09077174523584775,
+      "tns_deficit_improvement": -0.46869651924773875,
+      "area_balance_error": 1.8641031520120197e-06,
+      "macro_count_error": 0.04166666666666663,
+      "macro_area_error": 0.04762114990647903,
+      "cut_net_count": 5859,
+      "timing_weighted_cut": 8101.98917739199,
+      "tp_gnn_final_loss": 40.984551111857094
+     }
+    },
+    {
+     "case": "bp-ng45",
+     "seed": "1003",
+     "score": -3.557827406112847,
+     "raw_score": -3.557827406112847,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -7.909696232979864,
+      "final_global_tns_setup_ns": -7399.590895238353,
+      "wns_deficit_improvement": 0.08699352623140105,
+      "tns_deficit_improvement": -0.11729280758948149,
+      "area_balance_error": 9.320515760060098e-07,
+      "macro_count_error": 0.041666666666666685,
+      "macro_area_error": 0.04762114990647909,
+      "cut_net_count": 5873,
+      "timing_weighted_cut": 8113.745930110861,
+      "tp_gnn_final_loss": 41.07772000630697
+     }
+    },
+    {
+     "case": "ariane133-ng45",
+     "seed": "1001",
+     "score": -22.656477978748903,
+     "raw_score": -22.656477978748903,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -1.0084688924936598,
+      "final_global_tns_setup_ns": -74.57963346873984,
+      "wns_deficit_improvement": -0.9062411250482042,
+      "tns_deficit_improvement": 0.2265527837196545,
+      "area_balance_error": 5.480009707445768e-06,
+      "macro_count_error": 0.048872180451127845,
+      "macro_area_error": 0.048872180451127845,
+      "cut_net_count": 10853,
+      "timing_weighted_cut": 19356.19122464571,
+      "tp_gnn_final_loss": 42.97845204671224
+     }
+    },
+    {
+     "case": "ariane133-ng45",
+     "seed": "1002",
+     "score": -35.27548809850061,
+     "raw_score": -35.27548809850061,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.4267604168621122,
+      "final_global_tns_setup_ns": -165.54308969969466,
+      "wns_deficit_improvement": 0.19332340023528502,
+      "tns_deficit_improvement": -0.7168070684652001,
+      "area_balance_error": 7.045726766715987e-06,
+      "macro_count_error": 0.048872180451127845,
+      "macro_area_error": 0.048872180451127845,
+      "cut_net_count": 17967,
+      "timing_weighted_cut": 32569.571926924844,
+      "tp_gnn_final_loss": 43.46918741861979
+     }
+    },
+    {
+     "case": "ariane133-ng45",
+     "seed": "1003",
+     "score": 61.70666198834077,
+     "raw_score": 61.70666198834077,
+     "valid": true,
+     "status": "succeeded",
+     "metrics": {
+      "final_global_wns_setup_ns": -0.4813882761999596,
+      "final_global_tns_setup_ns": -3.046866845064709,
+      "wns_deficit_improvement": 0.09006402077573665,
+      "tns_deficit_improvement": 0.9684016859551884,
+      "area_balance_error": 7.828585296351096e-07,
+      "macro_count_error": 0.048872180451127845,
+      "macro_area_error": 0.048872180451127845,
+      "cut_net_count": 11850,
+      "timing_weighted_cut": 21375.02586501875,
+      "tp_gnn_final_loss": 43.01434580485026
+     }
+    }
+   ],
+   "partition": {
+    "bp_fe-ng45/1001": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 1,
+     "partition_assignment_changed_fraction": 3.8689209579448294e-05,
+     "tp_gnn_repair_moved_area_fraction": 0.0
+    },
+    "bp_fe-ng45/1002": {
+     "partition_assignment_identical": 1,
+     "partition_assignment_changed_count": 0,
+     "partition_assignment_changed_fraction": 0.0,
+     "tp_gnn_repair_moved_area_fraction": 0.0
+    },
+    "bp_fe-ng45/1003": {
+     "partition_assignment_identical": 1,
+     "partition_assignment_changed_count": 0,
+     "partition_assignment_changed_fraction": 0.0,
+     "tp_gnn_repair_moved_area_fraction": 0.0
+    },
+    "bp-ng45/1001": {
+     "partition_assignment_identical": 1,
+     "partition_assignment_changed_count": 0,
+     "partition_assignment_changed_fraction": 0.0,
+     "tp_gnn_repair_moved_area_fraction": 0.0606234306581589
+    },
+    "bp-ng45/1002": {
+     "partition_assignment_identical": 1,
+     "partition_assignment_changed_count": 0,
+     "partition_assignment_changed_fraction": 0.0,
+     "tp_gnn_repair_moved_area_fraction": 0.06706623717730044
+    },
+    "bp-ng45/1003": {
+     "partition_assignment_identical": 1,
+     "partition_assignment_changed_count": 0,
+     "partition_assignment_changed_fraction": 0.0,
+     "tp_gnn_repair_moved_area_fraction": 0.04232912232431294
+    },
+    "ariane133-ng45/1001": {
+     "partition_assignment_identical": 1,
+     "partition_assignment_changed_count": 0,
+     "partition_assignment_changed_fraction": 0.0,
+     "tp_gnn_repair_moved_area_fraction": 0.00928783359559094
+    },
+    "ariane133-ng45/1002": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 80,
+     "partition_assignment_changed_fraction": 0.0006081337894336754,
+     "tp_gnn_repair_moved_area_fraction": 0.14140303905681204
+    },
+    "ariane133-ng45/1003": {
+     "partition_assignment_identical": 0,
+     "partition_assignment_changed_count": 10,
+     "partition_assignment_changed_fraction": 7.601672367920942e-05,
+     "tp_gnn_repair_moved_area_fraction": 0.011413294503550263
+    }
+   },
+   "attempt": {
+    "parent_id": "ce56a2d8d7961bd45378b9d44dd3dcce30148d115c8f26bc614ecf9cb4ac4570",
+    "search_intent": "diversify",
+    "changed_components": {
+     "loss": "Parent random-walk logistic pair objective plus timing-weighted graph-star attraction. Change vs parent: add a normalized -logsigmoid(graph_scores) term weighted by graph_weights. Expected measurable "
+    }
+   },
+   "decision": {
+    "reason": "broad_regression",
+    "candidate_id": "57e8cc549349c019fd93e27bf502aa1eb5cae0c814cdf2a34e1e6c19833399f2",
+    "regressed_pairs": 6,
+    "scored_pairs": 9
+   }
+  }
+ ]
+}

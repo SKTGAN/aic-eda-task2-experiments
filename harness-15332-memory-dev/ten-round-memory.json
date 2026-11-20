@@ -1,0 +1,696 @@
+{
+  "run": "15332-claude-v3",
+  "development_only": true,
+  "rounds": [
+    {
+      "round": 1,
+      "host": "15332",
+      "candidate_id": "999dbc2774c0f53d2d5abe037e9ca01e1de9326650161fbf54cd0c446cfbf3eb",
+      "parent_id": "c936085bfae4a448ff978d007b0f1a66c623b4d761a4a6a32683bb214d6e96b7",
+      "score": 24.044649712740153,
+      "changes": {
+        "loss": "Add a normalized timing-weighted star-edge cut penalty to the parent loss.\n\nChange vs parent: the random-walk contrastive term is kept, and a\ntiming-weighted ``softplus(-graph_scores)`` term is added over the\npublished loss-context stars. This encourages endpoints of high-weight\ntiming nets to receive same-side embeddings, which the unchanged decoder\ncan then turn into fewer cut timing edges. Expected effect: lower\ntiming-weighted cut and improved TNS, with WNS roughly neutral. The\nhypothesis is invalidated if paired seeds keep the same legal assignment\nand timing, or if timing regresses broadly across cases and seeds."
+      },
+      "status": "succeeded",
+      "cells": {
+        "bp_fe-ng45/1001": [
+          28.717505032431024,
+          -0.9933631975933916,
+          -324.34935300086073,
+          1
+        ],
+        "bp_fe-ng45/1002": [
+          49.92933618986978,
+          -0.7280568576313236,
+          -211.7487329856929,
+          0
+        ],
+        "bp_fe-ng45/1003": [
+          55.82351841019526,
+          -0.639466275808939,
+          -188.35428327940795,
+          0
+        ],
+        "bp-ng45/1001": [
+          -13.818241516483523,
+          -7.8699466948604115,
+          -8552.39092374888,
+          8
+        ],
+        "bp-ng45/1002": [
+          -24.490921345430415,
+          -7.87696419275293,
+          -9726.862392626164,
+          0
+        ],
+        "bp-ng45/1003": [
+          -3.557827406112847,
+          -7.909696232979864,
+          -7399.590895238353,
+          0
+        ],
+        "ariane133-ng45/1001": [
+          61.94123220738661,
+          -0.4742051330274817,
+          -3.5427199954169994,
+          11
+        ],
+        "ariane133-ng45/1002": [
+          7.49262595490843,
+          -0.4149312122447833,
+          -98.2485516307567,
+          191
+        ],
+        "ariane133-ng45/1003": [
+          54.36461988789706,
+          -0.4539164728124692,
+          -18.184249287708642,
+          5
+        ]
+      },
+      "source_sha256": "d3bc6e2cc0118f06ce9d1e6d63c6bc3e75a26cb02b14e84c44aa51cf29fff7f1",
+      "request_id": "e-e1c20a7a9a95f56e1571441379699bd6513e53e1093d52555f05c2c44d4c"
+    },
+    {
+      "round": 2,
+      "host": "15332",
+      "candidate_id": "e8b9aeca79584d264933a52656a5762dc26b628870d352c39e3ec1c89ae7efe0",
+      "parent_id": "c936085bfae4a448ff978d007b0f1a66c623b4d761a4a6a32683bb214d6e96b7",
+      "score": 0.826404498222218,
+      "changes": {
+        "decoder": "Replace the parent reference-helper call with a custom area-targeted two-center loop.\n\nChange vs parent: deterministic farthest-point two-center initialization,\nbounded area-weighted center updates, then a final whole-supernode split by\nprojection rank with cumulative physical area closest to ``balance_target``.\nExpected effect: move supernodes across the area-balanced boundary that the\nreference helper left unchanged, improving TNS more than WNS while protected\nclosure repairs macro feasibility. Invalid if the returned partition is\nmostly unchanged from the parent or if timed WNS/TNS regress on valid pairs."
+      },
+      "status": "succeeded",
+      "cells": {
+        "bp_fe-ng45/1001": [
+          41.85131122552866,
+          -0.8309637657611428,
+          -253.6365642637628,
+          25667
+        ],
+        "bp_fe-ng45/1002": [
+          30.713863972214696,
+          -0.8843630522651936,
+          -358.3641431703685,
+          776
+        ],
+        "bp_fe-ng45/1003": [
+          54.90411249371078,
+          -0.6783798159672058,
+          -178.6805989298116,
+          25363
+        ],
+        "bp-ng45/1001": [
+          -13.264467001342073,
+          -7.918001589617371,
+          -8466.774728081393,
+          144223
+        ],
+        "bp-ng45/1002": [
+          -24.490921345430415,
+          -7.87696419275293,
+          -9726.862392626164,
+          0
+        ],
+        "bp-ng45/1003": [
+          -4.58849605689768,
+          -7.876209241074833,
+          -7530.422166535901,
+          144223
+        ],
+        "ariane133-ng45/1001": [
+          -22.656477978748903,
+          -1.0084688924936598,
+          -74.57963346873984,
+          0
+        ],
+        "ariane133-ng45/1002": [
+          -100.0,
+          -0.6764544671434483,
+          -413.9326225611314,
+          131399
+        ],
+        "ariane133-ng45/1003": [
+          44.96871517496489,
+          -0.5114455670403196,
+          -26.293862054119156,
+          131540
+        ]
+      },
+      "source_sha256": "1a74f502161f46f42077f48cd95d255af64b157e08844d998f20dfeb2184b4bb",
+      "request_id": "e-32c33600d1e5e9f134cdae92bcd1fe39e83cddbe19fdfdc3478919bffa78"
+    },
+    {
+      "round": 3,
+      "host": "15332",
+      "candidate_id": "c2dbfe1748424d91f05dab0c38ab867ecd532072632e44c6e235b773f12e15c5",
+      "parent_id": "c936085bfae4a448ff978d007b0f1a66c623b4d761a4a6a32683bb214d6e96b7",
+      "score": 24.477236393473284,
+      "changes": {
+        "loss": "Use a timing-weighted margin attraction on graph star edges.\n\nChange relative to the parent: keep the maintained random-walk\npositive/negative log-sigmoid contrastive term, and add a normalized\ntiming-weighted graph penalty ``softplus(0.25 - graph_scores)``.  The\npositive margin asks critical connected groups not merely to avoid a\nnegative dot product but to separate from the decision boundary, which\nshould make the area-balanced two-way decoder choose a different discrete\npartition more readily than a plain zero-margin graph penalty.\n\nExpected measurable effect: lower timing-weighted cut and improved TNS,\nwith a visible change in decoder labels or closure movement on at least a\nsubset of cells while retaining the parent contrastive behavior.\n\nHypothesis is invalidated if paired WNS/TNS and final labels remain at the\nparent levels, or if the larger graph attraction collapses the embedding\nsplit so that feasibility closure has to move many groups."
+      },
+      "status": "succeeded",
+      "cells": {
+        "bp_fe-ng45/1001": [
+          28.717505032431024,
+          -0.9933631975933916,
+          -324.34935300086073,
+          1
+        ],
+        "bp_fe-ng45/1002": [
+          49.92933618986978,
+          -0.7280568576313236,
+          -211.7487329856929,
+          0
+        ],
+        "bp_fe-ng45/1003": [
+          55.82351841019526,
+          -0.639466275808939,
+          -188.35428327940795,
+          0
+        ],
+        "bp-ng45/1001": [
+          -13.818241516483523,
+          -7.8699466948604115,
+          -8552.39092374888,
+          8
+        ],
+        "bp-ng45/1002": [
+          -24.490921345430415,
+          -7.87696419275293,
+          -9726.862392626164,
+          0
+        ],
+        "bp-ng45/1003": [
+          -2.526227370995658,
+          -7.912559720285962,
+          -7284.263780560416,
+          10
+        ],
+        "ariane133-ng45/1001": [
+          19.898934452642592,
+          -0.4657154793626742,
+          -72.13976464825525,
+          21
+        ],
+        "ariane133-ng45/1002": [
+          47.60987500710014,
+          -0.34724801794653365,
+          -42.00101718636393,
+          656
+        ],
+        "ariane133-ng45/1003": [
+          59.15134868193035,
+          -0.4909610634782245,
+          -5.990273779895393,
+          27
+        ]
+      },
+      "source_sha256": "359b922c5a8c6346d3872a1a3ea83bf3ee4b364ca1d6d5c89193c329709fe079",
+      "request_id": "e-52c8335e554526fa7c85806a52bcfb9a3fe8359651ca66f6b35f47e4b23b"
+    },
+    {
+      "round": 4,
+      "host": "15332",
+      "candidate_id": "d5fd4448ad8d57fe652cc16b641a1d5002fa11145f699750b888cf1728df62ca",
+      "parent_id": "c936085bfae4a448ff978d007b0f1a66c623b4d761a4a6a32683bb214d6e96b7",
+      "score": 29.665496497232258,
+      "changes": {
+        "loss": "Add a stronger timing-weighted star-edge attraction term to the parent loss.\n\nChange relative to the parent: keep the sampled random-walk log-sigmoid\ncontrastive objective unchanged, and add a normalized timing-weighted\nmargin attraction on the supplied timing-context star edges.  The margin\nterm pushes endpoints of timing-weighted connected nets toward a positive\nembedding dot product, with normalization by total graph edge weight so the\ngraph term remains comparable across nets.\n\nExpected measurable effect: the timing-weighted graph attraction reshapes\nembeddings more strongly, so the unchanged area-balanced two-center decoder\nshould move at least a few supernodes across the partition boundary and\nimprove TNS where timing-weighted connectivity is informative.  The main\nrisk is a WNS regression on bp_fe-ng45.\n\nInvalidation: if the official labels remain unchanged on most training\ncells, or if the combined score does not exceed the parent, this stronger\ngraph-attraction mechanism is not useful."
+      },
+      "status": "succeeded",
+      "cells": {
+        "bp_fe-ng45/1001": [
+          28.717505032431024,
+          -0.9933631975933916,
+          -324.34935300086073,
+          1
+        ],
+        "bp_fe-ng45/1002": [
+          41.092586144774984,
+          -0.7950578198616463,
+          -281.76490560495,
+          1
+        ],
+        "bp_fe-ng45/1003": [
+          55.82351841019526,
+          -0.639466275808939,
+          -188.35428327940795,
+          0
+        ],
+        "bp-ng45/1001": [
+          -13.818241516483523,
+          -7.8699466948604115,
+          -8552.39092374888,
+          8
+        ],
+        "bp-ng45/1002": [
+          -24.490921345430415,
+          -7.87696419275293,
+          -9726.862392626164,
+          0
+        ],
+        "bp-ng45/1003": [
+          -2.526227370995658,
+          -7.912559720285962,
+          -7284.263780560416,
+          10
+        ],
+        "ariane133-ng45/1001": [
+          43.44485960454817,
+          -0.6459100104261047,
+          -12.40398929789383,
+          46
+        ],
+        "ariane133-ng45/1002": [
+          68.47153112881385,
+          -0.38127058145379045,
+          -4.340506743550353,
+          2499
+        ],
+        "ariane133-ng45/1003": [
+          70.27485838723663,
+          -0.2540598914268465,
+          -16.899838451443117,
+          58
+        ]
+      },
+      "source_sha256": "d14f9ca79b710310562f4979a9e5766b16ea9feb517ccf8a5bef4968cb361a40",
+      "request_id": "e-39efea53d9c78527b0a4e6d503783b305933934b424faec9b838db4510e4"
+    },
+    {
+      "round": 5,
+      "host": "15332",
+      "candidate_id": "d85fd880eceadd2bf3e2db0b31aaa8d61fdb2ee24659c11e4006f7aa37d0284a",
+      "parent_id": "c936085bfae4a448ff978d007b0f1a66c623b4d761a4a6a32683bb214d6e96b7",
+      "score": 5.582500002269674,
+      "changes": {
+        "decoder": "Replace the parent's single reference_global_two_way handoff with one bounded\ncustom two-center loop whose assignment step is a global area-balanced sweep.\n\nChange vs parent: instead of per-node nearest-center labeling plus whole-group\nrounding, each iteration ranks nodes by the squared-distance margin to the two\narea-weighted centers, cumulatively sums physical area along that ranking, and cuts\nwhere cumulative area first reaches `balance_target * total_area`. Centers are then\nrefreshed from the resulting labels. Labels are oriented so the group whose\narea-weighted mean embedding projects higher on the area-weighted global mean\nembedding sits on the top die.\n\nExpected measurable effect: the returned labels spend the area balance directly, so\nthe protected closure has almost nothing to repair and the discrete split differs\nfrom the parent's nearest-center partition mainly in the boundary margin band,\nchanging final cut / timing-weighted cut and therefore TNS.\n\nInvalidation: if the labels stay identical (up to a die swap) to the parent on most\ncells, or the paired combined score does not exceed the parent's, this\nbalanced-sweep mechanism is not what controls the physical timing."
+      },
+      "status": "succeeded",
+      "cells": {
+        "bp_fe-ng45/1001": [
+          36.01657890197218,
+          -0.9033465342555438,
+          -284.9254566264163,
+          25598
+        ],
+        "bp_fe-ng45/1002": [
+          46.61330945039598,
+          -0.715739709980872,
+          -257.90999577116037,
+          1
+        ],
+        "bp_fe-ng45/1003": [
+          54.87464332693446,
+          -0.6872722585567389,
+          -174.31168468688213,
+          25358
+        ],
+        "bp-ng45/1001": [
+          -13.264467001342073,
+          -7.918001589617371,
+          -8466.774728081393,
+          144223
+        ],
+        "bp-ng45/1002": [
+          -24.490921345430415,
+          -7.87696419275293,
+          -9726.862392626164,
+          0
+        ],
+        "bp-ng45/1003": [
+          -4.58849605689768,
+          -7.876209241074833,
+          -7530.422166535901,
+          144223
+        ],
+        "ariane133-ng45/1001": [
+          -22.656477978748903,
+          -1.0084688924936598,
+          -74.57963346873984,
+          0
+        ],
+        "ariane133-ng45/1002": [
+          -100.0,
+          -0.6443623594860067,
+          -441.1505596800959,
+          131549
+        ],
+        "ariane133-ng45/1003": [
+          77.73833072354351,
+          -0.2803726219438474,
+          -1.7081470055230266,
+          131548
+        ]
+      },
+      "source_sha256": "da593dabb4bf770903d872cab3ef9194ce6588008685c86265e093230377a2e5",
+      "request_id": "e-a1e075ab0b58192151907357606ecd3251fdea897cb79e136a74bae414c4"
+    },
+    {
+      "round": 6,
+      "host": "15332",
+      "candidate_id": "505eb144a47a0e993a23886878d7f6367ae8fda3172647066983daeb8fff751c",
+      "parent_id": "c936085bfae4a448ff978d007b0f1a66c623b4d761a4a6a32683bb214d6e96b7",
+      "score": 23.697750863432052,
+      "changes": {
+        "loss": "Add a graph_weights-normalized timing-star attraction to the parent loss.\n\nChange relative to the parent: keep the parent sampled random-walk\nlog-sigmoid contrastive objective unchanged, and add the weighted mean\nsoftplus(-graph_scores) over timing-context star edges. This uses the\nsupplied graph weights as a normalized attraction, rather than an\nunnormalized edge-count sum, to pull embeddings of timing-critical\nconnected supernodes together while limiting dense-net bias.\nExpected measurable effect: retain the timing gains seen from stronger\nstar-edge attraction while reducing the bp_fe-ng45 regression, with the\nreference decoder and native feasibility closure unchanged.\nInvalidated if bp_fe-ng45/1001 does not improve, if the ariane133-ng45/1002\nTNS gain disappears, or if labels remain unchanged while timing moves."
+      },
+      "status": "succeeded",
+      "cells": {
+        "bp_fe-ng45/1001": [
+          28.717505032431024,
+          -0.9933631975933916,
+          -324.34935300086073,
+          1
+        ],
+        "bp_fe-ng45/1002": [
+          49.92933618986978,
+          -0.7280568576313236,
+          -211.7487329856929,
+          0
+        ],
+        "bp_fe-ng45/1003": [
+          55.82351841019526,
+          -0.639466275808939,
+          -188.35428327940795,
+          0
+        ],
+        "bp-ng45/1001": [
+          -12.058186331549445,
+          -7.869575436270477,
+          -8358.305658396133,
+          15
+        ],
+        "bp-ng45/1002": [
+          -24.490921345430415,
+          -7.87696419275293,
+          -9726.862392626164,
+          0
+        ],
+        "bp-ng45/1003": [
+          -6.177901686675478,
+          -7.9273283514664215,
+          -7679.808039769078,
+          9
+        ],
+        "ariane133-ng45/1001": [
+          32.675417785636434,
+          -0.6868510399292832,
+          -24.736613457746408,
+          21
+        ],
+        "ariane133-ng45/1002": [
+          52.17953148218022,
+          -0.4646083649312067,
+          -20.39669113561275,
+          348
+        ],
+        "ariane133-ng45/1003": [
+          36.6814582342311,
+          -0.6213301160549467,
+          -26.260050877081767,
+          19
+        ]
+      },
+      "source_sha256": "fff76adb85008d8fa870c6713215bceda009d45a9774494005fea57170836853",
+      "request_id": "e-8874fd6c259c6967bf56a3010d60ca578557c37821721b159b69ae16e646"
+    },
+    {
+      "round": 7,
+      "host": "15332",
+      "candidate_id": "036d42dfd580f2c7d346388b33711c65ba11773bfc30de875403dd98b858b018",
+      "parent_id": "d5fd4448ad8d57fe652cc16b641a1d5002fa11145f699750b888cf1728df62ca",
+      "score": 22.75701366325386,
+      "changes": {
+        "decoder": "Refine the parent reference partition with one area-aware Lloyd correction.\n\nChange relative to the parent: still call the trusted reference helper\nexactly once with unchanged inputs to obtain a legal, area-balanced start.\nThen perform exactly one non-iterative reassignment: rebuild the two\nphysical-area-weighted centers from the helper labels and move only\nboundary nodes from the currently larger-area side to the other side when\nthey are geometrically closer to that other center.  No random state, no\nloop, and no full label swap are introduced.\n\nExpected measurable effect: a small number of boundary supernodes that the\nreference area rounding left on the larger side but whose embeddings place\nthem nearer the opposite center will cross the boundary, improving final\nTNS without the broad die-swap regression seen from full custom re-clustering.\n\nInvalidation: if labels remain identical on most cells, or if the combined\nscore does not exceed the parent, or if a die swap appears, this refinement\nis not useful."
+      },
+      "status": "succeeded",
+      "cells": {
+        "bp_fe-ng45/1001": [
+          21.845966945564886,
+          -0.94357946349359,
+          -432.8853273920117,
+          184
+        ],
+        "bp_fe-ng45/1002": [
+          41.092586144774984,
+          -0.7950578198616463,
+          -281.76490560495,
+          1
+        ],
+        "bp_fe-ng45/1003": [
+          47.32977194869535,
+          -0.6553007211231816,
+          -281.43652116490375,
+          492
+        ],
+        "bp-ng45/1001": [
+          -13.818241516483523,
+          -7.8699466948604115,
+          -8552.39092374888,
+          8
+        ],
+        "bp-ng45/1002": [
+          -24.490921345430415,
+          -7.87696419275293,
+          -9726.862392626164,
+          0
+        ],
+        "bp-ng45/1003": [
+          -2.526227370995658,
+          -7.912559720285962,
+          -7284.263780560416,
+          10
+        ],
+        "ariane133-ng45/1001": [
+          43.44485960454817,
+          -0.6459100104261047,
+          -12.40398929789383,
+          46
+        ],
+        "ariane133-ng45/1002": [
+          21.660470171374318,
+          -0.3670357455186679,
+          -81.29944947369322,
+          2450
+        ],
+        "ariane133-ng45/1003": [
+          70.27485838723663,
+          -0.2540598914268465,
+          -16.899838451443117,
+          58
+        ]
+      },
+      "source_sha256": "5a952920419b5fe53d79f955015e4f3488576abb527517fcd6f9b23c21d071fb",
+      "request_id": "e-bbbbad133d90c72b518135bd163698179b7496540a62306e7a2f5f89d5fe"
+    },
+    {
+      "round": 8,
+      "host": "15332",
+      "candidate_id": "3c10a34e6a7fd1bace5543a0f807181b16f2495ded9d557bbc720b45114096c8",
+      "parent_id": "c936085bfae4a448ff978d007b0f1a66c623b4d761a4a6a32683bb214d6e96b7",
+      "score": 23.08226629757583,
+      "changes": {
+        "loss": "Add a moderately scaled timing-weighted star attraction to the parent loss.\n\nRelative to the parent pure random-walk log-sigmoid objective, this keeps\nthe sampled positive/negative contrastive term unchanged and adds a\ngraph_weights-normalized softplus(-graph_scores) attraction over timing\nstar edges. Connected supernodes on high-weight timing nets should move\ncloser in embedding space, while sampled negative pairs remain separated.\n\nExpected measurable effect: timing-sensitive groups should more often cross\nthe reference decoder's area-balanced boundary than in the parent, improving\nthe physical WNS/TNS trade-off without the large bp_fe regression seen with\na stronger unnormalized star term. This hypothesis is invalidated if most\ncells keep the start assignment with no timing gain, or if timing worsens\nbroadly despite the normalized attraction."
+      },
+      "status": "succeeded",
+      "cells": {
+        "bp_fe-ng45/1001": [
+          28.717505032431024,
+          -0.9933631975933916,
+          -324.34935300086073,
+          1
+        ],
+        "bp_fe-ng45/1002": [
+          49.92933618986978,
+          -0.7280568576313236,
+          -211.7487329856929,
+          0
+        ],
+        "bp_fe-ng45/1003": [
+          55.82351841019526,
+          -0.639466275808939,
+          -188.35428327940795,
+          0
+        ],
+        "bp-ng45/1001": [
+          -20.545778074470416,
+          -7.873377728192749,
+          -9293.226220493185,
+          0
+        ],
+        "bp-ng45/1002": [
+          -24.490921345430415,
+          -7.87696419275293,
+          -9726.862392626164,
+          0
+        ],
+        "bp-ng45/1003": [
+          -3.557827406112847,
+          -7.909696232979864,
+          -7399.590895238353,
+          0
+        ],
+        "ariane133-ng45/1001": [
+          61.94123220738661,
+          -0.4742051330274817,
+          -3.5427199954169994,
+          11
+        ],
+        "ariane133-ng45/1002": [
+          -8.276384288582612,
+          -0.5288081233688742,
+          -109.75342545446148,
+          164
+        ],
+        "ariane133-ng45/1003": [
+          68.1997159528961,
+          -0.3834879189412824,
+          -4.507906620026937,
+          10
+        ]
+      },
+      "source_sha256": "0cbdf19c9f77d4eb670a6f1b590bfc73ee77b675c831c7ba59346a90d8a74c9d",
+      "request_id": "e-7d1480cc5b0f65ff309fe38bc27ffa390b90fdcb13d8aae999192e5359f9"
+    },
+    {
+      "round": 9,
+      "host": "15332",
+      "candidate_id": "5a8e17d5fdf84831a6be305e9b8d31be549f49f506d85a928c03bd88ec0a1270",
+      "parent_id": "c936085bfae4a448ff978d007b0f1a66c623b4d761a4a6a32683bb214d6e96b7",
+      "score": 22.221222340462965,
+      "changes": {
+        "loss": "Change vs parent: keep the parent's sampled log-sigmoid contrastive term,\nand add two geometric terms: (1) a net-weight-normalized softplus margin on\ntiming-star edges to pull timing-critical connected supernodes together, and\n(2) a mean-centering term that maximizes global embedding variance. The\nstar margin encourages graph communities to contract, while the centering\nterm prevents collapse and pushes the embeddings toward a two-cluster\nantipodal geometry that the area-balanced two-means decoder can split.\nExpected measurable effect: more discrete partition changes and improved\ntiming alignment on the full physical flow. Hypothesis invalidated if\nassignments remain mostly identical or if WNS/TNS regress without offset."
+      },
+      "status": "succeeded",
+      "cells": {
+        "bp_fe-ng45/1001": [
+          51.38189565990328,
+          -0.6625707947609463,
+          -229.15940371696018,
+          4
+        ],
+        "bp_fe-ng45/1002": [
+          56.83465895708307,
+          -0.7322669344820737,
+          -127.0043022253644,
+          2
+        ],
+        "bp_fe-ng45/1003": [
+          61.46197267776942,
+          -0.6598953792405386,
+          -110.13647905414325,
+          9
+        ],
+        "bp-ng45/1001": [
+          -12.058186331549445,
+          -7.869575436270477,
+          -8358.305658396133,
+          15
+        ],
+        "bp-ng45/1002": [
+          -28.29174759160259,
+          -7.866240326210179,
+          -10151.86200282685,
+          10
+        ],
+        "bp-ng45/1003": [
+          -6.66493280122441,
+          -7.9383266651486215,
+          -7727.9612381163115,
+          16
+        ],
+        "ariane133-ng45/1001": [
+          22.60203212863945,
+          -0.8914149670724495,
+          -16.068725471703246,
+          88
+        ],
+        "ariane133-ng45/1002": [
+          56.65499694123385,
+          -0.35334847159477656,
+          -26.723486402376587,
+          2559
+        ],
+        "ariane133-ng45/1003": [
+          -1.9296885760859168,
+          -0.4145062188589372,
+          -113.44263449713945,
+          95
+        ]
+      },
+      "source_sha256": "bdfd65555fd2f5de0b155d8b6f03192760d220aaa17df26077c9277af285edb4",
+      "request_id": "e-5639a5a46bb99a72889d11f2b64bde9eacffe612a1f7837959af6d56561e"
+    },
+    {
+      "round": 10,
+      "host": "15332",
+      "candidate_id": "368ac3f7f372cbbeef1c9203c1c21453177908b5e051230e51f611f13927e0bb",
+      "parent_id": "c936085bfae4a448ff978d007b0f1a66c623b4d761a4a6a32683bb214d6e96b7",
+      "score": 22.13653655125031,
+      "changes": {
+        "loss": "Change vs parent: keep the sampled log-sigmoid contrastive term, and add a\nnet-weight-normalized softplus margin on timing-star graph edges. The edge\nweights sum to each represented net's fixed timing weight, so timing-critical\nnets are attracted more strongly in the learned embedding geometry.\n\nExpected measurable effect: connected timing-critical supernodes become closer\nin L2 embedding space, moving the area-balanced two-means boundary and reducing\nthe inter-die timing cut (especially TNS). The hypothesis is invalidated if the\npaired physical evaluation shows broad regression or mostly unchanged final\nassignments with no timing gain."
+      },
+      "status": "succeeded",
+      "cells": {
+        "bp_fe-ng45/1001": [
+          30.760271314194988,
+          -0.874670138852267,
+          -362.9556420369973,
+          14
+        ],
+        "bp_fe-ng45/1002": [
+          41.092586144774984,
+          -0.7950578198616463,
+          -281.76490560495,
+          1
+        ],
+        "bp_fe-ng45/1003": [
+          55.82351841019526,
+          -0.639466275808939,
+          -188.35428327940795,
+          0
+        ],
+        "bp-ng45/1001": [
+          -14.16544259452619,
+          -7.821137736603799,
+          -8615.589893373068,
+          15
+        ],
+        "bp-ng45/1002": [
+          -28.29174759160259,
+          -7.866240326210179,
+          -10151.86200282685,
+          10
+        ],
+        "bp-ng45/1003": [
+          -0.742255287208763,
+          -7.921686641984928,
+          -7082.697921074021,
+          18
+        ],
+        "ariane133-ng45/1001": [
+          34.57967153892929,
+          -0.27100278344022377,
+          -72.20622881763798,
+          79
+        ],
+        "ariane133-ng45/1002": [
+          53.7912340016492,
+          -0.39640603033196004,
+          -26.093847821059576,
+          1805
+        ],
+        "ariane133-ng45/1003": [
+          26.380993024846628,
+          -0.5864344731364323,
+          -47.053938965931586,
+          86
+        ]
+      },
+      "source_sha256": "bd9cddd4d5a2d76f42ef2c171251e460552a73acd926782b1f954b5eae88e329",
+      "request_id": "e-b99191eafdc80c0f8121202ba8249373b0176cb83d85e3194708bd58eba8"
+    }
+  ]
+}

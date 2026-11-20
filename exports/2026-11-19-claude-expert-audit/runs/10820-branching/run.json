@@ -1,0 +1,323 @@
+{
+  "source_mount_at_capture": "/root/aic-eda-evidence-20261117/arms/branching-20261118/work",
+  "capture_port": "15416",
+  "capture_utc": "2026-11-19T03:47:49.967189+00:00",
+  "scope": "official runner / see ledger status",
+  "session": {
+    "baseline": "loss_decoder",
+    "budget": {
+      "allowed_model": "deepseek-flash",
+      "audit_event_count": 50,
+      "budget_exhausted": true,
+      "dispatch_allowed": false,
+      "evaluation_dispatch_allowed": false,
+      "evaluation_limit": 10,
+      "evaluation_mode": "formal",
+      "evaluations": [
+        {
+          "accepted_at": "2026-11-18T04:21:11.390303+00:00",
+          "candidate_id": "ab93edc407d167411e33901f39e5b79bce15bdbff6371832981b6988474fb27e",
+          "completed_at": "2026-11-18T06:10:44.212859+00:00",
+          "payload_digest": "8f5becf5641c9edd58e3c8fc4d3a7a2e2bc7526a79d2e7ec048b73fd978d5904",
+          "reason": null,
+          "request_id": "e-08344cd5f84b5536b4592211c6970deed61da695fb7cd8fa79f8411b2a16",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        },
+        {
+          "accepted_at": "2026-11-18T06:12:53.331762+00:00",
+          "candidate_id": "057940f3795f03421cbc7c148b8a8c15cdb4ebc0ccc916d543b6e301cd6e5bd3",
+          "completed_at": "2026-11-18T08:02:10.709380+00:00",
+          "payload_digest": "ea17e59e7a3d95fa3c20e94e5d965165a8a9b7009e60c0863b8edd0255cc6c31",
+          "reason": null,
+          "request_id": "e-8a52cccc3e3f702527849ed7ea44703018e928b0ba3dbef37c5a8259ed5f",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        },
+        {
+          "accepted_at": "2026-11-18T08:04:21.777250+00:00",
+          "candidate_id": "08b8f9bd6d7e32cd8393889320eeb5debf0596766599d90efcc74e3b8fd4f741",
+          "completed_at": "2026-11-18T09:55:43.091572+00:00",
+          "payload_digest": "d96a4ab5f8c6a8d2338517af65c10a6427c1f632021d2ffbbca47957e4201568",
+          "reason": null,
+          "request_id": "e-53f087acc38d3aaed8b769b5e254bda33a2d0a3a88047019e363c4772441",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        },
+        {
+          "accepted_at": "2026-11-18T09:56:28.620477+00:00",
+          "candidate_id": "f58f249ecbf580fd2626d25b63a539ea2beec5601b4f8655a0f4474ac51bdddd",
+          "completed_at": "2026-11-18T11:46:45.661696+00:00",
+          "payload_digest": "2d24b1d7144ab1a5cf6d3cabbfacdc54a24b311af053cebaec6309a86c6e0d03",
+          "reason": null,
+          "request_id": "e-287a65aa32eefb7c30e1ee24b01d79fcf5bfb959a8db412f236ef23b1293",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        },
+        {
+          "accepted_at": "2026-11-18T11:48:03.714055+00:00",
+          "candidate_id": "fa9b732e2e9f7e80eb3d299e0c08fe811379003a0a8395540c73512e9e28a729",
+          "completed_at": "2026-11-18T13:36:25.636603+00:00",
+          "payload_digest": "1422fe8dfb974476ae73e141199365f0205fdcd0684f0d3a494f614c0464a02f",
+          "reason": null,
+          "request_id": "e-bbe4f874f452342353b239b46460809362b38fa4f931b8b4f23ecdaa7de0",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        },
+        {
+          "accepted_at": "2026-11-18T13:37:21.389083+00:00",
+          "candidate_id": "4dd12b53a98a7c31be71c87f5d1b6174cdf811b815d87c1a21a0c1aefb8980d5",
+          "completed_at": "2026-11-18T15:28:10.925403+00:00",
+          "payload_digest": "5cd5fadcfd8c29811520fe1ff61c210720803702341f32cee357f9a5be34f757",
+          "reason": null,
+          "request_id": "e-02ce9f68b4af83fe8ba0f8e07ce93a8ca9d1fb1cf8d43c90c115343bb2ff",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        },
+        {
+          "accepted_at": "2026-11-18T15:29:45.127775+00:00",
+          "candidate_id": "57c5e845b54c134ab99172798af1d972538b93b179dc3b61dc6318d1f616e297",
+          "completed_at": "2026-11-18T17:20:52.591762+00:00",
+          "payload_digest": "6f1f260e71b3e5ccfd402bb3840bca4ce549a10c943658e410c3098aaa42fe62",
+          "reason": null,
+          "request_id": "e-5c0b01803a8b4c48a10825da42c7d14d53bb2de61e41ad2dabde7eeaf553",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        },
+        {
+          "accepted_at": "2026-11-18T17:22:10.638066+00:00",
+          "candidate_id": "b004e6207435c1340962f8bc821ccab3ef24fa284e0b6b2685053493aba0106b",
+          "completed_at": "2026-11-18T19:10:30.295430+00:00",
+          "payload_digest": "242d102f6e32c936fbbb700ab44f2640e379f8fdbd83dbed788a88307d46c693",
+          "reason": null,
+          "request_id": "e-d91159d6a934886ac75ab5913554aff6c6f1e576447f27aa96cc89c1fb79",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        },
+        {
+          "accepted_at": "2026-11-18T19:12:32.514483+00:00",
+          "candidate_id": "7e9f2c22f0b9a2c0e9942ff83606218e0bb03db16a50c8b9a3dbbe76b1899e37",
+          "completed_at": "2026-11-18T21:05:13.043739+00:00",
+          "payload_digest": "146e005112190509c92b26e596a51547bf9a02b739a5c2b15522cfbea6b79f2a",
+          "reason": null,
+          "request_id": "e-2345a423d30995dd44cab443ce8c91bc472c98da1641373d9f1dc2025e73",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        },
+        {
+          "accepted_at": "2026-11-18T21:07:15.525970+00:00",
+          "candidate_id": "c7efc28d8d82401042c94c0af19b47960524f0a12836a61766f25b8116ff4c33",
+          "completed_at": "2026-11-18T22:56:39.568125+00:00",
+          "payload_digest": "1bba7edbf25b7bb81f9fb03e965d84f4576cc8a3c2bbdd73ca3277f11f89fac3",
+          "reason": null,
+          "request_id": "e-f35101cab2b1f9cc4f550ae9667698f63824e55416811c2ef1156b91f1cc",
+          "status": "succeeded",
+          "task": "loss_decoder"
+        }
+      ],
+      "evaluations_accepted": 10,
+      "evaluations_remaining": 0,
+      "exhaustion_reasons": [
+        "evaluation_limit_reached"
+      ],
+      "frozen_candidate": null,
+      "model_calls": [
+        {
+          "cost_rmb": "0.03964712",
+          "input_tokens": 4818,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 8770,
+          "recorded_at": "2026-11-18T04:19:32.919059+00:00",
+          "request_id": "27e4c400dfd04ebbb32ed13beb29688a",
+          "reserved_at": "2026-11-18T04:18:14.708249+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.01689268",
+          "input_tokens": 4461,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 3986,
+          "recorded_at": "2026-11-18T04:20:09.658922+00:00",
+          "request_id": "95337d4e46f14f8797f0609697ad330e",
+          "reserved_at": "2026-11-18T04:19:32.957380+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.01984348",
+          "input_tokens": 4471,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 4878,
+          "recorded_at": "2026-11-18T04:20:37.083957+00:00",
+          "request_id": "5f0b794a3d124806a6b38adbb24df8f3",
+          "reserved_at": "2026-11-18T04:20:09.695011+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.01546568",
+          "input_tokens": 4422,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 3639,
+          "recorded_at": "2026-11-18T04:21:11.350649+00:00",
+          "request_id": "2e439c33b65a475e989bc65c20d26393",
+          "reserved_at": "2026-11-18T04:20:37.114832+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.06741472",
+          "input_tokens": 13644,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 5988,
+          "recorded_at": "2026-11-18T06:11:54.225827+00:00",
+          "request_id": "10c9f1ce950446129bd6e015912d5984",
+          "reserved_at": "2026-11-18T06:11:08.463407+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.04511624",
+          "input_tokens": 4701,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 4527,
+          "recorded_at": "2026-11-18T06:12:22.151102+00:00",
+          "request_id": "c36036528f4c4fd581ef0c41ee4a6fda",
+          "reserved_at": "2026-11-18T06:11:54.272221+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.04539624",
+          "input_tokens": 5277,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 4418,
+          "recorded_at": "2026-11-18T06:12:53.294951+00:00",
+          "request_id": "0036d870b7444710af3ab6098637cd77",
+          "reserved_at": "2026-11-18T06:12:22.194132+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.15237872",
+          "input_tokens": 14826,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 16313,
+          "recorded_at": "2026-11-18T08:04:21.727812+00:00",
+          "request_id": "d80ae6076b6b4fa58fd56c3e654ce4f5",
+          "reserved_at": "2026-11-18T08:02:37.558506+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.05425872",
+          "input_tokens": 18530,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 3122,
+          "recorded_at": "2026-11-18T09:56:28.565716+00:00",
+          "request_id": "51b7c90e9fe04317b915f9efdb27807c",
+          "reserved_at": "2026-11-18T09:56:10.976250+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.05070336",
+          "input_tokens": 18752,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 8960,
+          "recorded_at": "2026-11-18T11:48:03.655368+00:00",
+          "request_id": "c7574a8f3c914496b2a1d1b0d8446328",
+          "reserved_at": "2026-11-18T11:47:12.787160+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.03367136",
+          "input_tokens": 19040,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 4630,
+          "recorded_at": "2026-11-18T13:37:21.334690+00:00",
+          "request_id": "421d8d115d554992b82e0462064780e1",
+          "reserved_at": "2026-11-18T13:36:53.280003+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.06249536",
+          "input_tokens": 19900,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 11621,
+          "recorded_at": "2026-11-18T15:29:45.074879+00:00",
+          "request_id": "116cb297ef0247f8aaefdb05d33a7230",
+          "reserved_at": "2026-11-18T15:28:36.002054+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.04985336",
+          "input_tokens": 20046,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 8424,
+          "recorded_at": "2026-11-18T17:22:10.567072+00:00",
+          "request_id": "51fcfa13309e4b9eaa219b73b460ce50",
+          "reserved_at": "2026-11-18T17:21:20.050129+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.05380136",
+          "input_tokens": 19742,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 9487,
+          "recorded_at": "2026-11-18T19:12:32.446687+00:00",
+          "request_id": "a515409729fc4d759cecf6daf5dea0a4",
+          "reserved_at": "2026-11-18T19:10:54.704258+00:00",
+          "status": "settled"
+        },
+        {
+          "cost_rmb": "0.05873536",
+          "input_tokens": 20428,
+          "max_cost_rmb": "2.228224",
+          "model": "deepseek-flash",
+          "output_tokens": 10549,
+          "recorded_at": "2026-11-18T21:07:15.465941+00:00",
+          "request_id": "224cf49f71b34fc980665c214f7f13fc",
+          "reserved_at": "2026-11-18T21:05:42.166750+00:00",
+          "status": "settled"
+        }
+      ],
+      "model_cost_available_rmb": "14.23432624",
+      "model_cost_limit_rmb": "15",
+      "model_cost_overrun_rmb": "0",
+      "model_cost_reserved_rmb": "0",
+      "model_cost_spent_rmb": "0.76567376",
+      "model_dispatch_allowed": false,
+      "model_reservation_rmb": "2.228224",
+      "model_stop_reasons": [
+        "evaluation_limit_reached"
+      ],
+      "stop_reasons": [
+        "evaluation_limit_reached"
+      ],
+      "task_id": "loss_decoder",
+      "unresolved_model_calls": 0
+    },
+    "candidate_id": "b004e6207435c1340962f8bc821ccab3ef24fa284e0b6b2685053493aba0106b",
+    "endpoint": "post-opt-pre-cts",
+    "evaluation_mode": "formal",
+    "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+    "matrix_cells": 9,
+    "retain_physical_files": false,
+    "services_stopped": true,
+    "status": "succeeded",
+    "work_root": "/root/aic-eda-evidence-20261117/arms/branching-20261118/work"
+  },
+  "diagnostic": null,
+  "read_errors": {},
+  "other_record_names": [
+    "codex/loss_decoder"
+  ],
+  "transaction_note": "ledger is a read transaction; receipts and event log are sequential read-only snapshots"
+}

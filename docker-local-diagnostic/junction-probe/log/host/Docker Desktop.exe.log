@@ -1,0 +1,56 @@
+-------------------------------------------------------------------------------->8
+[2026-04-15T08:15:44.443393300Z][Docker Desktop.exe] launching  C:\Program Files\Docker\Docker\resources\com.docker.backend.exe
+[2026-04-15T08:15:45.111912900Z][Docker Desktop.exe] backend process started
+-------------------------------------------------------------------------------->8
+[2026-04-15T08:19:01.747205600Z][Docker Desktop.exe.ipc] d64229a5-url-handler -> \\.\pipe\dockerBackendApiServer BackendAPI
+[2026-04-15T08:19:01.754336200Z][Docker Desktop.exe.url-handler] received request to handle url: docker-desktop://auth0/complete-login?code=REDACTED&state=REDACTED
+[2026-04-15T08:19:01.754841000Z][Docker Desktop.exe.ipc] (9536586c-0) d64229a5-url-handler C->S BackendAPI POST /registry/complete-login
+[2026-04-15T08:19:04.802856500Z][Docker Desktop.exe.ipc] (9536586c-0) d64229a5-url-handler C<-S 46b8213d-BackendAPI POST /registry/complete-login (3.0480155s)
+[2026-04-15T08:19:04.802856500Z][Docker Desktop.exe.url-handler] auth0 url processed
+-------------------------------------------------------------------------------->8
+[2026-05-15T06:15:03.707558100Z][Docker Desktop.exe] launching  C:\Program Files\Docker\Docker\resources\com.docker.backend.exe
+[2026-05-15T06:15:03.727346000Z][Docker Desktop.exe] backend process started
+-------------------------------------------------------------------------------->8
+[2026-06-08T03:11:07.044801000Z][Docker Desktop.exe] launching  C:\Program Files\Docker\Docker\resources\com.docker.backend.exe
+[2026-06-08T03:11:07.072498100Z][Docker Desktop.exe] backend process started
+-------------------------------------------------------------------------------->8
+[2026-06-08T04:31:21.711025000Z][Docker Desktop.exe] launching  C:\Program Files\Docker\Docker\resources\com.docker.backend.exe
+[2026-06-08T04:31:21.735544700Z][Docker Desktop.exe] backend process started
+-------------------------------------------------------------------------------->8
+[2026-07-08T11:35:58.689385600Z][Docker Desktop.exe] launching  C:\Program Files\Docker\Docker\resources\com.docker.backend.exe
+[2026-07-08T11:35:58.726040300Z][Docker Desktop.exe] backend process started
+-------------------------------------------------------------------------------->8
+[2026-07-17T03:45:28.247387900Z][Docker Desktop.exe] launching  C:\Program Files\Docker\Docker\resources\com.docker.backend.exe
+[2026-07-17T03:45:28.270164700Z][Docker Desktop.exe] backend process started
+-------------------------------------------------------------------------------->8
+[2026-07-17T03:50:27.188645200Z][Docker Desktop.exe.ipc] 4ded101d-url-handler -> \\.\pipe\dockerBackendApiServer BackendAPI
+[2026-07-17T03:50:27.192860900Z][Docker Desktop.exe.url-handler] received request to handle url: docker-desktop://dashboard/settings/resources/advanced
+[2026-07-17T03:50:27.192860900Z][Docker Desktop.exe.url-handler][E] failed to open  url 'docker-desktop://dashboard/settings/resources/advanced': unhandled path for docker-desktop://dashboard/settings/resources/advanced
+-------------------------------------------------------------------------------->8
+[2026-07-17T03:52:50.791126300Z][Docker Desktop.exe.ipc] db7972e6-url-handler -> \\.\pipe\dockerBackendApiServer BackendAPI
+[2026-07-17T03:52:50.796377800Z][Docker Desktop.exe.url-handler] received request to handle url: docker-desktop://dashboard/settings/resources/advanced
+[2026-07-17T03:52:50.796377800Z][Docker Desktop.exe.url-handler][E] failed to open  url 'docker-desktop://dashboard/settings/resources/advanced': unhandled path for docker-desktop://dashboard/settings/resources/advanced
+-------------------------------------------------------------------------------->8
+[2026-07-19T10:17:23.520768700Z][Docker Desktop.exe] launching  C:\Program Files\Docker\Docker\resources\com.docker.backend.exe
+[2026-07-19T10:17:23.562544300Z][Docker Desktop.exe] backend process started
+-------------------------------------------------------------------------------->8
+[2026-07-22T03:37:37.444007300Z][Docker Desktop.exe] launching  C:\Program Files\Docker\Docker\resources\com.docker.backend.exe
+[2026-07-22T03:37:37.481518100Z][Docker Desktop.exe] backend process started
+-------------------------------------------------------------------------------->8
+[2026-07-25T18:16:44.216939500Z][Docker Desktop.exe] launching  C:\Program Files\Docker\Docker\resources\com.docker.backend.exe
+[2026-07-25T18:16:44.240867100Z][Docker Desktop.exe] backend process started
+-------------------------------------------------------------------------------->8
+[2026-07-30T10:14:14.557701700Z][Docker Desktop.exe] launching  C:\Program Files\Docker\Docker\resources\com.docker.backend.exe
+[2026-07-30T10:14:14.577806800Z][Docker Desktop.exe] backend process started
+-------------------------------------------------------------------------------->8
+[2026-08-02T08:34:05.093143700Z][Docker Desktop.exe] launching  C:\Program Files\Docker\Docker\resources\com.docker.backend.exe
+[2026-08-02T08:34:05.118519200Z][Docker Desktop.exe] backend process started
+-------------------------------------------------------------------------------->8
+[2026-08-11T05:57:02.204654600Z][Docker Desktop.exe] launching  C:\Program Files\Docker\Docker\resources\com.docker.backend.exe
+[2026-08-11T05:57:02.235580200Z][Docker Desktop.exe] backend process started
+-------------------------------------------------------------------------------->8
+[2026-08-12T08:46:09.949341000Z][Docker Desktop.exe] launching  C:\Program Files\Docker\Docker\resources\com.docker.backend.exe
+[2026-08-12T08:46:09.966404700Z][Docker Desktop.exe] backend process started
+-------------------------------------------------------------------------------->8
+[2026-08-27T06:45:20.936029800Z][Docker Desktop.exe] launching  C:\Program Files\Docker\Docker\resources\com.docker.backend.exe
+[2026-08-27T06:45:20.972465900Z][Docker Desktop.exe] backend process started

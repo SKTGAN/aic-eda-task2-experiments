@@ -1,0 +1,162 @@
+-------------------------------------------------------------------------------->8
+[2026-11-13T03:34:31.574966300Z] Error: UNKNOWN: unknown error, mkdir 'C:\Users\A\AppData\Local\Docker'
+[2026-11-13T03:34:31.574966300Z]     at mkdirSync (node:fs:1349:26)
+[2026-11-13T03:34:31.574966300Z]     at t.mkdirSync (node:electron/js2c/node_init:2:17243)
+[2026-11-13T03:34:31.574966300Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:204898
+[2026-11-13T03:34:31.574966300Z]     at w (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:204991)
+[2026-11-13T03:34:31.574966300Z]     at Module.u (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:59917)
+[2026-11-13T03:34:31.574966300Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:769
+[2026-11-13T03:34:31.574966300Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:829
+[2026-11-13T03:34:31.574966300Z]     at Object.<anonymous> (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:862)
+[2026-11-13T03:34:31.574966300Z]     at Module._compile (node:internal/modules/cjs/loader:1820:14)
+[2026-11-13T03:34:31.574966300Z]     at Module._extensions..js (node:internal/modules/cjs/loader:1953:10) {
+[2026-11-13T03:34:31.574966300Z]   errno: -4094,
+[2026-11-13T03:34:31.574966300Z]   code: 'UNKNOWN',
+[2026-11-13T03:34:31.574966300Z]   syscall: 'mkdir',
+[2026-11-13T03:34:31.574966300Z]   path: 'C:\\Users\\A\\AppData\\Local\\Docker'
+[2026-11-13T03:34:31.574966300Z] }
+[2026-11-13T03:34:31.863110700Z] Error: UNKNOWN: unknown error, mkdir 'C:\Users\A\AppData\Local\Docker'
+[2026-11-13T03:34:31.863110700Z]     at mkdirSync (node:fs:1349:26)
+[2026-11-13T03:34:31.863110700Z]     at t.mkdirSync (node:electron/js2c/node_init:2:17243)
+[2026-11-13T03:34:31.863110700Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:204898
+[2026-11-13T03:34:31.863110700Z]     at w (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:204991)
+[2026-11-13T03:34:31.863110700Z]     at Module.u (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:59917)
+[2026-11-13T03:34:31.863110700Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:769
+[2026-11-13T03:34:31.863110700Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:829
+[2026-11-13T03:34:31.863110700Z]     at Object.<anonymous> (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:862)
+[2026-11-13T03:34:31.863110700Z]     at Module._compile (node:internal/modules/cjs/loader:1820:14)
+[2026-11-13T03:34:31.863110700Z]     at Module._extensions..js (node:internal/modules/cjs/loader:1953:10) {
+[2026-11-13T03:34:31.863110700Z]   errno: -4094,
+[2026-11-13T03:34:31.863110700Z]   code: 'UNKNOWN',
+[2026-11-13T03:34:31.863110700Z]   syscall: 'mkdir',
+[2026-11-13T03:34:31.863110700Z]   path: 'C:\\Users\\A\\AppData\\Local\\Docker'
+[2026-11-13T03:34:31.863110700Z] }
+[2026-11-13T03:34:32.379701400Z] Error: UNKNOWN: unknown error, mkdir 'C:\Users\A\AppData\Local\Docker'
+[2026-11-13T03:34:32.379701400Z]     at mkdirSync (node:fs:1349:26)
+[2026-11-13T03:34:32.379701400Z]     at t.mkdirSync (node:electron/js2c/node_init:2:17243)
+[2026-11-13T03:34:32.379701400Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:204898
+[2026-11-13T03:34:32.379701400Z]     at w (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:204991)
+[2026-11-13T03:34:32.379701400Z]     at Module.u (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:59917)
+[2026-11-13T03:34:32.379701400Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:769
+[2026-11-13T03:34:32.379701400Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:829
+[2026-11-13T03:34:32.379701400Z]     at Object.<anonymous> (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:862)
+[2026-11-13T03:34:32.379701400Z]     at Module._compile (node:internal/modules/cjs/loader:1820:14)
+[2026-11-13T03:34:32.379701400Z]     at Module._extensions..js (node:internal/modules/cjs/loader:1953:10) {
+[2026-11-13T03:34:32.379701400Z]   errno: -4094,
+[2026-11-13T03:34:32.379701400Z]   code: 'UNKNOWN',
+[2026-11-13T03:34:32.379701400Z]   syscall: 'mkdir',
+[2026-11-13T03:34:32.379701400Z]   path: 'C:\\Users\\A\\AppData\\Local\\Docker'
+[2026-11-13T03:34:32.379701400Z] }
+[2026-11-13T03:34:32.870972900Z] Error: UNKNOWN: unknown error, mkdir 'C:\Users\A\AppData\Local\Docker'
+[2026-11-13T03:34:32.870972900Z]     at mkdirSync (node:fs:1349:26)
+[2026-11-13T03:34:32.870972900Z]     at t.mkdirSync (node:electron/js2c/node_init:2:17243)
+[2026-11-13T03:34:32.870972900Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:204898
+[2026-11-13T03:34:32.870972900Z]     at w (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:204991)
+[2026-11-13T03:34:32.870972900Z]     at Module.u (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:59917)
+[2026-11-13T03:34:32.870972900Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:769
+[2026-11-13T03:34:32.870972900Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:829
+[2026-11-13T03:34:32.870972900Z]     at Object.<anonymous> (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:862)
+[2026-11-13T03:34:32.870972900Z]     at Module._compile (node:internal/modules/cjs/loader:1820:14)
+[2026-11-13T03:34:32.870972900Z]     at Module._extensions..js (node:internal/modules/cjs/loader:1953:10) {
+[2026-11-13T03:34:32.870972900Z]   errno: -4094,
+[2026-11-13T03:34:32.870972900Z]   code: 'UNKNOWN',
+[2026-11-13T03:34:32.870972900Z]   syscall: 'mkdir',
+[2026-11-13T03:34:32.870972900Z]   path: 'C:\\Users\\A\\AppData\\Local\\Docker'
+[2026-11-13T03:34:32.870972900Z] }
+[2026-11-13T03:34:33.422162000Z] Error: UNKNOWN: unknown error, mkdir 'C:\Users\A\AppData\Local\Docker'
+[2026-11-13T03:34:33.424613700Z]     at mkdirSync (node:fs:1349:26)
+[2026-11-13T03:34:33.424613700Z]     at t.mkdirSync (node:electron/js2c/node_init:2:17243)
+[2026-11-13T03:34:33.424613700Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:204898
+[2026-11-13T03:34:33.424613700Z]     at w (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:204991)
+[2026-11-13T03:34:33.424613700Z]     at Module.u (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:59917)
+[2026-11-13T03:34:33.424613700Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:769
+[2026-11-13T03:34:33.424613700Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:829
+[2026-11-13T03:34:33.424613700Z]     at Object.<anonymous> (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:862)
+[2026-11-13T03:34:33.424613700Z]     at Module._compile (node:internal/modules/cjs/loader:1820:14)
+[2026-11-13T03:34:33.424613700Z]     at Module._extensions..js (node:internal/modules/cjs/loader:1953:10) {
+[2026-11-13T03:34:33.424613700Z]   errno: -4094,
+[2026-11-13T03:34:33.424613700Z]   code: 'UNKNOWN',
+[2026-11-13T03:34:33.424613700Z]   syscall: 'mkdir',
+[2026-11-13T03:34:33.424613700Z]   path: 'C:\\Users\\A\\AppData\\Local\\Docker'
+[2026-11-13T03:34:33.424613700Z] }
+-------------------------------------------------------------------------------->8
+[2026-11-14T06:09:56.684624600Z] Error: UNKNOWN: unknown error, mkdir 'C:\Users\A\AppData\Local\Docker'
+[2026-11-14T06:09:56.684624600Z]     at mkdirSync (node:fs:1349:26)
+[2026-11-14T06:09:56.684624600Z]     at t.mkdirSync (node:electron/js2c/node_init:2:17243)
+[2026-11-14T06:09:56.684624600Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:204898
+[2026-11-14T06:09:56.684624600Z]     at w (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:204991)
+[2026-11-14T06:09:56.684624600Z]     at Module.u (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:59917)
+[2026-11-14T06:09:56.684624600Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:769
+[2026-11-14T06:09:56.684624600Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:829
+[2026-11-14T06:09:56.684624600Z]     at Object.<anonymous> (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:862)
+[2026-11-14T06:09:56.684624600Z]     at Module._compile (node:internal/modules/cjs/loader:1820:14)
+[2026-11-14T06:09:56.684624600Z]     at Module._extensions..js (node:internal/modules/cjs/loader:1953:10) {
+[2026-11-14T06:09:56.684624600Z]   errno: -4094,
+[2026-11-14T06:09:56.684624600Z]   code: 'UNKNOWN',
+[2026-11-14T06:09:56.684624600Z]   syscall: 'mkdir',
+[2026-11-14T06:09:56.684624600Z]   path: 'C:\\Users\\A\\AppData\\Local\\Docker'
+[2026-11-14T06:09:56.684624600Z] }
+[2026-11-14T06:09:57.128915100Z] Error: UNKNOWN: unknown error, mkdir 'C:\Users\A\AppData\Local\Docker'
+[2026-11-14T06:09:57.129425800Z]     at mkdirSync (node:fs:1349:26)
+[2026-11-14T06:09:57.129425800Z]     at t.mkdirSync (node:electron/js2c/node_init:2:17243)
+[2026-11-14T06:09:57.129425800Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:204898
+[2026-11-14T06:09:57.129425800Z]     at w (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:204991)
+[2026-11-14T06:09:57.129425800Z]     at Module.u (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:59917)
+[2026-11-14T06:09:57.129425800Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:769
+[2026-11-14T06:09:57.129425800Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:829
+[2026-11-14T06:09:57.129532700Z]     at Object.<anonymous> (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:862)
+[2026-11-14T06:09:57.129532700Z]     at Module._compile (node:internal/modules/cjs/loader:1820:14)
+[2026-11-14T06:09:57.129532700Z]     at Module._extensions..js (node:internal/modules/cjs/loader:1953:10) {
+[2026-11-14T06:09:57.129532700Z]   errno: -4094,
+[2026-11-14T06:09:57.129532700Z]   code: 'UNKNOWN',
+[2026-11-14T06:09:57.129532700Z]   syscall: 'mkdir',
+[2026-11-14T06:09:57.129532700Z]   path: 'C:\\Users\\A\\AppData\\Local\\Docker'
+[2026-11-14T06:09:57.129532700Z] }
+[2026-11-14T06:09:57.583088000Z] Error: UNKNOWN: unknown error, mkdir 'C:\Users\A\AppData\Local\Docker'
+[2026-11-14T06:09:57.583088000Z]     at mkdirSync (node:fs:1349:26)
+[2026-11-14T06:09:57.583088000Z]     at t.mkdirSync (node:electron/js2c/node_init:2:17243)
+[2026-11-14T06:09:57.583088000Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:204898
+[2026-11-14T06:09:57.583088000Z]     at w (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:204991)
+[2026-11-14T06:09:57.583088000Z]     at Module.u (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:59917)
+[2026-11-14T06:09:57.583088000Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:769
+[2026-11-14T06:09:57.583088000Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:829
+[2026-11-14T06:09:57.583088000Z]     at Object.<anonymous> (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:862)
+[2026-11-14T06:09:57.583088000Z]     at Module._compile (node:internal/modules/cjs/loader:1820:14)
+[2026-11-14T06:09:57.583088000Z]     at Module._extensions..js (node:internal/modules/cjs/loader:1953:10) {
+[2026-11-14T06:09:57.583088000Z]   errno: -4094,
+[2026-11-14T06:09:57.583088000Z]   code: 'UNKNOWN',
+[2026-11-14T06:09:57.583088000Z]   syscall: 'mkdir',
+[2026-11-14T06:09:57.583088000Z]   path: 'C:\\Users\\A\\AppData\\Local\\Docker'
+[2026-11-14T06:09:57.583088000Z] }
+[2026-11-14T06:09:58.185277200Z] Error: UNKNOWN: unknown error, mkdir 'C:\Users\A\AppData\Local\Docker'
+[2026-11-14T06:09:58.185937300Z]     at mkdirSync (node:fs:1349:26)
+[2026-11-14T06:09:58.185937300Z]     at t.mkdirSync (node:electron/js2c/node_init:2:17243)
+[2026-11-14T06:09:58.185937300Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:204898
+[2026-11-14T06:09:58.185937300Z]     at w (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:204991)
+[2026-11-14T06:09:58.185937300Z]     at Module.u (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:59917)
+[2026-11-14T06:09:58.185937300Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:769
+[2026-11-14T06:09:58.185937300Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:829
+[2026-11-14T06:09:58.185937300Z]     at Object.<anonymous> (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:862)
+[2026-11-14T06:09:58.185937300Z]     at Module._compile (node:internal/modules/cjs/loader:1820:14)
+[2026-11-14T06:09:58.185937300Z]     at Module._extensions..js (node:internal/modules/cjs/loader:1953:10) {
+[2026-11-14T06:09:58.185937300Z]   errno: -4094,
+[2026-11-14T06:09:58.185937300Z]   code: 'UNKNOWN',
+[2026-11-14T06:09:58.185937300Z]   syscall: 'mkdir',
+[2026-11-14T06:09:58.185937300Z]   path: 'C:\\Users\\A\\AppData\\Local\\Docker'
+[2026-11-14T06:09:58.185937300Z] }
+[2026-11-14T06:09:58.628706800Z] Error: UNKNOWN: unknown error, mkdir 'C:\Users\A\AppData\Local\Docker'
+[2026-11-14T06:09:58.628706800Z]     at mkdirSync (node:fs:1349:26)
+[2026-11-14T06:09:58.628706800Z]     at t.mkdirSync (node:electron/js2c/node_init:2:17243)
+[2026-11-14T06:09:58.628706800Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:204898
+[2026-11-14T06:09:58.628706800Z]     at w (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:204991)
+[2026-11-14T06:09:58.628706800Z]     at Module.u (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-cli.main.js:2:59917)
+[2026-11-14T06:09:58.628706800Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:769
+[2026-11-14T06:09:58.628706800Z]     at C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:829
+[2026-11-14T06:09:58.628706800Z]     at Object.<anonymous> (C:\Program Files\Docker\Docker\frontend\resources\app.asar\build\entry-module-bootstrapper.main.js:1:862)
+[2026-11-14T06:09:58.628706800Z]     at Module._compile (node:internal/modules/cjs/loader:1820:14)
+[2026-11-14T06:09:58.628706800Z]     at Module._extensions..js (node:internal/modules/cjs/loader:1953:10) {
+[2026-11-14T06:09:58.628706800Z]   errno: -4094,
+[2026-11-14T06:09:58.628706800Z]   code: 'UNKNOWN',
+[2026-11-14T06:09:58.628706800Z]   syscall: 'mkdir',
+[2026-11-14T06:09:58.628706800Z]   path: 'C:\\Users\\A\\AppData\\Local\\Docker'
+[2026-11-14T06:09:58.628706800Z] }

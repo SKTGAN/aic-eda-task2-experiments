@@ -1,0 +1,60 @@
+-------------------------------------------------------------------------------->8
+[2026-11-13T03:34:31.300390200Z] Usage:  docker [OPTIONS] COMMAND
+[2026-11-13T03:34:31.300916400Z] 
+[2026-11-13T03:34:31.300916400Z] docker-sandbox is a Docker CLI plugin
+[2026-11-13T03:34:31.300916400Z] 
+[2026-11-13T03:34:31.300916400Z] Management Commands:
+[2026-11-13T03:34:31.300916400Z]   sandbox                    Docker Sandbox
+[2026-11-13T03:34:31.300916400Z] 
+[2026-11-13T03:34:31.300916400Z] Global Options:
+[2026-11-13T03:34:31.300916400Z]       --config string      Location of client config files (default
+[2026-11-13T03:34:31.300916400Z]                            "C:\\Users\\A\\.docker")
+[2026-11-13T03:34:31.300916400Z]   -c, --context string     Name of the context to use to connect to the
+[2026-11-13T03:34:31.301438500Z]                            daemon (overrides DOCKER_HOST env var and
+[2026-11-13T03:34:31.301438500Z]                            default context set with "docker context use")
+[2026-11-13T03:34:31.301438500Z]   -D, --debug              Enable debug mode
+[2026-11-13T03:34:31.301438500Z]   -H, --host string        Daemon socket to connect to
+[2026-11-13T03:34:31.301438500Z]   -l, --log-level string   Set the logging level ("debug", "info",
+[2026-11-13T03:34:31.301438500Z]                            "warn", "error", "fatal") (default "info")
+[2026-11-13T03:34:31.301438500Z]       --tls                Use TLS; implied by --tlsverify
+[2026-11-13T03:34:31.301438500Z]       --tlscacert string   Trust certs signed only by this CA (default
+[2026-11-13T03:34:31.301438500Z]                            "C:\\Users\\A\\.docker\\ca.pem")
+[2026-11-13T03:34:31.301438500Z]       --tlscert string     Path to TLS certificate file (default
+[2026-11-13T03:34:31.301438500Z]                            "C:\\Users\\A\\.docker\\cert.pem")
+[2026-11-13T03:34:31.301438500Z]       --tlskey string      Path to TLS key file (default
+[2026-11-13T03:34:31.301438500Z]                            "C:\\Users\\A\\.docker\\key.pem")
+[2026-11-13T03:34:31.301438500Z]       --tlsverify          Use TLS and verify the remote
+[2026-11-13T03:34:31.301438500Z] 
+[2026-11-13T03:34:31.301438500Z] Run 'docker COMMAND --help' for more information on a command.
+[2026-11-13T03:34:31.301438500Z] 
+[2026-11-13T03:34:31.301438500Z] For more help on how to use Docker, head to https://docs.docker.com/go/guides/
+-------------------------------------------------------------------------------->8
+[2026-11-14T06:09:56.326413900Z] Usage:  docker [OPTIONS] COMMAND
+[2026-11-14T06:09:56.326963700Z] 
+[2026-11-14T06:09:56.326963700Z] docker-sandbox is a Docker CLI plugin
+[2026-11-14T06:09:56.326963700Z] 
+[2026-11-14T06:09:56.326963700Z] Management Commands:
+[2026-11-14T06:09:56.326963700Z]   sandbox                    Docker Sandbox
+[2026-11-14T06:09:56.326963700Z] 
+[2026-11-14T06:09:56.326963700Z] Global Options:
+[2026-11-14T06:09:56.326963700Z]       --config string      Location of client config files (default
+[2026-11-14T06:09:56.326963700Z]                            "C:\\Users\\A\\.docker")
+[2026-11-14T06:09:56.326963700Z]   -c, --context string     Name of the context to use to connect to the
+[2026-11-14T06:09:56.327495200Z]                            daemon (overrides DOCKER_HOST env var and
+[2026-11-14T06:09:56.327495200Z]                            default context set with "docker context use")
+[2026-11-14T06:09:56.327495200Z]   -D, --debug              Enable debug mode
+[2026-11-14T06:09:56.327495200Z]   -H, --host string        Daemon socket to connect to
+[2026-11-14T06:09:56.327495200Z]   -l, --log-level string   Set the logging level ("debug", "info",
+[2026-11-14T06:09:56.327495200Z]                            "warn", "error", "fatal") (default "info")
+[2026-11-14T06:09:56.327495200Z]       --tls                Use TLS; implied by --tlsverify
+[2026-11-14T06:09:56.327495200Z]       --tlscacert string   Trust certs signed only by this CA (default
+[2026-11-14T06:09:56.327495200Z]                            "C:\\Users\\A\\.docker\\ca.pem")
+[2026-11-14T06:09:56.327495200Z]       --tlscert string     Path to TLS certificate file (default
+[2026-11-14T06:09:56.328021300Z]                            "C:\\Users\\A\\.docker\\cert.pem")
+[2026-11-14T06:09:56.328021300Z]       --tlskey string      Path to TLS key file (default
+[2026-11-14T06:09:56.328021300Z]                            "C:\\Users\\A\\.docker\\key.pem")
+[2026-11-14T06:09:56.328021300Z]       --tlsverify          Use TLS and verify the remote
+[2026-11-14T06:09:56.328021300Z] 
+[2026-11-14T06:09:56.328021300Z] Run 'docker COMMAND --help' for more information on a command.
+[2026-11-14T06:09:56.328021300Z] 
+[2026-11-14T06:09:56.328021300Z] For more help on how to use Docker, head to https://docs.docker.com/go/guides/

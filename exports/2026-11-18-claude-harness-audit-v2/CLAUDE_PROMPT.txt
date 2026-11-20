@@ -1,0 +1,11 @@
+Please review START_HERE.md and ROLLING_PROTOCOL.md in the attached audit ZIP.
+I want the Harness to make a stronger evidence-based decision after every
+round, using all eligible earlier experiments it has analyzed in code. It
+should identify the real conditional contribution of an edit, protect
+measured gains, and improve weak cases. Please design how it reuses existing
+controls, requests a missing removal/addition test only when it changes a
+decision, and runs bounded candidate self-tests before spending a scored slot.
+Avoid a fixed first-three/fourth-round schedule. Give specific code locations,
+proposed functions or a patch, replay tests for the attached examples, and a
+budget-matched GPU verification plan. Keep the official evaluation, scoring,
+and runtime restrictions intact.

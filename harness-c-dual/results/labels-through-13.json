@@ -1,0 +1,130 @@
+{
+  "ariane133-ng45/1001": {
+    "tier_digests": {
+      "r4": "d61e76e70e1419b4efaa764a58dabf164e0f86a2af77ab71e6ae65f198f612cd",
+      "r13": "d61e76e70e1419b4efaa764a58dabf164e0f86a2af77ab71e6ae65f198f612cd"
+    },
+    "pairs": {
+      "r4->r13": {
+        "instances": 131550,
+        "changed_tiers": 0,
+        "changed_up_to_die_exchange": 0
+      }
+    }
+  },
+  "ariane133-ng45/1003": {
+    "tier_digests": {
+      "r4": "5fb157d66e42dfddb96a96b0a3cc3036a4000c43a657ae1cd09963dd2cda3358",
+      "r13": "5fb157d66e42dfddb96a96b0a3cc3036a4000c43a657ae1cd09963dd2cda3358"
+    },
+    "pairs": {
+      "r4->r13": {
+        "instances": 131550,
+        "changed_tiers": 0,
+        "changed_up_to_die_exchange": 0
+      }
+    }
+  },
+  "bp-ng45/1001": {
+    "tier_digests": {
+      "r4": "0e81ac12832d3509968e62d1d4aff10c8b8427d039285ec96b913f5c27eb940a",
+      "r13": "0e81ac12832d3509968e62d1d4aff10c8b8427d039285ec96b913f5c27eb940a",
+      "r14": "0e81ac12832d3509968e62d1d4aff10c8b8427d039285ec96b913f5c27eb940a"
+    },
+    "pairs": {
+      "r4->r13": {
+        "instances": 144224,
+        "changed_tiers": 0,
+        "changed_up_to_die_exchange": 0
+      },
+      "r4->r14": {
+        "instances": 144224,
+        "changed_tiers": 0,
+        "changed_up_to_die_exchange": 0
+      },
+      "r13->r14": {
+        "instances": 144224,
+        "changed_tiers": 0,
+        "changed_up_to_die_exchange": 0
+      }
+    }
+  },
+  "bp-ng45/1002": {
+    "tier_digests": {
+      "r4": "d07c380842ae43a49d258df608b461a93ce5cc9540dcab4d6b7e481d05822237",
+      "r13": "d07c380842ae43a49d258df608b461a93ce5cc9540dcab4d6b7e481d05822237"
+    },
+    "pairs": {
+      "r4->r13": {
+        "instances": 144224,
+        "changed_tiers": 0,
+        "changed_up_to_die_exchange": 0
+      }
+    }
+  },
+  "bp-ng45/1003": {
+    "tier_digests": {
+      "r4": "cb9d47bc95a41d05058ef0a9adb49704f5a21c4051d7835c1b71246ead4b1632",
+      "r13": "cb9d47bc95a41d05058ef0a9adb49704f5a21c4051d7835c1b71246ead4b1632"
+    },
+    "pairs": {
+      "r4->r13": {
+        "instances": 144224,
+        "changed_tiers": 0,
+        "changed_up_to_die_exchange": 0
+      }
+    }
+  },
+  "bp_fe-ng45/1003": {
+    "tier_digests": {
+      "r4": "3ccd7a330ed9e193a7c8b246281c6cde2e31c0ced717e6f663c5b5041a46d28f",
+      "r13": "3ccd7a330ed9e193a7c8b246281c6cde2e31c0ced717e6f663c5b5041a46d28f"
+    },
+    "pairs": {
+      "r4->r13": {
+        "instances": 25847,
+        "changed_tiers": 0,
+        "changed_up_to_die_exchange": 0
+      }
+    }
+  },
+  "ariane133-ng45/1002": {
+    "tier_digests": {
+      "r4": "8d542821643424564b98b48a3a73deded81b3954ea72e549266f26c4d1fbafa8",
+      "r13": "8d542821643424564b98b48a3a73deded81b3954ea72e549266f26c4d1fbafa8"
+    },
+    "pairs": {
+      "r4->r13": {
+        "instances": 131550,
+        "changed_tiers": 0,
+        "changed_up_to_die_exchange": 0
+      }
+    }
+  },
+  "bp_fe-ng45/1001": {
+    "tier_digests": {
+      "r4": "68bd3c9e0eccb45c1529ea1c0c9285f021c2a052c3d77728f5c1fc4fd9c11a19",
+      "r13": "68bd3c9e0eccb45c1529ea1c0c9285f021c2a052c3d77728f5c1fc4fd9c11a19"
+    },
+    "pairs": {
+      "r4->r13": {
+        "instances": 25847,
+        "changed_tiers": 0,
+        "changed_up_to_die_exchange": 0
+      }
+    }
+  },
+  "bp_fe-ng45/1002": {
+    "tier_digests": {
+      "r4": "9b280c473883510a936c78a66434ac5cf88e87f25526ca5c170eea7215a214a3",
+      "r13": "9b280c473883510a936c78a66434ac5cf88e87f25526ca5c170eea7215a214a3"
+    },
+    "pairs": {
+      "r4->r13": {
+        "instances": 25847,
+        "changed_tiers": 0,
+        "changed_up_to_die_exchange": 0
+      }
+    }
+  }
+}

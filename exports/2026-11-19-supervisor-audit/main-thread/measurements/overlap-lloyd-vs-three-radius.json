@@ -1,0 +1,111 @@
+{
+  "scope": "Training-only native decoder and legality geometry, no candidate timing scores.",
+  "sha256": {
+    "three_radius_guard": "9d0da5bc9726e99d1db300b0dd2d1faa3293c10e4595dd8ff46112ab8e8d83d4",
+    "overlap_lloyd": "4387b4b3e4f4083babd98cee8314b768d7d138e18ffa2726bef5063d705728bc"
+  },
+  "cells": [
+    {
+      "case": "ariane133-ng45",
+      "seed": 1003,
+      "radii_over_distance": 0.5974616296193777,
+      "embedding_sha256": "6df53a33d92a22ae28b600e8415c728c59bac098974899171f569ed7bd262b36",
+      "final_changed": 0,
+      "proof": "guard false on identical embeddings and native moments"
+    },
+    {
+      "case": "ariane133-ng45",
+      "seed": 1002,
+      "radii_over_distance": 0.8069921448965497,
+      "embedding_sha256": "11cd5ac5f94dddc5c466da40a32b1b776fbfe0472b212dd63e541336f16decbb",
+      "final_changed": 0,
+      "proof": "guard false on identical embeddings and native moments"
+    },
+    {
+      "case": "ariane133-ng45",
+      "seed": 1001,
+      "radii_over_distance": 0.540088847095985,
+      "embedding_sha256": "312020089e5f031231e5437628978184b8e49a086f6a10a8001dfed380a8f2b4",
+      "final_changed": 0,
+      "proof": "guard false on identical embeddings and native moments"
+    },
+    {
+      "case": "bp-ng45",
+      "seed": 1003,
+      "radii_over_distance": 0.9569129398320246,
+      "embedding_sha256": "7f34486c6b95a5b2feda684111fb7e59018cd29ff9d1ba6e0ff8514301cab24b",
+      "final_changed": 0,
+      "proof": "guard false on identical embeddings and native moments"
+    },
+    {
+      "case": "bp-ng45",
+      "seed": 1002,
+      "radii_over_distance": 0.9568001906642879,
+      "embedding_sha256": "56a21421f5e0dfd6e5dde48054224619a2d02b98dedc15402a4c25ff1ed13704",
+      "final_changed": 0,
+      "proof": "guard false on identical embeddings and native moments"
+    },
+    {
+      "case": "bp-ng45",
+      "seed": 1001,
+      "radii_over_distance": 0.989261092094035,
+      "embedding_sha256": "0f6bbde6adb8d96f2faa3fc9018bcb6c2cd4989494af199003be2935686a4c3b",
+      "final_changed": 0,
+      "proof": "guard false on identical embeddings and native moments"
+    },
+    {
+      "case": "bp_fe-ng45",
+      "seed": 1003,
+      "radii_over_distance": 1.2748446802248254,
+      "embedding_sha256": "69aa9862dd3b9e6666f36d48cf72e8716f909b57ac8d33f536f1d28ebdfd8a21",
+      "raw_groups_moved": 0,
+      "final_changed": 0,
+      "identical_top_area_histogram": true,
+      "final_sha256": "51932248298bb87a77ad05a6773c4ad05e4bba136ef5c19594c788cb9dfe3807",
+      "current": {
+        "cut_net_count": 2353,
+        "timing_weighted_cut": 2827.5309363623724
+      },
+      "alternative": {
+        "cut_net_count": 2353,
+        "timing_weighted_cut": 2827.5309363623724
+      }
+    },
+    {
+      "case": "bp_fe-ng45",
+      "seed": 1002,
+      "radii_over_distance": 1.3296614363682653,
+      "embedding_sha256": "d91956a58dffa16d9c63956b5c500d7edc5d06e7ed9fecf0e2f31a90406458f8",
+      "raw_groups_moved": 0,
+      "final_changed": 0,
+      "identical_top_area_histogram": true,
+      "final_sha256": "b40e50e2cfe87334107109321620c1a7de0b1789a106e5aa5048e21635abef84",
+      "current": {
+        "cut_net_count": 2348,
+        "timing_weighted_cut": 2776.9446506032014
+      },
+      "alternative": {
+        "cut_net_count": 2348,
+        "timing_weighted_cut": 2776.9446506032014
+      }
+    },
+    {
+      "case": "bp_fe-ng45",
+      "seed": 1001,
+      "radii_over_distance": 1.3741951049371146,
+      "embedding_sha256": "79b1dc1565e5ab5d94fee60fd6a0ffd6f86c9d03834fa2f1b5275c55d429864c",
+      "raw_groups_moved": 0,
+      "final_changed": 0,
+      "identical_top_area_histogram": true,
+      "final_sha256": "ee0b1b0ad320c376767390e3706ae2e5db928ea43e3d21b4444ff4933cbcf411",
+      "current": {
+        "cut_net_count": 2316,
+        "timing_weighted_cut": 2747.7229223892614
+      },
+      "alternative": {
+        "cut_net_count": 2316,
+        "timing_weighted_cut": 2747.7229223892614
+      }
+    }
+  ]
+}

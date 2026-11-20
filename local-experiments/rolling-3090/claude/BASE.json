@@ -1,0 +1,65 @@
+{
+ "archive": "claude-rolling-ablation-and-self-test-audit-en.zip",
+ "archive_sha256": "e87a10815733312bbcfeeb677fe2265325ec1f196e0e6db36bb38381882c0e4b",
+ "path_in_archive": "sources/branching/",
+ "files": {
+  "AgenticBench/agent/loss_decoder/agent.py": {
+   "sha256": "61cc736cb2ce98921c52ac5f5e215de950259f34e48759756e4528514b4c0fdd",
+   "identical_to_archive": true
+  },
+  "AgenticBench/agent/loss_decoder/candidate_reply.py": {
+   "sha256": "6399225afc847ec556c2ea693762c5d8cbe7ef303083aff23b832fd425c0e432",
+   "identical_to_archive": true
+  },
+  "AgenticBench/agent/loss_decoder/decision_evidence.py": {
+   "sha256": "50f632a5defacfc6e83a77249fdf76231ded67248decee32a2f4e2ac449b18b9",
+   "identical_to_archive": true
+  },
+  "AgenticBench/agent/loss_decoder/paired_feedback.py": {
+   "sha256": "46da68d2586c49f7479f263f64d5579f4c0e2ffeda8060c64bad082200c761cb",
+   "identical_to_archive": true
+  },
+  "AgenticBench/agent/loss_decoder/program.py": {
+   "sha256": "f18b6e303cad3e67b7dd5be6a63a2ca7399e43997fd0c900334adae1a31bc87b",
+   "identical_to_archive": true
+  },
+  "AgenticBench/agent/loss_decoder/prompt.md": {
+   "sha256": "5a2b1174c082a18688de3828a465b6cd7c0410fc83290659f10d765818410ff0",
+   "identical_to_archive": true
+  },
+  "AgenticBench/agent/loss_decoder/search_control.py": {
+   "sha256": "9ca0cf38e240adb017f31420428db14b097a44e7afe36181d6a394b10a44ae4f",
+   "identical_to_archive": true
+  },
+  "tests/test_assignment_compat.py": {
+   "sha256": "db093dc2b51f7ee0c7dc9039815e28889bb1131dbdd3afce6ab900133d82132b",
+   "identical_to_archive": true
+  },
+  "tests/test_decision_evidence.py": {
+   "sha256": "d5ec1534ccd84a8f5aa2248cf926c3ffcf14c85ad3e149ee9e45834a28526fe2",
+   "identical_to_archive": true
+  },
+  "tests/test_search_control.py": {
+   "sha256": "6e193a29dbb40430f4e5011cda0914caa9a7553dc588ce3475dfc844bcbe6afd",
+   "identical_to_archive": true
+  },
+  "tests/test_second_candidate.py": {
+   "sha256": "4a83b7004832e33045abdd7dd41303f8394c8e47189ca1080af22a414f57f31f",
+   "identical_to_archive": true
+  }
+ },
+ "translation_note": "SOURCE_PROVENANCE.json: agent.py and prompt.md were translated to English for review; their pre-translation hashes are agent.py=7e517d87cb1d8132d71ef9d0715fe64de82eff6d64faf61b5fda367d0cc880ca, prompt.md=d8ed3f95c879ee355364be6de8ea185e7e081181d45abc828cc33c1e185e6fe3",
+ "patched_files": {
+  "agent.py": "1181e304b024794236fd08571575329d1d4df7646d420742ad5d26d50bc3c869",
+  "candidate_reply.py": "6399225afc847ec556c2ea693762c5d8cbe7ef303083aff23b832fd425c0e432",
+  "decision_evidence.py": "50f632a5defacfc6e83a77249fdf76231ded67248decee32a2f4e2ac449b18b9",
+  "ledger.py": "644fb8fb4198d3276f698fa43b31178035d433dc8ecf6496a27a661ea24181aa",
+  "paired_feedback.py": "91fce6e95e0609f3da2a50e9206322f03ce52c62810d2c7e9076c1e30db5c74a",
+  "program.py": "f18b6e303cad3e67b7dd5be6a63a2ca7399e43997fd0c900334adae1a31bc87b",
+  "prompt.md": "b8d194e452164ebd2890f4dc85450f8813705614b0ffee27b052f52535f5ae67",
+  "rolling_plan.py": "5ee0df6b9e35a8342382671f611ae11364559aa3cd14b08205a730a7d7a3cbae",
+  "search_control.py": "9ca0cf38e240adb017f31420428db14b097a44e7afe36181d6a394b10a44ae4f",
+  "self_test.py": "4c2b7f6fa787ca81a7e6c218017e13fc258a02734b3a6709f0e83da44cee50cc"
+ },
+ "patch_sha256": "00b0cf35852820c823688486019d4a843de06b4e363a3fa4d22c37d2c9f952f3"
+}

@@ -1,0 +1,56 @@
+{
+  "association": "chronological context before submit",
+  "associated_call_ids": {},
+  "sequence_at_submission": 10,
+  "recorded_reason": {
+    "reason": "opening_control"
+  },
+  "candidate_explanation": {
+    "loss": "Negative sampling plus timing-weighted star-edge attraction. Change: retain the maintained random-walk negative-sampling objective, but add a normalized regularizer that raises cosine similarity along"
+  },
+  "generation_events": [
+    {
+      "sequence": 8,
+      "event": {
+        "event": "opening_review",
+        "parent_id": "1db68b580dcc9c60efff3352cc8ba2178c6de6f49e52be544319e3b6eb94c72b",
+        "search_intent": "loss_only",
+        "proposals": [
+          "A",
+          "B"
+        ],
+        "verdict": "A",
+        "reason": ""
+      }
+    },
+    {
+      "sequence": 9,
+      "event": {
+        "event": "shelved",
+        "source": "def compute_tp_gnn_loss(\n    positive_scores,\n    negative_scores,\n    embeddings,\n    positive_sources,\n    positive_targets,\n    negative_sources,\n    negative_targets,\n    source_batch_size,\n    epoch,\n    max_epochs,\n    graph_scores,\n    graph_sources,\n    graph_targets,\n    graph_net_ids,\n    graph_weights,\n    net_weights,\n    node_features,\n    node_areas,\n):\n    \"\"\"Hard-negative-focused batch partition contrastive objective.\n\n    Mechanism change: keep the maintained per-pair random-walk negative\n    sampling sum exactly, and add a batch-level log-sum-exp partition term\n    `softplus(logsumexp(negatives) - logsumexp(positives))`. This log-of-sums\n    geometry routes most of its gradient to the few highest-scoring (hardest)\n    negative supernode pairs instead of weighting every pair equally, so the\n    embedding geometry is forced to separate confusable cross-walk groups that\n    are otherwise nearly identical. The term is gated on both pair sets being\n    nonempty and is ramped up so the early epochs are still dominated by the\n    maintained objective.\n\n    Measurable hypothesis: sharper separation of confusable cross-walk groups\n    yields a cleaner two-way split from the unchanged area-balanced decoder,\n    lowering the timing-weighted final cut and improving post-handoff TNS\n    (with WNS flat to slightly better) versus the parent objective.\n\n    Failure mode: a small number of outlier negative pairs can dominate the\n    batch gradient, collapsing embedding variance; the frozen decoder then\n    splits a degenerate geometry, the protected area/macro repair moves more\n    groups, and final timing degrades even while the training loss falls.\n    \"\"\"\n    sampled_term = -(\n        F.logsigmoid(positive_scores).sum()\n        + F.logsigmoid(-negative_scores).sum()\n    ) / max(1, source_batch_size)\n    pos_lse = torch.log(\n        torch.sum(torch.exp(torch.clamp(positive_scores, -20.0, 20.0))) + 1e-6\n    )\n    neg_lse = torch.log(\n        torch.sum(torch.exp(torch.clamp(negative_scores, -20.0, 20.0))) + 1e-6\n    )\n    partition_term = F.softplus(neg_lse - pos_lse)\n    pair_gate = min(1.0, float(len(positive_scores))) * min(\n        1.0, float(len(negative_scores))\n    )\n    progress = min(1.0, float(epoch) / max(1.0, float(max_epochs)))\n    partition_scale = 0.05 + 0.25 * progress\n    return sampled_term + partition_scale * pair_gate * partition_term\n\n\ndef decode_tp_gnn_embeddings(embeddings, node_areas, seed, max_iterations, balance_target):\n    \"\"\"Reproduce the frozen area-balanced global two-way decoder unchanged.\"\"\"\n    return reference_global_two_way(embeddings, node_areas, seed, max_iterations, balance_target)\n",
+        "parent_id": "1db68b580dcc9c60efff3352cc8ba2178c6de6f49e52be544319e3b6eb94c72b",
+        "search_intent": "loss_only",
+        "changed_components": {
+          "loss": "Hard-negative-focused batch partition contrastive objective. Mechanism change: keep the maintained per-pair random-walk negative sampling sum exactly, and add a batch-level log-sum-exp partition term "
+        }
+      }
+    },
+    {
+      "sequence": 10,
+      "event": {
+        "event": "submitted",
+        "request_id": "e-1c381c2c70475cc23041622f461199e9cbf7fa44f4b7f9294f8a63dc8f66",
+        "decision": {
+          "reason": "opening_control"
+        },
+        "parent_id": "1db68b580dcc9c60efff3352cc8ba2178c6de6f49e52be544319e3b6eb94c72b",
+        "search_intent": "loss_only",
+        "changed_components": {
+          "loss": "Negative sampling plus timing-weighted star-edge attraction. Change: retain the maintained random-walk negative-sampling objective, but add a normalized regularizer that raises cosine similarity along"
+        }
+      }
+    }
+  ],
+  "evaluation_event_sequence": null,
+  "verified_source_sha256": "f433e1d315395463ebe18d65c4b5d9523c9c3b0add91bfb62ece2643ec55bb05"
+}

@@ -1,0 +1,131 @@
+{
+  "diagnostic_only": true,
+  "stage": "partition_only_no_STA",
+  "candidate": "residual_decoder.py",
+  "sha256": "1200f59a352363e57c763cf4d19f0ac184748ba20c6bdfb844cae8617904b79a",
+  "seeds": [
+    {
+      "seed": 1001,
+      "trial": "20261115-161128-780305",
+      "baseline_reproduced_exactly": true,
+      "native_closure": [
+        {
+          "baseline": "accepted",
+          "cut_nets": 5877,
+          "macro_area_error": 0.04762114990647909
+        },
+        {
+          "candidate": "accepted",
+          "cut_nets": 5877,
+          "macro_area_error": 0.04762114990647909
+        }
+      ],
+      "preclosure": {
+        "instances": {
+          "count": 144224,
+          "direct": 0,
+          "flip_adjusted": 0
+        },
+        "supernodes": {
+          "count": 46942,
+          "direct": 0,
+          "flip_adjusted": 0
+        }
+      },
+      "postclosure": {
+        "instances": {
+          "count": 144224,
+          "direct": 0,
+          "flip_adjusted": 0
+        },
+        "supernodes": {
+          "count": 46942,
+          "direct": 0,
+          "flip_adjusted": 0
+        }
+      }
+    },
+    {
+      "seed": 1002,
+      "trial": "20261115-205809-358941",
+      "baseline_reproduced_exactly": true,
+      "native_closure": [
+        {
+          "baseline": "accepted",
+          "cut_nets": 5859,
+          "macro_area_error": 0.04762114990647903
+        },
+        {
+          "candidate": "accepted",
+          "cut_nets": 5861,
+          "macro_area_error": 0.04762114990647909
+        }
+      ],
+      "preclosure": {
+        "instances": {
+          "count": 144224,
+          "direct": 66478,
+          "flip_adjusted": 66478
+        },
+        "supernodes": {
+          "count": 46942,
+          "direct": 21844,
+          "flip_adjusted": 21844
+        }
+      },
+      "postclosure": {
+        "instances": {
+          "count": 144224,
+          "direct": 144223,
+          "flip_adjusted": 1
+        },
+        "supernodes": {
+          "count": 46942,
+          "direct": 46941,
+          "flip_adjusted": 1
+        }
+      }
+    },
+    {
+      "seed": 1003,
+      "trial": "20261115-213108-753693",
+      "baseline_reproduced_exactly": true,
+      "native_closure": [
+        {
+          "baseline": "accepted",
+          "cut_nets": 5873,
+          "macro_area_error": 0.04762114990647909
+        },
+        {
+          "candidate": "accepted",
+          "cut_nets": 5873,
+          "macro_area_error": 0.04762114990647909
+        }
+      ],
+      "preclosure": {
+        "instances": {
+          "count": 144224,
+          "direct": 0,
+          "flip_adjusted": 0
+        },
+        "supernodes": {
+          "count": 46942,
+          "direct": 0,
+          "flip_adjusted": 0
+        }
+      },
+      "postclosure": {
+        "instances": {
+          "count": 144224,
+          "direct": 0,
+          "flip_adjusted": 0
+        },
+        "supernodes": {
+          "count": 46942,
+          "direct": 0,
+          "flip_adjusted": 0
+        }
+      }
+    }
+  ]
+}

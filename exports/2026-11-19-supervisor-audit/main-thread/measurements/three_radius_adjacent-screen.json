@@ -1,0 +1,17 @@
+{
+  "scope": "local paired training probes",
+  "parent_sha256": "9d0da5bc9726e99d1db300b0dd2d1faa3293c10e4595dd8ff46112ab8e8d83d4",
+  "candidate_sha256": "1c595a35714fe3e855f09299ce6014b11d19cec884eab0ef17c26a6a4f334a99",
+  "parent_full_score": 39.68092703127543,
+  "probes": [
+    {
+      "cell": "bp_fe-ng45/1003",
+      "candidate_score": 43.06675459825541,
+      "parent_score": 51.50987592410557,
+      "change": -8.443121325850164,
+      "receipt": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261119-125845-751566/evaluation/evaluation_result.json"
+    }
+  ],
+  "mean_probe_change": -8.443121325850164,
+  "promoted": false
+}

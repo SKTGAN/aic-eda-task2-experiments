@@ -1,0 +1,403 @@
+{
+  "kind": "retrospective_only",
+  "new_candidate_measured_here": false,
+  "timing_endpoint": "post-opt-pre-cts",
+  "units": "WNS and TNS in ns; larger (less negative) is better. Deltas are child minus actual parent for 15332, candidate minus each recorded local initial for local diagnostics. Scores in points.",
+  "scope": "Each observation is one cell evaluation at that seed, not an independent rerun at the same seed or a repeated run of the complete harness. Scores are not pooled across environments. The official published timing reference is not the parent in R2->R3/4.",
+  "source_archive": "exports/2026-11-18-claude-review/claude-three-server-harness-review-en.zip",
+  "archive_sha256": "91f8c9158413aa6e9e065012a683418822d4e60bb630d08ece6f8b12fc158018",
+  "native_runs": [
+    {
+      "server_port": 15332,
+      "comparison": "R2->R3",
+      "parent_id": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9",
+      "child_id": "6d3bf02a6b2289083dcaaa37bf2846486ee480d0990e54b25dd310f3b0e2a7fa",
+      "changed_component": [
+        "loss"
+      ],
+      "changed_mechanism": "R3 retains the R2 timing-weighted edge loss and official decoder; adjusts edge weights using endpoint timing coverage and worst slack.",
+      "case_mean_scores": {
+        "bp-ng45": {
+          "parent": -15.494183101600859,
+          "child": -13.824413574965206,
+          "delta": 1.669769526635653,
+          "wins_ties_losses": [
+            3,
+            0,
+            0
+          ]
+        },
+        "bp_fe-ng45": {
+          "parent": 48.74857761933298,
+          "child": 43.83879744687436,
+          "delta": -4.909780172458618,
+          "wins_ties_losses": [
+            1,
+            0,
+            2
+          ]
+        },
+        "ariane133-ng45": {
+          "parent": 55.02884401471974,
+          "child": 44.591212070055235,
+          "delta": -10.437631944664503,
+          "wins_ties_losses": [
+            0,
+            0,
+            3
+          ]
+        }
+      },
+      "all_nine": {
+        "parent": 29.427746177483954,
+        "child": 24.868531980654797,
+        "delta": -4.559214196829156
+      },
+      "bp_cells": [
+        {
+          "seed": "1001",
+          "instance_count": 144224,
+          "parent": {
+            "wns_ns": -7.825090130683246,
+            "tns_ns": -8746.727209646417,
+            "score": -15.3717471846955,
+            "instances_different_vs_official_initial": 23,
+            "instances_different_vs_official_initial_modulo_whole_tier_flip": 23,
+            "raw_member": "claude-original/raw/evaluations/e-b6617f1892d2d253855621797dc6771e30361e8405fcdf7aa3265b3bf4d4/cells/bp-ng45/1001/result/evaluation_result.json"
+          },
+          "child": {
+            "wns_ns": -7.834658477069286,
+            "tns_ns": -8491.905886391542,
+            "score": -13.107338335886817,
+            "instances_different_vs_official_initial": 42,
+            "instances_different_vs_official_initial_modulo_whole_tier_flip": 42,
+            "raw_member": "claude-original/raw/evaluations/e-a83b78148bfc57361789831465ca5ce5d76f43e9e4859959f69b6c7ad6ef/cells/bp-ng45/1001/result/evaluation_result.json"
+          },
+          "delta": {
+            "wns_ns": -0.009568346386040538,
+            "tns_ns": 254.8213232548751,
+            "score": 2.2644088488086833
+          },
+          "lower_bound_instances_different_from_parent": 19,
+          "direct_parent_child_instancewise_diff": null
+        },
+        {
+          "seed": "1002",
+          "instance_count": 144224,
+          "parent": {
+            "wns_ns": -7.861230111602953,
+            "tns_ns": -10313.701132616256,
+            "score": -29.734817591286287,
+            "instances_different_vs_official_initial": 23,
+            "instances_different_vs_official_initial_modulo_whole_tier_flip": 23,
+            "raw_member": "claude-original/raw/evaluations/e-b6617f1892d2d253855621797dc6771e30361e8405fcdf7aa3265b3bf4d4/cells/bp-ng45/1002/result/evaluation_result.json"
+          },
+          "child": {
+            "wns_ns": -7.825109670609032,
+            "tns_ns": -10213.3165615637,
+            "score": -28.65859682937049,
+            "instances_different_vs_official_initial": 30,
+            "instances_different_vs_official_initial_modulo_whole_tier_flip": 30,
+            "raw_member": "claude-original/raw/evaluations/e-a83b78148bfc57361789831465ca5ce5d76f43e9e4859959f69b6c7ad6ef/cells/bp-ng45/1002/result/evaluation_result.json"
+          },
+          "delta": {
+            "wns_ns": 0.036120440993920866,
+            "tns_ns": 100.38457105255475,
+            "score": 1.0762207619157955
+          },
+          "lower_bound_instances_different_from_parent": 7,
+          "direct_parent_child_instancewise_diff": null
+        },
+        {
+          "seed": "1003",
+          "instance_count": 144224,
+          "parent": {
+            "wns_ns": -7.93139532056525,
+            "tns_ns": -7147.700873490194,
+            "score": -1.3759845288207875,
+            "instances_different_vs_official_initial": 34,
+            "instances_different_vs_official_initial_modulo_whole_tier_flip": 34,
+            "raw_member": "claude-original/raw/evaluations/e-b6617f1892d2d253855621797dc6771e30361e8405fcdf7aa3265b3bf4d4/cells/bp-ng45/1003/result/evaluation_result.json"
+          },
+          "child": {
+            "wns_ns": -7.9494191257459725,
+            "tns_ns": -6954.326833014347,
+            "score": 0.2926944403616922,
+            "instances_different_vs_official_initial": 24,
+            "instances_different_vs_official_initial_modulo_whole_tier_flip": 24,
+            "raw_member": "claude-original/raw/evaluations/e-a83b78148bfc57361789831465ca5ce5d76f43e9e4859959f69b6c7ad6ef/cells/bp-ng45/1003/result/evaluation_result.json"
+          },
+          "delta": {
+            "wns_ns": -0.01802380518072244,
+            "tns_ns": 193.3740404758464,
+            "score": 1.6686789691824797
+          },
+          "lower_bound_instances_different_from_parent": 10,
+          "direct_parent_child_instancewise_diff": null
+        }
+      ],
+      "source_members": [
+        "claude-original/training-cells.csv",
+        "claude-original/rounds/round-02.json",
+        "claude-original/rounds/round-03.json",
+        "claude-original/programs/round-02.py",
+        "claude-original/programs/round-03.py"
+      ]
+    },
+    {
+      "server_port": 15332,
+      "comparison": "R2->R4",
+      "parent_id": "9fae09f57b95c03259e71450d86f242bd4ff63ba9646d529d0a519e7d1c478c9",
+      "child_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+      "changed_component": [
+        "decoder"
+      ],
+      "changed_mechanism": "R4 retains the R2 loss; replaces the frozen decoder with custom seeded area-balanced two-means.",
+      "case_mean_scores": {
+        "bp-ng45": {
+          "parent": -15.494183101600859,
+          "child": -21.998026416104683,
+          "delta": -6.503843314503824,
+          "wins_ties_losses": [
+            0,
+            2,
+            1
+          ]
+        },
+        "bp_fe-ng45": {
+          "parent": 48.74857761933298,
+          "child": 55.31762687278072,
+          "delta": 6.569049253447744,
+          "wins_ties_losses": [
+            2,
+            1,
+            0
+          ]
+        },
+        "ariane133-ng45": {
+          "parent": 55.02884401471974,
+          "child": 70.9453869667374,
+          "delta": 15.916542952017664,
+          "wins_ties_losses": [
+            1,
+            2,
+            0
+          ]
+        }
+      },
+      "all_nine": {
+        "parent": 29.427746177483954,
+        "child": 34.75499580780448,
+        "delta": 5.327249630320523
+      },
+      "bp_cells": [
+        {
+          "seed": "1001",
+          "instance_count": 144224,
+          "parent": {
+            "wns_ns": -7.825090130683246,
+            "tns_ns": -8746.727209646417,
+            "score": -15.3717471846955,
+            "instances_different_vs_official_initial": 23,
+            "instances_different_vs_official_initial_modulo_whole_tier_flip": 23,
+            "raw_member": "claude-original/raw/evaluations/e-b6617f1892d2d253855621797dc6771e30361e8405fcdf7aa3265b3bf4d4/cells/bp-ng45/1001/result/evaluation_result.json"
+          },
+          "child": {
+            "wns_ns": -7.825090130683246,
+            "tns_ns": -8746.727209646417,
+            "score": -15.3717471846955,
+            "instances_different_vs_official_initial": 23,
+            "instances_different_vs_official_initial_modulo_whole_tier_flip": 23,
+            "raw_member": "claude-original/raw/evaluations/e-785401a4543c65fd9c9deeea8b8fb40283e10e2b78b1e255f73d6be7d0af/cells/bp-ng45/1001/result/evaluation_result.json"
+          },
+          "delta": {
+            "wns_ns": 0.0,
+            "tns_ns": 0.0,
+            "score": 0.0
+          },
+          "lower_bound_instances_different_from_parent": 0,
+          "direct_parent_child_instancewise_diff": null
+        },
+        {
+          "seed": "1002",
+          "instance_count": 144224,
+          "parent": {
+            "wns_ns": -7.861230111602953,
+            "tns_ns": -10313.701132616256,
+            "score": -29.734817591286287,
+            "instances_different_vs_official_initial": 23,
+            "instances_different_vs_official_initial_modulo_whole_tier_flip": 23,
+            "raw_member": "claude-original/raw/evaluations/e-b6617f1892d2d253855621797dc6771e30361e8405fcdf7aa3265b3bf4d4/cells/bp-ng45/1002/result/evaluation_result.json"
+          },
+          "child": {
+            "wns_ns": -7.8255883987907895,
+            "tns_ns": -12485.543619054048,
+            "score": -49.246347534797756,
+            "instances_different_vs_official_initial": 144200,
+            "instances_different_vs_official_initial_modulo_whole_tier_flip": 24,
+            "raw_member": "claude-original/raw/evaluations/e-785401a4543c65fd9c9deeea8b8fb40283e10e2b78b1e255f73d6be7d0af/cells/bp-ng45/1002/result/evaluation_result.json"
+          },
+          "delta": {
+            "wns_ns": 0.03564171281216311,
+            "tns_ns": -2171.842486437792,
+            "score": -19.51152994351147
+          },
+          "lower_bound_instances_different_from_parent": 144177,
+          "direct_parent_child_instancewise_diff": null
+        },
+        {
+          "seed": "1003",
+          "instance_count": 144224,
+          "parent": {
+            "wns_ns": -7.93139532056525,
+            "tns_ns": -7147.700873490194,
+            "score": -1.3759845288207875,
+            "instances_different_vs_official_initial": 34,
+            "instances_different_vs_official_initial_modulo_whole_tier_flip": 34,
+            "raw_member": "claude-original/raw/evaluations/e-b6617f1892d2d253855621797dc6771e30361e8405fcdf7aa3265b3bf4d4/cells/bp-ng45/1003/result/evaluation_result.json"
+          },
+          "child": {
+            "wns_ns": -7.93139532056525,
+            "tns_ns": -7147.700873490194,
+            "score": -1.3759845288207875,
+            "instances_different_vs_official_initial": 34,
+            "instances_different_vs_official_initial_modulo_whole_tier_flip": 34,
+            "raw_member": "claude-original/raw/evaluations/e-785401a4543c65fd9c9deeea8b8fb40283e10e2b78b1e255f73d6be7d0af/cells/bp-ng45/1003/result/evaluation_result.json"
+          },
+          "delta": {
+            "wns_ns": 0.0,
+            "tns_ns": 0.0,
+            "score": 0.0
+          },
+          "lower_bound_instances_different_from_parent": 0,
+          "direct_parent_child_instancewise_diff": null
+        }
+      ],
+      "source_members": [
+        "claude-original/training-cells.csv",
+        "claude-original/rounds/round-02.json",
+        "claude-original/rounds/round-04.json",
+        "claude-original/programs/round-02.py",
+        "claude-original/programs/round-04.py"
+      ]
+    }
+  ],
+  "assignment_note": "Native changed_count is versus the frozen initial assignment, not the immediate parent. For two candidates A and B, abs(d(A,I)-d(B,I)) is a lower bound on d(A,B) for the same instance population; a different count certifies that the observed partitions differ. Equal counts do not certify equal partitions. min(d(I,X),N-d(I,X)) is an orientation-independent comparison to I, not a physical equivalence.",
+  "local_history": [
+    {
+      "mechanism": "hard_negative",
+      "cells": [
+        {
+          "seed": 1001,
+          "source": "official/contest-work/bp-ng45-1001-hard-negative-comparison.json",
+          "initial": {
+            "final_global_wns_setup_ns": -7.874022545743688,
+            "final_global_tns_setup_ns": -11323.949686023368,
+            "common_reference_score": -38.94636203516812
+          },
+          "candidate": {
+            "final_global_wns_setup_ns": -7.855246453420203,
+            "final_global_tns_setup_ns": -8732.71371488517,
+            "common_reference_score": -15.384026367468278
+          },
+          "delta": {
+            "final_global_wns_setup_ns": 0.01877609232348476,
+            "final_global_tns_setup_ns": 2591.235971138198,
+            "common_reference_score": 23.56233566769984
+          },
+          "candidate_sha256": "7d927e1f9fbbb0aa35c73a2d7104caa6652c3444d028ac6500c7e8a55d7e1856",
+          "formal_evaluation": false
+        },
+        {
+          "seed": 1002,
+          "source": "official/contest-work/bp-ng45-1002-hard-negative-comparison.json",
+          "initial": {
+            "final_global_wns_setup_ns": -7.885057274742126,
+            "final_global_tns_setup_ns": -10297.035551229634,
+            "common_reference_score": -29.693847162691327
+          },
+          "candidate": {
+            "final_global_wns_setup_ns": -7.839205950706763,
+            "final_global_tns_setup_ns": -10219.483845310846,
+            "common_reference_score": -28.779554797431
+          },
+          "delta": {
+            "final_global_wns_setup_ns": 0.04585132403536285,
+            "final_global_tns_setup_ns": 77.55170591878777,
+            "common_reference_score": 0.9142923652603265
+          },
+          "candidate_sha256": "7d927e1f9fbbb0aa35c73a2d7104caa6652c3444d028ac6500c7e8a55d7e1856",
+          "formal_evaluation": false
+        },
+        {
+          "seed": 1003,
+          "source": "official/contest-work/bp-ng45-1003-hard-negative-comparison.json",
+          "initial": {
+            "final_global_wns_setup_ns": -7.9953201877742455,
+            "final_global_tns_setup_ns": -8294.213564949547,
+            "common_reference_score": -12.058118026902
+          },
+          "candidate": {
+            "final_global_wns_setup_ns": -7.86591791743471,
+            "final_global_tns_setup_ns": -9231.862611229084,
+            "common_reference_score": -19.955403303035265
+          },
+          "delta": {
+            "final_global_wns_setup_ns": 0.12940227033953544,
+            "final_global_tns_setup_ns": -937.6490462795373,
+            "common_reference_score": -7.897285276133266
+          },
+          "candidate_sha256": "7d927e1f9fbbb0aa35c73a2d7104caa6652c3444d028ac6500c7e8a55d7e1856",
+          "formal_evaluation": false
+        }
+      ]
+    },
+    {
+      "mechanism": "flip",
+      "cells": [
+        {
+          "seed": 1002,
+          "source": "exports/2026-11-17-local-followup/flip-bp-ng45-1002.json",
+          "initial": {
+            "final_global_wns_setup_ns": -7.885057274742126,
+            "final_global_tns_setup_ns": -10297.035551229634,
+            "common_reference_score": -29.693847162691327
+          },
+          "candidate": {
+            "final_global_wns_setup_ns": -7.82925213487567,
+            "final_global_tns_setup_ns": -13019.553448302851,
+            "common_reference_score": -54.10119594877884
+          },
+          "delta": {
+            "final_global_wns_setup_ns": 0.05580513986645563,
+            "final_global_tns_setup_ns": -2722.5178970732177,
+            "common_reference_score": -24.40734878608751
+          },
+          "candidate_sha256": "3fd5901bbc0baf68d05de6d85521557d54c10cb43dfeb0191333a117ba6e7e59",
+          "formal_evaluation": false
+        },
+        {
+          "seed": 1003,
+          "source": "exports/2026-11-17-local-followup/flip-bp-ng45-1003.json",
+          "initial": {
+            "final_global_wns_setup_ns": -7.9953201877742455,
+            "final_global_tns_setup_ns": -8294.213564949547,
+            "common_reference_score": -12.058118026902
+          },
+          "candidate": {
+            "final_global_wns_setup_ns": -7.832290593335397,
+            "final_global_tns_setup_ns": -7503.955415218427,
+            "common_reference_score": -4.145938024791429
+          },
+          "delta": {
+            "final_global_wns_setup_ns": 0.16302959443884824,
+            "final_global_tns_setup_ns": 790.2581497311194,
+            "common_reference_score": 7.912180002110571
+          },
+          "candidate_sha256": "3fd5901bbc0baf68d05de6d85521557d54c10cb43dfeb0191333a117ba6e7e59",
+          "formal_evaluation": false
+        }
+      ]
+    }
+  ]
+}

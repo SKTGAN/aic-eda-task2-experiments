@@ -1,0 +1,221 @@
+-------------------------------------------------------------------------------->8
+[2026-05-15T06:15:04.813103500Z] Starting daemon at \\.\pipe\docker_sandboxes_sandboxd (Ctrl+C to stop)...
+[2026-05-15T06:15:04.832488100Z] {"time":"2026-05-15T14:15:04.8145236+08:00","level":"INFO","msg":"starting sandboxd","version":"v0.12.0 f13b3c1a96a8be40b06473bb3db0c26dbfe1878c"}
+[2026-05-15T06:15:04.834061700Z] {"time":"2026-05-15T14:15:04.8340617+08:00","level":"INFO","msg":"created secrets store for credential management"}
+[2026-05-15T06:15:04.834061700Z] {"time":"2026-05-15T14:15:04.8340617+08:00","level":"INFO","msg":"vm registry initialized","discovered_vms":0}
+[2026-05-15T06:15:04.835097200Z] {"time":"2026-05-15T14:15:04.8345784+08:00","level":"INFO","msg":"starting api server","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+[2026-05-15T06:15:04.835097200Z] {"time":"2026-05-15T14:15:04.8345784+08:00","level":"INFO","msg":"secrets engine starting up..."}
+[2026-05-15T06:15:04.835631200Z] {"time":"2026-05-15T14:15:04.8350972+08:00","level":"INFO","msg":"registering public route: /health"}
+[2026-05-15T06:15:04.835631200Z] {"time":"2026-05-15T14:15:04.8356312+08:00","level":"INFO","msg":"registering public route: /resolver.v1.ListService/"}
+[2026-05-15T06:15:04.835631200Z] {"time":"2026-05-15T14:15:04.8356312+08:00","level":"INFO","msg":"starting server","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+[2026-05-15T06:15:04.836158000Z] {"time":"2026-05-15T14:15:04.836158+08:00","level":"INFO","msg":"registering protected route: /resolver.v1.ResolverService/"}
+[2026-05-15T06:15:04.836158000Z] {"time":"2026-05-15T14:15:04.836158+08:00","level":"INFO","msg":"secrets engine ready"}
+[2026-05-15T06:15:04.836675700Z] {"time":"2026-05-15T14:15:04.836158+08:00","level":"INFO","msg":"VM monitor started","idle_timeout":1800000000000,"max_running_vms":3}
+[2026-05-15T06:15:05.334424200Z] {"time":"2026-05-15T14:15:05.3344242+08:00","level":"INFO","msg":"api server started successfully","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+-------------------------------------------------------------------------------->8
+[2026-06-08T03:11:08.186300700Z] Starting daemon at \\.\pipe\docker_sandboxes_sandboxd (Ctrl+C to stop)...
+[2026-06-08T03:11:08.203056500Z] {"time":"2026-06-08T11:11:08.1873597+08:00","level":"INFO","msg":"starting sandboxd","version":"v0.12.0 f13b3c1a96a8be40b06473bb3db0c26dbfe1878c"}
+[2026-06-08T03:11:08.204106500Z] {"time":"2026-06-08T11:11:08.2041065+08:00","level":"INFO","msg":"created secrets store for credential management"}
+[2026-06-08T03:11:08.204620300Z] {"time":"2026-06-08T11:11:08.2046203+08:00","level":"INFO","msg":"vm registry initialized","discovered_vms":0}
+[2026-06-08T03:11:08.205139100Z] {"time":"2026-06-08T11:11:08.2046203+08:00","level":"INFO","msg":"starting api server","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+[2026-06-08T03:11:08.205665400Z] {"time":"2026-06-08T11:11:08.2046203+08:00","level":"INFO","msg":"secrets engine starting up..."}
+[2026-06-08T03:11:08.205665400Z] {"time":"2026-06-08T11:11:08.2056654+08:00","level":"INFO","msg":"registering public route: /health"}
+[2026-06-08T03:11:08.206285200Z] {"time":"2026-06-08T11:11:08.2062852+08:00","level":"INFO","msg":"registering public route: /resolver.v1.ListService/"}
+[2026-06-08T03:11:08.206285200Z] {"time":"2026-06-08T11:11:08.2062852+08:00","level":"INFO","msg":"starting server","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+[2026-06-08T03:11:08.206285200Z] {"time":"2026-06-08T11:11:08.2062852+08:00","level":"INFO","msg":"registering protected route: /resolver.v1.ResolverService/"}
+[2026-06-08T03:11:08.206790000Z] {"time":"2026-06-08T11:11:08.20679+08:00","level":"INFO","msg":"secrets engine ready"}
+[2026-06-08T03:11:08.207313200Z] {"time":"2026-06-08T11:11:08.20679+08:00","level":"INFO","msg":"VM monitor started","idle_timeout":1800000000000,"max_running_vms":3}
+[2026-06-08T03:11:08.705093900Z] {"time":"2026-06-08T11:11:08.7050188+08:00","level":"INFO","msg":"api server started successfully","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+-------------------------------------------------------------------------------->8
+[2026-06-08T04:31:22.801814200Z] Starting daemon at \\.\pipe\docker_sandboxes_sandboxd (Ctrl+C to stop)...
+[2026-06-08T04:31:22.843545700Z] {"time":"2026-06-08T12:31:22.8018142+08:00","level":"INFO","msg":"starting sandboxd","version":"v0.12.0 f13b3c1a96a8be40b06473bb3db0c26dbfe1878c"}
+[2026-06-08T04:31:22.844100800Z] {"time":"2026-06-08T12:31:22.8435457+08:00","level":"INFO","msg":"created secrets store for credential management"}
+[2026-06-08T04:31:22.844100800Z] {"time":"2026-06-08T12:31:22.8435457+08:00","level":"INFO","msg":"vm registry initialized","discovered_vms":0}
+[2026-06-08T04:31:22.844100800Z] {"time":"2026-06-08T12:31:22.8441008+08:00","level":"INFO","msg":"starting api server","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+[2026-06-08T04:31:22.844100800Z] {"time":"2026-06-08T12:31:22.8441008+08:00","level":"INFO","msg":"secrets engine starting up..."}
+[2026-06-08T04:31:22.844100800Z] {"time":"2026-06-08T12:31:22.8441008+08:00","level":"INFO","msg":"registering public route: /health"}
+[2026-06-08T04:31:22.844643600Z] {"time":"2026-06-08T12:31:22.8441008+08:00","level":"INFO","msg":"starting server","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+[2026-06-08T04:31:22.844643600Z] {"time":"2026-06-08T12:31:22.8441008+08:00","level":"INFO","msg":"registering public route: /resolver.v1.ListService/"}
+[2026-06-08T04:31:22.844643600Z] {"time":"2026-06-08T12:31:22.8446436+08:00","level":"INFO","msg":"registering protected route: /resolver.v1.ResolverService/"}
+[2026-06-08T04:31:22.844643600Z] {"time":"2026-06-08T12:31:22.8446436+08:00","level":"INFO","msg":"secrets engine ready"}
+[2026-06-08T04:31:22.844643600Z] {"time":"2026-06-08T12:31:22.8446436+08:00","level":"INFO","msg":"VM monitor started","idle_timeout":1800000000000,"max_running_vms":3}
+[2026-06-08T04:31:23.344677600Z] {"time":"2026-06-08T12:31:23.3444969+08:00","level":"INFO","msg":"api server started successfully","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+-------------------------------------------------------------------------------->8
+[2026-07-08T11:36:00.323834200Z] Starting daemon at \\.\pipe\docker_sandboxes_sandboxd (Ctrl+C to stop)...
+[2026-07-08T11:36:00.345541500Z] {"time":"2026-07-08T19:36:00.3254242+08:00","level":"INFO","msg":"starting sandboxd","version":"v0.12.0 f13b3c1a96a8be40b06473bb3db0c26dbfe1878c"}
+[2026-07-08T11:36:00.348724300Z] {"time":"2026-07-08T19:36:00.3487243+08:00","level":"INFO","msg":"created secrets store for credential management"}
+[2026-07-08T11:36:00.349255600Z] {"time":"2026-07-08T19:36:00.3492556+08:00","level":"INFO","msg":"vm registry initialized","discovered_vms":0}
+[2026-07-08T11:36:00.350320300Z] {"time":"2026-07-08T19:36:00.3497885+08:00","level":"INFO","msg":"starting api server","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+[2026-07-08T11:36:00.351404000Z] {"time":"2026-07-08T19:36:00.3497885+08:00","level":"INFO","msg":"secrets engine starting up..."}
+[2026-07-08T11:36:00.351404000Z] {"time":"2026-07-08T19:36:00.351404+08:00","level":"INFO","msg":"starting server","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+[2026-07-08T11:36:00.351928300Z] {"time":"2026-07-08T19:36:00.3519283+08:00","level":"INFO","msg":"registering public route: /health"}
+[2026-07-08T11:36:00.352464900Z] {"time":"2026-07-08T19:36:00.3524649+08:00","level":"INFO","msg":"registering public route: /resolver.v1.ListService/"}
+[2026-07-08T11:36:00.352464900Z] {"time":"2026-07-08T19:36:00.3524649+08:00","level":"INFO","msg":"registering protected route: /resolver.v1.ResolverService/"}
+[2026-07-08T11:36:00.352464900Z] {"time":"2026-07-08T19:36:00.3524649+08:00","level":"INFO","msg":"VM monitor started","idle_timeout":1800000000000,"max_running_vms":3}
+[2026-07-08T11:36:00.352983100Z] {"time":"2026-07-08T19:36:00.3529831+08:00","level":"INFO","msg":"secrets engine ready"}
+[2026-07-08T11:36:00.849964200Z] {"time":"2026-07-08T19:36:00.8498605+08:00","level":"INFO","msg":"api server started successfully","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+-------------------------------------------------------------------------------->8
+[2026-07-17T03:45:29.557441500Z] Starting daemon at \\.\pipe\docker_sandboxes_sandboxd (Ctrl+C to stop)...
+[2026-07-17T03:45:29.579885800Z] {"time":"2026-07-17T11:45:29.5590182+08:00","level":"INFO","msg":"starting sandboxd","version":"v0.12.0 f13b3c1a96a8be40b06473bb3db0c26dbfe1878c"}
+[2026-07-17T03:45:29.582923400Z] {"time":"2026-07-17T11:45:29.5829234+08:00","level":"INFO","msg":"created secrets store for credential management"}
+[2026-07-17T03:45:29.583455500Z] {"time":"2026-07-17T11:45:29.5829234+08:00","level":"INFO","msg":"vm registry initialized","discovered_vms":0}
+[2026-07-17T03:45:29.584529200Z] {"time":"2026-07-17T11:45:29.5834555+08:00","level":"INFO","msg":"starting api server","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+[2026-07-17T03:45:29.584529200Z] {"time":"2026-07-17T11:45:29.5839915+08:00","level":"INFO","msg":"secrets engine starting up..."}
+[2026-07-17T03:45:29.585057300Z] {"time":"2026-07-17T11:45:29.5850573+08:00","level":"INFO","msg":"starting server","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+[2026-07-17T03:45:29.585585800Z] {"time":"2026-07-17T11:45:29.5855858+08:00","level":"INFO","msg":"registering public route: /health"}
+[2026-07-17T03:45:29.585585800Z] {"time":"2026-07-17T11:45:29.5855858+08:00","level":"INFO","msg":"registering public route: /resolver.v1.ListService/"}
+[2026-07-17T03:45:29.586110700Z] {"time":"2026-07-17T11:45:29.5861107+08:00","level":"INFO","msg":"registering protected route: /resolver.v1.ResolverService/"}
+[2026-07-17T03:45:29.586110700Z] {"time":"2026-07-17T11:45:29.5861107+08:00","level":"INFO","msg":"VM monitor started","idle_timeout":1800000000000,"max_running_vms":3}
+[2026-07-17T03:45:29.586110700Z] {"time":"2026-07-17T11:45:29.5861107+08:00","level":"INFO","msg":"secrets engine ready"}
+[2026-07-17T03:45:30.083825400Z] {"time":"2026-07-17T11:45:30.0838254+08:00","level":"INFO","msg":"api server started successfully","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+-------------------------------------------------------------------------------->8
+[2026-07-17T03:49:11.941931700Z] Usage:  docker [OPTIONS] COMMAND
+[2026-07-17T03:49:11.943003700Z] 
+[2026-07-17T03:49:11.943003700Z] docker-sandbox is a Docker CLI plugin
+[2026-07-17T03:49:11.943003700Z] 
+[2026-07-17T03:49:11.943003700Z] Management Commands:
+[2026-07-17T03:49:11.943003700Z]   sandbox                    Docker Sandbox
+[2026-07-17T03:49:11.943003700Z] 
+[2026-07-17T03:49:11.943003700Z] Global Options:
+[2026-07-17T03:49:11.943003700Z]       --config string      Location of client config files (default
+[2026-07-17T03:49:11.943003700Z]                            "C:\\Users\\A\\.docker")
+[2026-07-17T03:49:11.943003700Z]   -c, --context string     Name of the context to use to connect to the
+[2026-07-17T03:49:11.943003700Z]                            daemon (overrides DOCKER_HOST env var and
+[2026-07-17T03:49:11.943003700Z]                            default context set with "docker context use")
+[2026-07-17T03:49:11.943003700Z]   -D, --debug              Enable debug mode
+[2026-07-17T03:49:11.943003700Z]   -H, --host string        Daemon socket to connect to
+[2026-07-17T03:49:11.943003700Z]   -l, --log-level string   Set the logging level ("debug", "info",
+[2026-07-17T03:49:11.943548200Z]                            "warn", "error", "fatal") (default "info")
+[2026-07-17T03:49:11.943548200Z]       --tls                Use TLS; implied by --tlsverify
+[2026-07-17T03:49:11.943548200Z]       --tlscacert string   Trust certs signed only by this CA (default
+[2026-07-17T03:49:11.943548200Z]                            "C:\\Users\\A\\.docker\\ca.pem")
+[2026-07-17T03:49:11.943548200Z]       --tlscert string     Path to TLS certificate file (default
+[2026-07-17T03:49:11.943548200Z]                            "C:\\Users\\A\\.docker\\cert.pem")
+[2026-07-17T03:49:11.943548200Z]       --tlskey string      Path to TLS key file (default
+[2026-07-17T03:49:11.943548200Z]                            "C:\\Users\\A\\.docker\\key.pem")
+[2026-07-17T03:49:11.943548200Z]       --tlsverify          Use TLS and verify the remote
+[2026-07-17T03:49:11.944087700Z] 
+[2026-07-17T03:49:11.944087700Z] Run 'docker COMMAND --help' for more information on a command.
+[2026-07-17T03:49:11.944087700Z] 
+[2026-07-17T03:49:11.944087700Z] For more help on how to use Docker, head to https://docs.docker.com/go/guides/
+-------------------------------------------------------------------------------->8
+[2026-07-19T10:17:25.701817900Z] Starting daemon at \\.\pipe\docker_sandboxes_sandboxd (Ctrl+C to stop)...
+[2026-07-19T10:17:25.720266200Z] {"time":"2026-07-19T18:17:25.7029412+08:00","level":"INFO","msg":"starting sandboxd","version":"v0.12.0 f13b3c1a96a8be40b06473bb3db0c26dbfe1878c"}
+[2026-07-19T10:17:25.721831300Z] {"time":"2026-07-19T18:17:25.7218313+08:00","level":"INFO","msg":"created secrets store for credential management"}
+[2026-07-19T10:17:25.721831300Z] {"time":"2026-07-19T18:17:25.7218313+08:00","level":"INFO","msg":"vm registry initialized","discovered_vms":0}
+[2026-07-19T10:17:25.722888200Z] {"time":"2026-07-19T18:17:25.7223697+08:00","level":"INFO","msg":"starting api server","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+[2026-07-19T10:17:25.723410600Z] {"time":"2026-07-19T18:17:25.7223697+08:00","level":"INFO","msg":"secrets engine starting up..."}
+[2026-07-19T10:17:25.723410600Z] {"time":"2026-07-19T18:17:25.7234106+08:00","level":"INFO","msg":"registering public route: /health"}
+[2026-07-19T10:17:25.723410600Z] {"time":"2026-07-19T18:17:25.7234106+08:00","level":"INFO","msg":"registering public route: /resolver.v1.ListService/"}
+[2026-07-19T10:17:25.723933500Z] {"time":"2026-07-19T18:17:25.7239335+08:00","level":"INFO","msg":"starting server","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+[2026-07-19T10:17:25.723933500Z] {"time":"2026-07-19T18:17:25.7239335+08:00","level":"INFO","msg":"registering protected route: /resolver.v1.ResolverService/"}
+[2026-07-19T10:17:25.723933500Z] {"time":"2026-07-19T18:17:25.7239335+08:00","level":"INFO","msg":"secrets engine ready"}
+[2026-07-19T10:17:25.724449000Z] {"time":"2026-07-19T18:17:25.724449+08:00","level":"INFO","msg":"VM monitor started","idle_timeout":1800000000000,"max_running_vms":3}
+[2026-07-19T10:17:26.221960600Z] {"time":"2026-07-19T18:17:26.2218937+08:00","level":"INFO","msg":"api server started successfully","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+-------------------------------------------------------------------------------->8
+[2026-07-22T03:37:44.172710700Z] Starting daemon at \\.\pipe\docker_sandboxes_sandboxd (Ctrl+C to stop)...
+[2026-07-22T03:37:44.192801100Z] {"time":"2026-07-22T11:37:44.1743157+08:00","level":"INFO","msg":"starting sandboxd","version":"v0.12.0 f13b3c1a96a8be40b06473bb3db0c26dbfe1878c"}
+[2026-07-22T03:37:44.194935500Z] {"time":"2026-07-22T11:37:44.1943968+08:00","level":"INFO","msg":"created secrets store for credential management"}
+[2026-07-22T03:37:44.194935500Z] {"time":"2026-07-22T11:37:44.1949355+08:00","level":"INFO","msg":"vm registry initialized","discovered_vms":0}
+[2026-07-22T03:37:44.195471600Z] {"time":"2026-07-22T11:37:44.1949355+08:00","level":"INFO","msg":"starting api server","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+[2026-07-22T03:37:44.196005500Z] {"time":"2026-07-22T11:37:44.1949355+08:00","level":"INFO","msg":"secrets engine starting up..."}
+[2026-07-22T03:37:44.196005500Z] {"time":"2026-07-22T11:37:44.1960055+08:00","level":"INFO","msg":"registering public route: /health"}
+[2026-07-22T03:37:44.196538700Z] {"time":"2026-07-22T11:37:44.1965387+08:00","level":"INFO","msg":"registering public route: /resolver.v1.ListService/"}
+[2026-07-22T03:37:44.196538700Z] {"time":"2026-07-22T11:37:44.1965387+08:00","level":"INFO","msg":"starting server","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+[2026-07-22T03:37:44.197064500Z] {"time":"2026-07-22T11:37:44.1970645+08:00","level":"INFO","msg":"registering protected route: /resolver.v1.ResolverService/"}
+[2026-07-22T03:37:44.197064500Z] {"time":"2026-07-22T11:37:44.1970645+08:00","level":"INFO","msg":"secrets engine ready"}
+[2026-07-22T03:37:44.198148900Z] {"time":"2026-07-22T11:37:44.1976048+08:00","level":"INFO","msg":"VM monitor started","idle_timeout":1800000000000,"max_running_vms":3}
+[2026-07-22T03:37:44.695335900Z] {"time":"2026-07-22T11:37:44.6952296+08:00","level":"INFO","msg":"api server started successfully","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+-------------------------------------------------------------------------------->8
+[2026-07-25T18:16:46.609823000Z] Starting daemon at \\.\pipe\docker_sandboxes_sandboxd (Ctrl+C to stop)...
+[2026-07-25T18:16:46.628983800Z] {"time":"2026-07-26T02:16:46.6108732+08:00","level":"INFO","msg":"starting sandboxd","version":"v0.12.0 f13b3c1a96a8be40b06473bb3db0c26dbfe1878c"}
+[2026-07-25T18:16:46.630905800Z] {"time":"2026-07-26T02:16:46.6309058+08:00","level":"INFO","msg":"created secrets store for credential management"}
+[2026-07-25T18:16:46.630905800Z] {"time":"2026-07-26T02:16:46.6309058+08:00","level":"INFO","msg":"vm registry initialized","discovered_vms":0}
+[2026-07-25T18:16:46.631971800Z] {"time":"2026-07-26T02:16:46.6309058+08:00","level":"INFO","msg":"starting api server","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+[2026-07-25T18:16:46.632489500Z] {"time":"2026-07-26T02:16:46.631439+08:00","level":"INFO","msg":"secrets engine starting up..."}
+[2026-07-25T18:16:46.632489500Z] {"time":"2026-07-26T02:16:46.6324895+08:00","level":"INFO","msg":"registering public route: /health"}
+[2026-07-25T18:16:46.633010000Z] {"time":"2026-07-26T02:16:46.6324895+08:00","level":"INFO","msg":"registering public route: /resolver.v1.ListService/"}
+[2026-07-25T18:16:46.633010000Z] {"time":"2026-07-26T02:16:46.63301+08:00","level":"INFO","msg":"starting server","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+[2026-07-25T18:16:46.633010000Z] {"time":"2026-07-26T02:16:46.63301+08:00","level":"INFO","msg":"registering protected route: /resolver.v1.ResolverService/"}
+[2026-07-25T18:16:46.633010000Z] {"time":"2026-07-26T02:16:46.63301+08:00","level":"INFO","msg":"secrets engine ready"}
+[2026-07-25T18:16:46.634088300Z] {"time":"2026-07-26T02:16:46.6335346+08:00","level":"INFO","msg":"VM monitor started","idle_timeout":1800000000000,"max_running_vms":3}
+[2026-07-25T18:16:47.131156400Z] {"time":"2026-07-26T02:16:47.1310845+08:00","level":"INFO","msg":"api server started successfully","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+-------------------------------------------------------------------------------->8
+[2026-07-30T10:14:16.916113200Z] Starting daemon at \\.\pipe\docker_sandboxes_sandboxd (Ctrl+C to stop)...
+[2026-07-30T10:14:16.935394700Z] {"time":"2026-07-30T18:14:16.9169328+08:00","level":"INFO","msg":"starting sandboxd","version":"v0.12.0 f13b3c1a96a8be40b06473bb3db0c26dbfe1878c"}
+[2026-07-30T10:14:16.937229000Z] {"time":"2026-07-30T18:14:16.9369783+08:00","level":"INFO","msg":"created secrets store for credential management"}
+[2026-07-30T10:14:16.937229000Z] {"time":"2026-07-30T18:14:16.937229+08:00","level":"INFO","msg":"vm registry initialized","discovered_vms":0}
+[2026-07-30T10:14:16.938513100Z] {"time":"2026-07-30T18:14:16.9377659+08:00","level":"INFO","msg":"starting api server","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+[2026-07-30T10:14:16.938513100Z] {"time":"2026-07-30T18:14:16.9378219+08:00","level":"INFO","msg":"secrets engine starting up..."}
+[2026-07-30T10:14:16.939039500Z] {"time":"2026-07-30T18:14:16.9385131+08:00","level":"INFO","msg":"registering public route: /health"}
+[2026-07-30T10:14:16.939039500Z] {"time":"2026-07-30T18:14:16.9390395+08:00","level":"INFO","msg":"registering public route: /resolver.v1.ListService/"}
+[2026-07-30T10:14:16.939561900Z] {"time":"2026-07-30T18:14:16.9390395+08:00","level":"INFO","msg":"starting server","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+[2026-07-30T10:14:16.939561900Z] {"time":"2026-07-30T18:14:16.9395619+08:00","level":"INFO","msg":"registering protected route: /resolver.v1.ResolverService/"}
+[2026-07-30T10:14:16.940080200Z] {"time":"2026-07-30T18:14:16.9395619+08:00","level":"INFO","msg":"secrets engine ready"}
+[2026-07-30T10:14:16.941012400Z] {"time":"2026-07-30T18:14:16.9404317+08:00","level":"INFO","msg":"VM monitor started","idle_timeout":1800000000000,"max_running_vms":3}
+[2026-07-30T10:14:17.437389100Z] {"time":"2026-07-30T18:14:17.4373891+08:00","level":"INFO","msg":"api server started successfully","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+-------------------------------------------------------------------------------->8
+[2026-08-02T08:34:08.542562200Z] Starting daemon at \\.\pipe\docker_sandboxes_sandboxd (Ctrl+C to stop)...
+[2026-08-02T08:34:08.558063700Z] {"time":"2026-08-02T16:34:08.5436011+08:00","level":"INFO","msg":"starting sandboxd","version":"v0.12.0 f13b3c1a96a8be40b06473bb3db0c26dbfe1878c"}
+[2026-08-02T08:34:08.559979400Z] {"time":"2026-08-02T16:34:08.5599794+08:00","level":"INFO","msg":"created secrets store for credential management"}
+[2026-08-02T08:34:08.559979400Z] {"time":"2026-08-02T16:34:08.5599794+08:00","level":"INFO","msg":"vm registry initialized","discovered_vms":0}
+[2026-08-02T08:34:08.561016700Z] {"time":"2026-08-02T16:34:08.5604985+08:00","level":"INFO","msg":"starting api server","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+[2026-08-02T08:34:08.561537000Z] {"time":"2026-08-02T16:34:08.5604985+08:00","level":"INFO","msg":"secrets engine starting up..."}
+[2026-08-02T08:34:08.561537000Z] {"time":"2026-08-02T16:34:08.561537+08:00","level":"INFO","msg":"registering public route: /health"}
+[2026-08-02T08:34:08.561537000Z] {"time":"2026-08-02T16:34:08.561537+08:00","level":"INFO","msg":"registering public route: /resolver.v1.ListService/"}
+[2026-08-02T08:34:08.562055300Z] {"time":"2026-08-02T16:34:08.5620553+08:00","level":"INFO","msg":"starting server","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+[2026-08-02T08:34:08.562055300Z] {"time":"2026-08-02T16:34:08.5620553+08:00","level":"INFO","msg":"registering protected route: /resolver.v1.ResolverService/"}
+[2026-08-02T08:34:08.562055300Z] {"time":"2026-08-02T16:34:08.5620553+08:00","level":"INFO","msg":"secrets engine ready"}
+[2026-08-02T08:34:08.562572100Z] {"time":"2026-08-02T16:34:08.5625721+08:00","level":"INFO","msg":"VM monitor started","idle_timeout":1800000000000,"max_running_vms":3}
+[2026-08-02T08:34:09.060182200Z] {"time":"2026-08-02T16:34:09.0600564+08:00","level":"INFO","msg":"api server started successfully","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+-------------------------------------------------------------------------------->8
+[2026-08-11T05:57:05.186740000Z] Starting daemon at \\.\pipe\docker_sandboxes_sandboxd (Ctrl+C to stop)...
+[2026-08-11T05:57:05.227201300Z] {"time":"2026-08-11T13:57:05.1877515+08:00","level":"INFO","msg":"starting sandboxd","version":"v0.12.0 f13b3c1a96a8be40b06473bb3db0c26dbfe1878c"}
+[2026-08-11T05:57:05.229348900Z] {"time":"2026-08-11T13:57:05.2293489+08:00","level":"INFO","msg":"created secrets store for credential management"}
+[2026-08-11T05:57:05.229348900Z] {"time":"2026-08-11T13:57:05.2293489+08:00","level":"INFO","msg":"vm registry initialized","discovered_vms":0}
+[2026-08-11T05:57:05.230425800Z] {"time":"2026-08-11T13:57:05.2298966+08:00","level":"INFO","msg":"starting api server","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+[2026-08-11T05:57:05.230964200Z] {"time":"2026-08-11T13:57:05.2298966+08:00","level":"INFO","msg":"secrets engine starting up..."}
+[2026-08-11T05:57:05.230964200Z] {"time":"2026-08-11T13:57:05.2309642+08:00","level":"INFO","msg":"registering public route: /health"}
+[2026-08-11T05:57:05.230964200Z] {"time":"2026-08-11T13:57:05.2309642+08:00","level":"INFO","msg":"registering public route: /resolver.v1.ListService/"}
+[2026-08-11T05:57:05.231980300Z] {"time":"2026-08-11T13:57:05.2309642+08:00","level":"INFO","msg":"starting server","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+[2026-08-11T05:57:05.231980300Z] {"time":"2026-08-11T13:57:05.2319803+08:00","level":"INFO","msg":"registering protected route: /resolver.v1.ResolverService/"}
+[2026-08-11T05:57:05.231980300Z] {"time":"2026-08-11T13:57:05.2319803+08:00","level":"INFO","msg":"secrets engine ready"}
+[2026-08-11T05:57:05.232546700Z] {"time":"2026-08-11T13:57:05.2325467+08:00","level":"INFO","msg":"VM monitor started","idle_timeout":1800000000000,"max_running_vms":3}
+[2026-08-11T05:57:05.729551800Z] {"time":"2026-08-11T13:57:05.7295518+08:00","level":"INFO","msg":"api server started successfully","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+-------------------------------------------------------------------------------->8
+[2026-08-12T08:46:12.640445000Z] Starting daemon at \\.\pipe\docker_sandboxes_sandboxd (Ctrl+C to stop)...
+[2026-08-12T08:46:12.659281400Z] {"time":"2026-08-12T16:46:12.6409654+08:00","level":"INFO","msg":"starting sandboxd","version":"v0.12.0 f13b3c1a96a8be40b06473bb3db0c26dbfe1878c"}
+[2026-08-12T08:46:12.661226600Z] {"time":"2026-08-12T16:46:12.6612266+08:00","level":"INFO","msg":"created secrets store for credential management"}
+[2026-08-12T08:46:12.661763900Z] {"time":"2026-08-12T16:46:12.6612266+08:00","level":"INFO","msg":"vm registry initialized","discovered_vms":0}
+[2026-08-12T08:46:12.662276000Z] {"time":"2026-08-12T16:46:12.6617639+08:00","level":"INFO","msg":"starting api server","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+[2026-08-12T08:46:12.662796400Z] {"time":"2026-08-12T16:46:12.6617639+08:00","level":"INFO","msg":"secrets engine starting up..."}
+[2026-08-12T08:46:12.662796400Z] {"time":"2026-08-12T16:46:12.6627964+08:00","level":"INFO","msg":"registering public route: /health"}
+[2026-08-12T08:46:12.663318900Z] {"time":"2026-08-12T16:46:12.6633189+08:00","level":"INFO","msg":"starting server","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+[2026-08-12T08:46:12.663318900Z] {"time":"2026-08-12T16:46:12.6633189+08:00","level":"INFO","msg":"registering public route: /resolver.v1.ListService/"}
+[2026-08-12T08:46:12.663318900Z] {"time":"2026-08-12T16:46:12.6633189+08:00","level":"INFO","msg":"registering protected route: /resolver.v1.ResolverService/"}
+[2026-08-12T08:46:12.663843000Z] {"time":"2026-08-12T16:46:12.663843+08:00","level":"INFO","msg":"secrets engine ready"}
+[2026-08-12T08:46:12.663843000Z] {"time":"2026-08-12T16:46:12.663843+08:00","level":"INFO","msg":"VM monitor started","idle_timeout":1800000000000,"max_running_vms":3}
+[2026-08-12T08:46:13.161833100Z] {"time":"2026-08-12T16:46:13.1618331+08:00","level":"INFO","msg":"api server started successfully","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+-------------------------------------------------------------------------------->8
+[2026-08-27T06:45:24.298429100Z] Starting daemon at \\.\pipe\docker_sandboxes_sandboxd (Ctrl+C to stop)...
+[2026-08-27T06:45:24.330173900Z] {"time":"2026-08-27T14:45:24.3001776+08:00","level":"INFO","msg":"starting sandboxd","version":"v0.12.0 f13b3c1a96a8be40b06473bb3db0c26dbfe1878c"}
+[2026-08-27T06:45:24.332353100Z] {"time":"2026-08-27T14:45:24.3323531+08:00","level":"INFO","msg":"created secrets store for credential management"}
+[2026-08-27T06:45:24.332895500Z] {"time":"2026-08-27T14:45:24.3328955+08:00","level":"INFO","msg":"vm registry initialized","discovered_vms":0}
+[2026-08-27T06:45:24.333962000Z] {"time":"2026-08-27T14:45:24.3328955+08:00","level":"INFO","msg":"starting api server","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+[2026-08-27T06:45:24.334510400Z] {"time":"2026-08-27T14:45:24.3334345+08:00","level":"INFO","msg":"secrets engine starting up..."}
+[2026-08-27T06:45:24.334510400Z] {"time":"2026-08-27T14:45:24.3345104+08:00","level":"INFO","msg":"registering public route: /health"}
+[2026-08-27T06:45:24.335056200Z] {"time":"2026-08-27T14:45:24.3350562+08:00","level":"INFO","msg":"registering public route: /resolver.v1.ListService/"}
+[2026-08-27T06:45:24.335056200Z] {"time":"2026-08-27T14:45:24.3350562+08:00","level":"INFO","msg":"starting server","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+[2026-08-27T06:45:24.335657700Z] {"time":"2026-08-27T14:45:24.3356025+08:00","level":"INFO","msg":"registering protected route: /resolver.v1.ResolverService/"}
+[2026-08-27T06:45:24.335657700Z] {"time":"2026-08-27T14:45:24.3356577+08:00","level":"INFO","msg":"secrets engine ready"}
+[2026-08-27T06:45:24.336167900Z] {"time":"2026-08-27T14:45:24.3361679+08:00","level":"INFO","msg":"VM monitor started","idle_timeout":1800000000000,"max_running_vms":3}
+[2026-08-27T06:45:24.833639100Z] {"time":"2026-08-27T14:45:24.8333147+08:00","level":"INFO","msg":"api server started successfully","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+[2026-08-27T12:43:51.838737100Z] {"time":"2026-08-27T20:43:51.8274106+08:00","level":"INFO","msg":"received signal","signal":15}
+[2026-08-27T12:43:51.839256600Z] {"time":"2026-08-27T20:43:51.8392566+08:00","level":"INFO","msg":"secrets engine shutting down..."}
+[2026-08-27T12:43:51.839788500Z] {"time":"2026-08-27T20:43:51.8392566+08:00","level":"INFO","msg":"stopping server","address":"\\\\.\\pipe\\docker_sandboxes_sandboxd"}
+[2026-08-27T12:43:51.839788500Z] {"time":"2026-08-27T20:43:51.8397885+08:00","level":"INFO","msg":"shutting down server"}
+[2026-08-27T12:43:51.840323200Z] {"time":"2026-08-27T20:43:51.8397885+08:00","level":"INFO","msg":"closing VMs","count":0}
+[2026-08-27T12:43:51.840323200Z] {"time":"2026-08-27T20:43:51.8403232+08:00","level":"INFO","msg":"closing VMs","count":0}
+[2026-08-27T12:43:51.840866200Z] {"time":"2026-08-27T20:43:51.8403232+08:00","level":"INFO","msg":"VM monitor stopping"}
+[2026-08-27T12:43:51.844109100Z] {"time":"2026-08-27T20:43:51.8441091+08:00","level":"INFO","msg":"echo server was closed"}
+[2026-08-27T12:43:51.845157900Z] {"time":"2026-08-27T20:43:51.8446358+08:00","level":"INFO","msg":"API server shut down gracefully, exiting"}

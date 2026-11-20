@@ -1,0 +1,72 @@
+{
+ "scope": "local_diagnostic_one_cell_not_formal",
+ "case": "bp_fe-ng45",
+ "seed": 1001,
+ "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+ "programs": {
+  "A": "# EVOLVE-BLOCK-START\ndef compute_tp_gnn_loss(\n    positive_scores,\n    negative_scores,\n    embeddings,\n    positive_sources,\n    positive_targets,\n    negative_sources,\n    negative_targets,\n    source_batch_size,\n    epoch,\n    max_epochs,\n    graph_scores,\n    graph_sources,\n    graph_targets,\n    graph_net_ids,\n    graph_weights,\n    net_weights,\n    node_features,\n    node_areas,\n):\n    \"\"\"Give highly similar negative pairs an additional bounded penalty.\"\"\"\n    sampled_loss = -(\n        F.logsigmoid(positive_scores).sum()\n        + F.logsigmoid(-negative_scores).sum()\n    )\n    # Unit-normalized embeddings produce dot products in [-1, 1].\n    hard_negative_loss = F.relu(negative_scores - 0.25).square().sum()\n    return (sampled_loss + 0.25 * hard_negative_loss) / max(1, source_batch_size)\n\n\ndef decode_tp_gnn_embeddings(embeddings, node_areas, seed, max_iterations, balance_target):\n    \"\"\"Use the official area-balanced decoder to isolate the loss change.\"\"\"\n    return reference_global_two_way(embeddings, node_areas, seed, max_iterations, balance_target)\n# EVOLVE-BLOCK-END\n",
+  "B": "# EVOLVE-BLOCK-START\ndef compute_tp_gnn_loss(\n    positive_scores,\n    negative_scores,\n    embeddings,\n    positive_sources,\n    positive_targets,\n    negative_sources,\n    negative_targets,\n    source_batch_size,\n    epoch,\n    max_epochs,\n    graph_scores,\n    graph_sources,\n    graph_targets,\n    graph_net_ids,\n    graph_weights,\n    net_weights,\n    node_features,\n    node_areas,\n):\n    \"\"\"Keep the initial embedding objective to isolate layer orientation.\"\"\"\n    return -(\n        F.logsigmoid(positive_scores).sum()\n        + F.logsigmoid(-negative_scores).sum()\n    ) / max(1, source_batch_size)\n\n\ndef decode_tp_gnn_embeddings(embeddings, node_areas, seed, max_iterations, balance_target):\n    \"\"\"Evaluate the same grouping with the two die assignments exchanged.\"\"\"\n    labels = reference_global_two_way(embeddings, node_areas, seed, max_iterations, balance_target)\n    return 1 - labels\n# EVOLVE-BLOCK-END\n",
+  "AB": "# EVOLVE-BLOCK-START\ndef compute_tp_gnn_loss(\n    positive_scores,\n    negative_scores,\n    embeddings,\n    positive_sources,\n    positive_targets,\n    negative_sources,\n    negative_targets,\n    source_batch_size,\n    epoch,\n    max_epochs,\n    graph_scores,\n    graph_sources,\n    graph_targets,\n    graph_net_ids,\n    graph_weights,\n    net_weights,\n    node_features,\n    node_areas,\n):\n    \"\"\"Keep the fixed additional penalty for strongly similar negative pairs.\"\"\"\n    sampled_loss = -(\n        F.logsigmoid(positive_scores).sum()\n        + F.logsigmoid(-negative_scores).sum()\n    )\n    hard_negative_loss = F.relu(negative_scores - 0.25).square().sum()\n    return (sampled_loss + 0.25 * hard_negative_loss) / max(1, source_batch_size)\n\n\ndef decode_tp_gnn_embeddings(embeddings, node_areas, seed, max_iterations, balance_target):\n    \"\"\"Exchange the layers after clustering the margin-trained embeddings.\"\"\"\n    labels = reference_global_two_way(embeddings, node_areas, seed, max_iterations, balance_target)\n    return 1 - labels\n# EVOLVE-BLOCK-END\n",
+  "P": "# EVOLVE-BLOCK-START\ndef compute_tp_gnn_loss(\n    positive_scores,\n    negative_scores,\n    embeddings,\n    positive_sources,\n    positive_targets,\n    negative_sources,\n    negative_targets,\n    source_batch_size,\n    epoch,\n    max_epochs,\n    graph_scores,\n    graph_sources,\n    graph_targets,\n    graph_net_ids,\n    graph_weights,\n    net_weights,\n    node_features,\n    node_areas,\n):\n    \"\"\"Reproduce the maintained random-walk negative-sampling objective.\"\"\"\n    return -(\n        F.logsigmoid(positive_scores).sum()\n        + F.logsigmoid(-negative_scores).sum()\n    ) / max(1, source_batch_size)\n\n\ndef decode_tp_gnn_embeddings(embeddings, node_areas, seed, max_iterations, balance_target):\n    \"\"\"Reproduce the frozen area-balanced global two-way decoder.\"\"\"\n    return reference_global_two_way(embeddings, node_areas, seed, max_iterations, balance_target)\n# EVOLVE-BLOCK-END\n"
+ },
+ "measurements": {
+  "P": {
+   "final_global_wns_setup_ns": -0.9875247565863705,
+   "final_global_tns_setup_ns": -482.1829543235361,
+   "cut_net_count": 3430,
+   "timing_weighted_cut": 5916.788215551387,
+   "tp_gnn_positive_pair_cosine_median": 0.9994734525680542,
+   "tp_gnn_negative_pair_cosine_median": 0.9836808443069458,
+   "tp_gnn_embedding_total_variance": 0.04625654220581055,
+   "tp_gnn_repair_moved_area_fraction": 0.0,
+   "common_reference_score": 15.767594328897566
+  },
+  "A": {
+   "final_global_wns_setup_ns": -0.6846657878881104,
+   "final_global_tns_setup_ns": -228.46048544059036,
+   "cut_net_count": 3440,
+   "timing_weighted_cut": 5940.75277549131,
+   "tp_gnn_positive_pair_cosine_median": 0.9995075464248657,
+   "tp_gnn_negative_pair_cosine_median": 0.9846569299697876,
+   "tp_gnn_embedding_total_variance": 0.04262716323137283,
+   "tp_gnn_repair_moved_area_fraction": 0.0,
+   "common_reference_score": 50.45866198051393
+  },
+  "B": {
+   "final_global_wns_setup_ns": -0.6328673320085412,
+   "final_global_tns_setup_ns": -229.82272380126165,
+   "cut_net_count": 3430,
+   "timing_weighted_cut": 5916.788215551387,
+   "tp_gnn_positive_pair_cosine_median": 0.9994734525680542,
+   "tp_gnn_negative_pair_cosine_median": 0.9836808443069458,
+   "tp_gnn_embedding_total_variance": 0.04625654220581055,
+   "tp_gnn_repair_moved_area_fraction": 0.0,
+   "common_reference_score": 52.64616896584706
+  },
+  "AB": {
+   "final_global_wns_setup_ns": -0.9181831110870317,
+   "final_global_tns_setup_ns": -368.37662851681193,
+   "cut_net_count": 3440,
+   "timing_weighted_cut": 5940.75277549131,
+   "tp_gnn_positive_pair_cosine_median": 0.9995075464248657,
+   "tp_gnn_negative_pair_cosine_median": 0.9846569299697876,
+   "tp_gnn_embedding_total_variance": 0.04262716323137283,
+   "tp_gnn_repair_moved_area_fraction": 0.0,
+   "common_reference_score": 28.373207843512994
+  }
+ },
+ "provenance": {
+  "A": {
+   "candidate_sha256": "7d927e1f9fbbb0aa35c73a2d7104caa6652c3444d028ac6500c7e8a55d7e1856",
+   "candidate_result": "20261115-194050-839314"
+  },
+  "B": {
+   "candidate_sha256": "3fd5901bbc0baf68d05de6d85521557d54c10cb43dfeb0191333a117ba6e7e59",
+   "candidate_result": "20261116-190740-079062"
+  },
+  "AB": {
+   "candidate_sha256": "eed019f32eb0c80b1817640ac5a961569db6d9b6e69af6d783a3e77b26ef18dd",
+   "candidate_result": "20261116-201200-177535"
+  }
+ }
+}

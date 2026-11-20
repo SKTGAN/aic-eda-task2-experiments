@@ -1,0 +1,67 @@
+{
+  "association": "chronological context before submit",
+  "associated_call_ids": {},
+  "sequence_at_submission": 5,
+  "recorded_reason": {
+    "reason": "opening_control"
+  },
+  "candidate_explanation": {
+    "decoder": "Change from the parent: replace the seeded helper call with a deterministic maximum-variance-axis initialization and area-balanced iterations that rank groups by relative squared-distance margin rathe"
+  },
+  "generation_events": [
+    {
+      "sequence": 1,
+      "event": {
+        "event": "invalid_proposal",
+        "parent_id": "115237424b4f2646e5a438fe9a2a864362d680faceabb1f44fa8c0ebf77642c0",
+        "reason": "The decoder raised KeyError on a synthetic probe with read-only inputs: '__import__'"
+      }
+    },
+    {
+      "sequence": 2,
+      "event": {
+        "event": "invalid_proposal",
+        "parent_id": "115237424b4f2646e5a438fe9a2a864362d680faceabb1f44fa8c0ebf77642c0",
+        "reason": "Unsupported NumPy operation: zeros"
+      }
+    },
+    {
+      "sequence": 3,
+      "event": {
+        "event": "opening_alternative_rejected",
+        "parent_id": "115237424b4f2646e5a438fe9a2a864362d680faceabb1f44fa8c0ebf77642c0",
+        "reason": "Keep the other function unchanged for this paired search direction"
+      }
+    },
+    {
+      "sequence": 4,
+      "event": {
+        "event": "opening_review",
+        "parent_id": "115237424b4f2646e5a438fe9a2a864362d680faceabb1f44fa8c0ebf77642c0",
+        "search_intent": "decoder_only",
+        "proposals": [
+          "A"
+        ],
+        "verdict": "A",
+        "reason": ""
+      }
+    },
+    {
+      "sequence": 5,
+      "event": {
+        "event": "submitted",
+        "request_id": "e-699000632d972d068aa922953da4d48a07ce6f7169cfbe144f61cfde684f",
+        "decision": {
+          "reason": "opening_control"
+        },
+        "parent_id": "115237424b4f2646e5a438fe9a2a864362d680faceabb1f44fa8c0ebf77642c0",
+        "search_intent": "decoder_only",
+        "changed_components": {
+          "decoder": "Change from the parent: replace the seeded helper call with a deterministic maximum-variance-axis initialization and area-balanced iterations that rank groups by relative squared-distance margin rathe"
+        }
+      }
+    }
+  ],
+  "evaluation_event_sequence": 6,
+  "verified_source_sha256": "0a758b9566c64628e0dd5c636ffeedfdc705ee8f8fc0f1fcf01bd050e5958db1"
+}

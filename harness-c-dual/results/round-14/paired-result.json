@@ -1,0 +1,21 @@
+{
+  "round": 14,
+  "comparison_same_layout": true,
+  "parent_round": 4,
+  "protect_cell": "bp_fe-ng45/1001",
+  "protect_delta": 0.0,
+  "target_cell": "bp-ng45/1002",
+  "target_delta": 0.0,
+  "mean_delta": -9.97667777777778,
+  "paired": {
+    "bp_fe-ng45/1001": 0.0,
+    "bp_fe-ng45/1002": 8.8368,
+    "bp_fe-ng45/1003": 0.0,
+    "bp-ng45/1001": 0.0,
+    "bp-ng45/1002": 0.0,
+    "bp-ng45/1003": 0.0,
+    "ariane133-ng45/1001": -87.3738,
+    "ariane133-ng45/1002": -170.4044,
+    "ariane133-ng45/1003": 159.1513
+  }
+}

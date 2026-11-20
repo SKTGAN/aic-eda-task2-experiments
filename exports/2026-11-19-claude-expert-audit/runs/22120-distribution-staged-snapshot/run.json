@@ -1,0 +1,13 @@
+{
+  "source_mount_at_capture": "/root/aic-eda-fourth/staging/independent-harness-e1e2710/run-01",
+  "capture_port": "22120",
+  "capture_utc": "2026-11-19T04:26:28.486090+00:00",
+  "scope": "official runner / see ledger status",
+  "session": null,
+  "diagnostic": null,
+  "read_errors": {},
+  "other_record_names": [
+    "codex/loss_decoder"
+  ],
+  "transaction_note": "ledger is a read transaction; receipts and event log are sequential read-only snapshots"
+}

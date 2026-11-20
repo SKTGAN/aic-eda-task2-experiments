@@ -1,0 +1,86 @@
+{
+  "candidate_sha256": "15e57d5748faff2ac87be85121661b31f9f03d8bb7b42d7e0eef26c2b56478b8",
+  "case_means": {
+    "bp_fe-asap7": null,
+    "swerv_wrapper-ng45": null
+  },
+  "cells": [
+    {
+      "case": "swerv_wrapper-ng45",
+      "historical_claude_4090_score": 6.58927973334508,
+      "published_initial_score": 8.389609670749005,
+      "published_initial_tns_ns": -1966.4844886851063,
+      "published_initial_wns_ns": -1.984719778035325,
+      "raw_score": -29.379663610189798,
+      "score": -29.379663610189798,
+      "seed": "1001",
+      "status": "succeeded",
+      "tns_ns": -3216.5695302168856,
+      "wns_ns": -1.9764503926248327
+    },
+    {
+      "case": "swerv_wrapper-ng45",
+      "historical_claude_4090_score": -1.226189842266917,
+      "published_initial_score": -61.787382409625245,
+      "published_initial_tns_ns": -4344.438944004679,
+      "published_initial_wns_ns": -1.8654300854238925,
+      "raw_score": -120.62182699615789,
+      "score": -100.0,
+      "seed": "1002",
+      "status": "succeeded",
+      "tns_ns": -6294.62392293098,
+      "wns_ns": -1.8471187324716596
+    },
+    {
+      "case": "swerv_wrapper-ng45",
+      "historical_claude_4090_score": 25.662735831250593,
+      "published_initial_score": -7.649077317374426,
+      "published_initial_tns_ns": -2604.8945355820383,
+      "published_initial_wns_ns": -1.7788500065336628,
+      "score": null,
+      "seed": "1003",
+      "status": "pending"
+    },
+    {
+      "case": "bp_fe-asap7",
+      "historical_claude_4090_score": 22.66466834217484,
+      "published_initial_score": 26.640950918867425,
+      "published_initial_tns_ns": -7.721294044907856,
+      "published_initial_wns_ns": -0.3774616281931819,
+      "score": null,
+      "seed": "1001",
+      "status": "pending"
+    },
+    {
+      "case": "bp_fe-asap7",
+      "historical_claude_4090_score": -100.0,
+      "published_initial_score": -100.0,
+      "published_initial_tns_ns": -32.47584337816895,
+      "published_initial_wns_ns": -0.7174002706057677,
+      "score": null,
+      "seed": "1002",
+      "status": "pending"
+    },
+    {
+      "case": "bp_fe-asap7",
+      "historical_claude_4090_score": 20.234165973149526,
+      "published_initial_score": -18.211415125370458,
+      "published_initial_tns_ns": -14.176231256798035,
+      "published_initial_wns_ns": -0.5076440522741864,
+      "score": null,
+      "seed": "1003",
+      "status": "pending"
+    }
+  ],
+  "complete": false,
+  "historical_claude_4090_validation_score": -4.34588999372448,
+  "image": "sha256:f2401e978e5504c11cbc048266cc088152f3d5cf0a1a5438d91933175c9b7821",
+  "matrix_sha256": "177db3b4d5b52683ec06c28fed2725210165f9085197a36c4f5d3cb706d90f1f",
+  "native_result": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261119-171338-220524/validate/15e57d5748faff2ac87be85121661b31f9f03d8bb7b42d7e0eef26c2b56478b8/evaluation_result.json",
+  "public_five_case_score": null,
+  "published_initial_validation_score": -25.436219043792285,
+  "scope": "frozen local candidate on the official public validation matrix",
+  "scored_cells": 2,
+  "training_score": 41.7327927348226,
+  "validation_score": null
+}

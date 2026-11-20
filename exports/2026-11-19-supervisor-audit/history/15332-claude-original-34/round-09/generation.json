@@ -1,0 +1,40 @@
+{
+  "association": "chronological context before submit",
+  "associated_call_ids": {},
+  "sequence_at_submission": 29,
+  "recorded_reason": {
+    "reason": "explore_from_incumbent",
+    "candidate_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd"
+  },
+  "candidate_explanation": {
+    "loss": "Relative to the parent timing-weighted star-edge attraction, add a per-net importance factor read from the published net_weights and graph_net_ids. The star-edge term remains a normalized weighted mea"
+  },
+  "generation_events": [
+    {
+      "sequence": 28,
+      "event": {
+        "event": "invalid_proposal",
+        "parent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+        "reason": "The model returned an incomplete response"
+      }
+    },
+    {
+      "sequence": 29,
+      "event": {
+        "event": "submitted",
+        "request_id": "e-5a4ceecb9a798200adafc98335d9a2e99f37324424f92362d7dec14b1f84",
+        "decision": {
+          "reason": "explore_from_incumbent",
+          "candidate_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd"
+        },
+        "parent_id": "6a8e3ef053a9119bf4daadc0d3bf7f8b8b804d7f0d1e499986ab2f30f4f09edd",
+        "search_intent": "diversify",
+        "changed_components": {
+          "loss": "Relative to the parent timing-weighted star-edge attraction, add a per-net importance factor read from the published net_weights and graph_net_ids. The star-edge term remains a normalized weighted mea"
+        }
+      }
+    }
+  ],
+  "evaluation_event_sequence": 30,
+  "verified_source_sha256": "d22567af45a5a854237ff630c7d1a38f2250e3d4ffe035254a269a651d412a09"
+}

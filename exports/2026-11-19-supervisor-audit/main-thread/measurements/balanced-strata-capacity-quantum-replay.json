@@ -1,0 +1,171 @@
+{
+  "numpy_version": "2.3.5",
+  "candidate": "capacity-quantum experiment based on balanced_strata.py",
+  "diagnostic_only": true,
+  "physical_score_measured": false,
+  "case": "bp-ng45",
+  "seeds": [
+    {
+      "seed": 1001,
+      "stage": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261115-161128-780305/baseline/qualification/cells/bp-ng45/1001/result/run/20_partition",
+      "embeddings_from": "official-start embeddings",
+      "preclosure": {
+        "count": 144224,
+        "direct": 20960,
+        "flip_adjusted": 20960
+      },
+      "postclosure": {
+        "count": 144224,
+        "direct": 10170,
+        "flip_adjusted": 10170
+      },
+      "parent_and_candidate_legalizer": [
+        {
+          "cut_nets_before_closure": 6451,
+          "cut_nets_after_closure": 5877,
+          "protected_repair_moved_cells": 10792,
+          "initially_feasible": false,
+          "final_constraints": {
+            "area_error": 4.66025787959623e-07,
+            "area_tolerance": 0.03,
+            "area_satisfied": true,
+            "macro_count_error": 0.041666666666666685,
+            "macro_count_tolerance": 0.05,
+            "macro_count_satisfied": true,
+            "macro_area_error": 0.04762114990647909,
+            "macro_area_tolerance": 0.05,
+            "macro_area_satisfied": true,
+            "accepted": true
+          }
+        },
+        {
+          "cut_nets_before_closure": 7444,
+          "cut_nets_after_closure": 7444,
+          "protected_repair_moved_cells": 0,
+          "initially_feasible": true,
+          "final_constraints": {
+            "area_error": 5.126283667999942e-06,
+            "area_tolerance": 0.03,
+            "area_satisfied": true,
+            "macro_count_error": 0.041666666666666685,
+            "macro_count_tolerance": 0.05,
+            "macro_count_satisfied": true,
+            "macro_area_error": 0.003887862368295081,
+            "macro_area_tolerance": 0.05,
+            "macro_area_satisfied": true,
+            "accepted": true
+          }
+        }
+      ]
+    },
+    {
+      "seed": 1002,
+      "stage": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261115-205809-358941/baseline/qualification/cells/bp-ng45/1002/result/run/20_partition",
+      "embeddings_from": "official-start embeddings",
+      "preclosure": {
+        "count": 144224,
+        "direct": 22594,
+        "flip_adjusted": 22594
+      },
+      "postclosure": {
+        "count": 144224,
+        "direct": 10140,
+        "flip_adjusted": 10140
+      },
+      "parent_and_candidate_legalizer": [
+        {
+          "cut_nets_before_closure": 5892,
+          "cut_nets_after_closure": 5861,
+          "protected_repair_moved_cells": 12456,
+          "initially_feasible": false,
+          "final_constraints": {
+            "area_error": 4.66025787959623e-07,
+            "area_tolerance": 0.03,
+            "area_satisfied": true,
+            "macro_count_error": 0.041666666666666685,
+            "macro_count_tolerance": 0.05,
+            "macro_count_satisfied": true,
+            "macro_area_error": 0.04762114990647909,
+            "macro_area_tolerance": 0.05,
+            "macro_area_satisfied": true,
+            "accepted": true
+          }
+        },
+        {
+          "cut_nets_before_closure": 7459,
+          "cut_nets_after_closure": 7459,
+          "protected_repair_moved_cells": 0,
+          "initially_feasible": true,
+          "final_constraints": {
+            "area_error": 3.728206304010051e-06,
+            "area_tolerance": 0.03,
+            "area_satisfied": true,
+            "macro_count_error": 0.041666666666666685,
+            "macro_count_tolerance": 0.05,
+            "macro_count_satisfied": true,
+            "macro_area_error": 0.003887862368295081,
+            "macro_area_tolerance": 0.05,
+            "macro_area_satisfied": true,
+            "accepted": true
+          }
+        }
+      ]
+    },
+    {
+      "seed": 1003,
+      "stage": "/home/sktgan/aic-eda-task2-local/official/contest-work/local-trials/20261115-213108-753693/baseline/qualification/cells/bp-ng45/1003/result/run/20_partition",
+      "embeddings_from": "official-start embeddings",
+      "preclosure": {
+        "count": 144224,
+        "direct": 21218,
+        "flip_adjusted": 21218
+      },
+      "postclosure": {
+        "count": 144224,
+        "direct": 10142,
+        "flip_adjusted": 10142
+      },
+      "parent_and_candidate_legalizer": [
+        {
+          "cut_nets_before_closure": 6112,
+          "cut_nets_after_closure": 5873,
+          "protected_repair_moved_cells": 11078,
+          "initially_feasible": false,
+          "final_constraints": {
+            "area_error": 4.66025787959623e-07,
+            "area_tolerance": 0.03,
+            "area_satisfied": true,
+            "macro_count_error": 0.041666666666666685,
+            "macro_count_tolerance": 0.05,
+            "macro_count_satisfied": true,
+            "macro_area_error": 0.04762114990647909,
+            "macro_area_tolerance": 0.05,
+            "macro_area_satisfied": true,
+            "accepted": true
+          }
+        },
+        {
+          "cut_nets_before_closure": 7478,
+          "cut_nets_after_closure": 7478,
+          "protected_repair_moved_cells": 0,
+          "initially_feasible": true,
+          "final_constraints": {
+            "area_error": 9.320515760302683e-07,
+            "area_tolerance": 0.03,
+            "area_satisfied": true,
+            "macro_count_error": 0.041666666666666685,
+            "macro_count_tolerance": 0.05,
+            "macro_count_satisfied": true,
+            "macro_area_error": 0.003887862368295081,
+            "macro_area_tolerance": 0.05,
+            "macro_area_satisfied": true,
+            "accepted": true
+          }
+        }
+      ]
+    }
+  ],
+  "decoder_parent": "Claude original round 4",
+  "parent_archive_member": "claude-original/programs/round-04.py",
+  "candidate_sha256": "a9aa8da67ed97235197702a6e291dd1d604d21921aabfea0425e172e69f4ad13"
+}

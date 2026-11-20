@@ -1,0 +1,39 @@
+-------------------------------------------------------------------------------->8
+[2026-11-13T03:34:31.242475300Z] [I] starting desktop-build/v0.33.0 go/1.25.8 windows/amd64
+[2026-11-13T03:34:31.243058200Z] [I] bugsnag configured
+[2026-11-13T03:34:31.244166400Z] [I] current docker context: desktop-linux
+[2026-11-13T03:34:37.254926800Z] [I] builder manager started
+[2026-11-13T03:34:37.255469000Z] [I] build store started
+[2026-11-13T03:34:37.256532600Z] [I] build manager started
+[2026-11-13T03:34:37.256532600Z] [I] starting server (\\.\pipe\dockerDesktopBuildServer)
+[2026-11-13T03:34:37.470589400Z] [W] skip listening node desktop-linux/desktop-linux: docker builder "default" is already listening to the same workers: [naoo84dwuriistuvezw8e50bx]
+[2026-11-13T03:34:37.471113700Z] [W] skip listening node desktop-linux/desktop-linux: docker builder "default" is already listening to the same workers: [naoo84dwuriistuvezw8e50bx]
+[2026-11-13T03:34:37.471113700Z] [I] starting listener for default/default
+[2026-11-13T03:35:37.258982400Z] [W] gc failed: GetFileAttributesEx <HOME>\AppData\Roaming\Docker\buildstore\content\blobs: The system cannot find the path specified.
+[2026-11-13T03:49:37.890901200Z] [W] skip listening node desktop-linux/desktop-linux: docker builder "default" is already listening to the same workers: [naoo84dwuriistuvezw8e50bx]
+[2026-11-13T04:44:01.399173000Z] [W] skip listening node desktop-linux/desktop-linux: docker builder "default" is already listening to the same workers: [naoo84dwuriistuvezw8e50bx]
+[2026-11-13T04:58:13.693433000Z] [W] skip listening node desktop-linux/desktop-linux: docker builder "default" is already listening to the same workers: [naoo84dwuriistuvezw8e50bx]
+[2026-11-13T05:13:13.624165500Z] [W] skip listening node desktop-linux/desktop-linux: docker builder "default" is already listening to the same workers: [naoo84dwuriistuvezw8e50bx]
+[2026-11-13T05:28:13.609811900Z] [W] skip listening node desktop-linux/desktop-linux: docker builder "default" is already listening to the same workers: [naoo84dwuriistuvezw8e50bx]
+[2026-11-13T05:43:13.630623000Z] [W] skip listening node desktop-linux/desktop-linux: docker builder "default" is already listening to the same workers: [naoo84dwuriistuvezw8e50bx]
+[2026-11-13T05:58:13.626073200Z] [W] skip listening node desktop-linux/desktop-linux: docker builder "default" is already listening to the same workers: [naoo84dwuriistuvezw8e50bx]
+[2026-11-13T06:13:13.614568600Z] [W] skip listening node desktop-linux/desktop-linux: docker builder "default" is already listening to the same workers: [naoo84dwuriistuvezw8e50bx]
+[2026-11-13T06:28:13.611472300Z] [W] skip listening node desktop-linux/desktop-linux: docker builder "default" is already listening to the same workers: [naoo84dwuriistuvezw8e50bx]
+[2026-11-13T06:43:13.604594600Z] [W] skip listening node desktop-linux/desktop-linux: docker builder "default" is already listening to the same workers: [naoo84dwuriistuvezw8e50bx]
+[2026-11-13T06:58:13.605929100Z] [W] skip listening node desktop-linux/desktop-linux: docker builder "default" is already listening to the same workers: [naoo84dwuriistuvezw8e50bx]
+[2026-11-13T07:13:13.610856000Z] [W] skip listening node desktop-linux/desktop-linux: docker builder "default" is already listening to the same workers: [naoo84dwuriistuvezw8e50bx]
+[2026-11-13T07:28:13.615600400Z] [W] skip listening node desktop-linux/desktop-linux: docker builder "default" is already listening to the same workers: [naoo84dwuriistuvezw8e50bx]
+[2026-11-13T07:43:13.615699600Z] [W] skip listening node desktop-linux/desktop-linux: docker builder "default" is already listening to the same workers: [naoo84dwuriistuvezw8e50bx]
+[2026-11-13T07:58:13.630077300Z] [W] skip listening node desktop-linux/desktop-linux: docker builder "default" is already listening to the same workers: [naoo84dwuriistuvezw8e50bx]
+-------------------------------------------------------------------------------->8
+[2026-11-14T06:09:56.243403600Z] [I] starting desktop-build/v0.33.0 go/1.25.8 windows/amd64
+[2026-11-14T06:09:56.246140200Z] [I] bugsnag configured
+[2026-11-14T06:09:56.247893000Z] [I] current docker context: desktop-linux
+[2026-11-14T06:10:07.235648900Z] [I] builder manager started
+[2026-11-14T06:10:07.236694200Z] [I] build store started
+[2026-11-14T06:10:07.237135200Z] [I] build manager started
+[2026-11-14T06:10:07.238285000Z] [I] starting server (\\.\pipe\dockerDesktopBuildServer)
+[2026-11-14T06:10:07.290087000Z] [W] skip listening node default/default: docker builder "desktop-linux" is already listening to the same workers: [f5fab1cf-5506-4f3d-bdbf-fd3008afd6f6]
+[2026-11-14T06:10:07.290606900Z] [I] starting listener for desktop-linux/desktop-linux
+[2026-11-14T06:10:07.291118600Z] [W] skip listening node default/default: docker builder "desktop-linux" is already listening to the same workers: [f5fab1cf-5506-4f3d-bdbf-fd3008afd6f6]
+[2026-11-14T06:11:07.240222400Z] [W] gc failed: GetFileAttributesEx <HOME>\AppData\Roaming\Docker\buildstore\content\blobs: The system cannot find the path specified.

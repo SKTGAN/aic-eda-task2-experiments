@@ -1,0 +1,313 @@
+{
+ "experiment_block": {
+  "experiment": {
+   "id": "X1",
+   "kind": "edit",
+   "parent": "R3",
+   "component": "decoder",
+   "question": "Can a decoder change of R3 raise bp_fe-ng45 without losing bp-ng45, ariane133-ng45?",
+   "hypotheses": [
+    "a decoder change of R3 can raise bp_fe-ng45, whose mean is -9.33 against the start",
+    "the bp_fe-ng45 deficit comes from R3's loss, which this edit keeps"
+   ],
+   "falsifier": "bp_fe-ng45 does not improve on most seeds against R3, or a protected design (bp-ng45 2.00, ariane133-ng45 21.00) falls more than its tolerance below R3"
+  },
+  "contract": {
+   "anchor": "R3",
+   "anchor_candidate": "bd829199bc51a4e13005b84d9699f7851a81defca1674d458f910deae617800a",
+   "component": "decoder",
+   "kind": "edit",
+   "target": {
+    "case": "bp_fe-ng45",
+    "seeds": [
+     "1001",
+     "1002",
+     "1003"
+    ],
+    "rule": "mean paired score delta over the case > 0 and most of its seeds improve"
+   },
+   "protect": [
+    {
+     "case": "bp-ng45",
+     "tolerance": 2.0,
+     "cell_tolerance": 1.032,
+     "strength": "supported",
+     "evidence": "R3-S",
+     "rule": "mean paired score delta over the case >= -tolerance"
+    },
+    {
+     "case": "ariane133-ng45",
+     "tolerance": 21.002,
+     "cell_tolerance": 36.376,
+     "strength": "mixed_reference",
+     "evidence": "R3-S",
+     "rule": "mean paired score delta over the case >= -tolerance"
+    }
+   ],
+   "fragile": [],
+   "tolerances": {
+    "bp_fe-ng45": {
+     "cell": 7.456,
+     "case_mean": 4.305,
+     "pairs": 8,
+     "source": "calibrated"
+    },
+    "bp-ng45": {
+     "cell": 1.032,
+     "case_mean": 2.0,
+     "pairs": 9,
+     "source": "calibrated"
+    },
+    "ariane133-ng45": {
+     "cell": 36.376,
+     "case_mean": 21.002,
+     "pairs": 7,
+     "source": "calibrated"
+    }
+   }
+  },
+  "anchor_review": {
+   "anchor": "R3",
+   "official_delta": 10.6111,
+   "reading": "one_cell",
+   "weak": {
+    "case": "bp_fe-ng45",
+    "mean_delta": -9.3303,
+    "anchor_case_mean": 44.5881,
+    "seeds": [
+     "1001",
+     "1002",
+     "1003"
+    ],
+    "cells": [
+     {
+      "seed": "1001",
+      "delta": -33.0099,
+      "evidence": "published_reference"
+     },
+     {
+      "seed": "1002",
+      "delta": 7.4564,
+      "evidence": "measured"
+     },
+     {
+      "seed": "1003",
+      "delta": -2.4375,
+      "evidence": "within_sensitivity"
+     }
+    ]
+   },
+   "protected": [
+    {
+     "case": "bp-ng45",
+     "mean_delta": 2.8412,
+     "tolerance": 2.0,
+     "cell_tolerance": 1.032,
+     "seeds": [
+      "1001",
+      "1003"
+     ],
+     "strength": "supported",
+     "evidence": "R3-S"
+    },
+    {
+     "case": "ariane133-ng45",
+     "mean_delta": 38.3226,
+     "tolerance": 21.002,
+     "cell_tolerance": 36.376,
+     "seeds": [
+      "1002",
+      "1003"
+     ],
+     "strength": "mixed_reference",
+     "evidence": "R3-S"
+    }
+   ],
+   "fragile": [],
+   "rows": [
+    {
+     "cell": "bp_fe-ng45/1001",
+     "anchor": 22.9925,
+     "start": 56.0024,
+     "start_measured_on": "published",
+     "delta": -33.0099,
+     "wns_delta_ns": -0.351761,
+     "tns_delta_ns": -207.673,
+     "labels_vs_start": "local",
+     "evidence": "published_reference"
+    },
+    {
+     "cell": "bp_fe-ng45/1002",
+     "anchor": 57.3857,
+     "start": 49.9293,
+     "start_measured_on": "this_host",
+     "delta": 7.4564,
+     "wns_delta_ns": 0.104141,
+     "tns_delta_ns": 33.8043,
+     "labels_vs_start": "local",
+     "evidence": "measured"
+    },
+    {
+     "cell": "bp_fe-ng45/1003",
+     "anchor": 53.386,
+     "start": 55.8235,
+     "start_measured_on": "this_host",
+     "delta": -2.4375,
+     "wns_delta_ns": 0.001511,
+     "tns_delta_ns": -29.9269,
+     "labels_vs_start": "local",
+     "evidence": "within_sensitivity"
+    },
+    {
+     "cell": "bp-ng45/1001",
+     "anchor": -13.0537,
+     "start": -20.5458,
+     "start_measured_on": "this_host",
+     "delta": 7.4921,
+     "wns_delta_ns": 0.038773,
+     "tns_delta_ns": 807.211,
+     "labels_vs_start": "local",
+     "evidence": "measured"
+    },
+    {
+     "cell": "bp-ng45/1002",
+     "anchor": -24.4909,
+     "start": -24.4909,
+     "start_measured_on": "this_host",
+     "delta": 0.0,
+     "wns_delta_ns": 0.0,
+     "tns_delta_ns": 0.0,
+     "labels_vs_start": "identical",
+     "evidence": "inert"
+    },
+    {
+     "cell": "bp-ng45/1003",
+     "anchor": -2.52623,
+     "start": -3.55783,
+     "start_measured_on": "this_host",
+     "delta": 1.0316,
+     "wns_delta_ns": -0.002863,
+     "tns_delta_ns": 115.327,
+     "labels_vs_start": "local",
+     "evidence": "within_sensitivity"
+    },
+    {
+     "cell": "ariane133-ng45/1001",
+     "anchor": 49.4345,
+     "start": 50.7377,
+     "start_measured_on": "published",
+     "delta": -1.3032,
+     "wns_delta_ns": 0.030413,
+     "tns_delta_ns": -5.7899,
+     "labels_vs_start": "local",
+     "evidence": "published_reference"
+    },
+    {
+     "cell": "ariane133-ng45/1002",
+     "anchor": 40.495,
+     "start": -1.50776,
+     "start_measured_on": "published",
+     "delta": 42.0028,
+     "wns_delta_ns": 0.134743,
+     "tns_delta_ns": 51.1293,
+     "labels_vs_start": "local",
+     "evidence": "published_reference"
+    },
+    {
+     "cell": "ariane133-ng45/1003",
+     "anchor": 54.7818,
+     "start": -19.4864,
+     "start_measured_on": "this_host",
+     "delta": 74.2682,
+     "wns_delta_ns": 0.032321,
+     "tns_delta_ns": 115.428,
+     "labels_vs_start": "local",
+     "evidence": "measured"
+    }
+   ]
+  },
+  "comparisons": [
+   {
+    "evidence": "R3-R2",
+    "varies": "loss",
+    "official_delta": 12.3745,
+    "reading": "credited",
+    "case_mean_deltas": {
+     "bp_fe-ng45": 2.7102,
+     "bp-ng45": -0.3225,
+     "ariane133-ng45": 34.7358
+    }
+   }
+  ],
+  "lessons": [
+   {
+    "evidence": "R3-S",
+    "finding": "paired_reading",
+    "reading": "one_cell",
+    "official_delta": 10.6111,
+    "edit": {
+     "loss": "structural",
+     "decoder": "unchanged"
+    }
+   }
+  ]
+ },
+ "characters_by_field_recorded_vs_assembled": {
+  "decision": [
+   1594,
+   1482
+  ],
+  "evaluations_remaining": [
+   1,
+   1
+  ],
+  "experiment": [
+   0,
+   4700
+  ],
+  "incumbent_feedback": [
+   4,
+   4
+  ],
+  "last_trial": [
+   18462,
+   6803
+  ],
+  "parent_feedback": [
+   1323,
+   25
+  ],
+  "parent_id": [
+   66,
+   66
+  ],
+  "parent_program": [
+   2080,
+   2080
+  ],
+  "previous_generation_issue": [
+   4,
+   4
+  ],
+  "prior_trials": [
+   2926,
+   804
+  ],
+  "related_experiment": [
+   1654,
+   1600
+  ],
+  "search_intent": [
+   8,
+   8
+  ],
+  "training_cells": [
+   363,
+   363
+  ]
+ },
+ "total_characters": [
+  28734,
+  18205
+ ]
+}
